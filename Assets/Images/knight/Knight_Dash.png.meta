@@ -1,13 +1,31 @@
 fileFormatVersion: 2
-guid: b99642078c85aa24d91ce5ca4ff60aad
+guid: ca0cc38c9ca84184a936ead597366ef9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3334738622998220081
-    second: Sign_0
+      213: 2966947217657754492
+    second: Knight_Dash_0
   - first:
-      213: 262019434342110170
-    second: Sign_1
+      213: -2955887178722607386
+    second: Knight_Dash_1
+  - first:
+      213: 4265501357959514269
+    second: Knight_Dash_2
+  - first:
+      213: -1131195965591086133
+    second: Knight_Dash_3
+  - first:
+      213: 5878567882008504383
+    second: Knight_Dash_4
+  - first:
+      213: 8887474544056586483
+    second: Knight_Dash_5
+  - first:
+      213: 1648796501953584229
+    second: Knight_Dash_6
+  - first:
+      213: -7373373806800693788
+    second: Knight_Dash_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -87,7 +105,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Standalone
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,20 +131,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -151,49 +156,150 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sign_0
+      name: Knight_Dash_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 11
-        height: 15
+        x: 418
+        y: 10
+        width: 188
+        height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 13d85920c1f574e20800000000000000
-      internalID: 3334738622998220081
+      spriteID: c73f2df56c6bc2920800000000000000
+      internalID: 2966947217657754492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sign_1
+      name: Knight_Dash_2
       rect:
         serializedVersion: 2
-        x: 4
-        y: 0
-        width: 94
-        height: 250
+        x: 17
+        y: 10
+        width: 192
+        height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ad3d53c8941e2a300800000000000000
-      internalID: 262019434342110170
+      spriteID: d988f1ea2ea123b30800000000000000
+      internalID: 4265501357959514269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Dash_3
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 7
+        width: 192
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcb969b334f2d40f0800000000000000
+      internalID: -1131195965591086133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Dash_4
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 11
+        width: 174
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f38232bb75ed49150800000000000000
+      internalID: 5878567882008504383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Dash_5
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 9
+        width: 168
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f0d1dc8207a65b70800000000000000
+      internalID: 8887474544056586483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Dash_7
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 9
+        width: 189
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e59979a6938ca990800000000000000
+      internalID: -7373373806800693788
       vertices: []
       indices: 
       edges: []
@@ -202,7 +308,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: bc914c7c24b3dae4ab9022067a2dc366
     internalID: 0
     vertices: []
     indices: 
@@ -212,8 +318,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sign_0: 3334738622998220081
-      Sign_1: 262019434342110170
+      Knight_Dash_0: 2966947217657754492
+      Knight_Dash_2: 4265501357959514269
+      Knight_Dash_3: -1131195965591086133
+      Knight_Dash_4: 5878567882008504383
+      Knight_Dash_5: 8887474544056586483
+      Knight_Dash_7: -7373373806800693788
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
