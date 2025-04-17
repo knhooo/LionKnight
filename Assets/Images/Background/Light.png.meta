@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 02f1c210d26505f43b04fbcc18b4ff33
+guid: 2b2c2e7f676155345b5566156ee521ac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7648567100691678876
-    second: Town_BG_0003_03b_0
+      213: 9212275650587600386
+    second: Light_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Town_BG_0003_03b_0
+      name: Light_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 113
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 469788aeeb4dad590800000000000000
-      internalID: -7648567100691678876
+      spriteID: 206214e35e398df70800000000000000
+      internalID: 9212275650587600386
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Town_BG_0003_03b_0: -7648567100691678876
+      Light_0: 9212275650587600386
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

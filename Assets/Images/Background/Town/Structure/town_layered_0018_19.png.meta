@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 02f1c210d26505f43b04fbcc18b4ff33
+guid: 05254bca82456e14f94b213b9dcea71d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7648567100691678876
-    second: Town_BG_0003_03b_0
+      213: 473088238912731363
+    second: town_layered_0018_19_0
+  - first:
+      213: -322593543629275588
+    second: town_layered_0018_19_1
+  - first:
+      213: -621310667281057155
+    second: town_layered_0018_19_2
+  - first:
+      213: 4777900105532791611
+    second: town_layered_0018_19_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Town_BG_0003_03b_0
+      name: town_layered_0018_19_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 128
-        height: 113
+        y: 86
+        width: 62
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +150,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 469788aeeb4dad590800000000000000
-      internalID: -7648567100691678876
+      spriteID: 3e8fecb2f3fb09600800000000000000
+      internalID: 473088238912731363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: town_layered_0018_19_1
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 159
+        width: 10
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3e742991eae58bf0800000000000000
+      internalID: -322593543629275588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: town_layered_0018_19_2
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 187
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7a3d8d6d39a067f0800000000000000
+      internalID: -621310667281057155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: town_layered_0018_19_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 206
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3b5592e4d28e4240800000000000000
+      internalID: 4777900105532791611
       vertices: []
       indices: 
       edges: []
@@ -151,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +235,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Town_BG_0003_03b_0: -7648567100691678876
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

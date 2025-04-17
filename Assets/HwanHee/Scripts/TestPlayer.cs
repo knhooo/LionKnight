@@ -7,6 +7,9 @@ public class TestPlayer : MonoBehaviour
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
-        transform.Translate(Vector3.right * horizontal * moveSpeed * Time.deltaTime);
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        Vector3 direction = new Vector3(horizontal, vertical, 0f).normalized;
+        transform.Translate(direction * moveSpeed * Time.deltaTime);
     }
 }

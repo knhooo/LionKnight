@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 02f1c210d26505f43b04fbcc18b4ff33
+guid: a9e6ba69ff01b9344acb21f51f239886
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7648567100691678876
-    second: Town_BG_0003_03b_0
+      213: -1268478488351637240
+    second: town_layered_0022_152_0
+  - first:
+      213: 1430378344540924939
+    second: town_layered_0022_152_1
+  - first:
+      213: -3430508016061592347
+    second: town_layered_0022_152_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Town_BG_0003_03b_0
+      name: town_layered_0022_152_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 128
-        height: 113
+        y: 11
+        width: 234
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +147,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 469788aeeb4dad590800000000000000
-      internalID: -7648567100691678876
+      spriteID: 80183981985756ee0800000000000000
+      internalID: -1268478488351637240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: town_layered_0022_152_1
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 0
+        width: 114
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0ce5c0a689b9d310800000000000000
+      internalID: 1430378344540924939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: town_layered_0022_152_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 180
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ecc48f82236460d0800000000000000
+      internalID: -3430508016061592347
       vertices: []
       indices: 
       edges: []
@@ -151,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +210,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Town_BG_0003_03b_0: -7648567100691678876
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
