@@ -1,10 +1,34 @@
 fileFormatVersion: 2
-guid: 72e4b5279a17b2346bdd0b65fc219247
+guid: f643a62749e20aa48bad3d147495f5d7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2101002872899360127
-    second: town_step_01_0
+      213: -384433932689703345
+    second: knight_Attack2_0
+  - first:
+      213: 7362460021343104522
+    second: knight_Attack2_1
+  - first:
+      213: 4634640331307337447
+    second: knight_Attack2_2
+  - first:
+      213: -5428893547967015240
+    second: knight_Attack2_3
+  - first:
+      213: 5781898715535422318
+    second: knight_Attack2_4
+  - first:
+      213: -3141551697030416190
+    second: knight_Attack2_5
+  - first:
+      213: -8385225392766535583
+    second: knight_Attack2_6
+  - first:
+      213: 1634391466033519847
+    second: knight_Attack2_7
+  - first:
+      213: 8941923054355722790
+    second: knight_Attack2_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,7 +108,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Standalone
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,20 +134,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -148,27 +159,128 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: town_step_01_0
+      name: knight_Attack2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 149
-        height: 54
+        x: 36
+        y: 11
+        width: 71
+        height: 129
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 18a22c8c40db7d2e0800000000000000
-      internalID: -2101002872899360127
+      spriteID: f4e7c6200673aaaf0800000000000000
+      internalID: -384433932689703345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight_Attack2_1
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 10
+        width: 123
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0eab25a166bc2660800000000000000
+      internalID: 7362460021343104522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight_Attack2_2
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 12
+        width: 69
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e6c54173dc815040800000000000000
+      internalID: 4634640331307337447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight_Attack2_3
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 11
+        width: 70
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b61406e412b8a4b0800000000000000
+      internalID: -5428893547967015240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight_Attack2_5
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 11
+        width: 71
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c8f9fe4067f664d0800000000000000
+      internalID: -3141551697030416190
       vertices: []
       indices: 
       edges: []
@@ -177,7 +289,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: cbbfff7507ae5d34daeb33082c856c1d
     internalID: 0
     vertices: []
     indices: 
@@ -187,7 +299,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      town_step_01_0: -2101002872899360127
+      knight_Attack2_0: -384433932689703345
+      knight_Attack2_1: 7362460021343104522
+      knight_Attack2_2: 4634640331307337447
+      knight_Attack2_3: -5428893547967015240
+      knight_Attack2_5: -3141551697030416190
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
