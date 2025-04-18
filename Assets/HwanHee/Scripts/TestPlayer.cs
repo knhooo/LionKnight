@@ -12,4 +12,8 @@ public class TestPlayer : MonoBehaviour
         Vector3 direction = new Vector3(horizontal, vertical, 0f).normalized;
         transform.Translate(direction * moveSpeed * Time.deltaTime);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Ãæµ¹");
+    }
 }
