@@ -1,19 +1,64 @@
 fileFormatVersion: 2
-guid: f52c721b0abd3be45a4aec532b37b579
+guid: a05f160075608e742a04e9d720ff5876
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8061507502916220495
-    second: town_well_front_0
+      213: -7727719141727375423
+    second: Knight_Die_0
   - first:
-      213: -6041830584239867252
-    second: town_well_front_1
+      213: -547421543679656321
+    second: Knight_Die_1
   - first:
-      213: -4738787442994380491
-    second: town_well_front_2
+      213: -5658758373356057697
+    second: Knight_Die_2
   - first:
-      213: -6606868036632807366
-    second: town_well_front_3
+      213: -8921775160304034223
+    second: Knight_Die_3
+  - first:
+      213: 329471296667466418
+    second: Knight_Die_4
+  - first:
+      213: -19016180324941517
+    second: Knight_Die_5
+  - first:
+      213: -2915742785361866879
+    second: Knight_Die_6
+  - first:
+      213: 4256735626135497930
+    second: Knight_Die_7
+  - first:
+      213: -5535630746506136987
+    second: Knight_Die_8
+  - first:
+      213: 3598838499072725499
+    second: Knight_Die_9
+  - first:
+      213: 4270208169720412287
+    second: Knight_Die_10
+  - first:
+      213: -2638793923034805588
+    second: Knight_Die_11
+  - first:
+      213: 3661715748997505472
+    second: Knight_Die_12
+  - first:
+      213: 7484413338271136833
+    second: Knight_Die_13
+  - first:
+      213: -8676421553427076587
+    second: Knight_Die_14
+  - first:
+      213: -505372349201687032
+    second: Knight_Die_15
+  - first:
+      213: 8317711289420189081
+    second: Knight_Die_16
+  - first:
+      213: 2542951966484693568
+    second: Knight_Die_17
+  - first:
+      213: -8056300788050529951
+    second: Knight_Die_18
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +91,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -55,7 +100,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -93,7 +138,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Standalone
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -119,20 +164,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -157,93 +189,172 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: town_well_front_0
+      name: Knight_Die_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3
-        width: 372
-        height: 415
+        x: 23
+        y: 149
+        width: 130
+        height: 149
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1b9488643a5cf1090800000000000000
-      internalID: -8061507502916220495
+      spriteID: 6e6ea073ec7a9f348acc0da1c4203209
+      internalID: -1486756124
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_well_front_1
+      name: Knight_Die_1
       rect:
         serializedVersion: 2
-        x: 153
-        y: 418
-        width: 19
-        height: 21
+        x: 169
+        y: 149
+        width: 130
+        height: 149
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c8aba49381b172ca0800000000000000
-      internalID: -6041830584239867252
+      spriteID: f7b58f761c3e83f47870650766348e25
+      internalID: -1271032497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_well_front_2
+      name: Knight_Die_3
       rect:
         serializedVersion: 2
-        x: 166
-        y: 32
-        width: 21
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5310d328de17c3eb0800000000000000
-      internalID: -4738787442994380491
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: town_well_front_3
-      rect:
-        serializedVersion: 2
-        x: 275
+        x: 19
         y: 0
-        width: 11
-        height: 15
+        width: 130
+        height: 149
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a387e9e7680bf44a0800000000000000
-      internalID: -6606868036632807366
+      spriteID: 7f5b665b10c5c774eadb1509f7523702
+      internalID: -2066405565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Die_4
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 0
+        width: 130
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e498cfb0d7c7f84bad720d758c08d9e
+      internalID: -1906463473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Die_5
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 0
+        width: 130
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82acfdab6d6cf364d902bfe31d502919
+      internalID: -1212849074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Die_6
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1
+        width: 130
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c622ed1a691f404890837319d7a6165
+      internalID: -1072671445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Die_7
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 0
+        width: 130
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06cb3ff0223c5814aa7707777168978c
+      internalID: -1236490329
       vertices: []
       indices: 
       edges: []
@@ -252,7 +363,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: fc23c07b6cf5ee544ad0b03f1ddc4a20
     internalID: 0
     vertices: []
     indices: 
@@ -262,10 +373,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      town_well_front_0: -8061507502916220495
-      town_well_front_1: -6041830584239867252
-      town_well_front_2: -4738787442994380491
-      town_well_front_3: -6606868036632807366
+      Knight_Die_0: -1486756124
+      Knight_Die_1: -1271032497
+      Knight_Die_2: -366398339
+      Knight_Die_3: -2066405565
+      Knight_Die_4: -1906463473
+      Knight_Die_5: -1212849074
+      Knight_Die_6: -1072671445
+      Knight_Die_7: -1236490329
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

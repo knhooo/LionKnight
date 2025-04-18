@@ -1,19 +1,43 @@
 fileFormatVersion: 2
-guid: f52c721b0abd3be45a4aec532b37b579
+guid: 66719b79e5adfe145835923c66e38940
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8061507502916220495
-    second: town_well_front_0
+      213: -4475234989360407947
+    second: Knight_Ghost_Awake_0
   - first:
-      213: -6041830584239867252
-    second: town_well_front_1
+      213: 6949278500196367443
+    second: Knight_Ghost_Awake_1
   - first:
-      213: -4738787442994380491
-    second: town_well_front_2
+      213: 6122475154774595053
+    second: Knight_Ghost_Awake_2
   - first:
-      213: -6606868036632807366
-    second: town_well_front_3
+      213: 1578168579595509919
+    second: Knight_Ghost_Awake_3
+  - first:
+      213: 5031711936499160394
+    second: Knight_Ghost_Awake_4
+  - first:
+      213: -8643032128401935002
+    second: Knight_Ghost_Awake_5
+  - first:
+      213: -2794631048360464671
+    second: Knight_Ghost_Awake_6
+  - first:
+      213: 2171391111999777920
+    second: Knight_Ghost_Awake_7
+  - first:
+      213: -5883911662898792684
+    second: Knight_Ghost_Awake_8
+  - first:
+      213: 1212437604267748710
+    second: Knight_Ghost_Awake_9
+  - first:
+      213: 3821301267840698078
+    second: Knight_Ghost_Awake_10
+  - first:
+      213: 8620403136073039590
+    second: Knight_Ghost_Awake_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -55,7 +79,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -93,7 +117,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Standalone
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -119,20 +143,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -157,93 +168,216 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: town_well_front_0
+      name: Knight_Ghost_Awake_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3
-        width: 372
-        height: 415
+        x: 42
+        y: 191
+        width: 72
+        height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1b9488643a5cf1090800000000000000
-      internalID: -8061507502916220495
+      spriteID: 57a16ccec75c4e1c0800000000000000
+      internalID: -4475234989360407947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_well_front_1
+      name: Knight_Ghost_Awake_1
       rect:
         serializedVersion: 2
-        x: 153
-        y: 418
-        width: 19
-        height: 21
+        x: 174
+        y: 191
+        width: 83
+        height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8aba49381b172ca0800000000000000
-      internalID: -6041830584239867252
+      spriteID: 35cb6712afbc07060800000000000000
+      internalID: 6949278500196367443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_well_front_2
+      name: Knight_Ghost_Awake_3
       rect:
         serializedVersion: 2
-        x: 166
-        y: 32
-        width: 21
-        height: 15
+        x: 328
+        y: 193
+        width: 70
+        height: 65
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5310d328de17c3eb0800000000000000
-      internalID: -4738787442994380491
+      spriteID: f90297e26f7c6e510800000000000000
+      internalID: 1578168579595509919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: town_well_front_3
+      name: Knight_Ghost_Awake_4
       rect:
         serializedVersion: 2
-        x: 275
-        y: 0
-        width: 11
-        height: 15
+        x: 454
+        y: 194
+        width: 78
+        height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a387e9e7680bf44a0800000000000000
-      internalID: -6606868036632807366
+      spriteID: a45102bd85b34d540800000000000000
+      internalID: 5031711936499160394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Ghost_Awake_5
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 187
+        width: 73
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 665705c6218cd0880800000000000000
+      internalID: -8643032128401935002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Ghost_Awake_7
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 39
+        width: 102
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08cef2b36b4522e10800000000000000
+      internalID: 2171391111999777920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Ghost_Awake_8
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 27
+        width: 93
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 417b3235485285ea0800000000000000
+      internalID: -5883911662898792684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Ghost_Awake_9
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 26
+        width: 110
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66d64bac39173d010800000000000000
+      internalID: 1212437604267748710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Ghost_Awake_10
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 14
+        width: 167
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed60569c14df70530800000000000000
+      internalID: 3821301267840698078
       vertices: []
       indices: 
       edges: []
@@ -252,7 +386,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: f9beee3050f931246be50b78c689f04b
     internalID: 0
     vertices: []
     indices: 
@@ -262,10 +396,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      town_well_front_0: -8061507502916220495
-      town_well_front_1: -6041830584239867252
-      town_well_front_2: -4738787442994380491
-      town_well_front_3: -6606868036632807366
+      Knight_Ghost_Awake_0: -4475234989360407947
+      Knight_Ghost_Awake_1: 6949278500196367443
+      Knight_Ghost_Awake_10: 3821301267840698078
+      Knight_Ghost_Awake_3: 1578168579595509919
+      Knight_Ghost_Awake_4: 5031711936499160394
+      Knight_Ghost_Awake_5: -8643032128401935002
+      Knight_Ghost_Awake_7: 2171391111999777920
+      Knight_Ghost_Awake_8: -5883911662898792684
+      Knight_Ghost_Awake_9: 1212437604267748710
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
