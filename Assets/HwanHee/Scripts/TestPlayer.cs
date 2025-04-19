@@ -3,15 +3,31 @@ using UnityEngine;
 public class TestPlayer : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
+    [SerializeField] private float jumpForce;
+
+    Rigidbody2D rb;
+    private float moveInput;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        moveInput = Input.GetAxisRaw("Horizontal");
 
-        Vector3 direction = new Vector3(horizontal, vertical, 0f).normalized;
-        transform.Translate(direction * moveSpeed * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
     }
+
+    private void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Ãæµ¹");
