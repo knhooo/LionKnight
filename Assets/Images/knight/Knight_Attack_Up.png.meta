@@ -179,7 +179,7 @@ TextureImporter:
         x: 17
         y: 13
         width: 69
-        height: 133
+        height: 228
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,9 +199,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 125
-        y: 13
+        y: 12
         width: 80
-        height: 133
+        height: 228
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,10 +220,10 @@ TextureImporter:
       name: Knight_Attack_Up_2
       rect:
         serializedVersion: 2
-        x: 231
+        x: 230
         y: 14
-        width: 79
-        height: 127
+        width: 81
+        height: 228
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,10 +242,10 @@ TextureImporter:
       name: Knight_Attack_Up_3
       rect:
         serializedVersion: 2
-        x: 347
-        y: 5
-        width: 117
-        height: 127
+        x: 312
+        y: 15
+        width: 152
+        height: 228
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,10 +264,10 @@ TextureImporter:
       name: Knight_Attack_Up_4
       rect:
         serializedVersion: 2
-        x: 487
-        y: 10
-        width: 90
-        height: 127
+        x: 519
+        y: 12
+        width: 109
+        height: 228
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,35 +283,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_Attack_Up_5
-      rect:
-        serializedVersion: 2
-        x: 598
-        y: 12
-        width: 79
-        height: 127
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 784dfc5d73b4ed350800000000000000
-      internalID: 6043350453160236167
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Knight_Attack_Up_6
       rect:
         serializedVersion: 2
-        x: 695
-        y: 13
-        width: 84
-        height: 133
+        x: 678
+        y: 12
+        width: 105
+        height: 228
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,11 +304,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Knight_Attack_Up_7
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 11
+        width: 84
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f67e3ca379fe00b00800000000000000
+      internalID: 792896967222224751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 44cbc7cc27169424bbbc7bdcb5321c0f
+    spriteID: 274a15621152a334a882b5cc7b0a56d7
     internalID: 0
     vertices: []
     indices: 
@@ -345,8 +345,8 @@ TextureImporter:
       Knight_Attack_Up_2: 4303262655635666521
       Knight_Attack_Up_3: 3297207191277301061
       Knight_Attack_Up_4: 609944746914885840
-      Knight_Attack_Up_5: 6043350453160236167
       Knight_Attack_Up_6: 4869169306493184258
+      Knight_Attack_Up_7: 792896967222224751
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
