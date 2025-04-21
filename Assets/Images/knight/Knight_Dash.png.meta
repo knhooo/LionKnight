@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: -7373373806800693788
     second: Knight_Dash_7
+  - first:
+      213: -1031291049779685909
+    second: Knight_Dash_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -176,20 +179,42 @@ TextureImporter:
       name: Knight_Dash_0
       rect:
         serializedVersion: 2
-        x: 418
-        y: 10
-        width: 188
-        height: 122
+        x: 0
+        y: 198
+        width: 385
+        height: 198
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c73f2df56c6bc2920800000000000000
-      internalID: 2966947217657754492
+      spriteID: bbdfc9d2e96ed3e40963779c96395ce2
+      internalID: -379306192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Dash_1
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 198
+        width: 385
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9505e63a29c39a449ad44cb97f9efcd6
+      internalID: 242070381
       vertices: []
       indices: 
       edges: []
@@ -198,20 +223,20 @@ TextureImporter:
       name: Knight_Dash_2
       rect:
         serializedVersion: 2
-        x: 17
-        y: 10
-        width: 192
-        height: 114
+        x: 770
+        y: 198
+        width: 385
+        height: 198
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d988f1ea2ea123b30800000000000000
-      internalID: 4265501357959514269
+      spriteID: a981bd2fb5ebb5b4d9b42c331fbac838
+      internalID: 673884473
       vertices: []
       indices: 
       edges: []
@@ -220,20 +245,20 @@ TextureImporter:
       name: Knight_Dash_3
       rect:
         serializedVersion: 2
-        x: 198
-        y: 7
-        width: 192
-        height: 121
+        x: 0
+        y: 0
+        width: 385
+        height: 198
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bcb969b334f2d40f0800000000000000
-      internalID: -1131195965591086133
+      spriteID: f24a3abc68d40b945854690e12ddf4d0
+      internalID: -276701451
       vertices: []
       indices: 
       edges: []
@@ -242,20 +267,20 @@ TextureImporter:
       name: Knight_Dash_4
       rect:
         serializedVersion: 2
-        x: 621
-        y: 11
-        width: 174
-        height: 118
+        x: 385
+        y: 0
+        width: 385
+        height: 198
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f38232bb75ed49150800000000000000
-      internalID: 5878567882008504383
+      spriteID: d351c8d640156d24fa7981e07793770e
+      internalID: 1409497257
       vertices: []
       indices: 
       edges: []
@@ -264,42 +289,20 @@ TextureImporter:
       name: Knight_Dash_5
       rect:
         serializedVersion: 2
-        x: 790
-        y: 9
-        width: 168
-        height: 117
+        x: 770
+        y: 0
+        width: 385
+        height: 198
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3f0d1dc8207a65b70800000000000000
-      internalID: 8887474544056586483
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knight_Dash_7
-      rect:
-        serializedVersion: 2
-        x: 966
-        y: 9
-        width: 189
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4e59979a6938ca990800000000000000
-      internalID: -7373373806800693788
+      spriteID: bcaf755b1c35df24eba4ab29fc65fc38
+      internalID: 767848615
       vertices: []
       indices: 
       edges: []
@@ -308,7 +311,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: bc914c7c24b3dae4ab9022067a2dc366
+    spriteID: 45ed2a214d7b9e045a4b463d753c57b8
     internalID: 0
     vertices: []
     indices: 
@@ -318,12 +321,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Knight_Dash_0: 2966947217657754492
-      Knight_Dash_2: 4265501357959514269
-      Knight_Dash_3: -1131195965591086133
-      Knight_Dash_4: 5878567882008504383
-      Knight_Dash_5: 8887474544056586483
-      Knight_Dash_7: -7373373806800693788
+      Knight_Dash_0: -379306192
+      Knight_Dash_1: 242070381
+      Knight_Dash_2: 673884473
+      Knight_Dash_3: -276701451
+      Knight_Dash_4: 1409497257
+      Knight_Dash_5: 767848615
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
