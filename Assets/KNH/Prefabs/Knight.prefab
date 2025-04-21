@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1733666300062746474}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1658797656900072200}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttackCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4459084927540969436}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,9 +105,9 @@ GameObject:
   - component: {fileID: 6000853134006182788}
   - component: {fileID: 3578863524682833997}
   - component: {fileID: 7637328979420108486}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Knight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 5
   variableJumpTime: 0.5
-  variableJumpMultiplier: 1.2
+  variableJumpMultiplier: 2
   isJumping: 0
   jumpTimer: 0
   dashSpeed: 15
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 7083494780227276177}
   - component: {fileID: 3410024384315297608}
   - component: {fileID: 5282068157918829308}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
