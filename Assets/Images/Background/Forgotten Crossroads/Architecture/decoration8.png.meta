@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 37571062075cd314f8b0ae8af2aa5b57
+guid: eb34156cfbb9ac14cace0571f5057893
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -633482637775292324
-    second: KakaoTalk_20250416_173217319_17_0
-  - first:
-      213: 1626375211543729206
-    second: KakaoTalk_20250416_173217319_17_1
+      213: 9092569682072502097
+    second: decoration8_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,33 +110,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -155,35 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: KakaoTalk_20250416_173217319_17_0
+      name: decoration8_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 63
-        width: 8
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c58b604b5ea6537f0800000000000000
-      internalID: -633482637775292324
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: KakaoTalk_20250416_173217319_17_1
-      rect:
-        serializedVersion: 2
-        x: 13
         y: 0
-        width: 143
-        height: 107
+        width: 78
+        height: 452
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 634909353ab029610800000000000000
-      internalID: 1626375211543729206
+      spriteID: 15ffa6b83fb4f2e70800000000000000
+      internalID: 9092569682072502097
       vertices: []
       indices: 
       edges: []
@@ -211,9 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      KakaoTalk_20250416_173217319_17_0: -633482637775292324
-      KakaoTalk_20250416_173217319_17_1: 1626375211543729206
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
