@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: ce1d4eedd99bb28469dafa43b2a2991f
+guid: 5cbfd0dd2f3e32344bef637df2decb75
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8281402132865585934
-    second: knight_Attack1_0
+      213: 1491799790243075375
+    second: Ghost_IDle_0
   - first:
-      213: -905398318956593727
-    second: knight_Attack1_1
+      213: 4227282002522055770
+    second: Ghost_IDle_1
   - first:
-      213: 3962429215960144459
-    second: knight_Attack1_2
+      213: -8741820233257161323
+    second: Ghost_IDle_2
   - first:
-      213: -6298018668950153313
-    second: knight_Attack1_3
+      213: -309741706883901780
+    second: Ghost_IDle_3
   - first:
-      213: -8502696221648846727
-    second: knight_Attack1_4
+      213: -3578392994036239903
+    second: Ghost_IDle_4
   - first:
-      213: 437924113796044676
-    second: knight_Attack1_5
+      213: -4283028549793876353
+    second: Ghost_IDle_5
   - first:
-      213: -7930688181133232914
-    second: knight_Attack1_6
+      213: -6988382661201356844
+    second: Ghost_IDle_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -69,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 60
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -170,111 +170,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: knight_Attack1_0
+      name: Ghost_IDle_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 35
-        width: 234
-        height: 169
+        x: 35
+        y: 25
+        width: 44
+        height: 101
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2fc626c03ac821d80800000000000000
-      internalID: -8281402132865585934
+      spriteID: f25d07d5100f3b410800000000000000
+      internalID: 1491799790243075375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight_Attack1_2
+      name: Ghost_IDle_1
       rect:
         serializedVersion: 2
-        x: 370
-        y: 30
-        width: 234
-        height: 173
+        x: 108
+        y: 23
+        width: 50
+        height: 99
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b4a1fe8c0606df630800000000000000
-      internalID: 3962429215960144459
+      spriteID: a54aabd85925aaa30800000000000000
+      internalID: 4227282002522055770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight_Attack1_3
+      name: Ghost_IDle_2
       rect:
         serializedVersion: 2
-        x: 655
-        y: 36
-        width: 234
-        height: 163
+        x: 194
+        y: 23
+        width: 43
+        height: 94
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9792709361f898a0800000000000000
-      internalID: -6298018668950153313
+      spriteID: 59d626260d0dea680800000000000000
+      internalID: -8741820233257161323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight_Attack1_4
+      name: Ghost_IDle_3
       rect:
         serializedVersion: 2
-        x: 911
-        y: 38
-        width: 234
-        height: 156
+        x: 267
+        y: 20
+        width: 50
+        height: 98
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 970809be5da500a80800000000000000
-      internalID: -8502696221648846727
+      spriteID: ca6df050f8393bbf0800000000000000
+      internalID: -309741706883901780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight_Attack1_5
+      name: Ghost_IDle_4
       rect:
         serializedVersion: 2
-        x: 1154
-        y: 37
-        width: 234
-        height: 157
+        x: 354
+        y: 20
+        width: 43
+        height: 95
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 487146949a1d31600800000000000000
-      internalID: 437924113796044676
+      spriteID: 1e139b3f78ef65ec0800000000000000
+      internalID: -3578392994036239903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_IDle_5
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 18
+        width: 50
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f76fda6f930af84c0800000000000000
+      internalID: -4283028549793876353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_IDle_6
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 11
+        width: 43
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d71894eef6440f90800000000000000
+      internalID: -6988382661201356844
       vertices: []
       indices: 
       edges: []
@@ -283,7 +327,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 23d99d747006cb94fb26db5c17c3f7c4
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -293,11 +337,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      knight_Attack1_0: -8281402132865585934
-      knight_Attack1_2: 3962429215960144459
-      knight_Attack1_3: -6298018668950153313
-      knight_Attack1_4: -8502696221648846727
-      knight_Attack1_5: 437924113796044676
+      Ghost_IDle_0: 1491799790243075375
+      Ghost_IDle_1: 4227282002522055770
+      Ghost_IDle_2: -8741820233257161323
+      Ghost_IDle_3: -309741706883901780
+      Ghost_IDle_4: -3578392994036239903
+      Ghost_IDle_5: -4283028549793876353
+      Ghost_IDle_6: -6988382661201356844
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -179,9 +179,9 @@ TextureImporter:
       name: knight_Attack2_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 11
-        width: 71
+        x: 0
+        y: 13
+        width: 119
         height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -201,9 +201,9 @@ TextureImporter:
       name: knight_Attack2_1
       rect:
         serializedVersion: 2
-        x: 155
-        y: 10
-        width: 123
+        x: 143
+        y: 12
+        width: 239
         height: 134
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -223,9 +223,9 @@ TextureImporter:
       name: knight_Attack2_2
       rect:
         serializedVersion: 2
-        x: 298
-        y: 12
-        width: 69
+        x: 390
+        y: 11
+        width: 187
         height: 133
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -245,10 +245,10 @@ TextureImporter:
       name: knight_Attack2_3
       rect:
         serializedVersion: 2
-        x: 401
-        y: 11
-        width: 70
-        height: 132
+        x: 582
+        y: 9
+        width: 188
+        height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,10 +267,10 @@ TextureImporter:
       name: knight_Attack2_5
       rect:
         serializedVersion: 2
-        x: 499
-        y: 11
-        width: 71
-        height: 150
+        x: 773
+        y: 10
+        width: 139
+        height: 132
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,7 +289,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cbbfff7507ae5d34daeb33082c856c1d
+    spriteID: 787104888f12d7c4aaba75cf68980a83
     internalID: 0
     vertices: []
     indices: 
