@@ -1,14 +1,29 @@
 using UnityEngine;
 
-public class PlayerGroundState : MonoBehaviour
+public class PlayerGroundState : PlayerState
 {
-    void Start()
+    public PlayerGroundState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
-        
     }
 
-    void Update()
+    public override void Enter()
     {
-        
+        base.Enter();
     }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+    public override void Update()
+    {
+        base.Update();
+
+        if (!player.IsGroundDetected())
+            stateMachine.ChangeState(player.airState);
+
+        if (Input.GetKeyDown(KeyCode.Z) && player.IsGroundDetected())
+            stateMachine.ChangeState(player.jumpState);
+    }
+
 }

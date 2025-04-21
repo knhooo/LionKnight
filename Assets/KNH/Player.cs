@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public SpriteRenderer sr { get; private set; }
     #endregion
 
+    #region Info
     [Header("공격 디테일")]
     public Vector2[] attackMovement;
     public float counterAttackDuration = 0.2f;
@@ -19,7 +20,13 @@ public class Player : MonoBehaviour
     public bool isBusy { get; private set; }
     [Header("이동 정보")]
     public float moveSpeed = 12f;
-    public float jumpForce;
+    public float jumpForce = 12f;
+    public float variableJumpTime = 0.3f; // 최대 점프 유지 시간
+    public float variableJumpMultiplier = 1f;
+    [HideInInspector]
+    public bool isJumping = false;
+    [HideInInspector]
+    public float jumpTimer = 0f;
 
     [Header("대시 정보")]
     public float dashSpeed;
@@ -31,8 +38,6 @@ public class Player : MonoBehaviour
     [SerializeField] protected float knockbackDuration;
     protected bool isKnocked;
 
-
-
     [Header("충돌 정보")]
     public Transform attackCheck;
     public float attackCheckRadius;
@@ -43,9 +48,9 @@ public class Player : MonoBehaviour
     [SerializeField] protected float wallCheckDistance;
     [SerializeField] protected LayerMask whatIsGround;
 
-
     public int facingDir { get; private set; } = -1;
     protected bool facingRight = true;
+# endregion
 
     #region States
     // 플레이어의 상태를 관리하는 상태 머신
@@ -54,6 +59,8 @@ public class Player : MonoBehaviour
     // 플레이어의 상태 (대기 상태, 이동 상태)
     public PlayerIdleState idleState { get; private set; }
     public PlayerMoveState moveState { get; private set; }
+    public PlayerJumpState jumpState { get; private set; }
+    public PlayerAirState airState { get; private set; }
     #endregion
 
 
@@ -65,6 +72,8 @@ public class Player : MonoBehaviour
         // 각 상태 인스턴스 생성 (this: 플레이어 객체, stateMachine: 상태 머신, "Idle"/"Move": 상태 이름)
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         moveState = new PlayerMoveState(this, stateMachine, "Move");
+        jumpState = new PlayerJumpState(this, stateMachine, "Jump");
+        airState = new PlayerAirState(this, stateMachine, "Jump");
 
 
     }
@@ -86,6 +95,10 @@ public class Player : MonoBehaviour
         stateMachine.currentState.Update();
     }
 
+    public void SetVelocityY(float y)
+    {
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, y);
+    }
 
     public virtual void Damage()
     {
