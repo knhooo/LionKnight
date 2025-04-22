@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        instance = this;
+        else
+            instance = this;
         DontDestroyOnLoad(this);
 
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
