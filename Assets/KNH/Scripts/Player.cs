@@ -65,6 +65,7 @@ public class Player : MonoBehaviour
     public PlayerWallSlideState wallSlide { get; private set; }
     public PlayerWallJumpState wallJump { get; private set; }
     public PlayerPrimaryAttackState primaryAttack { get; private set; }
+    public PlayerUpAttackState upAttack { get; private set; }
     #endregion
 
 
@@ -82,6 +83,7 @@ public class Player : MonoBehaviour
         wallSlide = new PlayerWallSlideState(this, stateMachine, "WallSlide");
         wallJump = new PlayerWallJumpState(this, stateMachine, "Jump");
         primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
+        upAttack = new PlayerUpAttackState(this, stateMachine, "UpAttack");
     }
 
     protected virtual void Start()
@@ -100,6 +102,12 @@ public class Player : MonoBehaviour
     {
         stateMachine.currentState.Update();
         CheckForDashInput();
+
+        if (Input.GetKeyDown(KeyCode.X))
+            stateMachine.ChangeState(primaryAttack);
+
+        if (Input.GetKey(KeyCode.X) && Input.GetKey(KeyCode.UpArrow))
+            stateMachine.ChangeState(upAttack);
     }
 
     public void SetVelocityY(float y)

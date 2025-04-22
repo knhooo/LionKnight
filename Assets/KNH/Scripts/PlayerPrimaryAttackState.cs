@@ -43,8 +43,6 @@ public class PlayerPrimaryAttackState : PlayerState
 
         comboCounter++;
         lastTimeAttacked = Time.time;
-
-
     }
 
     public override void Update()
