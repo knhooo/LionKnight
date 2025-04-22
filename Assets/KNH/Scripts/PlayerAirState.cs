@@ -19,6 +19,9 @@ public class PlayerAirState : PlayerState
     {
         base.Update();
 
+        if (Input.GetKeyDown(KeyCode.X))
+            stateMachine.ChangeState(player.primaryAttack);
+
         if (player.IsWallDetected())
         {
             stateMachine.ChangeState(player.wallSlide);
