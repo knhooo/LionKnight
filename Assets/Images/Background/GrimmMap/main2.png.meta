@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 0eb3c295e6b14a347883d240516f242a
+guid: dc93fa34a1435ef42bad8a634e8e5451
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -682030262093662342
-    second: Grimm_nightmare__0021_5_0
+      213: -7475997616745108132
+    second: main2_0
+  - first:
+      213: -1981418406928151156
+    second: main2_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grimm_nightmare__0021_5_0
+      name: main2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 706
-        height: 248
+        width: 500
+        height: 1202
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7737d51711f886f0800000000000000
-      internalID: -682030262093662342
+      spriteID: c5dad30f6cbef3890800000000000000
+      internalID: -7475997616745108132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main2_1
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 286
+        width: 7
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8d80a7f4769084e0800000000000000
+      internalID: -1981418406928151156
       vertices: []
       indices: 
       edges: []
@@ -161,7 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Grimm_nightmare__0021_5_0: -682030262093662342
+      main2_0: -7475997616745108132
+      main2_1: -1981418406928151156
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
