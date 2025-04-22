@@ -30,6 +30,7 @@ public class Grass : MonoBehaviour
     void CutGraas()
     {
         sp.sprite = cutImg;
+        canBeCut = false;
         for (int i = 0; i < 25; i++)
         {
             int num = Random.Range(0, 3);

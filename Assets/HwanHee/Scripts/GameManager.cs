@@ -1,16 +1,20 @@
-using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public PoolManager poolManager;
+    public Player player;
 
     private void Awake()
     {
-        if (instance != null)
-            Destroy(instance.gameObject);
-        else
-            instance = this;
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        instance = this;
+        DontDestroyOnLoad(this);
+
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
 }
