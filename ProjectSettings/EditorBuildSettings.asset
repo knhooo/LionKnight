@@ -8,6 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Dirtmouth.unity
+    guid: 46af2a891db85ac4880373cd78821ca3
+  - enabled: 1
+    path: Assets/Scenes/ForgottenCrossroads.unity
+    guid: fbfa8280a221f704aafd676a6f54168f
+  - enabled: 1
+    path: Assets/Scenes/StagStation.unity
+    guid: f8a47c5d5ef2d874385c615777bcaadc
+  - enabled: 1
+    path: Assets/Scenes/Grimm.unity
+    guid: 7d8fd3544f6fd524893cc76eccb6bda4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
