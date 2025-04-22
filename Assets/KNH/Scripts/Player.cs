@@ -27,6 +27,9 @@ public class Player : MonoBehaviour
     public bool isJumping = false;
     [HideInInspector]
     public float jumpTimer = 0f;
+    public bool canDoubleJump = true;
+    [HideInInspector]
+    public bool hasDoubleJumped = false;
 
     [Header("대시 정보")]
     public float dashSpeed;
