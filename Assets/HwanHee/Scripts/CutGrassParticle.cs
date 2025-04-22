@@ -8,7 +8,7 @@ public class CutGrassParticle : MonoBehaviour
 
     float lifeTime;
     float lifeTimer;
-    float disappearDuration = 0.3f;
+    float disappearDuration = 0.2f;
     Color originColor;
     Vector3 originScale;
 

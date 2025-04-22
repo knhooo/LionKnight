@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eb34156cfbb9ac14cace0571f5057893
+guid: 43aa1f833db68474a9b176c5897aa589
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9092569682072502097
-    second: decoration8_0
+      213: 3083575834553819601
+    second: broken1_Bottom_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -122,53 +122,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: decoration8_0
+      name: broken1_Bottom_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 78
-        height: 452
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+        width: 81
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15ffa6b83fb4f2e70800000000000000
-      internalID: 9092569682072502097
+      spriteID: 1d12f8052ef0bca20800000000000000
+      internalID: 3083575834553819601
       vertices: []
       indices: 
       edges: []
@@ -177,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: bfe7dc45d9a2d154599c4bead9ee1b39
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -187,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      decoration8_0: 9092569682072502097
+      broken1_Bottom_0: 3083575834553819601
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
