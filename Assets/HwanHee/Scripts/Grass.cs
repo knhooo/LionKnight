@@ -17,6 +17,7 @@ public class Grass : MonoBehaviour
         {
             anim.Play(AnimationName, 0, Random.Range(0f, 1f));
             anim.speed = Random.Range(0.8f, 1.3f);
+            Debug.Log("");
         }
     }
 
