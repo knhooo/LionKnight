@@ -27,7 +27,7 @@ public class PlayerJumpState : PlayerState
         {
             if (player.jumpTimer > 0)
             {
-                player.SetVelocityY(player.jumpForce); // °è¼Ó »ó½Â
+                player.SetVelocityY(player.jumpForce); // ê³„ì† ìƒìŠ¹
                 player.jumpTimer -= Time.deltaTime;
             }
             else
@@ -41,7 +41,28 @@ public class PlayerJumpState : PlayerState
             player.isJumping = false;
         }
 
-        if (rb.linearVelocityY < 0)
+
+        if (rb.linearVelocityY < 0 )
             stateMachine.ChangeState(player.airState);
+
+        //ë”ë¸”ì í”„
+        if (!player.IsGroundDetected() && Input.GetKeyDown(KeyCode.Z) && player.canDoubleJump && !player.hasDoubleJumped)
+        {
+            player.anim.SetBool("DoubleJump", true);
+            player.SetVelocityY(player.jumpForce);
+            player.hasDoubleJumped = true;
+            player.isJumping = true;
+            player.jumpTimer = player.variableJumpTime;
+        }
+        else if (player.IsGroundDetected())
+        {
+            player.hasDoubleJumped = false;
+        }
+
+        if (player.IsWallDetected())
+        {
+            player.anim.SetBool("DoubleJump", false);
+            player.stateMachine.ChangeState(player.wallSlide);
+        }
     }
 }

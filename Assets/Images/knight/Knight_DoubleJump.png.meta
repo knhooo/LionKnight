@@ -64,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -182,42 +182,20 @@ TextureImporter:
       name: Knight_DoubleJump_0
       rect:
         serializedVersion: 2
-        x: 43
-        y: 145
-        width: 114
-        height: 148
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 26
+        y: 144
+        width: 73
+        height: 154
+      alignment: 9
+      pivot: {x: 0.5392061, y: 0.05861327}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7a57b75fa70518ee0800000000000000
-      internalID: -1260637931652287065
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knight_DoubleJump_1
-      rect:
-        serializedVersion: 2
-        x: 223
-        y: 150
-        width: 123
-        height: 131
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a8336cbea81a2c840800000000000000
-      internalID: 5242930534245872522
+      spriteID: b56b54b7540d3b143be2d9804b877391
+      internalID: -964960359
       vertices: []
       indices: 
       edges: []
@@ -226,20 +204,42 @@ TextureImporter:
       name: Knight_DoubleJump_2
       rect:
         serializedVersion: 2
-        x: 413
-        y: 155
-        width: 108
-        height: 121
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 189
+        y: 156
+        width: 106
+        height: 119
+      alignment: 9
+      pivot: {x: 0.4662493, y: 0.06708571}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 414e7e1a627743790800000000000000
-      internalID: -7551279667384687596
+      spriteID: b8f4eed92429f19458b9f09d956f06d1
+      internalID: 1877244709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_DoubleJump_3
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 151
+        width: 121
+        height: 129
+      alignment: 9
+      pivot: {x: 0.31668696, y: 0.06736542}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b56974758963bce4a883541bc8e81541
+      internalID: 246939793
       vertices: []
       indices: 
       edges: []
@@ -248,20 +248,20 @@ TextureImporter:
       name: Knight_DoubleJump_4
       rect:
         serializedVersion: 2
-        x: 609
-        y: 143
-        width: 75
-        height: 155
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 553
+        y: 146
+        width: 112
+        height: 146
+      alignment: 9
+      pivot: {x: 0.47444588, y: 0.029526906}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 422be4706851b1a00800000000000000
-      internalID: 728199430142865956
+      spriteID: cf101acb55b7ebc45abc11e4602c3517
+      internalID: -1030519962
       vertices: []
       indices: 
       edges: []
@@ -270,20 +270,20 @@ TextureImporter:
       name: Knight_DoubleJump_8
       rect:
         serializedVersion: 2
-        x: 63
-        y: 8
-        width: 83
-        height: 121
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 395
+        y: 10
+        width: 81
+        height: 131
+      alignment: 9
+      pivot: {x: 0.39399776, y: 0.046660982}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 89247353bbfc80c70800000000000000
-      internalID: 8937621863475397272
+      spriteID: 8f6cf14bd6e743c43a3eebc2bc381942
+      internalID: -777280287
       vertices: []
       indices: 
       edges: []
@@ -292,20 +292,20 @@ TextureImporter:
       name: Knight_DoubleJump_9
       rect:
         serializedVersion: 2
-        x: 232
+        x: 564
         y: 9
-        width: 83
-        height: 133
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 81
+        height: 119
+      alignment: 9
+      pivot: {x: 0.47349945, y: 0.09714938}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 94f2eb2ac513e71d0800000000000000
-      internalID: -3351186798779945143
+      spriteID: b1d894c89572ab548a275ab08c4d1a1e
+      internalID: -1403159322
       vertices: []
       indices: 
       edges: []
@@ -324,7 +324,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Knight_DoubleJump_10: -119285111
+      Knight_DoubleJump_0: -964960359
+      Knight_DoubleJump_1: 1015445363
+      Knight_DoubleJump_2: 1877244709
+      Knight_DoubleJump_3: 246939793
+      Knight_DoubleJump_4: -1030519962
+      Knight_DoubleJump_5: 1741554427
+      Knight_DoubleJump_6: -1987809627
+      Knight_DoubleJump_7: -1737903928
+      Knight_DoubleJump_8: -777280287
+      Knight_DoubleJump_9: -1403159322
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

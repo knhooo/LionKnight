@@ -13,32 +13,35 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Info
-    [Header("°ø°İ µğÅ×ÀÏ")]
+    [Header("ê³µê²© ë””í…Œì¼")]
     public Vector2[] attackMovement;
     public float counterAttackDuration = 0.2f;
 
     public bool isBusy { get; private set; }
-    [Header("ÀÌµ¿ Á¤º¸")]
+    [Header("ì´ë™ ì •ë³´")]
     public float moveSpeed = 12f;
     public float jumpForce = 12f;
-    public float variableJumpTime = 0.3f; // ÃÖ´ë Á¡ÇÁ À¯Áö ½Ã°£
+    public float variableJumpTime = 0.3f; // ìµœëŒ€ ì í”„ ìœ ì§€ ì‹œê°„
     public float variableJumpMultiplier = 1f;
     [HideInInspector]
     public bool isJumping = false;
     [HideInInspector]
     public float jumpTimer = 0f;
+    public bool canDoubleJump = true;
+    [HideInInspector]
+    public bool hasDoubleJumped = false;
 
-    [Header("´ë½Ã Á¤º¸")]
+    [Header("ëŒ€ì‹œ ì •ë³´")]
     public float dashSpeed;
     public float dashDuration;
     public float dashDir { get; private set; }
 
-    [Header("³Ë¹é Á¤º¸")]
+    [Header("ë„‰ë°± ì •ë³´")]
     [SerializeField] protected Vector2 knockbackDirection;
     [SerializeField] protected float knockbackDuration;
     protected bool isKnocked;
 
-    [Header("Ãæµ¹ Á¤º¸")]
+    [Header("ì¶©ëŒ ì •ë³´")]
     public Transform attackCheck;
     public float attackCheckRadius;
 
@@ -48,34 +51,42 @@ public class Player : MonoBehaviour
     [SerializeField] protected float wallCheckDistance;
     [SerializeField] protected LayerMask whatIsGround;
 
-    public int facingDir { get; private set; } = -1;
+    public int facingDir { get; private set; } = 1;
     protected bool facingRight = true;
 # endregion
 
     #region States
-    // ÇÃ·¹ÀÌ¾îÀÇ »óÅÂ¸¦ °ü¸®ÇÏ´Â »óÅÂ ¸Ó½Å
+    // í”Œë ˆì´ì–´ì˜ ìƒíƒœë¥¼ ê´€ë¦¬í•˜ëŠ” ìƒíƒœ ë¨¸ì‹ 
     public PlayerStateMachine stateMachine { get; private set; }
 
-    // ÇÃ·¹ÀÌ¾îÀÇ »óÅÂ (´ë±â »óÅÂ, ÀÌµ¿ »óÅÂ)
+    // í”Œë ˆì´ì–´ì˜ ìƒíƒœ (ëŒ€ê¸° ìƒíƒœ, ì´ë™ ìƒíƒœ)
     public PlayerIdleState idleState { get; private set; }
     public PlayerMoveState moveState { get; private set; }
     public PlayerJumpState jumpState { get; private set; }
     public PlayerAirState airState { get; private set; }
     public PlayerDashState dashState { get; private set; }
+    public PlayerWallSlideState wallSlide { get; private set; }
+    public PlayerWallJumpState wallJump { get; private set; }
+    public PlayerPrimaryAttackState primaryAttack { get; private set; }
+    public PlayerUpAttackState upAttack { get; private set; }
     #endregion
 
 
 
     protected virtual void Awake()
     {
-        // »óÅÂ ¸Ó½Å ÀÎ½ºÅÏ½º »ı¼º
+        // ìƒíƒœ ë¨¸ì‹  ì¸ìŠ¤í„´ìŠ¤ ìƒì„±
         stateMachine = new PlayerStateMachine();
-        // °¢ »óÅÂ ÀÎ½ºÅÏ½º »ı¼º (this: ÇÃ·¹ÀÌ¾î °´Ã¼, stateMachine: »óÅÂ ¸Ó½Å, "Idle"/"Move": »óÅÂ ÀÌ¸§)
+        // ê° ìƒíƒœ ì¸ìŠ¤í„´ìŠ¤ ìƒì„± (this: í”Œë ˆì´ì–´ ê°ì²´, stateMachine: ìƒíƒœ ë¨¸ì‹ , "Idle"/"Move": ìƒíƒœ ì´ë¦„)
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         moveState = new PlayerMoveState(this, stateMachine, "Move");
         jumpState = new PlayerJumpState(this, stateMachine, "Jump");
         airState = new PlayerAirState(this, stateMachine, "Jump");
         dashState = new PlayerDashState(this, stateMachine, "Dash");
+        wallSlide = new PlayerWallSlideState(this, stateMachine, "WallSlide");
+        wallJump = new PlayerWallJumpState(this, stateMachine, "Jump");
+        primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
+        upAttack = new PlayerUpAttackState(this, stateMachine, "UpAttack");
     }
 
     protected virtual void Start()
@@ -85,7 +96,7 @@ public class Player : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
-        // °ÔÀÓ ½ÃÀÛ ½Ã ÃÊ±â »óÅÂ¸¦ ´ë±â »óÅÂ(idleState)·Î ¼³Á¤
+        // ê²Œì„ ì‹œì‘ ì‹œ ì´ˆê¸° ìƒíƒœë¥¼ ëŒ€ê¸° ìƒíƒœ(idleState)ë¡œ ì„¤ì •
         stateMachine.Initialize(idleState);
     }
 
@@ -94,6 +105,12 @@ public class Player : MonoBehaviour
     {
         stateMachine.currentState.Update();
         CheckForDashInput();
+
+        if (Input.GetKeyDown(KeyCode.X))
+            stateMachine.ChangeState(primaryAttack);
+
+        if (Input.GetKey(KeyCode.X) && Input.GetKey(KeyCode.UpArrow))
+            stateMachine.ChangeState(upAttack);
     }
 
     public void SetVelocityY(float y)
@@ -121,7 +138,7 @@ public class Player : MonoBehaviour
 
     }
 
-    #region Ãæµ¹
+    #region ì¶©ëŒ
     public virtual bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
     public virtual bool IsWallDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
 
@@ -134,7 +151,7 @@ public class Player : MonoBehaviour
     }
     #endregion
 
-    #region ÇÃ¸³
+    #region í”Œë¦½
     public virtual void Flip()
     {
         facingDir = facingDir * -1;
@@ -155,7 +172,7 @@ public class Player : MonoBehaviour
     #endregion
 
 
-    #region ¼Ó·Â
+    #region ì†ë ¥
     public void SetZeroVelocity()
     {
         if (isKnocked)
@@ -173,6 +190,18 @@ public class Player : MonoBehaviour
     }
     #endregion
 
+    public IEnumerator BusyFor(float _seconds)
+    {
+        isBusy = true;
+
+
+        yield return new WaitForSeconds(_seconds);
+
+        isBusy = false;
+    }
+
+    public void AnimationTrigger() => stateMachine.currentState.AnimationFinishTrigger();
+
     private void CheckForDashInput()
     {
 
@@ -184,7 +213,7 @@ public class Player : MonoBehaviour
             dashDir = Input.GetAxisRaw("Horizontal");
 
             if (dashDir == 0)
-                dashDir = -facingDir;
+                dashDir = facingDir;
 
             stateMachine.ChangeState(dashState);
         }
