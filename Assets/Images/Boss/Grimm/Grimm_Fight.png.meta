@@ -276,7 +276,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1484
         y: 8151
-        width: 256
+        width: 255
         height: 411
       alignment: 9
       pivot: {x: 0.5019951, y: 0.00016632452}
@@ -626,10 +626,10 @@ TextureImporter:
       name: Grimm_Fight_22
       rect:
         serializedVersion: 2
-        x: 754
+        x: 755
         y: 8589
-        width: 245
-        height: 403
+        width: 244
+        height: 401
       alignment: 9
       pivot: {x: 0.6086401, y: 0.00021082119}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -673,7 +673,7 @@ TextureImporter:
         x: 1254
         y: 8588
         width: 245
-        height: 404
+        height: 401
       alignment: 9
       pivot: {x: 0.6128737, y: -0.0001808449}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -695,7 +695,7 @@ TextureImporter:
         x: 1504
         y: 8588
         width: 243
-        height: 404
+        height: 393
       alignment: 9
       pivot: {x: 0.6128743, y: 0.00009427212}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -741,7 +741,7 @@ TextureImporter:
         width: 273
         height: 372
       alignment: 9
-      pivot: {x: 0.36808982, y: 0.0002625168}
+      pivot: {x: 0.42616335, y: 0.0002638294}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -758,12 +758,12 @@ TextureImporter:
       name: Grimm_Fight_28
       rect:
         serializedVersion: 2
-        x: 568
-        y: 6819
-        width: 275
-        height: 373
+        x: 570
+        y: 6820
+        width: 274
+        height: 370
       alignment: 9
-      pivot: {x: 0.33084962, y: 0.000027490365}
+      pivot: {x: 0.40883663, y: 0.00002879943}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -785,7 +785,7 @@ TextureImporter:
         width: 274
         height: 372
       alignment: 9
-      pivot: {x: 0.36146224, y: 0.00009530623}
+      pivot: {x: 0.44196513, y: 0.00009713122}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -869,9 +869,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 668
-        y: 6415
+        y: 6417
         width: 466
-        height: 379
+        height: 377
       alignment: 9
       pivot: {x: 0.46686733, y: -0.00039294403}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -913,9 +913,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1672
-        y: 6418
+        y: 6419
         width: 238
-        height: 373
+        height: 372
       alignment: 9
       pivot: {x: 0.46233824, y: -0.00009687081}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1464,7 +1464,7 @@ TextureImporter:
         serializedVersion: 2
         x: 2285
         y: 4637
-        width: 165
+        width: 164
         height: 411
       alignment: 9
       pivot: {x: 0.4721356, y: -0.00033264904}
@@ -2316,6 +2316,336 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_99
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 3575
+        width: 173
+        height: 216
+      alignment: 9
+      pivot: {x: 0.015351405, y: 0.45805982}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4ea9ef925c4c6e4790bba7c4a65fd5f
+      internalID: -1108113044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_100
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 3407
+        width: 347
+        height: 557
+      alignment: 9
+      pivot: {x: 0.037531927, y: 0.4810368}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 389fbb6ecf0ff074296f90854cdb06c0
+      internalID: 390416621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_101
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 3449
+        width: 398
+        height: 493
+      alignment: 9
+      pivot: {x: 0.051502015, y: 0.45038646}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db09278c9215e4e41b5d209f5463ce6f
+      internalID: 1197329416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_102
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 3437
+        width: 371
+        height: 507
+      alignment: 9
+      pivot: {x: 0.051057637, y: 0.45869017}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ba1167ec1e8fd74996556047cf0d247
+      internalID: -81698738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_103
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 3414
+        width: 381
+        height: 541
+      alignment: 9
+      pivot: {x: 0.03268024, y: 0.49511176}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47e200b66c5bd284db5e5ea748ad4b05
+      internalID: -36523681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_104
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 3018
+        width: 216
+        height: 154
+      alignment: 9
+      pivot: {x: 0.012518166, y: 0.07715319}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87f49ea03edaac94ea871350abb074eb
+      internalID: -1913445785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_105
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 3020
+        width: 450
+        height: 260
+      alignment: 9
+      pivot: {x: 0.018909235, y: 0.03354586}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac1681a8e10755446a08aafc880e8632
+      internalID: 1408953098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_106
+      rect:
+        serializedVersion: 2
+        x: 1734
+        y: 3021
+        width: 623
+        height: 323
+      alignment: 9
+      pivot: {x: 0.032965254, y: 0.044351205}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bcbe9e2201da8649a47cda87325f78e
+      internalID: -547767850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_107
+      rect:
+        serializedVersion: 2
+        x: 2589
+        y: 3023
+        width: 671
+        height: 328
+      alignment: 9
+      pivot: {x: 0.014701195, y: 0.022093238}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d40752b6b13f7b541898d1c367b176f1
+      internalID: -1938565575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_108
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 2646
+        width: 800
+        height: 354
+      alignment: 9
+      pivot: {x: 0.009725671, y: 0.024200266}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81f65b641f974ad4ead460c4855b1042
+      internalID: -1734444153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_109
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 2647
+        width: 749
+        height: 339
+      alignment: 9
+      pivot: {x: 0.0164438, y: 0.026731597}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 473deff4123a9bb4e854f7dde584709a
+      internalID: -89385443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_110
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 5078
+        width: 247
+        height: 210
+      alignment: 9
+      pivot: {x: 0.7275482, y: 0.376037}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8204554b2a24e34c95d4fcf8d3c4a31
+      internalID: -1213015914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_111
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 5086
+        width: 244
+        height: 201
+      alignment: 9
+      pivot: {x: 0.6964001, y: 0.34693962}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ff4b1d86066b6a4591df6a2f8846a8d
+      internalID: 275869612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_112
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 5076
+        width: 245
+        height: 208
+      alignment: 9
+      pivot: {x: 0.6883642, y: 0.37752593}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8d82a735abd6ad4a8cc40adc76847d3
+      internalID: -1392157912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_113
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 5085
+        width: 242
+        height: 193
+      alignment: 9
+      pivot: {x: 0.70290405, y: 0.35461617}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 924573b32c72fe942929cad68b023fbb
+      internalID: 1032274717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -2333,7 +2663,21 @@ TextureImporter:
       Grimm_Fight_0: -5848507967503042528
       Grimm_Fight_1: -437741089
       Grimm_Fight_10: -1471728857
+      Grimm_Fight_100: 390416621
+      Grimm_Fight_101: 1197329416
+      Grimm_Fight_102: -81698738
+      Grimm_Fight_103: -36523681
+      Grimm_Fight_104: -1913445785
+      Grimm_Fight_105: 1408953098
+      Grimm_Fight_106: -547767850
+      Grimm_Fight_107: -1938565575
+      Grimm_Fight_108: -1734444153
+      Grimm_Fight_109: -89385443
       Grimm_Fight_11: -1181269786
+      Grimm_Fight_110: -1213015914
+      Grimm_Fight_111: 275869612
+      Grimm_Fight_112: -1392157912
+      Grimm_Fight_113: 1032274717
       Grimm_Fight_12: 2061324828
       Grimm_Fight_13: 1546017137
       Grimm_Fight_14: -1296153540
@@ -2429,6 +2773,7 @@ TextureImporter:
       Grimm_Fight_96: 996255398
       Grimm_Fight_97: -634491255
       Grimm_Fight_98: -1049043322
+      Grimm_Fight_99: -1108113044
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

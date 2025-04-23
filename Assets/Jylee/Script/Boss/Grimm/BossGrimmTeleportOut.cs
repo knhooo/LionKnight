@@ -13,6 +13,8 @@ public class BossGrimmTeleportOut : BossGrimmState
         // 보스 공격타입에 따른 위치이동
 
         boss.GrimmOutVanish();
+
+        boss.BossFlip(false);
     }
 
     public override void Update()
