@@ -12,6 +12,7 @@ public class BossGrimmAttackSelect : BossGrimmState
     {
         base.Enter();
         boss.SelectGrimmAttack();
+        boss.BossRandomTeleportSelect();
 
         tpOutDelay = boss.teleportOutDelay;
     }
