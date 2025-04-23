@@ -13,9 +13,16 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Info
+    [Header("Stats")]
+    public int money { get; set; } = 0;//지오
+    public int hp { get; set; } = 0;//체력
+    public float mp { get; set; } = 0;//영혼
+
     [Header("공격 디테일")]
     public Vector2[] attackMovement;
     public float counterAttackDuration = 0.2f;
+    [HideInInspector]
+    public bool hasAirAttacked = false;
 
     public bool isBusy { get; private set; }
     [Header("이동 정보")]
@@ -63,12 +70,14 @@ public class Player : MonoBehaviour
     public PlayerIdleState idleState { get; private set; }
     public PlayerMoveState moveState { get; private set; }
     public PlayerJumpState jumpState { get; private set; }
+    public PlayerDoubleJumpState doubleJumpState { get; private set; }
     public PlayerAirState airState { get; private set; }
     public PlayerDashState dashState { get; private set; }
     public PlayerWallSlideState wallSlide { get; private set; }
     public PlayerWallJumpState wallJump { get; private set; }
     public PlayerPrimaryAttackState primaryAttack { get; private set; }
     public PlayerUpAttackState upAttack { get; private set; }
+    public PlayerDownAttackState downAttack { get; private set; }
     #endregion
 
 
@@ -81,12 +90,14 @@ public class Player : MonoBehaviour
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         moveState = new PlayerMoveState(this, stateMachine, "Move");
         jumpState = new PlayerJumpState(this, stateMachine, "Jump");
+        doubleJumpState = new PlayerDoubleJumpState(this, stateMachine, "DoubleJump");
         airState = new PlayerAirState(this, stateMachine, "Jump");
         dashState = new PlayerDashState(this, stateMachine, "Dash");
         wallSlide = new PlayerWallSlideState(this, stateMachine, "WallSlide");
         wallJump = new PlayerWallJumpState(this, stateMachine, "Jump");
         primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
         upAttack = new PlayerUpAttackState(this, stateMachine, "UpAttack");
+        downAttack = new PlayerDownAttackState(this, stateMachine, "DownAttack");
     }
 
     protected virtual void Start()
@@ -105,12 +116,6 @@ public class Player : MonoBehaviour
     {
         stateMachine.currentState.Update();
         CheckForDashInput();
-
-        if (Input.GetKeyDown(KeyCode.X))
-            stateMachine.ChangeState(primaryAttack);
-
-        if (Input.GetKey(KeyCode.X) && Input.GetKey(KeyCode.UpArrow))
-            stateMachine.ChangeState(upAttack);
     }
 
     public void SetVelocityY(float y)

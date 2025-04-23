@@ -41,28 +41,41 @@ public class PlayerJumpState : PlayerState
             player.isJumping = false;
         }
 
+        //Up Attack
+        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow))
+        {
+            if (!player.hasAirAttacked)
+            {
+                player.hasAirAttacked = true;
+                stateMachine.ChangeState(player.upAttack);
+            }
+        }
+        //Down Attck
+        else if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.DownArrow))
+        {
+            if (!player.hasAirAttacked)
+            {
+                player.hasAirAttacked = true;
+                stateMachine.ChangeState(player.downAttack);
+            }
+        }
+        //Attack
+        else if (Input.GetKeyDown(KeyCode.X) && !player.hasAirAttacked)
+        {
+            player.hasAirAttacked = true;
+            stateMachine.ChangeState(player.primaryAttack);
+        }
+
+
 
         if (rb.linearVelocityY < 0 )
             stateMachine.ChangeState(player.airState);
 
-        //더블점프
+        //DoubleJump
         if (!player.IsGroundDetected() && Input.GetKeyDown(KeyCode.Z) && player.canDoubleJump && !player.hasDoubleJumped)
         {
-            player.anim.SetBool("DoubleJump", true);
-            player.SetVelocityY(player.jumpForce);
-            player.hasDoubleJumped = true;
-            player.isJumping = true;
-            player.jumpTimer = player.variableJumpTime;
-        }
-        else if (player.IsGroundDetected())
-        {
-            player.hasDoubleJumped = false;
+            stateMachine.ChangeState(player.doubleJumpState);
         }
 
-        if (player.IsWallDetected())
-        {
-            player.anim.SetBool("DoubleJump", false);
-            player.stateMachine.ChangeState(player.wallSlide);
-        }
     }
 }

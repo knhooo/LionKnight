@@ -1,14 +1,9 @@
 using UnityEngine;
 
-public class PlayerUpAttackState : PlayerState
+public class PlayerDownAttackState : PlayerState
 {
-    public PlayerUpAttackState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
+    public PlayerDownAttackState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
-    }
-
-    public override void AnimationFinishTrigger()
-    {
-        base.AnimationFinishTrigger();
     }
 
     public override void Enter()
@@ -40,7 +35,6 @@ public class PlayerUpAttackState : PlayerState
         {
             player.SetZeroVelocity();
         }
-
 
         if (triggerCalled)
             stateMachine.ChangeState(player.idleState);

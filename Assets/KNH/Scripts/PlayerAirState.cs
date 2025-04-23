@@ -18,9 +18,32 @@ public class PlayerAirState : PlayerState
     public override void Update()
     {
         base.Update();
-
-        if (Input.GetKeyDown(KeyCode.X))
+        
+        //Up Attack
+        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow))
+        {
+            if (!player.hasAirAttacked)
+            {
+                player.hasAirAttacked = true;
+                stateMachine.ChangeState(player.upAttack);
+            }
+        }
+        //Down Attck
+        else if(Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.DownArrow))
+        {
+            if (!player.hasAirAttacked)
+            {
+                player.hasAirAttacked = true;
+                stateMachine.ChangeState(player.downAttack);
+            }
+        }
+        //Attack
+        else if (Input.GetKeyDown(KeyCode.X) && !player.hasAirAttacked)
+        {
+            player.hasAirAttacked = true;
             stateMachine.ChangeState(player.primaryAttack);
+        }
+
 
         if (player.IsWallDetected())
         {
@@ -29,25 +52,16 @@ public class PlayerAirState : PlayerState
         }
         if (player.IsGroundDetected())
         {
-            player.anim.SetBool("DoubleJump", false);
             stateMachine.ChangeState(player.idleState);
+            player.hasDoubleJumped = false;
+            player.hasAirAttacked = false;
         }
 
-        //더블점프
+        //Double Jump
         if (!player.IsGroundDetected() && Input.GetKeyDown(KeyCode.Z) && player.canDoubleJump && !player.hasDoubleJumped)
         {
-            stateMachine.ChangeState(player.jumpState);
-            player.anim.SetBool("DoubleJump", true);
-            player.SetVelocityY(player.jumpForce);
-            player.hasDoubleJumped = true;
-            player.isJumping = true;
-            player.jumpTimer = player.variableJumpTime;
+            stateMachine.ChangeState(player.doubleJumpState);
         }
-        else if (player.IsGroundDetected())
-        {
-            player.hasDoubleJumped = false;
-        }
-
 
         if (xInput != 0)
             player.SetVelocity(player.moveSpeed * 0.8f * xInput, rb.linearVelocityY);
