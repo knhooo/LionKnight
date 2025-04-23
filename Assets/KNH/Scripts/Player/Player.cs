@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -57,9 +58,11 @@ public class Player : MonoBehaviour
     [SerializeField] protected Transform wallCheck;
     [SerializeField] protected float wallCheckDistance;
     [SerializeField] protected LayerMask whatIsGround;
+    [SerializeField] protected LayerMask whatIsBench;
 
     public int facingDir { get; private set; } = 1;
     protected bool facingRight = true;
+    public bool isOnBench = false;
 # endregion
 
     #region States
@@ -78,6 +81,7 @@ public class Player : MonoBehaviour
     public PlayerPrimaryAttackState primaryAttack { get; private set; }
     public PlayerUpAttackState upAttack { get; private set; }
     public PlayerDownAttackState downAttack { get; private set; }
+    public PlayerBenchState benchState { get; private set; }
     #endregion
 
 
@@ -98,6 +102,7 @@ public class Player : MonoBehaviour
         primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
         upAttack = new PlayerUpAttackState(this, stateMachine, "UpAttack");
         downAttack = new PlayerDownAttackState(this, stateMachine, "DownAttack");
+        benchState = new PlayerBenchState(this, stateMachine, "Sitting");
     }
 
     protected virtual void Start()
@@ -108,7 +113,9 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         // 게임 시작 시 초기 상태를 대기 상태(idleState)로 설정
-        stateMachine.Initialize(idleState);
+        if(SceneManager.GetActiveScene().name == "Dirtmouth")
+            stateMachine.Initialize(benchState);
+        else stateMachine.Initialize(idleState);
     }
 
 
@@ -146,6 +153,11 @@ public class Player : MonoBehaviour
     #region 충돌
     public virtual bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
     public virtual bool IsWallDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
+
+    public virtual Collider2D IsNearBench()
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, 1f, whatIsBench);
+    }
 
 
     protected virtual void OnDrawGizmos()
@@ -209,11 +221,10 @@ public class Player : MonoBehaviour
 
     private void CheckForDashInput()
     {
-
         if (IsWallDetected())
             return;
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && SkillManager.instance.dash.CanUseSkill() && !isOnBench)
         {
             dashDir = Input.GetAxisRaw("Horizontal");
 

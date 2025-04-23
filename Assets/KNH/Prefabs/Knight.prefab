@@ -147,6 +147,7 @@ MonoBehaviour:
   - {x: 3, y: 0.5}
   - {x: 2, y: 0.5}
   counterAttackDuration: 0.1
+  hasAirAttacked: 0
   moveSpeed: 5
   jumpForce: 5
   variableJumpTime: 0.5
@@ -168,6 +169,10 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  whatIsBench:
+    serializedVersion: 2
+    m_Bits: 1024
+  isOnBench: 0
 --- !u!70 &3578863524682833997
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
