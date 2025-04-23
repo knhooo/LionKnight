@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     [Header("공격 디테일")]
     public Vector2[] attackMovement;
     public float counterAttackDuration = 0.2f;
+    //[HideInInspector]
+    public bool hasAirAttacked = false;
 
     public bool isBusy { get; private set; }
     [Header("이동 정보")]
@@ -107,12 +109,6 @@ public class Player : MonoBehaviour
     {
         stateMachine.currentState.Update();
         CheckForDashInput();
-
-        if (Input.GetKeyDown(KeyCode.X))
-            stateMachine.ChangeState(primaryAttack);
-
-        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow))
-            stateMachine.ChangeState(upAttack);
     }
 
     public void SetVelocityY(float y)

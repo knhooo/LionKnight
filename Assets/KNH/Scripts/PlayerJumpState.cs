@@ -41,6 +41,23 @@ public class PlayerJumpState : PlayerState
             player.isJumping = false;
         }
 
+        //공중 위 공격
+        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow))
+        {
+            if (!player.hasAirAttacked)
+            {
+                player.hasAirAttacked = true;
+                stateMachine.ChangeState(player.upAttack);
+            }
+        }
+        //공중에서 공격 1회만 가능
+        else if (Input.GetKeyDown(KeyCode.X) && !player.hasAirAttacked)
+        {
+            player.hasAirAttacked = true;
+            stateMachine.ChangeState(player.primaryAttack);
+        }
+
+
 
         if (rb.linearVelocityY < 0 )
             stateMachine.ChangeState(player.airState);
@@ -50,7 +67,6 @@ public class PlayerJumpState : PlayerState
         {
             stateMachine.ChangeState(player.doubleJumpState);
         }
-        
 
     }
 }

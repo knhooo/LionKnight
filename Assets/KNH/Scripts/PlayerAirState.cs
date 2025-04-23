@@ -18,9 +18,21 @@ public class PlayerAirState : PlayerState
     public override void Update()
     {
         base.Update();
-
-        if (Input.GetKeyDown(KeyCode.X))
+        
+        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow))
+        {
+            if (!player.hasAirAttacked)
+            {
+                player.hasAirAttacked = true;
+                stateMachine.ChangeState(player.upAttack);
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.X) && !player.hasAirAttacked)
+        {
+            player.hasAirAttacked = true;
             stateMachine.ChangeState(player.primaryAttack);
+        }
+
 
         if (player.IsWallDetected())
         {
@@ -31,6 +43,7 @@ public class PlayerAirState : PlayerState
         {
             stateMachine.ChangeState(player.idleState);
             player.hasDoubleJumped = false;
+            player.hasAirAttacked = false;
         }
 
         //더블점프

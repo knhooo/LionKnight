@@ -18,6 +18,7 @@ public class PlayerDoubleJumpState : PlayerJumpState
         player.hasDoubleJumped = true;
         player.isJumping = true;
         player.jumpTimer = player.variableJumpTime;
+        player.hasAirAttacked = false;
     }
 
     public override void Exit()
@@ -29,8 +30,6 @@ public class PlayerDoubleJumpState : PlayerJumpState
     {
         base.Update();
 
-        if (Input.GetKeyDown(KeyCode.X))
-            stateMachine.ChangeState(player.primaryAttack);
 
         if (rb.linearVelocityY < 0)
             stateMachine.ChangeState(player.airState);
