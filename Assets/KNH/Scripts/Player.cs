@@ -13,10 +13,15 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Info
+    [Header("Stats")]
+    public int money { get; set; } = 0;//지오
+    public int hp { get; set; } = 0;//체력
+    public float mp { get; set; } = 0;//영혼
+
     [Header("공격 디테일")]
     public Vector2[] attackMovement;
     public float counterAttackDuration = 0.2f;
-    //[HideInInspector]
+    [HideInInspector]
     public bool hasAirAttacked = false;
 
     public bool isBusy { get; private set; }
@@ -30,7 +35,7 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public float jumpTimer = 0f;
     public bool canDoubleJump = true;
-    //[HideInInspector]
+    [HideInInspector]
     public bool hasDoubleJumped = false;
 
     [Header("대시 정보")]
