@@ -72,6 +72,7 @@ public class Player : MonoBehaviour
     public PlayerWallJumpState wallJump { get; private set; }
     public PlayerPrimaryAttackState primaryAttack { get; private set; }
     public PlayerUpAttackState upAttack { get; private set; }
+    public PlayerDownAttackState downAttack { get; private set; }
     #endregion
 
 
@@ -91,6 +92,7 @@ public class Player : MonoBehaviour
         wallJump = new PlayerWallJumpState(this, stateMachine, "Jump");
         primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
         upAttack = new PlayerUpAttackState(this, stateMachine, "UpAttack");
+        downAttack = new PlayerDownAttackState(this, stateMachine, "DownAttack");
     }
 
     protected virtual void Start()

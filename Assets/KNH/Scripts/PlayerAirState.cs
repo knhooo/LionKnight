@@ -19,6 +19,7 @@ public class PlayerAirState : PlayerState
     {
         base.Update();
         
+        //Up Attack
         if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow))
         {
             if (!player.hasAirAttacked)
@@ -27,6 +28,16 @@ public class PlayerAirState : PlayerState
                 stateMachine.ChangeState(player.upAttack);
             }
         }
+        //Down Attck
+        else if(Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.DownArrow))
+        {
+            if (!player.hasAirAttacked)
+            {
+                player.hasAirAttacked = true;
+                stateMachine.ChangeState(player.downAttack);
+            }
+        }
+        //Attack
         else if (Input.GetKeyDown(KeyCode.X) && !player.hasAirAttacked)
         {
             player.hasAirAttacked = true;
@@ -46,7 +57,7 @@ public class PlayerAirState : PlayerState
             player.hasAirAttacked = false;
         }
 
-        //더블점프
+        //Double Jump
         if (!player.IsGroundDetected() && Input.GetKeyDown(KeyCode.Z) && player.canDoubleJump && !player.hasDoubleJumped)
         {
             stateMachine.ChangeState(player.doubleJumpState);
