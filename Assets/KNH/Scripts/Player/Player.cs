@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
 
     public int facingDir { get; private set; } = 1;
     protected bool facingRight = true;
-    protected bool isNearBench = false;
+    public bool isOnBench = false;
 # endregion
 
     #region States
@@ -221,11 +221,10 @@ public class Player : MonoBehaviour
 
     private void CheckForDashInput()
     {
-
         if (IsWallDetected())
             return;
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && SkillManager.instance.dash.CanUseSkill() && !isOnBench)
         {
             dashDir = Input.GetAxisRaw("Horizontal");
 

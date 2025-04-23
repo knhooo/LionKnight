@@ -11,6 +11,7 @@ public class PlayerBenchState : PlayerState
         base.Enter();
         player.transform.position += new Vector3(0, -0.218442f, 0);
         player.rb.bodyType = RigidbodyType2D.Static;
+        player.isOnBench = true;
     }
 
     public override void Exit()
@@ -25,6 +26,7 @@ public class PlayerBenchState : PlayerState
         if(xInput != 0)
         {
             player.rb.bodyType = RigidbodyType2D.Dynamic;
+            player.isOnBench = false;
             stateMachine.ChangeState(player.idleState);
         }
 
