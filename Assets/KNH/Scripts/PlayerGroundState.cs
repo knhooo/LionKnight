@@ -22,6 +22,12 @@ public class PlayerGroundState : PlayerState
         if (!player.IsGroundDetected())
             stateMachine.ChangeState(player.airState);
 
+        if (player.IsNearBench() && Input.GetKey(KeyCode.UpArrow))
+        {
+            player.transform.position = player.IsNearBench().transform.position;
+            stateMachine.ChangeState(player.benchState);
+        }
+
         //Jump
         if (Input.GetKeyDown(KeyCode.Z) && player.IsGroundDetected())
             stateMachine.ChangeState(player.jumpState);

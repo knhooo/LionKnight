@@ -4057,7 +4057,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.1202936, y: -2.6576836, z: -10}
+  m_LocalPosition: {x: -0.08770633, y: -2.784684, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6570,7 +6570,7 @@ Transform:
   m_GameObject: {fileID: 868737616}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.1202936, y: -2.6576836, z: -10}
+  m_LocalPosition: {x: -0.08770633, y: -2.784684, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12186,7 +12186,7 @@ GameObject:
   - component: {fileID: 1730006393}
   - component: {fileID: 1730006394}
   - component: {fileID: 1730006395}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: town_bench
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12862,11 +12862,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2022260313471799872, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.9
+      value: 2.692
       objectReference: {fileID: 0}
     - target: {fileID: 2022260313471799872, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.9065578
+      value: -3.033558
       objectReference: {fileID: 0}
     - target: {fileID: 2022260313471799872, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
       propertyPath: m_LocalPosition.z
