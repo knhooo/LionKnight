@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class Grass : MonoBehaviour
 {
-    SpriteRenderer sp;
-    Animator anim;
+    private SpriteRenderer sp;
+    private Animator anim;
 
-    [SerializeField] string AnimationName;
-    [SerializeField] bool canBeCut = false;
-    [SerializeField] Sprite cutImg;
+    [SerializeField] private string AnimationName;
+    [SerializeField] private bool canBeCut = false;
+    [SerializeField] private Sprite cutImg;
+    [SerializeField] private GameObject grassParticle;
 
     private void Awake()
     {
@@ -34,13 +35,7 @@ public class Grass : MonoBehaviour
         canBeCut = false;
         for (int i = 0; i < 25; i++)
         {
-            int num = Random.Range(0, 3);
-
-            CutGrassParticle particle = GameManager.instance.poolManager.Get(num).GetComponent<CutGrassParticle>();
-            if (particle != null)
-            {
-                particle.SetPosition(transform.position);
-            }
+            PoolManager.instance.Spawn(PoolType.GrassParticle, grassParticle, transform.position, Quaternion.identity);
         }
     }
 }

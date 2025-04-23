@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Splines.Interpolators;
 using UnityEngine.UI;
 
 public class SceneFader : MonoBehaviour
@@ -10,7 +8,7 @@ public class SceneFader : MonoBehaviour
     private Image fadeImage;
     [SerializeField] private float fadeDuration = 0.5f;
 
-    bool isSceneChange = false;
+    private bool isSceneChange = false;
 
     private void Awake()
     {
