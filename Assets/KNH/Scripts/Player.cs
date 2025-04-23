@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public float jumpTimer = 0f;
     public bool canDoubleJump = true;
-    [HideInInspector]
+    //[HideInInspector]
     public bool hasDoubleJumped = false;
 
     [Header("대시 정보")]
@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
     public PlayerIdleState idleState { get; private set; }
     public PlayerMoveState moveState { get; private set; }
     public PlayerJumpState jumpState { get; private set; }
+    public PlayerDoubleJumpState doubleJumpState { get; private set; }
     public PlayerAirState airState { get; private set; }
     public PlayerDashState dashState { get; private set; }
     public PlayerWallSlideState wallSlide { get; private set; }
@@ -81,6 +82,7 @@ public class Player : MonoBehaviour
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         moveState = new PlayerMoveState(this, stateMachine, "Move");
         jumpState = new PlayerJumpState(this, stateMachine, "Jump");
+        doubleJumpState = new PlayerDoubleJumpState(this, stateMachine, "DoubleJump");
         airState = new PlayerAirState(this, stateMachine, "Jump");
         dashState = new PlayerDashState(this, stateMachine, "Dash");
         wallSlide = new PlayerWallSlideState(this, stateMachine, "WallSlide");
@@ -109,7 +111,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
             stateMachine.ChangeState(primaryAttack);
 
-        if (Input.GetKey(KeyCode.X) && Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow))
             stateMachine.ChangeState(upAttack);
     }
 

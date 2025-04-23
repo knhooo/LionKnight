@@ -48,21 +48,9 @@ public class PlayerJumpState : PlayerState
         //더블점프
         if (!player.IsGroundDetected() && Input.GetKeyDown(KeyCode.Z) && player.canDoubleJump && !player.hasDoubleJumped)
         {
-            player.anim.SetBool("DoubleJump", true);
-            player.SetVelocityY(player.jumpForce);
-            player.hasDoubleJumped = true;
-            player.isJumping = true;
-            player.jumpTimer = player.variableJumpTime;
+            stateMachine.ChangeState(player.doubleJumpState);
         }
-        else if (player.IsGroundDetected())
-        {
-            player.hasDoubleJumped = false;
-        }
+        
 
-        if (player.IsWallDetected())
-        {
-            player.anim.SetBool("DoubleJump", false);
-            player.stateMachine.ChangeState(player.wallSlide);
-        }
     }
 }

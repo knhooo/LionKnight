@@ -29,25 +29,15 @@ public class PlayerAirState : PlayerState
         }
         if (player.IsGroundDetected())
         {
-            player.anim.SetBool("DoubleJump", false);
             stateMachine.ChangeState(player.idleState);
+            player.hasDoubleJumped = false;
         }
 
         //더블점프
         if (!player.IsGroundDetected() && Input.GetKeyDown(KeyCode.Z) && player.canDoubleJump && !player.hasDoubleJumped)
         {
-            stateMachine.ChangeState(player.jumpState);
-            player.anim.SetBool("DoubleJump", true);
-            player.SetVelocityY(player.jumpForce);
-            player.hasDoubleJumped = true;
-            player.isJumping = true;
-            player.jumpTimer = player.variableJumpTime;
+            stateMachine.ChangeState(player.doubleJumpState);
         }
-        else if (player.IsGroundDetected())
-        {
-            player.hasDoubleJumped = false;
-        }
-
 
         if (xInput != 0)
             player.SetVelocity(player.moveSpeed * 0.8f * xInput, rb.linearVelocityY);

@@ -143,7 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b46e9c9bd675144b15d28f9d2b6c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackMovement: []
+  attackMovement:
+  - {x: 3, y: 0.5}
+  - {x: 2, y: 0.5}
   counterAttackDuration: 0.1
   moveSpeed: 5
   jumpForce: 5
@@ -151,6 +153,8 @@ MonoBehaviour:
   variableJumpMultiplier: 2
   isJumping: 0
   jumpTimer: 0
+  canDoubleJump: 1
+  hasDoubleJumped: 0
   dashSpeed: 15
   dashDuration: 0.3
   knockbackDirection: {x: 0, y: 0}
