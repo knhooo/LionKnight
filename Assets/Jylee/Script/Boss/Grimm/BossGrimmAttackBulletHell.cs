@@ -13,6 +13,8 @@ public class BossGrimmAttackBulletHell : BossGrimmState
         base.Enter();
         actionDuration = 5f;
         isAction = false;
+
+        boss.BossFlip(true);
     }
 
     public override void Update()

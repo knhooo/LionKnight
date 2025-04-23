@@ -1,14 +1,52 @@
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BossGrimm : BossBase
 {
 
+    [Header("수치 관련")]
     public int nextAttackType;
     public float attackEndTeleportDelay;
-
     public float teleportOutDelay;
+    public float groundY;
+
+    [Header("공중 대쉬 공격")]
+    public float adAirDashPower;
+    public float adGroundDashPower;
+
+    [Header("대쉬 어퍼컷 공격")]
+    public float duDashPower;
+    public float duDashDistance;
+    public float duUppercutPower;
+    public float duUppercutDistance;
+
+    [Header("박쥐 소환 공격")]
+    public Transform batFirePoint;
+    public GameObject fireBatPrefab;
+    public float firstShotDelay;
+    public float secondShotDelay;
+    public float thirdShotDelay;
+    public float shotEndDelay;
+
+    [Header("위치 조정 관련")]
+    [SerializeField] private float airDashYPos;
+    [SerializeField] private float teleportPlayerIntervalMin;
+    [SerializeField] private float teleportPlayerIntervalMax;
 
     private bool firstBulletHell;
+    private bool useLandEff;
+
+    public float bossGravity;
+
+    [Header("이펙트")]
+    [SerializeField] private Transform airDashTransform;
+    [SerializeField] private Transform groundDashTransform;
+    [SerializeField] private GameObject airDashEff;
+    [SerializeField] private GameObject groundDashEff;
+    [SerializeField] private GameObject landEff;
+
+    public Transform playerTransform;
 
     // 적의 상태를 관리하는 상태 머신
     public BossGrimmStateMachine stateMachine { get; private set; }
@@ -55,6 +93,13 @@ public class BossGrimm : BossBase
 
         // 초기 값
         firstBulletHell = false;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        bossGravity = rb.gravityScale;
+
+        if (playerTransform == null)
+        {
+            playerTransform = gameObject.transform;
+        }
     }
 
     protected override void Update()
@@ -110,6 +155,7 @@ public class BossGrimm : BossBase
         // 지금 구상으로는 해당 함수에 진입시 체력 검사 했는데 50% 이하이고
         // bool값 firstBulletHell이 true 인 경우 false로 전환하고 탄막 지옥 패턴 실행
 
+        useLandEff = false;
 
         if (firstBulletHell)
         {
@@ -132,5 +178,105 @@ public class BossGrimm : BossBase
     public void BossDeathTrigger()
     {
         Destroy(gameObject);
+    }
+
+    public void AirDashEffGenerate()
+    {
+        // 보스 위치 회전
+        float bossRotation = anim.transform.eulerAngles.z;
+        Quaternion effRotation = Quaternion.Euler(0f, 0f, bossRotation + 90f);
+        
+        Instantiate(airDashEff, airDashTransform.position, effRotation);
+    }
+
+    public void LandEffGenerate()
+    {
+        // 한번만
+        if (useLandEff)
+            return;
+
+        useLandEff = true;
+
+        // 좌
+        Instantiate(landEff, groundDashTransform);
+
+        // 우
+        GameObject mirroEff = Instantiate(landEff, new Vector3(groundDashTransform.position.x, groundDashTransform.position.y), Quaternion.identity);
+        Vector3 scale = mirroEff.transform.localScale;
+        scale.x *= -1;
+        mirroEff.transform.localScale = scale;
+    }
+
+    public void GroundDashEffGenerate()
+    {
+        if (facingLeft)
+        {
+            GameObject mirroEff = Instantiate(groundDashEff, new Vector3(groundDashTransform.position.x, groundDashTransform.position.y), Quaternion.identity);
+            Vector3 scale = mirroEff.transform.localScale;
+            scale.x *= -1;
+            mirroEff.transform.localScale = scale;
+        }
+        else
+        {
+            Instantiate(groundDashEff, new Vector3(groundDashTransform.position.x, groundDashTransform.position.y), Quaternion.identity);
+        }
+    }
+
+    public void BossFlip(bool reverse)
+    {
+        float gazePos = transform.position.x > playerTransform.position.x ? -1 : 1;
+        gazePos = reverse ? gazePos * -1 : gazePos;
+
+        // 좌우 반전 했을경우
+        if (FlipController(gazePos))
+        {
+            // 박쥐 소환 포인트 뒤집기
+            Vector3 firePointLocalPos = batFirePoint.localPosition;
+            firePointLocalPos.x *= -1;
+            batFirePoint.localPosition = firePointLocalPos;
+        }
+    }
+
+    public void BossRandomTeleportSelect()
+    {
+        int leftRightSelect = Random.Range(1, 3);
+        float xPosAdd = Random.Range(teleportPlayerIntervalMin, teleportPlayerIntervalMax);
+        float yPosAdd = 0;
+
+        if(nextAttackType == 3)
+        {
+            yPosAdd = airDashYPos;
+            rb.gravityScale = 0;
+        }
+
+        if (leftRightSelect == 1)
+        {
+            transform.position = new Vector3(playerTransform.position.x + xPosAdd, groundY + yPosAdd, 0);
+        }
+        else
+        {
+            transform.position = new Vector3(playerTransform.position.x - xPosAdd, groundY + yPosAdd, 0);
+        }
+    }
+
+    public void BossPlayerGaze()
+    {
+        Vector2 direction = (new Vector3(playerTransform.position.x, groundY) - transform.position).normalized; // 플레이어 방향 계산
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // 각도로 변환
+
+        // 시선이 위쪽이여서 -90도를 하여 플레이어를 바라보게함
+        anim.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
+    }
+    public void BossRotationZero()
+    {
+        anim.transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
+    public void BossFireBatFire()
+    {
+        GameObject fireBat = Instantiate(fireBatPrefab, batFirePoint.position, Quaternion.identity);
+        Vector3 scale = fireBat.transform.localScale;
+        scale.x = facingLeft ? 1 : -1;
+        fireBat.transform.localScale = scale;
     }
 }

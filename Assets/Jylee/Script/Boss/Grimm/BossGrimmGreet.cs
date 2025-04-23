@@ -13,6 +13,7 @@ public class BossGrimmGreet : BossGrimmState
         base.Enter();
         stateTimer = 2f;
         triggerOn = false;
+        boss.groundY = boss.transform.position.y;
     }
 
     public override void Update()
