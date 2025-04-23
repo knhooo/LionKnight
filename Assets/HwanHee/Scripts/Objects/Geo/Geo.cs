@@ -12,8 +12,9 @@ public class Geo : AddForceObject
     {
         if (collision.gameObject.GetComponent<Player>() != null)
         {
-            // GameManager.instance.player.money++;
+            PlayerManager.instance.player.money++;
             gameObject.SetActive(false);
+            Debug.Log("Money : " + PlayerManager.instance.player.money);
         }
     }
 }

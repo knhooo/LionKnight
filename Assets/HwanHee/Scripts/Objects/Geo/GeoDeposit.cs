@@ -1,4 +1,3 @@
-using Mono.Cecil;
 using UnityEngine;
 using System.Collections;
 
@@ -8,20 +7,31 @@ public class GeoDeposit : MonoBehaviour
 
     [SerializeField] private Sprite sprite;
 
-    [SerializeField] private float amplitude = 0.1f; // 흔들림 크기
-    [SerializeField] private float frequency = 1f; // 흔들림 속도
-    [SerializeField] private float shakeDuration = 0.5f;
-
+    [SerializeField] private float shakeAmount = 0.1f;
+    [SerializeField] private float shakeFrequency = 10f;
+    [SerializeField] private float shakeDuration = 0.2f;
     [SerializeField] private GameObject geoPrefab;
 
-    private Vector3 startPos;
+    private float shakeTimer;
+
+    private Vector3 originalPos;
+    private bool isShaking = false;
 
     private int life = 4;
 
     private void Awake()
     {
-        sp = GetComponent<SpriteRenderer>();
-        startPos = transform.position;
+        shakeTimer = shakeDuration;
+        sp = GetComponentInChildren<SpriteRenderer>();
+        originalPos = transform.position;
+    }
+
+    private void Update()
+    {
+        if (isShaking)
+        {
+            shakeTimer -= Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,20 +43,27 @@ public class GeoDeposit : MonoBehaviour
         }
     }
 
+
     private IEnumerator ShakeCoroutine()
     {
-        float elapsedTime = 0f;
+        if (isShaking)
+            yield break;
+        isShaking = true;
 
-        while (elapsedTime < shakeDuration)
+        float elapsed = 0f;
+        while (shakeTimer >= 0)
         {
-            float zOffset = Mathf.Sin(Time.time * frequency) * amplitude;
-            transform.position = startPos + new Vector3(0f, 0f, zOffset);
+            elapsed += Time.deltaTime;
 
-            elapsedTime += Time.deltaTime;
+            // 주파수 조절
+            float offsetX = Mathf.Sin(elapsed * Mathf.PI * shakeFrequency) * shakeAmount; 
+            sp.transform.position = originalPos + new Vector3(offsetX, 0f, 0f);
             yield return null;
         }
 
-        transform.position = startPos;
+        isShaking = false;
+        shakeTimer = shakeDuration;
+        sp.transform.position = originalPos;
     }
 
     private void CreateGeo()

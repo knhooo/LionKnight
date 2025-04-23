@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1897129848581680997}
   - component: {fileID: 6785387660210453314}
   - component: {fileID: 2982907343028114353}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,6 +167,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpeedX: 3
   SpeedY: 10
-  usesPlayerDirection: 0
+  usePlayerDirection: 0
   torque: 0
   directionValue: 1

@@ -38,7 +38,7 @@ public class AddForceObject : MonoBehaviour
         }
         else
         {
-            if (GameManager.instance.player.transform.position.x < transform.position.x)
+            if (PlayerManager.instance.player.transform.position.x < transform.position.x)
                 velocity.x = directionValue * SpeedX;
             else
                 velocity.x = -directionValue * SpeedX;
