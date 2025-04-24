@@ -7717,8 +7717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4933ac2d6f6eb8a47b36ef44fdef2a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolManager: {fileID: 1394986679}
-  player: {fileID: 0}
 --- !u!4 &994259319
 Transform:
   m_ObjectHideFlags: 0
@@ -9609,10 +9607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70fca8335bf549a4eb90223289516572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 5094146106227670751, guid: d162b69095535e9478a14c8e21b03a95, type: 3}
-  - {fileID: 281753320472743150, guid: fe6ccfbf0bb94fa4da09ac741201b309, type: 3}
-  - {fileID: 9042883653364224605, guid: 71c2823648268c6449bdd213232edb0e, type: 3}
 --- !u!1 &1426959436
 GameObject:
   m_ObjectHideFlags: 0
@@ -13792,6 +13786,7 @@ GameObject:
   - component: {fileID: 1918376272}
   - component: {fileID: 1918376274}
   - component: {fileID: 1918376273}
+  - component: {fileID: 1918376275}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -13839,6 +13834,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29bac86041eea2d489d688966a2b7778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1918376275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918376271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109ebf6adb1b09a45b1b794465bd3ec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0.3
 --- !u!1 &1919083003
 GameObject:
   m_ObjectHideFlags: 0

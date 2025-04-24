@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerGroundState : PlayerState
 {
@@ -39,6 +40,17 @@ public class PlayerGroundState : PlayerState
         //UpAttack
         if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow))
             stateMachine.ChangeState(player.upAttack);
+
+        //집중(회복)
+
+        // A키를 계속 누르고 있는 중
+        if (Input.GetKey(KeyCode.A))
+        {
+            if (player.mp > 0 && SkillManager.instance.focus.CanUseSkill())
+            {
+                stateMachine.ChangeState(player.focusState);
+            }
+        }
     }
 
 }

@@ -16,8 +16,9 @@ public class Player : MonoBehaviour
     #region Info
     [Header("Stats")]
     public int money { get; set; } = 0;//지오
-    public int hp { get; set; } = 0;//체력
-    public float mp { get; set; } = 0;//영혼
+    public float hp { get; set; } = 100;//체력
+    public float maxHp { get; set; } = 100;//최대체력
+    public float mp { get; set; } = 100;//영혼
 
     [Header("공격 디테일")]
     public Vector2[] attackMovement;
@@ -43,6 +44,11 @@ public class Player : MonoBehaviour
     public float dashSpeed;
     public float dashDuration;
     public float dashDir { get; private set; }
+
+    [Header("집중 정보")]
+    public float focusTimer;
+    public float requiredFocusTime = 1.5f;
+    public bool isFocusing;
 
     [Header("넉백 정보")]
     [SerializeField] protected Vector2 knockbackDirection;
@@ -82,6 +88,7 @@ public class Player : MonoBehaviour
     public PlayerUpAttackState upAttack { get; private set; }
     public PlayerDownAttackState downAttack { get; private set; }
     public PlayerBenchState benchState { get; private set; }
+    public PlayerFocusState focusState { get; private set; }
     #endregion
 
 
@@ -103,6 +110,7 @@ public class Player : MonoBehaviour
         upAttack = new PlayerUpAttackState(this, stateMachine, "UpAttack");
         downAttack = new PlayerDownAttackState(this, stateMachine, "DownAttack");
         benchState = new PlayerBenchState(this, stateMachine, "Sitting");
+        focusState = new PlayerFocusState(this, stateMachine, "Focus");
     }
 
     protected virtual void Start()
