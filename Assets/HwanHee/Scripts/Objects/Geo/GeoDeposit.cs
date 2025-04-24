@@ -43,7 +43,6 @@ public class GeoDeposit : MonoBehaviour
         }
     }
 
-
     private IEnumerator ShakeCoroutine()
     {
         if (isShaking)
