@@ -70,6 +70,7 @@ public class Player : MonoBehaviour
     public int facingDir { get; private set; } = 1;
     protected bool facingRight = true;
     public bool isOnBench = false;
+    public bool isRidingLift = false;
 # endregion
 
     #region States
