@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
     public float focusTimer;
     public float requiredFocusTime = 1.5f;
     public bool isFocusing;
+    public float spiritDuration;
 
     [Header("넉백 정보")]
     [SerializeField] protected Vector2 knockbackDirection;
@@ -89,6 +90,7 @@ public class Player : MonoBehaviour
     public PlayerDownAttackState downAttack { get; private set; }
     public PlayerBenchState benchState { get; private set; }
     public PlayerFocusState focusState { get; private set; }
+    public PlayerSpiritState spiritState { get; private set; }
     #endregion
 
 
@@ -111,6 +113,7 @@ public class Player : MonoBehaviour
         downAttack = new PlayerDownAttackState(this, stateMachine, "DownAttack");
         benchState = new PlayerBenchState(this, stateMachine, "Sitting");
         focusState = new PlayerFocusState(this, stateMachine, "Focus");
+        spiritState = new PlayerSpiritState(this, stateMachine, "Spirit");
     }
 
     protected virtual void Start()

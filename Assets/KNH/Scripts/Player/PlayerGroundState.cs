@@ -3,6 +3,8 @@ using UnityEngine.UIElements;
 
 public class PlayerGroundState : PlayerState
 {
+    private float aKeyHoldTime = 0f;
+    private bool isAHolding = false;
     public PlayerGroundState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
@@ -41,16 +43,35 @@ public class PlayerGroundState : PlayerState
         if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow))
             stateMachine.ChangeState(player.upAttack);
 
-        //집중(회복)
-
-        // A키를 계속 누르고 있는 중
-        if (Input.GetKey(KeyCode.A))
+        //주문
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            if (player.mp > 0 && SkillManager.instance.focus.CanUseSkill())
+            aKeyHoldTime = 0f;
+            isAHolding = true;
+        }
+
+        // A 키를 누르고 있는 중
+        if (isAHolding && Input.GetKey(KeyCode.A))
+        {
+            aKeyHoldTime += Time.deltaTime;
+
+            if (aKeyHoldTime >= 0.3f && player.mp >= 50)
             {
+                isAHolding = false;
                 stateMachine.ChangeState(player.focusState);
             }
         }
-    }
 
+        // A 키를 뗐을 때 (1.5초 안 됐으면 spiritState로)
+        if (isAHolding && Input.GetKeyUp(KeyCode.A))
+        {
+            isAHolding = false;
+
+            if (aKeyHoldTime < 1.5f && player.mp >= 50)
+            {
+                stateMachine.ChangeState(player.spiritState);
+            }
+        }
+
+    }
 }
