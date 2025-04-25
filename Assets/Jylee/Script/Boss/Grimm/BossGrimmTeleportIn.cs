@@ -28,5 +28,8 @@ public class BossGrimmTeleportIn : BossGrimmState
     public override void Exit()
     {
         base.Exit();
+
+        // 중력 정상화
+        boss.rb.gravityScale = boss.bossGravity;
     }
 }
