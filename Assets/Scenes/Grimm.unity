@@ -2878,6 +2878,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5144642468764612947, guid: 8fc90544a848b004faf8705390abb3f2, type: 3}
+      propertyPath: shotEndDelay
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5144642468764612947, guid: 8fc90544a848b004faf8705390abb3f2, type: 3}
       propertyPath: bulletHellPos
       value: 
       objectReference: {fileID: 560125521}
@@ -2889,6 +2893,10 @@ PrefabInstance:
       propertyPath: teleportRightMax
       value: 
       objectReference: {fileID: 810143258}
+    - target: {fileID: 5144642468764612947, guid: 8fc90544a848b004faf8705390abb3f2, type: 3}
+      propertyPath: emeTeleportDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5144642468764612947, guid: 8fc90544a848b004faf8705390abb3f2, type: 3}
       propertyPath: spikeList.Array.size
       value: 13
@@ -12232,7 +12240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0
-  spiritPrefab: {fileID: 0}
+  spiritPrefab: {fileID: 4157484365331445197, guid: 9e8f354b51763364eaffed2b8a44b4c1, type: 3}
   spiritSpeed: 20
 --- !u!114 &1948109735
 MonoBehaviour:
