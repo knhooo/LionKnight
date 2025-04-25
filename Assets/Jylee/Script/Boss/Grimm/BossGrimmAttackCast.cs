@@ -5,6 +5,8 @@ public class BossGrimmAttackCast : BossGrimmState
     private bool isFiring;
     private bool isDone;
     private bool isEvade;
+    private bool isEmeTeleport;
+    private bool isFirstCancel;
 
     private int shotCount;
 
@@ -12,6 +14,8 @@ public class BossGrimmAttackCast : BossGrimmState
     private float secondShotTime;
     private float thirdShotTime;
     private float shotEndTime;
+
+    private int teleportCount;
 
     public BossGrimmAttackCast(BossGrimm _boss, BossGrimmStateMachine _stateMachine, string _animBoolName) : base(_boss, _stateMachine, _animBoolName)
     {
@@ -23,7 +27,10 @@ public class BossGrimmAttackCast : BossGrimmState
         isFiring = false;
         isDone = false;
         isEvade = false;
+        isEmeTeleport = false;
+        isFirstCancel = false;
         shotCount = 0;
+        teleportCount = 0;
         firstShotTime = boss.firstShotDelay;
         secondShotTime = boss.secondShotDelay;
         thirdShotTime = boss.thirdShotDelay;
@@ -33,6 +40,31 @@ public class BossGrimmAttackCast : BossGrimmState
     public override void Update()
     {
         base.Update();
+
+        if (!isFirstCancel && triggerCalled)
+        {
+            triggerCalled = false;
+            isFirstCancel = true;
+        }
+
+        if(isFirstCancel && triggerCalled && isEmeTeleport && !isFiring && !isDone)
+        {
+            triggerCalled = false;
+            teleportCount++;
+
+            if(teleportCount == 1)
+            {
+                boss.BossRandomTeleportSelect();
+                boss.BossFlip(false);
+            }
+
+            if(teleportCount == 3)
+            {
+                isFiring = true;
+                thirdShotTime = 0;
+                shotEndTime = boss.shotEndDelay;
+            }
+        }
 
         if (!isFiring && !isEvade)
         {
@@ -70,6 +102,30 @@ public class BossGrimmAttackCast : BossGrimmState
 
         if (isFiring)
         {
+            if(shotCount > 1 && shotCount < 3 && !isEmeTeleport)
+            {
+                // 긴급 텔레포트!
+                bool doEmeTeleport = false;
+                if (!boss.facingLeft && boss.transform.position.x - boss.emeTeleportDistance < boss.playerTransform.position.x)
+                {
+                    doEmeTeleport = true;
+                    Debug.Log(1);
+                }
+                else if(boss.facingLeft && boss.transform.position.x + boss.emeTeleportDistance > boss.playerTransform.position.x)
+                {
+                    doEmeTeleport = true;
+                    Debug.Log(2);
+                }
+
+                if (doEmeTeleport)
+                {
+                    isEmeTeleport = true;
+                    boss.anim.SetTrigger("IsEmeTeleport");
+                    isFiring = false;
+                    shotCount = 2;
+                }
+            }
+
             switch (shotCount)
             {
                 case 0:

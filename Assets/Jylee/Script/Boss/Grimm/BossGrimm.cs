@@ -37,6 +37,7 @@ public class BossGrimm : BossBase
     [Header("회피 관련")]
     public float evadeDistance;
     public float evadeSpeed;
+    public float emeTeleportDistance;
 
     [Header("위치 조정 관련")]
     [SerializeField] private float airDashYPos;
@@ -190,6 +191,7 @@ public class BossGrimm : BossBase
         {
             // 일반패턴 1~4
             nextAttackType = Random.Range(1, 5);
+            // nextAttackType = 2;
         }
     }
 
