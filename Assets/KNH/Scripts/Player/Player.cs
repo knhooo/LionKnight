@@ -16,9 +16,8 @@ public class Player : MonoBehaviour
     #region Info
     [Header("Stats")]
     public int money { get; set; } = 0;//지오
-    public float hp { get; set; } = 100;//체력
-    public float maxHp { get; set; } = 100;//최대체력
-    public float mp { get; set; } = 100;//영혼
+    public int hp { get; set; } = 0;//체력
+    public float mp { get; set; } = 0;//영혼
 
     [Header("공격 디테일")]
     public Vector2[] attackMovement;
@@ -45,12 +44,6 @@ public class Player : MonoBehaviour
     public float dashDuration;
     public float dashDir { get; private set; }
 
-    [Header("집중 정보")]
-    public float focusTimer;
-    public float requiredFocusTime = 1.5f;
-    public bool isFocusing;
-    public float spiritDuration;
-
     [Header("넉백 정보")]
     [SerializeField] protected Vector2 knockbackDirection;
     [SerializeField] protected float knockbackDuration;
@@ -70,7 +63,6 @@ public class Player : MonoBehaviour
     public int facingDir { get; private set; } = 1;
     protected bool facingRight = true;
     public bool isOnBench = false;
-    public bool isRidingLift = false;
 # endregion
 
     #region States
@@ -90,8 +82,6 @@ public class Player : MonoBehaviour
     public PlayerUpAttackState upAttack { get; private set; }
     public PlayerDownAttackState downAttack { get; private set; }
     public PlayerBenchState benchState { get; private set; }
-    public PlayerFocusState focusState { get; private set; }
-    public PlayerSpiritState spiritState { get; private set; }
     #endregion
 
 
@@ -113,8 +103,6 @@ public class Player : MonoBehaviour
         upAttack = new PlayerUpAttackState(this, stateMachine, "UpAttack");
         downAttack = new PlayerDownAttackState(this, stateMachine, "DownAttack");
         benchState = new PlayerBenchState(this, stateMachine, "Sitting");
-        focusState = new PlayerFocusState(this, stateMachine, "Focus");
-        spiritState = new PlayerSpiritState(this, stateMachine, "Spirit");
     }
 
     protected virtual void Start()

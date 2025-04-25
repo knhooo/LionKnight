@@ -19,10 +19,7 @@ public class PlayerAnimationTrigger : MonoBehaviour
         //    if (hit.GetComponent<Enemy>() != null)
         //        hit.GetComponent<Enemy>().Damage();
         //}
-    }
 
-    private void FocusTrigger()
-    {
-        SkillManager.instance.focus.UseFocusSkill();
+
     }
 }
