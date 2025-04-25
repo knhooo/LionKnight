@@ -96,6 +96,7 @@ public class Player : MonoBehaviour
     public PlayerFocusState focusState { get; private set; }
     public PlayerSpiritState spiritState { get; private set; }
     public PlayerHitState hitState { get; private set; }
+    public PlayerDeadState deadState { get; private set; }
     #endregion
 
 
@@ -119,6 +120,7 @@ public class Player : MonoBehaviour
         focusState = new PlayerFocusState(this, stateMachine, "Focus");
         spiritState = new PlayerSpiritState(this, stateMachine, "Spirit");
         hitState = new PlayerHitState(this, stateMachine, "Hit");
+        deadState = new PlayerDeadState(this, stateMachine, "Die");
     }
 
     protected virtual void Start()
@@ -140,6 +142,7 @@ public class Player : MonoBehaviour
     {
         stateMachine.currentState.Update();
         CheckForDashInput();
+
 
         //개발용 키
         if (Input.GetKeyDown(KeyCode.H))
@@ -301,10 +304,16 @@ public class Player : MonoBehaviour
             hp = maxHp;
         if (mp > maxMp)
             mp = maxMp;
-        if (hp < 0) hp = 0;//사망 처리
+        if (hp <= 0) Die();
         if (mp < 0) mp = 0;
 
         Debug.Log("Hp: " + hp + " MP: " + mp);
+    }
+
+    public void Die()
+    {
+        Debug.Log("죽음");
+        stateMachine.ChangeState(deadState);
     }
 }
 
