@@ -17,7 +17,6 @@ public class PlayerSpiritState : PlayerState
         player.SetZeroVelocity();
         stateTimer = player.spiritDuration;
 
-        player.mp -= 50;
         SkillManager.instance.spirit.UseSpiritSkill();
     }
 
