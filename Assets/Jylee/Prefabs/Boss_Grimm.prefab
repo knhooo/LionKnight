@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7432146800727823737}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: AirDashEffGen
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8471304311049945561}
   - component: {fileID: 3223755005183954026}
   - component: {fileID: 2021139835242585297}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,8 +107,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 909032279
-  m_SortingLayer: 8
+  m_SortingLayerID: 1216725891
+  m_SortingLayer: 7
   m_SortingOrder: 2
   m_Sprite: {fileID: 838421079, guid: 3656374a5ab97de4ca9bcfdf012028ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 5144642468764612947}
   - component: {fileID: 3264892858544539603}
   - component: {fileID: 6575472969598697225}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Boss_Grimm
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -190,7 +190,6 @@ Transform:
   - {fileID: 1674763804009939679}
   - {fileID: 1876287646020762697}
   - {fileID: 3655036682134925037}
-  - {fileID: 1225077949607673809}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5144642468764612947
@@ -227,40 +226,21 @@ MonoBehaviour:
   duDashDistance: 1
   duUppercutPower: 40
   duUppercutDistance: 8
-  duFireSpark: {fileID: 6534454856875585331, guid: 95dc9093c8616e543a758fc40be0af46, type: 3}
-  fireSparkSpace: 5
   batFirePoint: {fileID: 3655036682134925037}
   fireBatPrefab: {fileID: 6739540648568174289, guid: 44e63abb1dea38944a335bf880bbf13a, type: 3}
   firstShotDelay: 0.3
   secondShotDelay: 0.5
   thirdShotDelay: 0.2
   shotEndDelay: 0.2
-  spikeList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  evadeDistance: 4
-  evadeSpeed: 10
   airDashYPos: 4
-  teleportPlayerShortDistanceMin: 3
-  teleportPlayerShortDistanceMax: 4
-  teleportPlayerMidDistanceMin: 5
-  teleportPlayerMidDistanceMax: 8
-  teleportLeftMax: {fileID: 0}
-  teleportRightMax: {fileID: 0}
-  bulletHellPos: {fileID: 0}
+  teleportPlayerIntervalMin: 3
+  teleportPlayerIntervalMax: 6
   bossGravity: 0
   airDashTransform: {fileID: 7432146800727823737}
   groundDashTransform: {fileID: 1876287646020762697}
-  teleportEffTransform: {fileID: 1225077949607673809}
   airDashEff: {fileID: 938134908402305868, guid: deae9ab57140cfb40a143f4877af4397, type: 3}
   groundDashEff: {fileID: 7238936521093689245, guid: 1cdbe701c1a679342a7a3fb4b4ef8179, type: 3}
   landEff: {fileID: 1976536269412959973, guid: 0a6528841a4d214469116c74b0c69af4, type: 3}
-  teleportEff: {fileID: 7444804033130088038, guid: 5b6f173e2fee5dc4ea31b15c8b59de09, type: 3}
-  teleportSmokeEff: {fileID: 3040545226191380589, guid: a6601dcfccc585e4ca410a73773eab1a, type: 3}
-  castAttackEff: {fileID: 9113932396167134706, guid: b75d1d55a7a119240a2f984aa249a452, type: 3}
   playerTransform: {fileID: 0}
 --- !u!50 &3264892858544539603
 Rigidbody2D:
@@ -288,7 +268,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!61 &6575472969598697225
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -335,37 +315,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.94, y: 3.99}
   m_EdgeRadius: 0
---- !u!1 &3036712514614698755
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1225077949607673809}
-  m_Layer: 9
-  m_Name: TeleportEffPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1225077949607673809
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3036712514614698755}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.99, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2320613839350999958}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6798245316991243578
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1876287646020762697}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: GroundDashEffGen
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -406,7 +355,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3655036682134925037}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: GrimmFireBatPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}

@@ -15,8 +15,6 @@ public class BossGrimmIdle : BossGrimmState
     {
         base.Update();
 
-        boss.BossFlip(false);
-
         if (Input.GetKeyDown(KeyCode.A))
         {
             stateMachine.ChangeState(boss.greetState);

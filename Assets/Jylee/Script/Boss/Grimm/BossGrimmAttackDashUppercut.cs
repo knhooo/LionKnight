@@ -74,9 +74,6 @@ public class BossGrimmAttackDashUppercut : BossGrimmState
             rb.gravityScale = 0;
             boss.SetZeroVelocity();
 
-            // 스파크 생성
-            boss.BossGrimmSparkGenerate();
-
 
             stateType = 5;
             triggerCalled = false;
@@ -84,7 +81,6 @@ public class BossGrimmAttackDashUppercut : BossGrimmState
 
         if (triggerCalled && stateType == 5)
         {
-            boss.TeleportEffGenerate();
             boss.GrimmInVanish();
             triggerCalled = false;
         }

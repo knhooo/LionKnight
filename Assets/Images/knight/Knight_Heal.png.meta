@@ -32,6 +32,9 @@ TextureImporter:
   - first:
       213: 1194008257534535076
     second: Knight_Heal_9
+  - first:
+      213: -4583844280752883323
+    second: Knight_Heal_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -64,7 +67,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -182,12 +185,12 @@ TextureImporter:
       name: Knight_Heal_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
-        width: 84
-        height: 147
+        x: 17
+        y: 7
+        width: 75
+        height: 114
       alignment: 9
-      pivot: {x: 0.604599, y: 0.059868645}
+      pivot: {x: 0.6592023, y: 0.06283219}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -204,12 +207,12 @@ TextureImporter:
       name: Knight_Heal_1
       rect:
         serializedVersion: 2
-        x: 115
-        y: 2
-        width: 78
-        height: 146
+        x: 118
+        y: 8
+        width: 76
+        height: 124
       alignment: 9
-      pivot: {x: 0.59216404, y: 0.045912232}
+      pivot: {x: 0.5956308, y: 0.039475564}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -227,11 +230,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 217
-        y: 0
+        y: 9
         width: 79
-        height: 145
+        height: 124
       alignment: 9
-      pivot: {x: 0.58088666, y: 0.07032399}
+      pivot: {x: 0.5919993, y: 0.060408484}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -248,12 +251,12 @@ TextureImporter:
       name: Knight_Heal_3
       rect:
         serializedVersion: 2
-        x: 315
-        y: 2
-        width: 87
-        height: 146
+        x: 320
+        y: 9
+        width: 83
+        height: 134
       alignment: 9
-      pivot: {x: 0.35310206, y: 0.045912232}
+      pivot: {x: 0.3561431, y: 0.042849705}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -271,11 +274,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 433
-        y: 0
+        y: 4
         width: 83
-        height: 132
+        height: 134
       alignment: 9
-      pivot: {x: 0.36526966, y: 0.05221206}
+      pivot: {x: 0.3373792, y: 0.08159136}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -292,12 +295,12 @@ TextureImporter:
       name: Knight_Heal_5
       rect:
         serializedVersion: 2
-        x: 551
-        y: 1
+        x: 552
+        y: 6
         width: 83
-        height: 133
+        height: 134
       alignment: 9
-      pivot: {x: 0.31715116, y: 0.049573265}
+      pivot: {x: 0.3436338, y: 0.050598074}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -314,12 +317,12 @@ TextureImporter:
       name: Knight_Heal_6
       rect:
         serializedVersion: 2
-        x: 668
-        y: 3
+        x: 669
+        y: 10
         width: 108
         height: 120
       alignment: 9
-      pivot: {x: 0.5147914, y: 0.06068376}
+      pivot: {x: 0.50961417, y: 0.063060015}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -336,12 +339,12 @@ TextureImporter:
       name: Knight_Heal_7
       rect:
         serializedVersion: 2
-        x: 806
-        y: 0
+        x: 807
+        y: 8
         width: 87
         height: 132
       alignment: 9
-      pivot: {x: 0.48163754, y: 0.070365615}
+      pivot: {x: 0.48209915, y: 0.055587493}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -358,12 +361,12 @@ TextureImporter:
       name: Knight_Heal_8
       rect:
         serializedVersion: 2
-        x: 928
-        y: 6
+        x: 929
+        y: 13
         width: 69
         height: 129
       alignment: 9
-      pivot: {x: 0.59260803, y: 0.07894986}
+      pivot: {x: 0.507525, y: 0.06134953}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -380,7 +383,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d612cd8aed6358d4899bf505abf71c99
+    spriteID: f209d8054e3eb454191181c24c44c40d
     internalID: 0
     vertices: []
     indices: 
@@ -392,6 +395,7 @@ TextureImporter:
     nameFileIdTable:
       Knight_Heal_0: -6344480691956972736
       Knight_Heal_1: 7864761547171843019
+      Knight_Heal_10: -4583844280752883323
       Knight_Heal_2: -4490278502625508833
       Knight_Heal_3: -1646665365853160065
       Knight_Heal_4: -5514354223524132688
@@ -399,6 +403,7 @@ TextureImporter:
       Knight_Heal_6: 4175264587693959542
       Knight_Heal_7: -7624280117633282920
       Knight_Heal_8: 1463419601234703878
+      Knight_Heal_9: 1194008257534535076
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

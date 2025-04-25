@@ -3,41 +3,32 @@ guid: 52f2434bb014d9d4193d81f99d2cfc67
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4463601529666964615
-    second: Spirit_0
+      213: 3493306487073949199
+    second: Knight_Spirit_0
   - first:
-      213: -969724790046378131
-    second: Spirit_1
+      213: 6517805048279998924
+    second: Knight_Spirit_1
   - first:
-      213: 7925064790244156110
-    second: Spirit_2
+      213: -9061936766241320620
+    second: Knight_Spirit_2
   - first:
-      213: 655550505277896186
-    second: Spirit_3
+      213: 6172249629628201972
+    second: Knight_Spirit_3
   - first:
-      213: 2892353695852732842
-    second: Spirit_4
+      213: -7390720437804979482
+    second: Knight_Spirit_4
   - first:
-      213: 3408330909547473226
-    second: Spirit_5
+      213: 4824325603981913923
+    second: Knight_Spirit_5
   - first:
-      213: 5222360461902801728
-    second: Spirit_6
+      213: -6703939602925365986
+    second: Knight_Spirit_6
   - first:
-      213: -8270009904400149013
-    second: Spirit_7
+      213: 7367996102446590129
+    second: Knight_Spirit_7
   - first:
-      213: -8489005896818273317
-    second: Spirit_8
-  - first:
-      213: -7606748706098406175
-    second: Spirit_9
-  - first:
-      213: 9191084973874194292
-    second: Spirit_10
-  - first:
-      213: -6920612247066629199
-    second: Spirit_11
+      213: 7376512522090724093
+    second: Knight_Spirit_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -185,13 +176,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spirit_1
+      name: Knight_Spirit_0
       rect:
         serializedVersion: 2
-        x: 48
-        y: 17
-        width: 95
-        height: 105
+        x: 37
+        y: 9
+        width: 109
+        height: 121
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,63 +191,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d673567f078da82f0800000000000000
-      internalID: -969724790046378131
+      spriteID: f064c9dddb7ba7030800000000000000
+      internalID: 3493306487073949199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spirit_3
+      name: Knight_Spirit_2
       rect:
         serializedVersion: 2
-        x: 164
-        y: 26
-        width: 224
-        height: 94
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: af5ba6716bbf81900800000000000000
-      internalID: 655550505277896186
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirit_4
-      rect:
-        serializedVersion: 2
-        x: 437
-        y: 23
-        width: 203
-        height: 87
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aa1271eac54b32820800000000000000
-      internalID: 2892353695852732842
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirit_5
-      rect:
-        serializedVersion: 2
-        x: 678
-        y: 26
-        width: 241
+        x: 156
+        y: 16
+        width: 243
         height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -266,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a49af8477e2dc4f20800000000000000
-      internalID: 3408330909547473226
+      spriteID: 4515227f5888d3280800000000000000
+      internalID: -9061936766241320620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spirit_6
+      name: Knight_Spirit_4
       rect:
         serializedVersion: 2
-        x: 963
-        y: 26
-        width: 248
-        height: 87
+        x: 432
+        y: 11
+        width: 216
+        height: 113
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,8 +235,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 04be2ccbb2d897840800000000000000
-      internalID: 5222360461902801728
+      spriteID: 6ea2a666be2ee6990800000000000000
+      internalID: -7390720437804979482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Spirit_5
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 11
+        width: 263
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34fe922939273f240800000000000000
+      internalID: 4824325603981913923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Spirit_6
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 15
+        width: 272
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e15d5fb3372d6f2a0800000000000000
+      internalID: -6703939602925365986
       vertices: []
       indices: 
       edges: []
@@ -298,7 +289,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f6b188cfdd354ce44bb9ff79314cb4d2
+    spriteID: 7c8ddb322ba1b804abb82ab119d0779b
     internalID: 0
     vertices: []
     indices: 
@@ -308,11 +299,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Spirit_1: -969724790046378131
-      Spirit_3: 655550505277896186
-      Spirit_4: 2892353695852732842
-      Spirit_5: 3408330909547473226
-      Spirit_6: 5222360461902801728
+      Knight_Spirit_0: 3493306487073949199
+      Knight_Spirit_2: -9061936766241320620
+      Knight_Spirit_4: -7390720437804979482
+      Knight_Spirit_5: 4824325603981913923
+      Knight_Spirit_6: -6703939602925365986
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
