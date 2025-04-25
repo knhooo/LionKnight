@@ -9,6 +9,10 @@ public class PlayerAirState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        if (player.isRidingLift)
+        {
+            stateMachine.ChangeState(player.idleState);
+        }
     }
 
     public override void Exit()
