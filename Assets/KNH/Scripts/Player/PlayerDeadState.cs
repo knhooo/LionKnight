@@ -15,7 +15,7 @@ public class PlayerDeadState : PlayerState
     {
         base.Enter();
         player.SetZeroVelocity();
-        //stateTimer = 1.5f;
+        stateTimer = 1.5f;
     }
 
     public override void Exit()

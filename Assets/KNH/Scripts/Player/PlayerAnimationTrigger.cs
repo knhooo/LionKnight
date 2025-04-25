@@ -3,6 +3,10 @@ using UnityEngine;
 public class PlayerAnimationTrigger : MonoBehaviour
 {
     private Player player => GetComponentInParent<Player>();
+    private SceneFader sceneFader => FindAnyObjectByType<SceneFader>();
+
+    [SerializeField] private GameObject head;
+    [SerializeField] private GameObject ghost;
 
     private void AnimationTrigger()
     {
@@ -24,5 +28,15 @@ public class PlayerAnimationTrigger : MonoBehaviour
     private void FocusTrigger()
     {
         SkillManager.instance.focus.UseFocusSkill();
+    }
+
+    private void DieAnimation()
+    {
+        Instantiate(head, transform.position, Quaternion.identity);
+        Instantiate(ghost, transform.position, Quaternion.identity);
+    }
+    private void ReSpawn()
+    {
+        sceneFader.FadeToScene("Dirtmouth");
     }
 }

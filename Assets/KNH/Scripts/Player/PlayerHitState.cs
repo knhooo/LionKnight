@@ -15,6 +15,8 @@ public class PlayerHitState : PlayerState
     public override void Update()
     {
         base.Update();
+        if (player.hp <= 0)
+            stateMachine.ChangeState(player.deadState);
         if(stateTimer < 0.5)
         {
             if(player.IsGroundDetected() || player.IsWallDetected())

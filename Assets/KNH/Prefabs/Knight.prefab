@@ -365,3 +365,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e63c904ab4e0f40898f7cf3a35a84c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  head: {fileID: 5213338638322737426, guid: cd9d5fb507e442c4b82c3e7a2a75d045, type: 3}
+  ghost: {fileID: 8661588278632172482, guid: b81a5c64a31b80a439732dde5a260652, type: 3}
