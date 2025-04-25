@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Linq;
-using System.Net;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class Lift : ShakeObject
@@ -29,22 +26,26 @@ public class Lift : ShakeObject
     private bool canMoveStart = true;
     private bool isArrive = true;
 
-    // 플레이어가 감지되면 무조건 움직임
-    // 출발, 도착할 때 shake
-    // 도착하고나서 다시 플레이어 감지되어야 움직이게
     private void Update()
     {
         Collider2D collider = Physics2D.OverlapBox(LiftCheck.position, boxSize, 0, targetLayer);
         if (collider != null && collider.gameObject.GetComponent<Player>() && canMoveStart)
         {
+            PlayerManager.instance.player.transform.SetParent(transform);
+
             isArrive = false;
             canMoveStart = false;
             Shake(transform, false);
             Invoke("MoveLift", duration + 0.1f);
         }
 
-        else if (isArrive && collider == null)
+        else if (isArrive && !canMoveStart && collider == null)
             canMoveStart = true;
+
+        if (PlayerManager.instance.player.transform.parent == transform && collider == null)
+        {
+            PlayerManager.instance.player.transform.SetParent(null);
+        }
     }
 
     private void MoveLift()
@@ -92,7 +93,9 @@ public class Lift : ShakeObject
         isArrive = true;
 
         if (target.gameObject.GetComponent<Lift>())
+        {
             Shake(target, false);
+        }
     }
 
     private IEnumerator RotateWheel()
