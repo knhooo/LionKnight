@@ -22,12 +22,9 @@ public class HuskBullyController : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Collider2D enemyCollider;
     [SerializeField] private Transform wallCheck;
-<<<<<<< Updated upstream
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Transform leftLimit;
     [SerializeField] private Transform rightLimit;
-=======
->>>>>>> Stashed changes
 
     [Header("Settings")]
     [SerializeField] private float walkSpeed = 2f;
@@ -35,29 +32,11 @@ public class HuskBullyController : MonoBehaviour
     [SerializeField] private float attackCooldownTime = 1f;
     [SerializeField] private float attackPrepTime = 0.5f;
     [SerializeField] private float deathKnockbackForce = 5f;
-    [SerializeField] private float wallCheckDistance = 3f;
-    [SerializeField] private LayerMask wallLayer;
 
     private State currentState = State.Idle;
     private float stateTimer = 0f;
-<<<<<<< Updated upstream
     private bool facingRight = false;
     private bool hasTurnedRecently = false;
-=======
-    private bool facingRight = false; // HuskBully 기본 방향 좌측
-    private bool isTurning = false;
-
-    private readonly Dictionary<State, string> stateTriggers = new()
-    {
-        { State.Walk, "isWalk" },
-        { State.Turn, "isTurn" },
-        { State.AttackPrep, "isAttack1" },
-        { State.Attack, "isAttack2" },
-        { State.AttackCooldown, "isCoolDown" },
-        { State.DeathAir, "isDeathAir" },
-        { State.DeathLand, "isDeathLand" }
-    };
->>>>>>> Stashed changes
 
     private void Update()
     {
@@ -67,7 +46,6 @@ public class HuskBullyController : MonoBehaviour
 
     private void HandleState()
     {
-<<<<<<< Updated upstream
         if (IsWallAhead() && !hasTurnedRecently && currentState == State.Walk)
         {
             rb.linearVelocity = Vector2.zero;
@@ -77,18 +55,12 @@ public class HuskBullyController : MonoBehaviour
         }
         SetAnimatorStates();
 
-=======
->>>>>>> Stashed changes
         switch (currentState)
         {
             case State.Idle:
                 if (stateTimer <= 0f)
                 {
-<<<<<<< Updated upstream
                     hasTurnedRecently = false;
-=======
-                    isTurning = false;
->>>>>>> Stashed changes
                     TransitionTo(State.Walk);
                 }
                 break;
@@ -99,15 +71,6 @@ public class HuskBullyController : MonoBehaviour
                 {
                     rb.linearVelocity = Vector2.zero;
                     TransitionTo(State.AttackPrep, attackPrepTime);
-<<<<<<< Updated upstream
-=======
-                }
-                else if (IsWallAhead() && !isTurning)
-                {
-                    rb.linearVelocity = Vector2.zero;
-                    isTurning = true;
-                    TransitionTo(State.Turn, 0.5f);
->>>>>>> Stashed changes
                 }
                 else if (IsWallAhead() && !hasTurnedRecently)
                 {
@@ -124,7 +87,6 @@ public class HuskBullyController : MonoBehaviour
                 break;
 
             case State.Turn:
-<<<<<<< Updated upstream
                 if (stateTimer <= 0f)
                 {
                     Flip();
@@ -148,41 +110,14 @@ public class HuskBullyController : MonoBehaviour
                 break;
 
             case State.AttackCooldown:
-=======
->>>>>>> Stashed changes
                 if (stateTimer <= 0f)
                 {
                     TransitionTo(State.Idle);
                 }
                 break;
 
-<<<<<<< Updated upstream
             case State.DeathAir:
                 rb.linearVelocity = Vector2.zero;
-=======
-            case State.AttackPrep:
-                if (stateTimer <= 0f)
-                {
-                    TransitionTo(State.Attack, 0.4f);
-                }
-                break;
-
-            case State.Attack:
-                if (stateTimer <= 0f)
-                {
-                    TransitionTo(State.AttackCooldown, attackCooldownTime);
-                }
-                break;
-
-            case State.AttackCooldown:
-                if (stateTimer <= 0f)
-                {
-                    TransitionTo(State.Idle);
-                }
-                break;
-
-            case State.DeathAir:
->>>>>>> Stashed changes
                 break;
 
             case State.DeathLand:
@@ -192,7 +127,6 @@ public class HuskBullyController : MonoBehaviour
         }
     }
 
-<<<<<<< Updated upstream
     private void SetAnimatorStates()
     {
         animator.SetBool("isWalk", currentState == State.Walk);
@@ -206,17 +140,6 @@ public class HuskBullyController : MonoBehaviour
         return hit.collider != null && hit.collider != enemyCollider;
     }
 
-=======
-    private bool IsWallAhead()
-    {
-        Vector2 direction = facingRight ? Vector2.right : Vector2.left;
-        Debug.DrawRay(wallCheck.position, direction * wallCheckDistance, Color.red); // 시각화
-        RaycastHit2D hit = Physics2D.Raycast(wallCheck.position, direction, wallCheckDistance, wallLayer);
-        return hit.collider != null;
-    }
-
-
->>>>>>> Stashed changes
     private void ResetAllTriggers()
     {
         animator.ResetTrigger("isAttack1");
@@ -232,7 +155,6 @@ public class HuskBullyController : MonoBehaviour
         if (currentState == newState) return;
 
         ResetAllTriggers();
-<<<<<<< Updated upstream
 
         if (newState == State.AttackPrep) animator.SetTrigger("isAttack1");
         if (newState == State.Attack) animator.SetTrigger("isAttack2");
@@ -241,12 +163,6 @@ public class HuskBullyController : MonoBehaviour
         if (newState == State.DeathLand) animator.SetTrigger("isDeathLand");
         if (newState == State.Turn) animator.SetTrigger("isTurn");
 
-=======
-        if (stateTriggers.TryGetValue(newState, out var trigger))
-        {
-            animator.SetTrigger(trigger);
-        }
->>>>>>> Stashed changes
         currentState = newState;
         stateTimer = timer;
     }
@@ -257,11 +173,7 @@ public class HuskBullyController : MonoBehaviour
                player.position.x >= leftLimit.position.x && player.position.x <= rightLimit.position.x;
     }
 
-<<<<<<< Updated upstream
     void Flip()
-=======
-    public void Flip()
->>>>>>> Stashed changes
     {
         facingRight = !facingRight;
         spriteRenderer.flipX = facingRight;
