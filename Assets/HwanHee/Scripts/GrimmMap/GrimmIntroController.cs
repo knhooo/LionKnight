@@ -20,6 +20,11 @@ public class GrimmIntroController : MonoBehaviour
     [SerializeField] private float shakeFrequency = 8.0f; 
     [SerializeField] private float shakeDuration = 0.5f;  
 
+    [Header("효과1")]
+    [SerializeField] private float grimmLight1FadeDuration = 0.1f;
+    [SerializeField] private ParticleSystem particleSystemToPlay;
+    [SerializeField] private GrimmLight grimmLight1;
+
     Player player;
 
     private void Awake()
@@ -33,11 +38,6 @@ public class GrimmIntroController : MonoBehaviour
     private void Update()
     {
 
-    }
-
-    private void StartShakeCamera()
-    {
-        cameraConfiner.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, shakeDuration);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -73,10 +73,17 @@ public class GrimmIntroController : MonoBehaviour
 
             if (transform.position == CameraPos[CameraPos.Length - 1].position)
             {
-                Invoke("StartShakeCamera", shakeDelay);
+                Invoke("StartEffect1", shakeDelay);
                 break;
             }
         }
+    }
+
+    private void StartEffect1()
+    {
+        cameraConfiner.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, shakeDuration);
+        particleSystemToPlay.Play();
+        grimmLight1.StartFadeIn(grimmLight1FadeDuration);
     }
 
     private void SwitchConfiner() => cameraConfiner.GetComponent<CinemachineConfiner2D>().BoundingShape2D = bossCameraBoundingShape;
