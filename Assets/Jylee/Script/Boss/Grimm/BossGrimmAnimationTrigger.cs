@@ -23,9 +23,4 @@ public class BossGrimmAnimationTrigger : MonoBehaviour
     {
         boss.GroundDashEffGenerate();
     }
-
-    private void ZeroVelocity()
-    {
-        boss.SetZeroVelocity();
-    }
 }
