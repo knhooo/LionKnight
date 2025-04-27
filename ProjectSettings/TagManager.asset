@@ -20,7 +20,7 @@ TagManager:
   - Boss
   - Bench
   - Geo
-  - 
+  - Effect
   - 
   - 
   - 
@@ -64,6 +64,9 @@ TagManager:
     locked: 0
   - name: Boss
     uniqueID: 909032279
+    locked: 0
+  - name: Effect
+    uniqueID: 490947673
     locked: 0
   m_RenderingLayers:
   - Default

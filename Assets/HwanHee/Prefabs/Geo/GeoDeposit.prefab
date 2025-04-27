@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1848385223
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 0acc64df8e9d96a4589eb148a1cdf55a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -113,7 +113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8027588139407633892}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 28.549, y: 1.593, z: 0}
   m_LocalScale: {x: 1.0753, y: 1.0753, z: 1.0753}
   m_ConstrainProportionsScale: 0
@@ -133,10 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2cefcdfc6458b45b2a6b241fedff6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amount: 0.1
+  frequency: 10
+  duration: 0.1
   sprite: {fileID: 21300000, guid: ed931c170d6c70f4496c4306655cf91a, type: 3}
-  shakeAmount: 0.1
-  shakeSpeed: 20
-  shakeDuration: 0.2
   geoPrefab: {fileID: 3301233404599489056, guid: ef292114d3d0fa34ba546ef8c5650c13, type: 3}
 --- !u!61 &3353347141115343203
 BoxCollider2D:
