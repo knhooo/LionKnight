@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Net.Security;
 using UnityEngine;
 
 public class GrimmBackgroundScaleController : MonoBehaviour
@@ -6,12 +7,10 @@ public class GrimmBackgroundScaleController : MonoBehaviour
     [SerializeField] float scaleSpeed;
     [SerializeField] float delayTime;
     [SerializeField] Vector3 maxScale = Vector3.one;
+    [SerializeField] AudioSource heartBeatAudio;
 
-    SpriteRenderer sp;
-
-    private void Awake()
+    private void Start()
     {
-        sp = GetComponent<SpriteRenderer>();
         StartCoroutine(Pulsate());
     }
 
@@ -24,6 +23,9 @@ public class GrimmBackgroundScaleController : MonoBehaviour
             time += Time.deltaTime * scaleSpeed;
             float t = Mathf.Sin(time);
             transform.localScale = Vector3.Lerp(originScale, maxScale, t);
+
+            if (Vector3.Distance(transform.localScale, maxScale) < 0.03f && heartBeatAudio != null && !heartBeatAudio.isPlaying)
+                heartBeatAudio.Play();
 
             if (t <= 0)
             {
