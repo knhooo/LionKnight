@@ -251,7 +251,7 @@ public class GrimmIntroController : MonoBehaviour
         grimmShape.StartFadeInOut(canvasFadeOutDuration, 1f, 0f);
         TurnOffEffects();
 
-        heartBeatAudio.Stop();
+        heartBeatAudio.gameObject.SetActive(false);
     }
 
     private IEnumerator MoveToPlayer()
