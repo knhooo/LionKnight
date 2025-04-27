@@ -18,6 +18,7 @@ public class GrimmIntroController : MonoBehaviour
     [Header("BGM")]
     [SerializeField] private AudioSource heartBeatAudio;
     [SerializeField] private AudioSource bossBGM;
+    [SerializeField] private AudioSource bossSFX;
     [SerializeField] private BurstAudio burstAudio;
     [SerializeField] private AudioSource burstAudioLoop;
 
@@ -35,8 +36,8 @@ public class GrimmIntroController : MonoBehaviour
 
     [Space]
     [Header("효과2")]
-    [SerializeField] private float effectStartDelay2 = 1f;
-    [SerializeField] private float effectDurtaion2 = 1f;
+    [SerializeField] private float effect2StartDelay = 1f;
+    [SerializeField] private float effect2Durtaion = 1f;
     [SerializeField] private FadeInOutObject grimmIntroLight2;
     [SerializeField] private float particleEmission = 800f;
 
@@ -46,8 +47,8 @@ public class GrimmIntroController : MonoBehaviour
 
     [Space]
     [Header("효과3")]
-    [SerializeField] private float effectStartDelay3 = 1.5f;
-    [SerializeField] private float effectDurtaion3 = 2f;
+    [SerializeField] private float effect3StartDelay = 1.5f;
+    [SerializeField] private float effect3Durtaion = 2f;
     [SerializeField] private GameObject FVX;
 
     [Header("카메라 Shake")]
@@ -87,6 +88,12 @@ public class GrimmIntroController : MonoBehaviour
         TurnOffEffects();
         grimmShape.gameObject.SetActive(false);
         fadeSprite.gameObject.SetActive(true);
+
+        if(isInIntro)
+        {
+            fadeSprite.gameObject.SetActive(false);
+        }
+        
     }
 
     private void TurnOffEffects()
@@ -99,7 +106,7 @@ public class GrimmIntroController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform == bossStartTrigger.transform)
+        if (collision.transform == bossStartTrigger.transform && !isInIntro)
         {
             isInIntro = true;
             destination = player.transform.position;
@@ -151,33 +158,40 @@ public class GrimmIntroController : MonoBehaviour
         grimmIntroLight1.gameObject.SetActive(true);
         grimmIntroLight1.StartFadeInOut(grimmLight1FadeDuration, 0f, 1f);
 
-        Invoke("PlayEffect2", effectStartDelay2);
+        Invoke("PlayEffect2", effect2StartDelay);
     }
 
 
     private void PlayEffect2()
     {
-        cinemachineCamera.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude2, shakeFrequency2, effectDurtaion2);
+        cinemachineCamera.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude2, shakeFrequency2, effect2Durtaion);
 
         burstAudio.Play(1);
 
         particleSystemPlay.Stop();
         var emission = particleSystemPlay.emission;
         emission.rateOverTime = particleEmission;
+        Invoke("StopParticleSystem", effect2Durtaion);
         particleSystemPlay.Play();
 
         grimmIntroLight2.gameObject.SetActive(true);
         grimmIntroLight2.StartFadeInOut(grimmLight1FadeDuration, 0f, 1f);
 
-        Invoke("PlayEffect3", effectStartDelay3);
+        Invoke("PlayEffect3", effect3StartDelay);
     }
+
+    private void StopParticleSystem()
+    {
+        particleSystemPlay.Stop();
+    }
+
 
     private void PlayEffect3()
     {
         burstAudio.Play(2);
         burstAudioLoop.Play();
 
-        cinemachineCamera.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude3, shakeFrequency3, effectDurtaion3);
+        cinemachineCamera.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude3, shakeFrequency3, effect3Durtaion);
         FVX.SetActive(true);
         Invoke("GrimmShapeSetScale", grimmShapeActiveTime);
     }
@@ -224,6 +238,8 @@ public class GrimmIntroController : MonoBehaviour
         grimmTextCanvas.gameObject.SetActive(true);
 
         burstAudioLoop.Stop();
+        bossSFX.time = 0.1f;
+        bossSFX.Play();
         bossBGM.Play();
 
         Invoke("EffectFinish", finalEffectDurtaion);
