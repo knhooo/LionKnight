@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Grimm.unity
     guid: 7d8fd3544f6fd524893cc76eccb6bda4
+  - enabled: 1
+    path: Assets/Scenes/Store.unity
+    guid: 899f3cd3dfd5b83418115e4c492fb60c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
