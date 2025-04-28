@@ -90,7 +90,7 @@ public class CameraMove : MonoBehaviour
 
     public void ChangeCameraOffset(float newOffset)
     {
-        if (!isCameraMoving)
+        if (this != null && !isCameraMoving)
         {
             StartCoroutine(MoveCamera(positionComposer.TargetOffset.y, newOffset));
         }
