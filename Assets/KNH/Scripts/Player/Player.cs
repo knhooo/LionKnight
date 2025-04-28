@@ -73,6 +73,7 @@ public class Player : MonoBehaviour
     protected bool facingRight = true;
     public bool isOnBench = false;
     public bool isRidingLift = false;
+    public bool isInIntro = false;
 
     private Coroutine flashRoutine;
     #endregion
@@ -143,6 +144,12 @@ public class Player : MonoBehaviour
     {
         stateMachine.currentState.Update();
         CheckForDashInput();
+
+        if (isInIntro)
+        {
+            SetZeroVelocity();
+            stateMachine.ChangeState(idleState);
+        }
 
 
         //개발용 키
