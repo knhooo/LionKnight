@@ -66,7 +66,7 @@ public class BossGrimmAttackCast : BossGrimmState
             }
         }
 
-        if (!isFiring && !isEvade)
+        if (!isFiring && !isEvade && !isFirstCancel)
         {
             bool doEvade = false;
             if(!boss.facingLeft && boss.transform.position.x - boss.evadeDistance < boss.playerTransform.position.x)
