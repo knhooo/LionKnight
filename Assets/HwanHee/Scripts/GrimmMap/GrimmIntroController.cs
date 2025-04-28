@@ -76,7 +76,6 @@ public class GrimmIntroController : MonoBehaviour
     private Vector3 destination;
 
     public bool isBossStart = false;
-    public bool isInIntro = false;
 
     private void Awake()
     {
@@ -92,7 +91,7 @@ public class GrimmIntroController : MonoBehaviour
         grimmShape.gameObject.SetActive(false);
         fadeSprite.gameObject.SetActive(true);
 
-        if(isInIntro)
+        if(player.isInIntro)
         {
             fadeSprite.gameObject.SetActive(false);
         }
@@ -109,9 +108,9 @@ public class GrimmIntroController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform == bossStartTrigger.transform && !isInIntro && isIntroPlay)
+        if (collision.transform == bossStartTrigger.transform && !player.isInIntro && isIntroPlay)
         {
-            isInIntro = true;
+            player.isInIntro = true;
             destination = player.transform.position;
 
             bossStartTrigger.gameObject.SetActive(false);
@@ -274,7 +273,7 @@ public class GrimmIntroController : MonoBehaviour
         gameObject.SetActive(false);
 
         isBossStart = true;
-        isInIntro = false;
+        player.isInIntro = false;
     }
 
     private void SwitchConfiner() => cinemachineCamera.GetComponent<CinemachineConfiner2D>().BoundingShape2D = bossCameraBoundingShape;
