@@ -21,7 +21,6 @@ public class Spirit_Skill : Skill
         SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
         if (sr != null)
             sr.flipX = player.facingDir == -1;
-
-        Debug.Log("Hp: " + player.hp + " MP: " + player.mp);
+        player.SetHPandMP(0, -50);
     }
 }

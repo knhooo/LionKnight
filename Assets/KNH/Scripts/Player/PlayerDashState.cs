@@ -10,6 +10,7 @@ public class PlayerDashState : PlayerState
     {
         base.Enter();
         stateTimer = player.dashDuration;
+        player.SetZeroVelocity();
     }
 
 
