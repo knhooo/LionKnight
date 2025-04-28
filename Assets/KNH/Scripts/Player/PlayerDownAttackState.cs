@@ -19,6 +19,7 @@ public class PlayerDownAttackState : PlayerState
             attackDir = xInput;
         }
         stateTimer = 0.1f;
+        player.attackCheck.localPosition = new Vector3(0, -0.29f, 0);
     }
 
     public override void Exit()
@@ -26,6 +27,7 @@ public class PlayerDownAttackState : PlayerState
         base.Exit();
         player.StartCoroutine("BusyFor", 0.1f);
         player.anim.speed = 1;
+        player.attackCheck.localPosition = new Vector3(1.1f, 0.578f, 0);
     }
 
     public override void Update()
