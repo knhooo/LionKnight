@@ -14,8 +14,6 @@ public class CameraMove : MonoBehaviour
     private bool isCameraMoving = false;
     private float originOffset;
 
-
-
     void Start()
     {
         cineCam = GetComponent<CinemachineCamera>();
