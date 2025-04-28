@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
     [SerializeField] protected Transform groundCheck;
     [SerializeField] protected float groundCheckDistance;
     [SerializeField] protected Transform wallCheck;
+    [SerializeField] public Transform headPos;
     [SerializeField] protected float wallCheckDistance;
     [SerializeField] protected LayerMask whatIsGround;
     [SerializeField] protected LayerMask whatIsBench;
@@ -145,13 +146,20 @@ public class Player : MonoBehaviour
 
 
         //개발용 키
+        //피격
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeDamage();
         }
+        //회복
         if (Input.GetKeyDown(KeyCode.F))
         {
             SetHPandMP(maxHp, maxMp);
+        }
+        //즉사
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            SetHPandMP(-100, 0);
         }
     }
 
