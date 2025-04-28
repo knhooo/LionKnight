@@ -78,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 909032279
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 3
   m_Sprite: {fileID: -1213015914, guid: 3656374a5ab97de4ca9bcfdf012028ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -201,3 +201,4 @@ MonoBehaviour:
   xMoveSpeed: 15
   yMoveSpeed: 15
   duration: 5
+  fireBatSound: {fileID: 8300000, guid: 52e9f5a82024f3f42a9a00b333fd457b, type: 3}

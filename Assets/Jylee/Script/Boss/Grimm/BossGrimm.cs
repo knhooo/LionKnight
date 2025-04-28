@@ -190,8 +190,8 @@ public class BossGrimm : BossBase
         else
         {
             // 일반패턴 1~4
-            nextAttackType = Random.Range(1, 5);
-            // nextAttackType = 2;
+            // nextAttackType = Random.Range(1, 5);
+            nextAttackType = 2;
         }
     }
 
