@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8367955103212464245}
   - component: {fileID: 5172035514591977165}
   - component: {fileID: 5969869007194310852}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FireBat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,9 +77,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1216725891
-  m_SortingLayer: 7
-  m_SortingOrder: 2
+  m_SortingLayerID: 909032279
+  m_SortingLayer: 8
+  m_SortingOrder: 3
   m_Sprite: {fileID: -1213015914, guid: 3656374a5ab97de4ca9bcfdf012028ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -201,3 +201,4 @@ MonoBehaviour:
   xMoveSpeed: 15
   yMoveSpeed: 15
   duration: 5
+  fireBatSound: {fileID: 8300000, guid: 52e9f5a82024f3f42a9a00b333fd457b, type: 3}

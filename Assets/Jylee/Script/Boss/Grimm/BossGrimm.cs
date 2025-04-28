@@ -20,6 +20,8 @@ public class BossGrimm : BossBase
     public float duDashDistance;
     public float duUppercutPower;
     public float duUppercutDistance;
+    [SerializeField] private GameObject duFireSpark;
+    [SerializeField] private float fireSparkSpace;
 
     [Header("박쥐 소환 공격")]
     public Transform batFirePoint;
@@ -29,10 +31,23 @@ public class BossGrimm : BossBase
     public float thirdShotDelay;
     public float shotEndDelay;
 
+    [Header("가시 망토 공격")]
+    public GameObject[] spikeList;
+
+    [Header("회피 관련")]
+    public float evadeDistance;
+    public float evadeSpeed;
+    public float emeTeleportDistance;
+
     [Header("위치 조정 관련")]
     [SerializeField] private float airDashYPos;
-    [SerializeField] private float teleportPlayerIntervalMin;
-    [SerializeField] private float teleportPlayerIntervalMax;
+    [SerializeField] private float teleportPlayerShortDistanceMin;
+    [SerializeField] private float teleportPlayerShortDistanceMax;
+    [SerializeField] private float teleportPlayerMidDistanceMin;
+    [SerializeField] private float teleportPlayerMidDistanceMax;
+    [SerializeField] private Transform teleportLeftMax;
+    [SerializeField] private Transform teleportRightMax;
+    [SerializeField] private Transform bulletHellPos;
 
     private bool firstBulletHell;
     private bool useLandEff;
@@ -42,9 +57,13 @@ public class BossGrimm : BossBase
     [Header("이펙트")]
     [SerializeField] private Transform airDashTransform;
     [SerializeField] private Transform groundDashTransform;
+    [SerializeField] private Transform teleportEffTransform;
     [SerializeField] private GameObject airDashEff;
     [SerializeField] private GameObject groundDashEff;
     [SerializeField] private GameObject landEff;
+    [SerializeField] private GameObject teleportEff;
+    [SerializeField] private GameObject teleportSmokeEff;
+    [SerializeField] private GameObject castAttackEff;
 
     public Transform playerTransform;
 
@@ -124,22 +143,27 @@ public class BossGrimm : BossBase
 
     public void AnimationTrigger()
     {
-        // Debug.Log(stateMachine.currentState.animboolName);
         stateMachine.currentState.AnimationFinishTrigger();
     }
 
+    // 텔레포트 사라지기
     public void GrimmInVanish()
     {
         sr.enabled = false;
         cd.enabled = false;
         rb.simulated = false;
+        TeleportEffGenerate();
+        TeleportSmokeEffGenerate();
     }
 
+    // 텔레포트 재등장
     public void GrimmOutVanish()
     {
         sr.enabled = true;
         cd.enabled = true;
         rb.simulated = true;
+        TeleportEffGenerate();
+        TeleportSmokeEffGenerate();
     }
 
     public void SelectGrimmAttack()
@@ -166,10 +190,12 @@ public class BossGrimm : BossBase
         else
         {
             // 일반패턴 1~4
-            nextAttackType = Random.Range(1, 5);
+            // nextAttackType = Random.Range(1, 5);
+            nextAttackType = 2;
         }
     }
 
+    // 텔레포트 딜레이 조정
     public void SetTeleportDelay(float delay)
     {
         teleportOutDelay = delay;
@@ -180,6 +206,7 @@ public class BossGrimm : BossBase
         Destroy(gameObject);
     }
 
+    // 이펙트 생성
     public void AirDashEffGenerate()
     {
         // 보스 위치 회전
@@ -240,32 +267,50 @@ public class BossGrimm : BossBase
     public void BossRandomTeleportSelect()
     {
         int leftRightSelect = Random.Range(1, 3);
-        float xPosAdd = Random.Range(teleportPlayerIntervalMin, teleportPlayerIntervalMax);
+        float xPosAdd = 0;
         float yPosAdd = 0;
 
-        if(nextAttackType == 3)
+        if(nextAttackType == 0)
         {
-            yPosAdd = airDashYPos;
             rb.gravityScale = 0;
+            transform.position = bulletHellPos.position;
+            return;
+        }
+        else if(nextAttackType == 1 || nextAttackType == 3)
+        {
+            xPosAdd = Random.Range(teleportPlayerShortDistanceMin, teleportPlayerShortDistanceMax);
+            if (nextAttackType == 3)
+            {
+                yPosAdd = airDashYPos;
+                rb.gravityScale = 0;
+            }
+        }
+        else if(nextAttackType == 2 || nextAttackType == 4)
+        {
+            xPosAdd = Random.Range(teleportPlayerMidDistanceMin, teleportPlayerMidDistanceMax);
         }
 
-        if (leftRightSelect == 1)
+        if (leftRightSelect == 1 && playerTransform.position.x + xPosAdd > teleportRightMax.position.x)
         {
-            transform.position = new Vector3(playerTransform.position.x + xPosAdd, groundY + yPosAdd, 0);
+            xPosAdd = xPosAdd * -1;
         }
-        else
+        else if (leftRightSelect == 2 && playerTransform.position.x - xPosAdd > teleportLeftMax.position.x)
         {
-            transform.position = new Vector3(playerTransform.position.x - xPosAdd, groundY + yPosAdd, 0);
+            xPosAdd = xPosAdd * -1;
         }
+
+        transform.position = new Vector3(playerTransform.position.x + xPosAdd, groundY + yPosAdd, 0);
     }
 
-    public void BossPlayerGaze()
+    public float BossPlayerGaze()
     {
         Vector2 direction = (new Vector3(playerTransform.position.x, groundY) - transform.position).normalized; // 플레이어 방향 계산
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // 각도로 변환
 
+        return angle;
+
         // 시선이 위쪽이여서 -90도를 하여 플레이어를 바라보게함
-        anim.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
+        // anim.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
     }
     public void BossRotationZero()
     {
@@ -278,5 +323,77 @@ public class BossGrimm : BossBase
         Vector3 scale = fireBat.transform.localScale;
         scale.x = facingLeft ? 1 : -1;
         fireBat.transform.localScale = scale;
+
+        Instantiate(castAttackEff, batFirePoint.position, Quaternion.identity);
+    }
+
+    public void BossCapeSpikeEnable()
+    {
+        foreach(GameObject i in spikeList)
+        {
+            // 가시 좌우 반전 정하기
+            int temp = Random.Range(1, 3);
+            float angleZ = temp == 1 ? 5f : -5f;
+            i.transform.rotation = Quaternion.Euler(0, 0, angleZ);
+
+            i.GetComponentInChildren<Animator>().SetTrigger("IsEnable");
+        }
+    }
+
+    public void BossCapeSpikeUp()
+    {
+        foreach (GameObject i in spikeList)
+        {
+            i.GetComponentInChildren<Animator>().SetTrigger("IsUp");
+        }
+    }
+
+    public void BossCapeSpikeDown()
+    {
+        foreach (GameObject i in spikeList)
+        {
+            i.GetComponentInChildren<Animator>().SetTrigger("IsDown");
+        }
+    }
+
+    public void TeleportEffGenerate()
+    {
+        Instantiate(teleportEff, teleportEffTransform.position, Quaternion.identity);
+    }
+
+    public void TeleportSmokeEffGenerate()
+    {
+        Vector3 temp = new Vector3(groundDashTransform.position.x, groundDashTransform.position.y + 0.5f);
+        GameObject effect = Instantiate(teleportSmokeEff, temp, Quaternion.identity);
+        Destroy(effect, 1f);
+    }
+
+    public void BossGrimmSparkGenerate()
+    {
+        Vector3 temp = teleportEffTransform.position;
+        GameObject center = Instantiate(duFireSpark, teleportEffTransform.position, Quaternion.identity);
+
+        GameObject leftFirst = Instantiate(duFireSpark, teleportEffTransform.position, Quaternion.identity);
+
+        GameObject leftSecond = Instantiate(duFireSpark, teleportEffTransform.position, Quaternion.identity);
+
+        GameObject rightFirst = Instantiate(duFireSpark, teleportEffTransform.position, Quaternion.identity);
+
+        GameObject rightSecond = Instantiate(duFireSpark, teleportEffTransform.position, Quaternion.identity);
+
+        Rigidbody2D rbCenter = center.GetComponent<Rigidbody2D>();
+        rbCenter.linearVelocity = new Vector2(0f, 0);
+
+        Rigidbody2D rbLeftFirst = leftFirst.GetComponent<Rigidbody2D>();
+        rbLeftFirst.linearVelocity = new Vector2(-fireSparkSpace, 0);
+
+        Rigidbody2D rbLeftSecond = leftSecond.GetComponent<Rigidbody2D>();
+        rbLeftSecond.linearVelocity = new Vector2(-fireSparkSpace * 2, 0);
+
+        Rigidbody2D rbRightFirst = rightFirst.GetComponent<Rigidbody2D>();
+        rbRightFirst.linearVelocity = new Vector2(fireSparkSpace, 0);
+
+        Rigidbody2D rbRightSecond = rightSecond.GetComponent<Rigidbody2D>();
+        rbRightSecond.linearVelocity = new Vector2(fireSparkSpace * 2, 0);
     }
 }
