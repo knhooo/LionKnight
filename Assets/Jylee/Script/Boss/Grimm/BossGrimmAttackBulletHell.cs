@@ -4,6 +4,9 @@ public class BossGrimmAttackBulletHell : BossGrimmState
 {
     private bool isAction;
     private float actionDuration;
+    private float fireCount;
+    private float fireDelay;
+    private float endDelay;
     public BossGrimmAttackBulletHell(BossGrimm _boss, BossGrimmStateMachine _stateMachine, string _animBoolName) : base(_boss, _stateMachine, _animBoolName)
     {
     }
@@ -13,6 +16,9 @@ public class BossGrimmAttackBulletHell : BossGrimmState
         base.Enter();
         actionDuration = 5f;
         isAction = false;
+        fireCount = boss.bulletFireCount;
+        fireDelay = boss.bulletFireDelay;
+        endDelay = boss.bulletFireDelay * 2;
 
         boss.BossFlip(true);
     }
@@ -24,17 +30,37 @@ public class BossGrimmAttackBulletHell : BossGrimmState
         // 준비 끝
         if (triggerCalled && !isAction)
         {
+            triggerCalled = false;
             boss.anim.SetTrigger("attackBulletHellAction");
             isAction = true;
+
+            boss.BossBulletHellSoundStartLoop();
         }
 
         // 액션
         if (isAction)
         {
-            // 지속시간 만큼 진행
-            actionDuration -= Time.deltaTime;
-            if(actionDuration <= 0)
+            fireDelay -= Time.deltaTime;
+
+            if (fireDelay <= 0)
             {
+                boss.BossGrimmBulletHellGenerate();
+                fireDelay = boss.bulletFireDelay;
+                fireCount--;
+            }
+
+            if(fireCount == 0)
+            {
+                isAction = false;
+            }
+        }
+
+        if (fireCount == 0)
+        {
+            endDelay -= Time.deltaTime;
+            if(endDelay <= 0)
+            {
+                boss.BossBulletHellSoundStopLoop();
                 // 공격 끝
                 boss.stateMachine.ChangeState(boss.teleportInState);
             }

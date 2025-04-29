@@ -1,6 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class BossGrimm : BossBase
 {
@@ -10,6 +13,8 @@ public class BossGrimm : BossBase
     public float attackEndTeleportDelay;
     public float teleportOutDelay;
     public float groundY;
+    public float bossDeadDelay;
+    [SerializeField] private GameObject nGrimmIntro;
 
     [Header("공중 대쉬 공격")]
     public float adAirDashPower;
@@ -33,6 +38,26 @@ public class BossGrimm : BossBase
 
     [Header("가시 망토 공격")]
     public GameObject[] spikeList;
+    public float spikeActionDuration;
+    public float spikeUpDelay;
+    public float spikeUpDuration;
+    public float spikeSoundTiming;
+
+    [Header("불릿 헬 공격")]
+    public GameObject fireballPrefab;
+    public int bulletFireCount;
+    public float bulletFireDelay;
+    private List<float> yPoints;
+    private List<float[]> yTemplates;
+
+    [Header("박쥐 변신 관련")]
+    public GameObject grimmBatPrefab;
+    public GameObject grimmBatShadowPrefab;
+    public float grimmChangeBatDuration;
+    public float grimmCombineTime;
+    public int grimmBatShadowCount;
+    private GameObject grimmBatObj;
+    private List<GameObject> batShadowList;
 
     [Header("회피 관련")]
     public float evadeDistance;
@@ -48,9 +73,12 @@ public class BossGrimm : BossBase
     [SerializeField] private Transform teleportLeftMax;
     [SerializeField] private Transform teleportRightMax;
     [SerializeField] private Transform bulletHellPos;
+    [SerializeField] private Transform heightMax;
+    [SerializeField] private Transform heightMin;
 
     private bool firstBulletHell;
     private bool useLandEff;
+    private Coroutine loopRoutine;
 
     public float bossGravity;
 
@@ -66,6 +94,8 @@ public class BossGrimm : BossBase
     [SerializeField] private GameObject castAttackEff;
 
     public Transform playerTransform;
+
+    private BossGrimmSoundClip soundClip;
 
     // 적의 상태를 관리하는 상태 머신
     public BossGrimmStateMachine stateMachine { get; private set; }
@@ -113,12 +143,35 @@ public class BossGrimm : BossBase
         // 초기 값
         firstBulletHell = false;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        soundClip = GetComponentInParent<BossGrimmSoundClip>();
         bossGravity = rb.gravityScale;
+        yPoints = new List<float>();
+        batShadowList = new List<GameObject>();
+
+        bossDeadDelay = soundClip.GrimmLongDefeatLength();
 
         if (playerTransform == null)
         {
             playerTransform = gameObject.transform;
         }
+
+        // 맵 y값 6등분
+        for (int i = 0; i < 6; i++)
+        {
+            float y = Mathf.Lerp(heightMax.position.y, heightMin.position.y, (float)i / 5);
+            yPoints.Add(y);
+        }
+
+        yTemplates = new List<float[]>
+        {
+            new float[] { yPoints[0], yPoints[2], yPoints[4] },
+            new float[] { yPoints[0], yPoints[3], yPoints[4] },
+            new float[] { yPoints[0], yPoints[4], yPoints[5] },
+            new float[] { yPoints[1], yPoints[2], yPoints[4] },
+            new float[] { yPoints[1], yPoints[3], yPoints[4] },
+            new float[] { yPoints[1], yPoints[3], yPoints[5] },
+            new float[] { yPoints[1], yPoints[4], yPoints[5] },
+        };
     }
 
     protected override void Update()
@@ -139,6 +192,11 @@ public class BossGrimm : BossBase
         {
             stateMachine.ChangeState(deathState);
         }
+    }
+
+    public void BossGrimmGreet()
+    {
+        stateMachine.ChangeState(greetState);
     }
 
     public void AnimationTrigger()
@@ -190,8 +248,8 @@ public class BossGrimm : BossBase
         else
         {
             // 일반패턴 1~4
-            // nextAttackType = Random.Range(1, 5);
-            nextAttackType = 2;
+            nextAttackType = Random.Range(1, 5);
+            // nextAttackType = 3;
         }
     }
 
@@ -203,6 +261,23 @@ public class BossGrimm : BossBase
 
     public void BossDeathTrigger()
     {
+        if(nGrimmIntro != null)
+        {
+            Invoke("NGrimmTrigger", 1f);
+            sr.enabled = false;
+            cd.enabled = false;
+            rb.simulated = false;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void NGrimmTrigger()
+    {
+        nGrimmIntro.GetComponent<GrimmIntroController>().NightmareGrimmTrigger();
+
         Destroy(gameObject);
     }
 
@@ -304,17 +379,33 @@ public class BossGrimm : BossBase
 
     public float BossPlayerGaze()
     {
+        BossFlip(false);
+
         Vector2 direction = (new Vector3(playerTransform.position.x, groundY) - transform.position).normalized; // 플레이어 방향 계산
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // 각도로 변환
 
         return angle;
-
-        // 시선이 위쪽이여서 -90도를 하여 플레이어를 바라보게함
-        // anim.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
     }
+
     public void BossRotationZero()
     {
         anim.transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
+    public void BossCancelEverything()
+    {
+        anim.SetBool("attackDashUppercut", false);
+        anim.SetBool("attackCast", false);
+        anim.SetBool("attackAirDash", false);
+        anim.SetBool("attackCapeSpike", false);
+        // 가시 캔슬
+        foreach (GameObject i in spikeList)
+        {
+            i.GetComponentInChildren<Animator>().ResetTrigger("IsUp");
+            i.GetComponentInChildren<Animator>().ResetTrigger("IsEnable");
+            i.GetComponentInChildren<Animator>().ResetTrigger("IsDown");
+            i.GetComponentInChildren<Animator>().Play("Empty");
+        }
     }
 
     public void BossFireBatFire()
@@ -338,6 +429,18 @@ public class BossGrimm : BossBase
 
             i.GetComponentInChildren<Animator>().SetTrigger("IsEnable");
         }
+
+        soundClip.GrimmSpikesGrounded();
+    }
+
+    public void BossCapeUpSound()
+    {
+        soundClip.GrimmSpikesShootUp();
+    }
+
+    public void BossCapeDownSound()
+    {
+        soundClip.GrimmSpikesShrivelBack();
     }
 
     public void BossCapeSpikeUp()
@@ -355,6 +458,46 @@ public class BossGrimm : BossBase
             i.GetComponentInChildren<Animator>().SetTrigger("IsDown");
         }
     }
+
+    public void BossBulletHellSoundStartLoop()
+    {
+        loopRoutine = StartCoroutine(LoopBulletHellSoundRoutine());
+    }
+
+    public void BossBulletHellSoundStopLoop()
+    {
+        if (loopRoutine != null)
+        {
+            StopCoroutine(loopRoutine);
+            loopRoutine = null;
+        }
+
+        soundClip.GrimmBalloonDeflate();
+    }
+
+    public void BossGrimmAppearSound()
+    {
+        soundClip.GrimmAppear();
+    }
+
+    public void BossGrimmEvadeSound()
+    {
+        soundClip.GrimmEvade();
+    }
+
+    public void BossGrimmDefeatSound()
+    {
+        soundClip.GrimmLongDefeat();
+    }
+
+    private IEnumerator LoopBulletHellSoundRoutine()
+    {
+        while (true)
+        {
+            soundClip.GrimmBalloonShootingFireLoop();
+            yield return new WaitForSeconds(soundClip.GrimmBalloonShootingFireLoopLength());
+        }
+    }    
 
     public void TeleportEffGenerate()
     {
@@ -395,5 +538,91 @@ public class BossGrimm : BossBase
 
         Rigidbody2D rbRightSecond = rightSecond.GetComponent<Rigidbody2D>();
         rbRightSecond.linearVelocity = new Vector2(fireSparkSpace * 2, 0);
+    }
+
+    public void BossGrimmBulletHellGenerate()
+    {
+        float[] selectedPointsRight = yTemplates[Random.Range(0, yTemplates.Count)];
+        float[] selectedPointsLeft = yTemplates[Random.Range(0, yTemplates.Count)];
+
+        foreach (float yTarget in selectedPointsRight)
+        {
+            FireBulletLeftRight(yTarget, true);
+        }
+
+        foreach (float yTarget in selectedPointsLeft)
+        {
+            FireBulletLeftRight(yTarget, false);
+        }
+
+        FireBulletDown();
+    }
+
+    private void FireBulletLeftRight(float targetY, bool isRight)
+    {
+        float distance = isRight ? 10f : -10f;
+
+        //Vector2 startPos = bulletHellPos.position;
+        Vector2 startPos = new Vector2(bulletHellPos.position.x, bulletHellPos.position.y); ;
+
+        Vector2 targetPos = new Vector2(startPos.x + distance, targetY); // 오른쪽 방향 + y 목표
+
+        Vector2 direction = (targetPos - startPos).normalized;
+
+        GameObject bullet = Instantiate(fireballPrefab, startPos, Quaternion.identity);
+
+        Vector3 scale = bullet.transform.localScale;
+        scale.x = isRight ? 1 : -1;
+        bullet.transform.localScale = scale;
+
+        bullet.GetComponent<BossGrimmFireball>().Init(targetY, isRight);
+    }
+
+    private void FireBulletDown()
+    {
+        float randomSpeed = Random.Range(2f, 4f);
+        Vector2 moveDir = Vector2.down;
+        // 중앙
+        Vector2 startPos = bulletHellPos.position;
+        Vector2 targetPos = new Vector2(startPos.x, startPos.y);
+        GameObject bullet1 = Instantiate(fireballPrefab, targetPos, Quaternion.identity);
+        bullet1.GetComponent<Rigidbody2D>().linearVelocity = moveDir * randomSpeed;
+
+        randomSpeed = Random.Range(2f, 4f);
+        // 오른쪽
+        targetPos = new Vector2(startPos.x + 0.5f, startPos.y);
+        GameObject bullet2 = Instantiate(fireballPrefab, targetPos, Quaternion.identity);
+        bullet2.GetComponent<Rigidbody2D>().linearVelocity = moveDir * randomSpeed;
+
+        randomSpeed = Random.Range(2f, 4f);
+        // 왼쪽
+        targetPos = new Vector2(startPos.x - 0.5f, startPos.y);
+        GameObject bullet3 = Instantiate(fireballPrefab, targetPos, Quaternion.identity);
+        bullet3.GetComponent<Rigidbody2D>().linearVelocity = moveDir * randomSpeed;
+    }
+
+    public void BossGrimmSplitBat()
+    {
+        soundClip.GrimmExplodeIntoBats();
+        soundClip.GrimmBatsCircling();
+
+        grimmBatObj = Instantiate(grimmBatPrefab, teleportEffTransform.position, Quaternion.identity);
+        for (int i = 0; i < grimmBatShadowCount; i++)
+        {
+            GameObject obj = Instantiate(grimmBatShadowPrefab, teleportEffTransform.position, Quaternion.identity);
+            batShadowList.Add(obj);
+        }
+    }
+
+    public void BossGrimmCombineBat()
+    {
+        soundClip.GrimmBatsReform();
+        grimmBatObj.GetComponent<BossGrimmBat>().CombineTrigger(teleportEffTransform);
+        foreach(GameObject obj in batShadowList)
+        {
+            obj.GetComponent<BossGrimmBat>().CombineTrigger(teleportEffTransform);
+        }
+
+        batShadowList.Clear();
     }
 }

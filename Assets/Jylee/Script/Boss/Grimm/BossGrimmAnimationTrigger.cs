@@ -13,16 +13,24 @@ public class BossGrimmAnimationTrigger : MonoBehaviour
     private void AirDashEff()
     {
         boss.AirDashEffGenerate();
+        soundClip.GrimmAirDash();
     }
 
     private void LandEff()
     {
         boss.LandEffGenerate();
+        soundClip.GrimmAirDashLand();
     }
 
     private void GroundDashEff()
     {
         boss.GroundDashEffGenerate();
+        soundClip.GrimmGroundDashStart();
+    }
+
+    private void GroundDashing()
+    {
+        soundClip.GrimmGroundDashing();
     }
 
     private void ZeroVelocity()
@@ -32,16 +40,32 @@ public class BossGrimmAnimationTrigger : MonoBehaviour
 
     private void GrimmCast1Sound()
     {
-        soundClip.GrimmCast1Sound();
+        soundClip.GrimmCast1();
     }
 
     private void GrimmTeleportInSound()
     {
-        soundClip.GrimmTeleportInSound();
+        soundClip.GrimmTeleportIn();
     }
 
     private void GrimmTeleportOutSound()
     {
-        soundClip.GrimmTeleportOutSound();
+        soundClip.GrimmTeleportOut();
+    }
+
+    private void GrimmUppercutFirst()
+    {
+        soundClip.GrimmUppercut1();
+    }
+
+    private void GrimmUppercutSecond()
+    {
+        soundClip.GrimmUppercut2();
+        soundClip.GrimmUppercutVoice();
+    }
+
+    private void GrimmBulletHellStart()
+    {
+        soundClip.GrimmCast2();
     }
 }
