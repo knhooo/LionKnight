@@ -43,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -148,64 +148,20 @@ TextureImporter:
       name: select_game_HUD_coin_v020004_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 2
-        width: 55
-        height: 60
+        x: 0
+        y: 0
+        width: 62
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e3265e88a8cfd80a0800000000000000
-      internalID: -6877563383992458690
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: select_game_HUD_coin_v020004_1
-      rect:
-        serializedVersion: 2
-        x: 53
-        y: 42
-        width: 6
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ddf59e4175319eef0800000000000000
-      internalID: -78510253768351779
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: select_game_HUD_coin_v020004_2
-      rect:
-        serializedVersion: 2
-        x: 53
-        y: 6
-        width: 6
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f6c1d731c60adf7c0800000000000000
-      internalID: -4035893305010217873
+      spriteID: 89304d398c1d9ec44a9311d74b079f97
+      internalID: -232253264
       vertices: []
       indices: 
       edges: []
@@ -214,7 +170,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5c29027f7f061a94ea3255658021115a
     internalID: 0
     vertices: []
     indices: 
@@ -224,9 +180,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      select_game_HUD_coin_v020004_0: -6877563383992458690
-      select_game_HUD_coin_v020004_1: -78510253768351779
-      select_game_HUD_coin_v020004_2: -4035893305010217873
+      select_game_HUD_coin_v020004_0: -232253264
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
