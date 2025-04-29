@@ -8,6 +8,7 @@ public class BossGrimmFireBat : MonoBehaviour
 
     private Rigidbody2D rb;
     private Transform playerTransform;
+    [SerializeField] private AudioClip fireBatSound;
 
     void Start()
     {
@@ -18,6 +19,8 @@ public class BossGrimmFireBat : MonoBehaviour
         {
             playerTransform = gameObject.transform;
         }
+
+        SoundManager.Instance.audioSource.PlayOneShot(fireBatSound);
     }
 
     void Update()

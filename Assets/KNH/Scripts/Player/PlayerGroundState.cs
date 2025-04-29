@@ -25,6 +25,7 @@ public class PlayerGroundState : PlayerState
         if (!player.IsGroundDetected())
             stateMachine.ChangeState(player.airState);
 
+        //Bench
         if (player.IsNearBench() && Input.GetKey(KeyCode.UpArrow))
         {
             player.transform.position = player.IsNearBench().transform.position;

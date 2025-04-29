@@ -16,9 +16,10 @@ public class Player : MonoBehaviour
     #region Info
     [Header("Stats")]
     public int money { get; set; } = 0;//지오
-    public float hp { get; set; } = 100;//체력
-    public float maxHp { get; set; } = 100;//최대체력
-    public float mp { get; set; } = 100;//영혼
+    public float hp { get; set; } = 0;//체력
+    public float maxHp { get; set; } = 50;//최대체력
+    public float mp { get; set; } = 0;//영혼
+    public float maxMp { get; set; } = 100;//영혼
 
     [Header("공격 디테일")]
     public Vector2[] attackMovement;
@@ -53,7 +54,7 @@ public class Player : MonoBehaviour
 
     [Header("넉백 정보")]
     [SerializeField] protected Vector2 knockbackDirection;
-    [SerializeField] protected float knockbackDuration;
+    [SerializeField] public float knockbackDuration;
     protected bool isKnocked;
 
     [Header("충돌 정보")]
@@ -63,6 +64,7 @@ public class Player : MonoBehaviour
     [SerializeField] protected Transform groundCheck;
     [SerializeField] protected float groundCheckDistance;
     [SerializeField] protected Transform wallCheck;
+    [SerializeField] public Transform headPos;
     [SerializeField] protected float wallCheckDistance;
     [SerializeField] protected LayerMask whatIsGround;
     [SerializeField] protected LayerMask whatIsBench;
@@ -71,7 +73,10 @@ public class Player : MonoBehaviour
     protected bool facingRight = true;
     public bool isOnBench = false;
     public bool isRidingLift = false;
-# endregion
+    public bool isInIntro = false;
+
+    private Coroutine flashRoutine;
+    #endregion
 
     #region States
     // 플레이어의 상태를 관리하는 상태 머신
@@ -92,8 +97,9 @@ public class Player : MonoBehaviour
     public PlayerBenchState benchState { get; private set; }
     public PlayerFocusState focusState { get; private set; }
     public PlayerSpiritState spiritState { get; private set; }
+    public PlayerHitState hitState { get; private set; }
+    public PlayerDeadState deadState { get; private set; }
     #endregion
-
 
 
     protected virtual void Awake()
@@ -115,6 +121,8 @@ public class Player : MonoBehaviour
         benchState = new PlayerBenchState(this, stateMachine, "Sitting");
         focusState = new PlayerFocusState(this, stateMachine, "Focus");
         spiritState = new PlayerSpiritState(this, stateMachine, "Spirit");
+        hitState = new PlayerHitState(this, stateMachine, "Hit");
+        deadState = new PlayerDeadState(this, stateMachine, "Die");
     }
 
     protected virtual void Start()
@@ -124,9 +132,13 @@ public class Player : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
+        hp = maxHp;
         // 게임 시작 시 초기 상태를 대기 상태(idleState)로 설정
         if(SceneManager.GetActiveScene().name == "Dirtmouth")
+        {
             stateMachine.Initialize(benchState);
+            transform.position = new Vector3(-0.027f, -5.277f, 0);
+        }
         else stateMachine.Initialize(idleState);
     }
 
@@ -135,6 +147,30 @@ public class Player : MonoBehaviour
     {
         stateMachine.currentState.Update();
         CheckForDashInput();
+
+        if (isInIntro)
+        {
+            SetZeroVelocity();
+            stateMachine.ChangeState(idleState);
+        }
+
+
+        //개발용 키
+        //피격
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            TakeDamage();
+        }
+        //회복
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            SetHPandMP(maxHp, maxMp);
+        }
+        //즉사
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            SetHPandMP(-100, 0);
+        }
     }
 
     public void SetVelocityY(float y)
@@ -142,11 +178,18 @@ public class Player : MonoBehaviour
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, y);
     }
 
-    public virtual void Damage()
+    public void TakeDamage()
     {
-        //fx.StartCoroutine("FlashFX");
-        StartCoroutine("HitKnockBack");
+        if (!isKnocked)
+        {
+            SetHPandMP(-10, 0);
+            stateMachine.ChangeState(hitState);
+            if (flashRoutine != null)
+                StopCoroutine(flashRoutine);
 
+            flashRoutine = StartCoroutine(FlashBlack());
+            StartCoroutine("HitKnockBack");
+        }
     }
 
 
@@ -253,6 +296,42 @@ public class Player : MonoBehaviour
             sr.color = Color.clear;
         else
             sr.color = Color.white;
+    }
+    private IEnumerator FlashBlack()
+    {
+        int flashCount = 4;
+        float flashDuration = 0.1f;
+
+        for (int i = 0; i < flashCount; i++)
+        {
+            sr.color = Color.black;
+            yield return new WaitForSeconds(flashDuration);
+            sr.color = Color.white;
+            yield return new WaitForSeconds(flashDuration);
+        }
+
+        sr.color = Color.white;
+    }
+
+    public void SetHPandMP(float _hp,float _mp)
+    {
+        hp += _hp;
+        mp += _mp;
+
+        if (hp > maxHp)
+            hp = maxHp;
+        if (mp > maxMp)
+            mp = maxMp;
+        if (hp <= 0) Die();
+        if (mp < 0) mp = 0;
+
+        Debug.Log("Hp: " + hp + " MP: " + mp);
+    }
+
+    public void Die()
+    {
+        Debug.Log("죽음");
+        stateMachine.ChangeState(deadState);
     }
 }
 

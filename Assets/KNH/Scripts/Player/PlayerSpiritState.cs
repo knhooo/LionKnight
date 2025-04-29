@@ -16,9 +16,6 @@ public class PlayerSpiritState : PlayerState
         base.Enter();
         player.SetZeroVelocity();
         stateTimer = player.spiritDuration;
-
-        player.mp -= 50;
-        SkillManager.instance.spirit.UseSpiritSkill();
     }
 
     public override void Exit()

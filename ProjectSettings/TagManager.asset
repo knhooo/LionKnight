@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Boss
+  - Wall
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -18,6 +20,7 @@ TagManager:
   - Boss
   - Bench
   - Geo
+  - Effect
   - 
   - 
   - 
@@ -27,8 +30,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Wall
   - 
   - 
   - 
@@ -41,9 +43,6 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: BackGround_NoLight
-    uniqueID: 3973731523
     locked: 0
   - name: BackGround
     uniqueID: 197760433
@@ -65,6 +64,9 @@ TagManager:
     locked: 0
   - name: Boss
     uniqueID: 909032279
+    locked: 0
+  - name: Effect
+    uniqueID: 490947673
     locked: 0
   m_RenderingLayers:
   - Default

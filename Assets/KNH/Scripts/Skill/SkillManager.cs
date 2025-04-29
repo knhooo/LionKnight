@@ -10,7 +10,7 @@ public class SkillManager : MonoBehaviour
     private void Awake()
     {
         if (instance != null)
-            Destroy(instance.gameObject);
+            Destroy(this.gameObject);
         else
         {
             instance = this;

@@ -1,10 +1,13 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BossGrimmAttackAirDashAttack : BossGrimmState
 {
     private bool isAirDash;
     private float finishWait;
+    private float playerAngle;
+    private Vector3 playerLocation;
 
     // 1 : 공중대쉬 준비상태
     // 2 : 공중대쉬 공격중
@@ -23,6 +26,9 @@ public class BossGrimmAttackAirDashAttack : BossGrimmState
         isAirDash = false;
         stateType = 1;
         finishWait = 0.5f;
+
+        playerAngle = boss.BossPlayerGaze();
+        playerLocation = new Vector3(boss.playerTransform.position.x, boss.groundY);
     }
 
     public override void Update()
@@ -35,7 +41,8 @@ public class BossGrimmAttackAirDashAttack : BossGrimmState
             triggerCalled = false;
 
             // 플레이어 위치로 회전
-            boss.BossPlayerGaze();
+            // 시선이 아래쪽 이여서 +90도를 하여 플레이어를 바라보게함
+            boss.anim.transform.rotation = Quaternion.Euler(0, 0, playerAngle + 90);
 
             // 공중 대쉬로 전환
             boss.anim.SetTrigger("attackAirDashing");
@@ -43,7 +50,7 @@ public class BossGrimmAttackAirDashAttack : BossGrimmState
             stateType = 2;
 
             // 수치만큼 돌진
-            Vector2 airDashDirection = (new Vector3(boss.playerTransform.position.x, boss.groundY) - boss.transform.position).normalized;
+            Vector2 airDashDirection = (playerLocation - boss.transform.position).normalized;
             rb.linearVelocity = airDashDirection * boss.adAirDashPower;
         }
 

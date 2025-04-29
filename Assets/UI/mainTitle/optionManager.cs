@@ -53,7 +53,7 @@ public class optionManage : MonoBehaviour
     public void LoadGame()
     {
         load.gameObject.SetActive(false);
-        SceneManager.LoadScene("InGame");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("InGame");
     }
 
     public void SetingON()
@@ -103,7 +103,7 @@ public class optionManage : MonoBehaviour
 
     public void Back2Title()
     {
-        SceneManager.LoadScene("mainTitle");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("mainTitle");
     }
 
     public void Exit()
