@@ -4,7 +4,7 @@ using UnityEngine;
 public class BossGrimmChangeBat : BossGrimmState
 {
     private float batDuration;
-    private float fusionDuration;
+    private float combineDuration;
 
     private int stateType;
 
@@ -16,9 +16,11 @@ public class BossGrimmChangeBat : BossGrimmState
     public override void Enter()
     {
         base.Enter();
-        batDuration = 2f;
-        fusionDuration = 0.4f;
+        batDuration = boss.grimmChangeBatDuration;
+        combineDuration = boss.grimmCombineTime;
         stateType = 1;
+        boss.SetZeroVelocity();
+        boss.BossCancelEverything();
     }
 
     public override void Update()
@@ -28,6 +30,7 @@ public class BossGrimmChangeBat : BossGrimmState
         {
             stateType = 2;
             boss.GrimmInVanish();
+            boss.BossGrimmSplitBat();
         }
 
         if(stateType == 2)
@@ -35,14 +38,15 @@ public class BossGrimmChangeBat : BossGrimmState
             batDuration -= Time.deltaTime;
             if (batDuration <= 0)
             {
+                boss.BossGrimmCombineBat();
                 stateType = 3;
             }
         }
 
         if(stateType == 3)
         {
-            fusionDuration -= Time.deltaTime;
-            if(fusionDuration <= 0)
+            combineDuration -= Time.deltaTime;
+            if(combineDuration <= 0)
             {
                 boss.stateMachine.ChangeState(boss.teleportInState);
             }
@@ -54,5 +58,6 @@ public class BossGrimmChangeBat : BossGrimmState
         boss.GrimmOutVanish();
         base.Exit();
         boss.anim.SetTrigger("IsBatEnd");
+        boss.BossGrimmAppearSound();
     }
 }

@@ -10,7 +10,9 @@ public class BossGrimmDeath : BossGrimmState
     public override void Enter()
     {
         base.Enter();
-        deathAnimDuration = 4f;
+        deathAnimDuration = boss.bossDeadDelay;
+        boss.BossCancelEverything();
+        boss.BossGrimmDefeatSound();
     }
 
     public override void Update()
