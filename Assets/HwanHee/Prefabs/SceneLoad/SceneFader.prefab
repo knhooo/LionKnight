@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 197825951030150463}
   - component: {fileID: 5965542226603980328}
   - component: {fileID: 2960386458742142892}
-  - component: {fileID: 6759693609438135588}
+  - component: {fileID: 783984669206936103}
   m_Layer: 5
-  m_Name: FaderCanvas
+  m_Name: SceneFader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6759693609438135588
+--- !u!114 &783984669206936103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,10 +112,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4770802853342272436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd155d73b1a99a045ba81037ac454c97, type: 3}
+  m_Script: {fileID: 11500000, guid: a66542dfd48a8d548985d1abd28925e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 0.5
+  isSceneChange: 0
 --- !u!1 &5066140281993946399
 GameObject:
   m_ObjectHideFlags: 0

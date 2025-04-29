@@ -33,7 +33,7 @@ public class movieManager : MonoBehaviour
             if (secondTime > 1f && Input.GetKeyDown(KeyCode.Space))
             {
                 second.gameObject.SetActive(false);
-                SceneManager.LoadScene("mainTitle");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("mainTitle");
             }
         }
     }

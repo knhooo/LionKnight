@@ -28,8 +28,9 @@ public class PoolManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         instance = this;
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Create(PoolType type, GameObject prefab)

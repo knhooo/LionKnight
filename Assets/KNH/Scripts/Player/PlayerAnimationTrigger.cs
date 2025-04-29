@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerAnimationTrigger : MonoBehaviour
 {
     private Player player => GetComponentInParent<Player>();
-    private SceneFader sceneFader => FindAnyObjectByType<SceneFader>();
+    private SceneSaveLoadManager sceneManaer => SceneSaveLoadManager.instance;
 
     [SerializeField] private GameObject head;
     [SerializeField] private GameObject ghost;
@@ -44,6 +44,6 @@ public class PlayerAnimationTrigger : MonoBehaviour
     }
     private void ReSpawn()
     {
-        sceneFader.FadeToScene("Dirtmouth");
+        sceneManaer.StartLoadScene("Dirtmouth");
     }
 }

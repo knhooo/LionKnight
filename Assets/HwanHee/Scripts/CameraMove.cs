@@ -14,6 +14,8 @@ public class CameraMove : MonoBehaviour
     private bool isCameraMoving = false;
     private float originOffset;
 
+    public bool isCameraAnimationPlay = true;
+
     void Start()
     {
         cineCam = GetComponent<CinemachineCamera>();
@@ -43,6 +45,7 @@ public class CameraMove : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.DownArrow))
         {
+            isCameraAnimationPlay = false;
             MoveCameraToOffset(originOffset);
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -52,6 +55,7 @@ public class CameraMove : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.UpArrow))
         {
+            isCameraAnimationPlay = false;
             MoveCameraToOffset(originOffset);
         }
     }
@@ -73,6 +77,7 @@ public class CameraMove : MonoBehaviour
 
     private IEnumerator MoveCamera(float startOffset, float endOffset)
     {
+        isCameraAnimationPlay = true;
         float elapsed = 0f;
 
         while (elapsed < cameraMoveTime)
