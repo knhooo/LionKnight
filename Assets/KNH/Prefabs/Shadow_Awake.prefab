@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5827346731809043960}
   - component: {fileID: 3756853940336473540}
   m_Layer: 0
-  m_Name: Ghost_Awake
+  m_Name: Shadow_Awake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 522309389
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -4475234989360407947, guid: 66719b79e5adfe145835923c66e38940, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 8661588278632172482}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9183e70bd42595e4fb71b5289551222f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0f34e6a8ab5afc645ad0a6946cf66f5f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
