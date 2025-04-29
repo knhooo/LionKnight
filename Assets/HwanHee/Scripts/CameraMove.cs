@@ -1,6 +1,14 @@
 using UnityEngine;
 using Unity.Cinemachine;
 using System.Collections;
+using System.Timers;
+
+enum KeyDirection
+{
+    Up = -1,
+    None,
+    Down = 1
+}
 
 public class CameraMove : MonoBehaviour
 {
@@ -13,6 +21,8 @@ public class CameraMove : MonoBehaviour
 
     private bool isCameraMoving = false;
     private float originOffset;
+    private float holdKeyElpased = 0f;
+    private KeyDirection keyDirection = KeyDirection.None;
 
     public bool isCameraAnimationPlay = true;
 
@@ -34,28 +44,43 @@ public class CameraMove : MonoBehaviour
             return;
 
         HandleCameraInput();
+
+        if (keyDirection != KeyDirection.None)
+        {
+            holdKeyElpased += Time.deltaTime;
+            if (holdKeyElpased >= holdKeyTime)
+            {
+                holdKeyElpased = 0f;
+                MoveCameraToOffset(originOffset + cameraMoveOffset * (int)keyDirection);
+            }
+        }
     }
 
     private void HandleCameraInput()
     {
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
+            keyDirection = KeyDirection.Up;
             originOffset = positionComposer.TargetOffset.y;
-            StartCoroutine(MoveCameraAfterDelay(originOffset - cameraMoveOffset));
         }
-        else if (Input.GetKeyUp(KeyCode.DownArrow))
+        if (Input.GetKeyUp(KeyCode.DownArrow))
         {
+            keyDirection = KeyDirection.None;
             isCameraAnimationPlay = false;
+
             MoveCameraToOffset(originOffset);
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
+            keyDirection = KeyDirection.Down;
             originOffset = positionComposer.TargetOffset.y;
-            StartCoroutine(MoveCameraAfterDelay(originOffset + cameraMoveOffset));
         }
-        else if (Input.GetKeyUp(KeyCode.UpArrow))
+        if (Input.GetKeyUp(KeyCode.UpArrow))
         {
+            keyDirection = KeyDirection.None;
             isCameraAnimationPlay = false;
+
             MoveCameraToOffset(originOffset);
         }
     }
@@ -83,13 +108,19 @@ public class CameraMove : MonoBehaviour
         while (elapsed < cameraMoveTime)
         {
             elapsed += Time.deltaTime;
-            positionComposer.TargetOffset.y = Mathf.Lerp(startOffset, endOffset, elapsed / cameraMoveTime);
+
+            float nextY = Mathf.Lerp(startOffset, endOffset, elapsed / cameraMoveTime);
+
+            if (Mathf.Approximately(nextY, positionComposer.TargetOffset.y))
+                break;
+
             yield return null;
         }
 
         positionComposer.TargetOffset.y = endOffset;
         isCameraMoving = false;
     }
+
 
     public void ChangeCameraOffset(float newOffset)
     {

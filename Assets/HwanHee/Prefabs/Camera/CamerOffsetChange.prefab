@@ -92,3 +92,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMove: {fileID: 0}
+  originCameraOffset: 0
+  modifiedCameraOffset: 0
