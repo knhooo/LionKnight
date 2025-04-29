@@ -135,7 +135,10 @@ public class Player : MonoBehaviour
         hp = maxHp;
         // 게임 시작 시 초기 상태를 대기 상태(idleState)로 설정
         if(SceneManager.GetActiveScene().name == "Dirtmouth")
+        {
             stateMachine.Initialize(benchState);
+            transform.position = new Vector3(-0.027f, -5.277f, 0);
+        }
         else stateMachine.Initialize(idleState);
     }
 

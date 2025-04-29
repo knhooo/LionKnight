@@ -7,7 +7,6 @@ public class Spirit_Skill : Skill
     public override void UseSkill()
     {
         base.UseSkill();
-        UseSpiritSkill();
     }
 
     public void UseSpiritSkill()
