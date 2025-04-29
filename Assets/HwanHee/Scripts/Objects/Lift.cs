@@ -9,19 +9,21 @@ public class Lift : ShakeObject
     [SerializeField] private LayerMask targetLayer;
 
     [Header("움직임")]
-    [SerializeField] private float upperPos = -0.32f;
-    [SerializeField] private float lowerPos = -11.52f;
+    [SerializeField] private Transform upperPos;
+    [SerializeField] private Transform lowerPos;
     [SerializeField] public float moveTime;
 
     [Header("무게추")]
-    [SerializeField] private GameObject liftWeightLeft;
-    [SerializeField] private GameObject liftWeightRight;
-    [SerializeField] private float weightUpperPos = 1.44f;
-    [SerializeField] private float weightLowerPos = -4.86f;
+    [SerializeField] private Transform liftWeightLeft;
+    [SerializeField] private Transform liftWeightRight;
+    [SerializeField] private Transform weightUpperPos;
+    [SerializeField] private Transform weightLowerPos;
 
     [Header("바퀴")]
     [SerializeField] private GameObject[] wheels;
     [SerializeField] private float rotationSpeed = 360f;
+
+    public LiftData liftData = new LiftData();
 
     private bool canMoveStart = true;
     private bool isArrive = true;
@@ -31,6 +33,52 @@ public class Lift : ShakeObject
     {
         //player = PlayerManager.instance.player;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
+
+    private void Start()
+    {
+        SetLiftPos();
+    }
+
+    private void SetLiftPos()
+    {
+        Vector3 pos = new Vector3();
+
+        if (liftData.isLiftUp)
+        {
+            // 리프트
+            pos = transform.position;
+            pos.y = upperPos.position.y;
+            transform.position = pos;
+
+            // 왼쪽 무게추
+            pos = liftWeightLeft.position;
+            pos.y = weightLowerPos.position.y;
+            liftWeightLeft.position = pos;
+
+            // 오른쪽 무게추
+            pos = liftWeightRight.position;
+            pos.y = weightUpperPos.position.y;
+            liftWeightRight.position = pos;
+        }
+
+        else
+        {
+            // 리프트
+            pos = transform.position;
+            pos.y = lowerPos.position.y;
+            transform.position = pos;
+
+            // 오른쪽 무게추
+            pos = liftWeightLeft.position;
+            pos.y = weightUpperPos.position.y;
+            liftWeightLeft.position = pos;
+
+            // 왼쪽 무게추
+            pos = liftWeightRight.position;
+            pos.y = weightLowerPos.position.y;
+            liftWeightRight.position = pos;
+        }
     }
 
     private void Update()
@@ -57,9 +105,14 @@ public class Lift : ShakeObject
 
     private void MoveLift()
     {
-        SetLiftPos(transform, upperPos, lowerPos);
-        SetLiftPos(liftWeightLeft.transform, weightUpperPos, weightLowerPos);
-        SetLiftPos(liftWeightRight.transform, weightUpperPos, weightLowerPos);
+        if (transform.position.y == upperPos.position.y)
+            liftData.isLiftUp = false;
+        else if (transform.position.y == lowerPos.position.y)
+            liftData.isLiftUp = true;
+
+        SetLiftPos(transform, upperPos.position.y, lowerPos.position.y);
+        SetLiftPos(liftWeightLeft, weightUpperPos.position.y, weightLowerPos.position.y);
+        SetLiftPos(liftWeightRight, weightUpperPos.position.y, weightLowerPos.position.y);
     }
 
     private void SetLiftPos(Transform target, float _upperPos, float _lowerPos)
@@ -95,9 +148,8 @@ public class Lift : ShakeObject
             yield return null;
         }
 
-        target.position = endPoint;
-
         isArrive = true;
+        target.position = endPoint;
 
         if (target.gameObject.GetComponent<Lift>())
         {
@@ -121,7 +173,6 @@ public class Lift : ShakeObject
             yield return null;
         }
     }
-
 
     void OnDrawGizmos()
     {

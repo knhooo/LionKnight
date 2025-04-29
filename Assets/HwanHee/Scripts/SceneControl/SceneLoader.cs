@@ -3,18 +3,9 @@ using UnityEngine;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private bool isAutoLoad = true;
-    [SerializeField] private GameObject sceneFaderPrefab;
+    [SerializeField] private string sceneToLoad;
 
-    private SceneFader sceneFader;
-    public string sceneToLoad;
     private bool playerInTrigger;
-
-    private void Awake()
-    {
-        sceneFader = FindAnyObjectByType<SceneFader>();
-        if (sceneFader == null)
-            sceneFader = Instantiate(sceneFaderPrefab).GetComponent<SceneFader>();
-    }
 
     private void Update()
     {
@@ -22,7 +13,7 @@ public class SceneLoader : MonoBehaviour
         {
             if (isAutoLoad || (!isAutoLoad && Input.GetKeyDown(KeyCode.UpArrow)))
             {
-                sceneFader.FadeToScene(sceneToLoad);
+                SceneSaveLoadManager.instance.StartLoadScene(sceneToLoad);
             }
         }
     }
