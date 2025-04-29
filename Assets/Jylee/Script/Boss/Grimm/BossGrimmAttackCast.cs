@@ -84,6 +84,7 @@ public class BossGrimmAttackCast : BossGrimmState
             {
                 isEvade = true;
                 boss.anim.SetTrigger("IsEvade");
+                boss.BossGrimmEvadeSound();
 
                 // 좌우 정하기
                 float moveDistance = boss.facingLeft ? boss.duDashDistance : -boss.duDashDistance;

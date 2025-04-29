@@ -222,6 +222,7 @@ MonoBehaviour:
   attackEndTeleportDelay: 0.5
   teleportOutDelay: 0
   groundY: 0
+  bossDeadDelay: 0
   adAirDashPower: 30
   adGroundDashPower: 30
   duDashPower: 35
@@ -242,6 +243,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  spikeActionDuration: 0.8
+  spikeUpDelay: 0.5
+  spikeUpDuration: 0.5
+  spikeSoundTiming: 0.3
+  fireballPrefab: {fileID: 1751388657372171890, guid: d47a06c6eaf32154e96dd311fbb2b471, type: 3}
+  bulletFireCount: 12
+  bulletFireDelay: 0.8
+  grimmBatPrefab: {fileID: 2821075619897901089, guid: 4bc94dac8c5873942b227826b8c55157, type: 3}
+  grimmBatShadowPrefab: {fileID: 7755804782496320489, guid: 4d281ed185d1beb45bfbafcea977c4c2, type: 3}
+  grimmChangeBatDuration: 3
+  grimmCombineTime: 2
+  grimmBatShadowCount: 10
   evadeDistance: 4
   evadeSpeed: 10
   emeTeleportDistance: 1
@@ -253,6 +266,8 @@ MonoBehaviour:
   teleportLeftMax: {fileID: 0}
   teleportRightMax: {fileID: 0}
   bulletHellPos: {fileID: 0}
+  heightMax: {fileID: 0}
+  heightMin: {fileID: 0}
   bossGravity: 0
   airDashTransform: {fileID: 7432146800727823737}
   groundDashTransform: {fileID: 1876287646020762697}
@@ -351,8 +366,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grimmAppear: {fileID: 8300000, guid: 657d4c67bfd8a924287e77f77c9f5698, type: 3}
   grimmCast1: {fileID: 8300000, guid: 1206a1418fe1d5145899ae6bf8c6cbbc, type: 3}
+  grimmCast2: {fileID: 8300000, guid: 10384cc53ce5c1c49948fd6f2e426a06, type: 3}
+  grimmEvade: {fileID: 8300000, guid: a00f3756dd1aca04794023a85c713470, type: 3}
   grimmTeleportIn: {fileID: 8300000, guid: d4bedf0e717239c429c1ca97bc5e4dfa, type: 3}
   grimmTeleportOut: {fileID: 8300000, guid: 0ef53e28b35a7734182bab8b4b3ed898, type: 3}
+  grimmAirDash: {fileID: 8300000, guid: 05b91e721e275174f9d38f4ad4a61d57, type: 3}
+  grimmAirDashLand: {fileID: 8300000, guid: ffe48bfd717321f4ea3eeac75fc826cf, type: 3}
+  grimmGroundDashStart: {fileID: 8300000, guid: 17a40e44459ad9541b4d6a489681f8f9, type: 3}
+  grimmGroundDashing: {fileID: 8300000, guid: ce05bceaae1dd4b48a2e6fbaee03c496, type: 3}
+  grimmUppercut1: {fileID: 8300000, guid: 0ad5b4f851f13c6448f3e0bb4d4b16c7, type: 3}
+  grimmUppercut2: {fileID: 8300000, guid: 2f16c61e62cc73447a03b9328fb5aeb5, type: 3}
+  grimmUppercutVoice: {fileID: 8300000, guid: 81c576c3abddb1e4aa1ee284e6bd0f27, type: 3}
+  grimmSpikesGrounded: {fileID: 8300000, guid: ddb28f7524060f249bef0d37e01d5c82, type: 3}
+  grimmSpikesShootUp: {fileID: 8300000, guid: 2494f9ab1c11781439527e4bb400b30b, type: 3}
+  grimmSpikesShrivelBack: {fileID: 8300000, guid: 85a9917fbedd7eb419dcfe3eb5b15049, type: 3}
+  grimmBalloonDeflate: {fileID: 8300000, guid: 4826d179e75ac7448bd727e97b309f8b, type: 3}
+  grimmBalloonShootingFireLoop: {fileID: 8300000, guid: eb218043723809d4499093f148e54734, type: 3}
+  grimmExplodeIntoBats: {fileID: 8300000, guid: bd3c7ae58ed32174c822bf1a6eb3606e, type: 3}
+  grimmBatsCircling: {fileID: 8300000, guid: 3056943228d14024dbea511cc7c94b20, type: 3}
+  grimmBatsReform: {fileID: 8300000, guid: e9992416c96d65147a6578a3e2afc00e, type: 3}
+  grimmLongDefeat: {fileID: 8300000, guid: e678faaf0c0f72940b96d1f05474d5f4, type: 3}
 --- !u!1 &3036712514614698755
 GameObject:
   m_ObjectHideFlags: 0
