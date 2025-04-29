@@ -153,7 +153,7 @@ public class Player : MonoBehaviour
             SetZeroVelocity();
             stateMachine.ChangeState(idleState);
         }
-
+        DamageTrigger();
 
         //개발용 키
         //피격
@@ -171,6 +171,16 @@ public class Player : MonoBehaviour
         {
             SetHPandMP(-100, 0);
         }
+    }
+    private void DamageTrigger()
+    {
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, 0.5f);
+
+        if (collider.gameObject.tag == "Boss")
+        {
+            TakeDamage();
+        }
+
     }
 
     public void SetVelocityY(float y)
