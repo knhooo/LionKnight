@@ -4,8 +4,6 @@
 // - 상점
 // - 사슴정거장 Lift
 
-using UnityEngine;
-
 public class PlayerData
 {
     public string name;
