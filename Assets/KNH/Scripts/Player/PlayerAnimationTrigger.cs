@@ -17,12 +17,12 @@ public class PlayerAnimationTrigger : MonoBehaviour
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(player.attackCheck.position, player.attackCheckRadius);
 
-
-        //foreach (var hit in colliders)
-        //{
-        //    if (hit.GetComponent<Enemy>() != null)
-        //        hit.GetComponent<Enemy>().Damage();
-        //}
+        foreach (var hit in colliders)
+        {
+            //if (hit.GetComponent<Enemy>() != null)
+            //    hit.GetComponent<Enemy>().Damage();
+            player.SetHPandMP(0, 10);
+        }
     }
 
     private void FocusTrigger()
@@ -30,6 +30,10 @@ public class PlayerAnimationTrigger : MonoBehaviour
         SkillManager.instance.focus.UseFocusSkill();
     }
 
+    private void SpiritTrigger()
+    {
+        SkillManager.instance.spirit.UseSpiritSkill();
+    }
     private void DieAnimation()
     {
         Debug.Log(player.transform.position);
