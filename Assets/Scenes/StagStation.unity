@@ -3664,7 +3664,6 @@ GameObject:
   m_Component:
   - component: {fileID: 826185881}
   - component: {fileID: 826185883}
-  - component: {fileID: 826185882}
   m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
@@ -3687,20 +3686,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2043406054}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &826185882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 826185880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0db0c0f5ad3e28f468d61db6549ee7c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAutoLoad: 1
-  sceneToLoad: Dirtmouth
 --- !u!61 &826185883
 BoxCollider2D:
   m_ObjectHideFlags: 0
