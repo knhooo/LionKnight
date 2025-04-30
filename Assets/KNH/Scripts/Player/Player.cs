@@ -193,10 +193,8 @@ public class Player : MonoBehaviour
     {
         Collider2D collider = Physics2D.OverlapCircle(transform.position, 0.5f);
 
-        Debug.Log(collider.gameObject.tag);
         if (collider.gameObject.tag == "Boss")
         {
-
             TakeDamage();
         }
 
