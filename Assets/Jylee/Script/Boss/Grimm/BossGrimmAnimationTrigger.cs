@@ -68,4 +68,45 @@ public class BossGrimmAnimationTrigger : MonoBehaviour
     {
         soundClip.GrimmCast2();
     }
+
+    // 공격 판정 콜라이더 On Off
+    private void GrimmFrontAttackEnable()
+    {
+        boss.frontAttackPoint.GetComponent<Collider2D>().enabled = true;
+    }
+
+    private void GrimmFrontAttackDisable()
+    {
+        boss.frontAttackPoint.GetComponent<Collider2D>().enabled = false;
+    }
+
+    private void GrimmUppercutAttackEnable()
+    {
+        boss.uppercutAttackPoint.GetComponent<Collider2D>().enabled = true;
+    }
+
+    private void GrimmUppercutAttackDisable()
+    {
+        boss.uppercutAttackPoint.GetComponent<Collider2D>().enabled = false;
+    }
+
+    private void GrimmAirDashAttackEnable()
+    {
+        boss.airDashAttackPoint.GetComponent<Collider2D>().enabled = true;
+    }
+
+    private void GrimmAirDashAttackDisable()
+    {
+        boss.airDashAttackPoint.GetComponent<Collider2D>().enabled = false;
+    }
+
+    private void GrimmFrontDashAttackEnable()
+    {
+        boss.frontDashAttackPoint.GetComponent<Collider2D>().enabled = true;
+    }
+
+    private void GrimmFrontDashAttackDisable()
+    {
+        boss.frontDashAttackPoint.GetComponent<Collider2D>().enabled = false;
+    }
 }
