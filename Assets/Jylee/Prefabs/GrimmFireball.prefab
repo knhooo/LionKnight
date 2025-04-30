@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 4186559164064628319}
   - component: {fileID: 6683017476038157102}
   - component: {fileID: 5600495670752869038}
-  m_Layer: 9
+  - component: {fileID: 3566646196398620236}
+  m_Layer: 13
   m_Name: GrimmFireball
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,3 +192,15 @@ MonoBehaviour:
   phaseTime: 0.5
   moveSpeed: 8
   bulletDuration: 3
+--- !u!114 &3566646196398620236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751388657372171890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b2cac40093cb448ae7be314c477afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
