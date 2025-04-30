@@ -1,4 +1,7 @@
+using Unity.Cinemachine;
+using Unity.Cinemachine.Editor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -21,7 +24,9 @@ public class SceneLoader : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Player>())
+        {
             playerInTrigger = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
