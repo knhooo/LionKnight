@@ -162,7 +162,7 @@ MonoBehaviour:
   focusTimer: 0
   requiredFocusTime: 1.5
   isFocusing: 0
-  spiritDuration: 0
+  spiritDuration: 1
   knockbackDirection: {x: 5, y: 10}
   knockbackDuration: 1
   attackCheck: {fileID: 1658797656900072200}

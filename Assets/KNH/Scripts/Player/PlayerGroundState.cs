@@ -56,19 +56,19 @@ public class PlayerGroundState : PlayerState
         {
             aKeyHoldTime += Time.deltaTime;
 
-            if (aKeyHoldTime >= 0.3f && player.playerData.mp >= 50)
+            if (aKeyHoldTime >= 0.2f && player.playerData.mp >= 50)
             {
                 isAHolding = false;
                 stateMachine.ChangeState(player.focusState);
             }
         }
 
-        // A 키를 뗐을 때 (1.5초 안 됐으면 spiritState로)
+        // A 키를 뗐을 때 
         if (isAHolding && Input.GetKeyUp(KeyCode.A))
         {
             isAHolding = false;
 
-            if (aKeyHoldTime < 1.5f && player.playerData.mp >= 50)
+            if (player.playerData.mp >= 50)
             {
                 stateMachine.ChangeState(player.spiritState);
             }

@@ -69,6 +69,15 @@ public class PlayerAirState : PlayerState
 
         if (xInput != 0)
             player.SetVelocity(player.moveSpeed * 0.8f * xInput, rb.linearVelocityY);
+
+        // A 키를 뗐을 때
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            if (player.playerData.mp >= 50)
+            {
+                stateMachine.ChangeState(player.spiritState);
+            }
+        }
     }
 
 }

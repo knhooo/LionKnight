@@ -28,5 +28,7 @@ public class PlayerSpiritState : PlayerState
         base.Update();
         if (stateTimer < 0)
             stateMachine.ChangeState(player.idleState);
+        if (stateTimer < 0.5f && player.IsGroundDetected())
+            stateMachine.ChangeState(player.idleState);
     }
 }

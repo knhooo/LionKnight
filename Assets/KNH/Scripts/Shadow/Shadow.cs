@@ -121,6 +121,7 @@ public class Shadow : MonoBehaviour
     {
         if (hp <= 0)
         {
+            rb.linearVelocity = new Vector2(0, 0);
             isDie = true;
             stateMachine.ChangeState(dieState);
         }
