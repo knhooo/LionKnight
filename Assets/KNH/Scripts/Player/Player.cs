@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     public float counterAttackDuration = 0.2f;
     [HideInInspector]
     public bool hasAirAttacked = false;
+    public int attackPower = 10;
+    public int spiritAttackPower = 20;
 
     public bool isBusy { get; private set; }
     [Header("이동 정보")]
@@ -127,6 +129,7 @@ public class Player : MonoBehaviour
 
     protected virtual void Start()
     {
+        Debug.Log("lastDeathLocation: " + playerData.lastDeathLocation);
         sr = GetComponentInChildren<SpriteRenderer>();
         //fx = GetComponent<EntityFX>();
         anim = GetComponentInChildren<Animator>();
@@ -356,17 +359,23 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        isKnocked = true;//데미지 받지 않음
         Debug.Log("죽음");
         //그림자가 존재하는 상태에서 죽었을 경우
         if (playerData.lastDeathLocation != 0)
-        {
+        {    
             playerData.lastDeathLocation = 0;
+            playerData.lostMoney = 0;
+        }
+        else
+        {
+            //죽은 씬 저장
+            playerData.lastDeathLocation = SceneManager.GetActiveScene().buildIndex;
+            //잃은 돈 저장
+            playerData.lostMoney = playerData.money;
         }
 
-        //죽은 씬 저장
-        playerData.lastDeathLocation = SceneManager.GetActiveScene().buildIndex;
-        //잃은 돈 저장
-        playerData.lostMoney = playerData.money;
+
         //저장 처리
 
         stateMachine.ChangeState(deadState);

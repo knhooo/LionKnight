@@ -19,8 +19,16 @@ public class PlayerAnimationTrigger : MonoBehaviour
 
         foreach (var hit in colliders)
         {
-            //if (hit.GetComponent<Enemy>() != null)
-            //    hit.GetComponent<Enemy>().Damage();
+            //그림자 공격
+            if (hit.GetComponent<Shadow>() != null)
+            {
+                hit.GetComponent<Shadow>().TakeDamage();
+            }
+            //그림 공격
+            if (hit.GetComponent<BossBase>() != null)
+            {
+                hit.GetComponent<BossBase>().BossTakeDamage(player.attackPower);
+            }
             player.SetHPandMP(0, 10);
         }
     }

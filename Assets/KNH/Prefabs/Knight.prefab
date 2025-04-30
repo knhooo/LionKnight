@@ -162,7 +162,7 @@ MonoBehaviour:
   focusTimer: 0
   requiredFocusTime: 1.5
   isFocusing: 0
-  spiritDuration: 0
+  spiritDuration: 1
   knockbackDirection: {x: 5, y: 10}
   knockbackDuration: 1
   attackCheck: {fileID: 1658797656900072200}
@@ -170,7 +170,7 @@ MonoBehaviour:
   posArr:
   - {x: -19.98, y: 1.32, z: -0.055944238}
   - {x: 12.51, y: 6.21, z: -0.0435379}
-  shadow: {fileID: 0}
+  shadow: {fileID: 6005396011981447267, guid: 5d7a77b49a1009149ab4416142d4173a, type: 3}
   groundCheck: {fileID: 4459084927540969436}
   groundCheckDistance: 0.2
   wallCheck: {fileID: 1733666300062746474}
