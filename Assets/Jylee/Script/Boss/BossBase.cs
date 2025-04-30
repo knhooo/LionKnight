@@ -4,6 +4,7 @@ public class BossBase : MonoBehaviour
 {
     [Header("보스 정보")]
     public float healthPoint;
+    public float currentHealthPoint;
     public float damagePoint;
 
     [Header("충돌 정보")]
@@ -27,6 +28,8 @@ public class BossBase : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         sr = GetComponentInChildren<SpriteRenderer>();
         cd = GetComponent<Collider2D>();
+
+        currentHealthPoint = healthPoint;
     }
 
     public bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);

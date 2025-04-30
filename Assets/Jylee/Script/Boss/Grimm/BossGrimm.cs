@@ -64,6 +64,13 @@ public class BossGrimm : BossBase
     public float evadeSpeed;
     public float emeTeleportDistance;
 
+    [Header("히트 박스")]
+    public GameObject frontAttackPoint;
+    public GameObject uppercutAttackPoint;
+    public GameObject airDashAttackPoint;
+    public GameObject frontDashAttackPoint;
+    public GameObject bossBodyPoint;
+
     [Header("위치 조정 관련")]
     [SerializeField] private float airDashYPos;
     [SerializeField] private float teleportPlayerShortDistanceMin;
@@ -76,13 +83,8 @@ public class BossGrimm : BossBase
     [SerializeField] private Transform heightMax;
     [SerializeField] private Transform heightMin;
 
-    private bool firstBulletHell;
-    private bool useLandEff;
-    private Coroutine loopRoutine;
-
-    public float bossGravity;
-
     [Header("이펙트")]
+    [SerializeField] private GameObject deadEventPrefab;
     [SerializeField] private Transform airDashTransform;
     [SerializeField] private Transform groundDashTransform;
     [SerializeField] private Transform teleportEffTransform;
@@ -92,6 +94,16 @@ public class BossGrimm : BossBase
     [SerializeField] private GameObject teleportEff;
     [SerializeField] private GameObject teleportSmokeEff;
     [SerializeField] private GameObject castAttackEff;
+
+    private GameObject deadEventObj;
+    private bool bulletHellTrigger;
+    private bool firstBulletHell;
+    private bool secondBulletHell;
+    private bool firstBatChange;
+    private bool useLandEff;
+    private Coroutine loopRoutine;
+
+    public float bossGravity;
 
     public Transform playerTransform;
 
@@ -141,7 +153,10 @@ public class BossGrimm : BossBase
         stateMachine.Initalize(idleState);
 
         // 초기 값
-        firstBulletHell = false;
+        bulletHellTrigger = false;
+        firstBulletHell = true;
+        secondBulletHell = true;
+        firstBatChange = true;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         soundClip = GetComponentInParent<BossGrimmSoundClip>();
         bossGravity = rb.gravityScale;
@@ -182,7 +197,7 @@ public class BossGrimm : BossBase
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            firstBulletHell = true;
+            bulletHellTrigger = true;
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -191,6 +206,37 @@ public class BossGrimm : BossBase
         if (Input.GetKeyDown(KeyCode.E))
         {
             stateMachine.ChangeState(deathState);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            BossGrimmTakeDamage(10);
+        }
+    }
+
+    public void BossGrimmTakeDamage(float damage)
+    {
+        currentHealthPoint -= damage;
+
+
+
+        if (currentHealthPoint <= 0)
+        {
+            stateMachine.ChangeState(deathState);
+        }
+        else if (currentHealthPoint <= healthPoint / 2.5 && secondBulletHell)
+        {
+            bulletHellTrigger = true;
+            secondBulletHell = false;
+        }
+        else if (currentHealthPoint <= healthPoint / 2 && firstBatChange)
+        {
+            stateMachine.ChangeState(batState);
+            firstBatChange = false;
+        }
+        else if(currentHealthPoint <= healthPoint / 1.5 && firstBulletHell)
+        {
+            bulletHellTrigger = true;
+            firstBulletHell = false;
         }
     }
 
@@ -239,10 +285,10 @@ public class BossGrimm : BossBase
 
         useLandEff = false;
 
-        if (firstBulletHell)
+        if (bulletHellTrigger)
         {
             // 탄막 지옥
-            firstBulletHell = false;
+            bulletHellTrigger = false;
             nextAttackType = 0;
         }
         else
@@ -261,7 +307,9 @@ public class BossGrimm : BossBase
 
     public void BossDeathTrigger()
     {
-        if(nGrimmIntro != null)
+        deadEventObj.GetComponent<BossGrimmDeadEvent>().CancelCenterCircleGenerate();
+        soundClip.GrimmExplodeIntoBats();
+        if (nGrimmIntro != null)
         {
             Invoke("NGrimmTrigger", 1f);
             sr.enabled = false;
@@ -336,6 +384,22 @@ public class BossGrimm : BossBase
             Vector3 firePointLocalPos = batFirePoint.localPosition;
             firePointLocalPos.x *= -1;
             batFirePoint.localPosition = firePointLocalPos;
+
+            // 히트박스 뒤집기
+            firePointLocalPos = frontAttackPoint.transform.localPosition;
+            firePointLocalPos.x *= -1;
+            frontAttackPoint.transform.localPosition = firePointLocalPos;
+            frontAttackPoint.transform.localScale = new Vector3(frontAttackPoint.transform.localScale.x * -1, 1, 1);
+
+            firePointLocalPos = uppercutAttackPoint.transform.localPosition;
+            firePointLocalPos.x *= -1;
+            uppercutAttackPoint.transform.localPosition = firePointLocalPos;
+            uppercutAttackPoint.transform.localScale = new Vector3(uppercutAttackPoint.transform.localScale.x * -1, 1, 1);
+
+            firePointLocalPos = frontDashAttackPoint.transform.localPosition;
+            firePointLocalPos.x *= -1;
+            frontDashAttackPoint.transform.localPosition = firePointLocalPos;
+            frontDashAttackPoint.transform.localScale = new Vector3(frontDashAttackPoint.transform.localScale.x * -1, 1, 1);
         }
     }
 
@@ -398,6 +462,11 @@ public class BossGrimm : BossBase
         anim.SetBool("attackCast", false);
         anim.SetBool("attackAirDash", false);
         anim.SetBool("attackCapeSpike", false);
+
+        frontAttackPoint.GetComponent<Collider2D>().enabled = false;
+        uppercutAttackPoint.GetComponent<Collider2D>().enabled = false;
+        airDashAttackPoint.GetComponent<Collider2D>().enabled = false;
+        frontDashAttackPoint.GetComponent<Collider2D>().enabled = false;
         // 가시 캔슬
         foreach (GameObject i in spikeList)
         {
@@ -405,6 +474,8 @@ public class BossGrimm : BossBase
             i.GetComponentInChildren<Animator>().ResetTrigger("IsEnable");
             i.GetComponentInChildren<Animator>().ResetTrigger("IsDown");
             i.GetComponentInChildren<Animator>().Play("Empty");
+
+            i.GetComponentInChildren<BossGrimmSpikeTrigger>().SpikeAttackDisable();
         }
     }
 
@@ -485,8 +556,9 @@ public class BossGrimm : BossBase
         soundClip.GrimmEvade();
     }
 
-    public void BossGrimmDefeatSound()
+    public void BossGrimmDefeat()
     {
+        deadEventObj = Instantiate(deadEventPrefab, teleportEffTransform.position, Quaternion.identity);
         soundClip.GrimmLongDefeat();
     }
 

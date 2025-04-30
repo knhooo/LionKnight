@@ -7,6 +7,9 @@ public class GrimmIntroController : MonoBehaviour
     [Header("인트로 플레이")]
     public bool isIntroPlay = true;
 
+    [Header("보스 프리팹")]
+    [SerializeField] private GameObject bossGrimm;
+
     [Header("보스 트리거")]
     [SerializeField] private Collider2D bossStartTrigger;
     [SerializeField] private FadeSprite fadeSprite;
@@ -120,7 +123,7 @@ public class GrimmIntroController : MonoBehaviour
             StartCoroutine(fadeSprite.StartFadeOut());
 
             isIntroPlay = false;
-            GameObject.FindGameObjectWithTag("Boss").GetComponent<BossGrimm>().BossGrimmGreet();
+            bossGrimm.GetComponent<BossGrimm>().BossGrimmGreet();
         }
     }
 

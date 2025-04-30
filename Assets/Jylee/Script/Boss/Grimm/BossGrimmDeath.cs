@@ -3,6 +3,7 @@ using UnityEngine;
 public class BossGrimmDeath : BossGrimmState
 {
     private float deathAnimDuration;
+    private bool isDone;
     public BossGrimmDeath(BossGrimm _boss, BossGrimmStateMachine _stateMachine, string _animBoolName) : base(_boss, _stateMachine, _animBoolName)
     {
     }
@@ -12,7 +13,9 @@ public class BossGrimmDeath : BossGrimmState
         base.Enter();
         deathAnimDuration = boss.bossDeadDelay;
         boss.BossCancelEverything();
-        boss.BossGrimmDefeatSound();
+        boss.BossGrimmDefeat();
+        boss.bossBodyPoint.GetComponent<Collider2D>().enabled = false;
+        isDone = false;
     }
 
     public override void Update()
@@ -20,9 +23,10 @@ public class BossGrimmDeath : BossGrimmState
         base.Update();
         deathAnimDuration -= Time.deltaTime;
 
-        if(deathAnimDuration <= 0)
+        if(deathAnimDuration <= 0 && !isDone)
         {
             boss.BossDeathTrigger();
+            isDone = true;
         }
     }
 
