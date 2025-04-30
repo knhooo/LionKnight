@@ -25,9 +25,9 @@ public class PlayerAnimationTrigger : MonoBehaviour
                 hit.GetComponent<Shadow>().TakeDamage();
             }
             //그림 공격
-            if (hit.GetComponent<BossGrimm>() != null)
+            if (hit.GetComponent<BossBase>() != null)
             {
-                hit.GetComponent<BossGrimm>().BossGrimmTakeDamage(10);
+                hit.GetComponent<BossBase>().BossTakeDamage(player.attackPower);
             }
             player.SetHPandMP(0, 10);
         }

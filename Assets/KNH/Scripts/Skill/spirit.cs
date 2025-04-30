@@ -11,9 +11,9 @@ public class spirit : MonoBehaviour
             collision.GetComponent<Shadow>().TakeDamage();
         }
         //그림 공격
-        if (collision.GetComponent<BossGrimm>() != null)
+        if (collision.GetComponent<BossBase>() != null)
         {
-            collision.GetComponent<BossGrimm>().BossGrimmTakeDamage(10);
+            collision.GetComponent<BossBase>().BossTakeDamage(PlayerManager.instance.player.spiritAttackPower);
         }
     }
     private void OnBecameInvisible()

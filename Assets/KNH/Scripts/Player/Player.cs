@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     public float counterAttackDuration = 0.2f;
     [HideInInspector]
     public bool hasAirAttacked = false;
+    public int attackPower = 10;
+    public int spiritAttackPower = 20;
 
     public bool isBusy { get; private set; }
     [Header("이동 정보")]
