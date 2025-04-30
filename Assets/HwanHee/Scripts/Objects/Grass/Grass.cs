@@ -21,15 +21,7 @@ public class Grass : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<Player>() != null && canBeCut)
-        {
-            CutGraas();
-        }
-    }
-
-    void CutGraas()
+    public void CutGraas()
     {
         sp.sprite = cutImg;
         canBeCut = false;

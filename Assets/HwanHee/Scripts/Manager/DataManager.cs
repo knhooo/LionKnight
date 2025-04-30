@@ -17,16 +17,6 @@ public class DataManager : MonoBehaviour
         PrepareSaveDirectory();
     }
 
-    private void PrepareSaveDirectory()
-    {
-        path = Application.dataPath + "/../Saves/";
-
-        if (!Directory.Exists(path))
-        {
-            Directory.CreateDirectory(path);
-        }
-    }
-
     private void Singleton()
     {
         if (instance != null && instance != this)
@@ -37,6 +27,16 @@ public class DataManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void PrepareSaveDirectory()
+    {
+        path = Application.dataPath + "/../Saves/";
+
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
     }
 
     public void SaveData()
@@ -106,5 +106,4 @@ public class DataManager : MonoBehaviour
             lift.liftData = JsonUtility.FromJson<LiftData>(data);
         }
     }
-
 }
