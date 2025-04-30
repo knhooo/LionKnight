@@ -85,12 +85,6 @@ public class CameraMove : MonoBehaviour
         }
     }
 
-    private IEnumerator MoveCameraAfterDelay(float targetOffset)
-    {
-        yield return new WaitForSeconds(holdKeyTime);
-        MoveCameraToOffset(targetOffset);
-    }
-
     private void MoveCameraToOffset(float targetOffset)
     {
         if (isCameraMoving)

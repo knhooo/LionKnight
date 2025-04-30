@@ -7,21 +7,18 @@ public class DataManager : MonoBehaviour
     public static DataManager instance;
 
     string path;
-    string liftFileName = "lift_save.json";
+    string liftSaveFileName = "lift_save.json";
+    string playerSaveFileName = "player_save.json";
 
     private void Awake()
     {
-        #region 싱글톤
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        Singleton();
 
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-        #endregion
+        PrepareSaveDirectory();
+    }
 
+    private void PrepareSaveDirectory()
+    {
         path = Application.dataPath + "/../Saves/";
 
         if (!Directory.Exists(path))
@@ -30,9 +27,35 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    private void Singleton()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void SaveData()
     {
+        SavePlayer();
         SaveLift();
+    }
+
+    private void SavePlayer()
+    {
+        //Player player = PlayerManager.instance.player;
+        Player player = GameObject.FindAnyObjectByType<Player>();
+
+        if (player != null)
+        {
+            PlayerData data = player.playerData;
+            string json = JsonUtility.ToJson(data);
+            File.WriteAllText(Path.Combine(path, playerSaveFileName), json);
+        }
     }
 
     private void SaveLift()
@@ -42,18 +65,36 @@ public class DataManager : MonoBehaviour
         {
             LiftData data = lift.liftData;
             string json = JsonUtility.ToJson(data);
-            File.WriteAllText(Path.Combine(path, liftFileName), json);
+            File.WriteAllText(Path.Combine(path, liftSaveFileName), json);
         }
     }
 
     public void LoadData()
     {
+        LoadPlayer();
         LoadLift();
+    }
+
+    private void LoadPlayer()
+    {
+        string fullPath = Path.Combine(path, playerSaveFileName);
+
+        if (!File.Exists(fullPath))
+            return;
+
+        //Player player = PlayerManager.instance.player;
+        Player player = GameObject.FindAnyObjectByType<Player>();
+
+        if (player != null)
+        {
+            string data = File.ReadAllText(fullPath);
+            player.playerData = JsonUtility.FromJson<PlayerData>(data);
+        }
     }
 
     private void LoadLift()
     {
-        string fullPath = Path.Combine(path, liftFileName);
+        string fullPath = Path.Combine(path, liftSaveFileName);
 
         if (!File.Exists(fullPath))
             return;
@@ -65,4 +106,5 @@ public class DataManager : MonoBehaviour
             lift.liftData = JsonUtility.FromJson<LiftData>(data);
         }
     }
+
 }
