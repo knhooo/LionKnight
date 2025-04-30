@@ -209,15 +209,13 @@ public class BossGrimm : BossBase
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            BossGrimmTakeDamage(10);
+            BossTakeDamage(10);
         }
     }
 
-    public void BossGrimmTakeDamage(float damage)
+    protected override void BossCheckHealthPoint()
     {
-        currentHealthPoint -= damage;
-
-
+        base.BossCheckHealthPoint();
 
         if (currentHealthPoint <= 0)
         {
@@ -233,7 +231,7 @@ public class BossGrimm : BossBase
             stateMachine.ChangeState(batState);
             firstBatChange = false;
         }
-        else if(currentHealthPoint <= healthPoint / 1.5 && firstBulletHell)
+        else if (currentHealthPoint <= healthPoint / 1.5 && firstBulletHell)
         {
             bulletHellTrigger = true;
             firstBulletHell = false;
