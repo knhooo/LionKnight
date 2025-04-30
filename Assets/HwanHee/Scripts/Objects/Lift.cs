@@ -101,6 +101,12 @@ public class Lift : ShakeObject
         {
             player.transform.SetParent(null);
         }
+
+        // 테스트용
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            MoveLift();
+        }
     }
 
     private void MoveLift()

@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -142,9 +142,9 @@ TextureImporter:
       name: select_game_HUD_0001_health_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 32
+        width: 33
         height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -152,10 +152,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6c749e4caf81f3400800000000000000
-      internalID: 305990765008996294
+      spriteID: 55391a49dee727249ba0e144e9adcc1f
+      internalID: -677073617
       vertices: []
       indices: 
       edges: []
@@ -164,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 33b44621d8f344c4b8822a8f65b9684e
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      select_game_HUD_0001_health_0: 305990765008996294
+      select_game_HUD_0001_health_0: -677073617
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

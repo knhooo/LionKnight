@@ -3,8 +3,9 @@ using UnityEngine;
 public class BossGrimmAttackCapeSpike : BossGrimmState
 {
     private float actionDuration;
-    private float spikeUpDelay;
-    private float spikeUpDuration;
+    private float upDelay;
+    private float upDuration;
+    private float soundTiming;
     // private bool isAction;
     private int stateType;
     public BossGrimmAttackCapeSpike(BossGrimm _boss, BossGrimmStateMachine _stateMachine, string _animBoolName) : base(_boss, _stateMachine, _animBoolName)
@@ -14,9 +15,10 @@ public class BossGrimmAttackCapeSpike : BossGrimmState
     public override void Enter()
     {
         base.Enter();
-        spikeUpDelay = 0.5f;
-        actionDuration = 1f;
-        spikeUpDuration = 0.7f;
+        upDelay = boss.spikeUpDelay;
+        actionDuration = boss.spikeActionDuration;
+        soundTiming = boss.spikeSoundTiming;
+        upDuration = boss.spikeUpDuration;
         stateType = 1;
     }
 
@@ -36,25 +38,46 @@ public class BossGrimmAttackCapeSpike : BossGrimmState
 
         if (stateType == 2)
         {
-            spikeUpDelay -= Time.deltaTime;
-            if(spikeUpDelay <= 0)
+            upDelay -= Time.deltaTime;
+            if (upDelay <= 0)
             {
                 stateType = 3;
                 boss.BossCapeSpikeUp();
             }
         }
 
-        if(stateType == 3)
+        if (stateType == 3)
         {
-            spikeUpDuration -= Time.deltaTime;
-            if (spikeUpDuration <= 0)
+            soundTiming -= Time.deltaTime;
+            if (soundTiming <= 0)
             {
                 stateType = 4;
-                boss.BossCapeSpikeDown();
+                boss.BossCapeUpSound();
+                soundTiming = 0.3f;
             }
         }
 
         if(stateType == 4)
+        {
+            upDuration -= Time.deltaTime;
+            if (upDuration <= 0)
+            {
+                stateType = 5;
+                boss.BossCapeSpikeDown();
+            }
+        }
+
+        if (stateType == 5)
+        {
+            soundTiming -= Time.deltaTime;
+            if (soundTiming <= 0)
+            {
+                stateType = 6;
+                boss.BossCapeDownSound();
+            }
+        }
+
+        if (stateType == 6)
         {
             actionDuration -= Time.deltaTime;
             if (actionDuration <= 0)

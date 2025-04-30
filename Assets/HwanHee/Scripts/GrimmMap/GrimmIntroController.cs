@@ -110,15 +110,30 @@ public class GrimmIntroController : MonoBehaviour
     {
         if (collision.transform == bossStartTrigger.transform && !player.isInIntro && isIntroPlay)
         {
-            player.isInIntro = true;
+            /*player.isInIntro = true;
             destination = player.transform.position;
 
             bossStartTrigger.gameObject.SetActive(false);
             transform.SetParent(null);
 
-            StartCoroutine(CameraMove());
+            StartCoroutine(CameraMove());*/
             StartCoroutine(fadeSprite.StartFadeOut());
+
+            isIntroPlay = false;
+            GameObject.FindGameObjectWithTag("Boss").GetComponent<BossGrimm>().BossGrimmGreet();
         }
+    }
+
+    public void NightmareGrimmTrigger()
+    {
+        player.isInIntro = true;
+        destination = player.transform.position;
+
+        bossStartTrigger.gameObject.SetActive(false);
+        transform.SetParent(null);
+
+        StartCoroutine(CameraMove());
+        StartCoroutine(fadeSprite.StartFadeOut());
     }
 
     private IEnumerator CameraMove()
