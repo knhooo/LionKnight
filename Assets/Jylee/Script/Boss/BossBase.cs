@@ -1,4 +1,6 @@
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class BossBase : MonoBehaviour
 {
@@ -72,5 +74,16 @@ public class BossBase : MonoBehaviour
     public void SetZeroVelocity()
     {
         rb.linearVelocity = new Vector2(0, 0);
+    }
+
+    public void BossTakeDamage(float damage)
+    {
+        currentHealthPoint -= damage;
+        BossCheckHealthPoint();
+    }
+
+    protected virtual void BossCheckHealthPoint()
+    {
+        
     }
 }
