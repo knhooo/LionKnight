@@ -12,7 +12,7 @@ public class PlayerBenchState : PlayerState
         player.transform.position += new Vector3(0, -0.218442f, 0);
         player.rb.bodyType = RigidbodyType2D.Static;
         player.isOnBench = true;
-        player.SetHPandMP(player.maxHp, 0);
+        player.SetHPandMP(player.playerData.maxHp, 0);
     }
 
     public override void Exit()

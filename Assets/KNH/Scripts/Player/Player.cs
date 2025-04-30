@@ -15,11 +15,13 @@ public class Player : MonoBehaviour
 
     #region Info
     [Header("Stats")]
-    public int money { get; set; } = 0;//지오
-    public float hp { get; set; } = 0;//체력
-    public float maxHp { get; set; } = 50;//최대체력
-    public float mp { get; set; } = 0;//영혼
-    public float maxMp { get; set; } = 100;//영혼
+    public PlayerData playerData = new PlayerData();
+
+    //public int money { get; set; } = 0;//지오
+    //public float hp { get; set; } = 0;//체력
+    //public float maxHp { get; set; } = 50;//최대체력
+    //public float mp { get; set; } = 0;//영혼
+    //public float maxMp { get; set; } = 100;//영혼
 
     [Header("공격 디테일")]
     public Vector2[] attackMovement;
@@ -132,7 +134,8 @@ public class Player : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
-        hp = maxHp;
+        playerData.hp = playerData.maxHp;
+
         // 게임 시작 시 초기 상태를 대기 상태(idleState)로 설정
         if(SceneManager.GetActiveScene().name == "Dirtmouth")
         {
@@ -164,7 +167,7 @@ public class Player : MonoBehaviour
         //회복
         if (Input.GetKeyDown(KeyCode.F))
         {
-            SetHPandMP(maxHp, maxMp);
+            SetHPandMP(playerData.maxHp, playerData.maxMp);
         }
         //즉사
         if (Input.GetKeyDown(KeyCode.D))
@@ -325,17 +328,17 @@ public class Player : MonoBehaviour
 
     public void SetHPandMP(float _hp,float _mp)
     {
-        hp += _hp;
-        mp += _mp;
+        playerData.hp += _hp;
+        playerData.mp += _mp;
 
-        if (hp > maxHp)
-            hp = maxHp;
-        if (mp > maxMp)
-            mp = maxMp;
-        if (hp <= 0) Die();
-        if (mp < 0) mp = 0;
+        if (playerData.hp > playerData.maxHp)
+            playerData.hp = playerData.maxHp;
+        if (playerData.mp > playerData.maxMp)
+            playerData.mp = playerData.maxMp;
+        if (playerData.hp <= 0) Die();
+        if (playerData.mp < 0) playerData.mp = 0;
 
-        Debug.Log("Hp: " + hp + " MP: " + mp);
+        Debug.Log("Hp: " + playerData.hp + " MP: " + playerData.mp);
     }
 
     public void Die()
