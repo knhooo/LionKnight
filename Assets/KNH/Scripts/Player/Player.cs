@@ -17,12 +17,6 @@ public class Player : MonoBehaviour
     [Header("Stats")]
     public PlayerData playerData = new PlayerData();
 
-    //public int money { get; set; } = 0;//지오
-    //public float hp { get; set; } = 0;//체력
-    //public float maxHp { get; set; } = 50;//최대체력
-    //public float mp { get; set; } = 0;//영혼
-    //public float maxMp { get; set; } = 100;//영혼
-
     [Header("공격 디테일")]
     public Vector2[] attackMovement;
     public float counterAttackDuration = 0.2f;
@@ -62,6 +56,10 @@ public class Player : MonoBehaviour
     [Header("충돌 정보")]
     public Transform attackCheck;
     public float attackCheckRadius;
+
+    [Header("그림자 정보")]
+    [SerializeField] protected Vector3[] posArr;
+    [SerializeField] protected GameObject shadow;
 
     [SerializeField] protected Transform groundCheck;
     [SerializeField] protected float groundCheckDistance;
@@ -137,7 +135,13 @@ public class Player : MonoBehaviour
         playerData.hp = playerData.maxHp;
 
         // 게임 시작 시 초기 상태를 대기 상태(idleState)로 설정
-        if(SceneManager.GetActiveScene().name == "Dirtmouth")
+        StateInit();
+        CheckShadow();
+    }
+
+    private void StateInit()
+    {
+        if (SceneManager.GetActiveScene().name == "Dirtmouth")
         {
             stateMachine.Initialize(benchState);
             transform.position = new Vector3(-0.027f, -5.277f, 0);
@@ -145,6 +149,15 @@ public class Player : MonoBehaviour
         else stateMachine.Initialize(idleState);
     }
 
+    private void CheckShadow()
+    {
+        //최근 죽은 장소에 도착했을 때 그림자 생성
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (sceneIndex != 0 && sceneIndex == playerData.lastDeathLocation)
+        {
+            Instantiate(shadow, posArr[sceneIndex], Quaternion.identity);
+        }
+    }
 
     protected virtual void Update()
     {
@@ -344,6 +357,18 @@ public class Player : MonoBehaviour
     public void Die()
     {
         Debug.Log("죽음");
+        //그림자가 존재하는 상태에서 죽었을 경우
+        if (playerData.lastDeathLocation != 0)
+        {
+            playerData.lastDeathLocation = 0;
+        }
+
+        //죽은 씬 저장
+        playerData.lastDeathLocation = SceneManager.GetActiveScene().buildIndex;
+        //잃은 돈 저장
+        playerData.lostMoney = playerData.money;
+        //저장 처리
+
         stateMachine.ChangeState(deadState);
     }
 }

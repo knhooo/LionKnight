@@ -167,6 +167,10 @@ MonoBehaviour:
   knockbackDuration: 1
   attackCheck: {fileID: 1658797656900072200}
   attackCheckRadius: 0.8
+  posArr:
+  - {x: -19.98, y: 1.32, z: -0.055944238}
+  - {x: 12.51, y: 6.21, z: -0.0435379}
+  shadow: {fileID: 0}
   groundCheck: {fileID: 4459084927540969436}
   groundCheckDistance: 0.2
   wallCheck: {fileID: 1733666300062746474}
@@ -180,6 +184,7 @@ MonoBehaviour:
     m_Bits: 1024
   isOnBench: 0
   isRidingLift: 0
+  isInIntro: 0
 --- !u!70 &3578863524682833997
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
