@@ -56,7 +56,7 @@ public class PlayerGroundState : PlayerState
         {
             aKeyHoldTime += Time.deltaTime;
 
-            if (aKeyHoldTime >= 0.3f && player.mp >= 50)
+            if (aKeyHoldTime >= 0.3f && player.playerData.mp >= 50)
             {
                 isAHolding = false;
                 stateMachine.ChangeState(player.focusState);
@@ -68,7 +68,7 @@ public class PlayerGroundState : PlayerState
         {
             isAHolding = false;
 
-            if (aKeyHoldTime < 1.5f && player.mp >= 50)
+            if (aKeyHoldTime < 1.5f && player.playerData.mp >= 50)
             {
                 stateMachine.ChangeState(player.spiritState);
             }

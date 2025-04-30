@@ -64,6 +64,12 @@ public class Shadow : MonoBehaviour
     {
         Vector2 direction = (player.position - transform.position).normalized;
         rb.linearVelocity = direction * moveSpeed;
+
+        //플레이어 방향을 바라보게 flip
+        if (direction.x > 0)
+            sr.flipX = false; // 오른쪽 보면 원래대로
+        else if (direction.x < 0)
+            sr.flipX = true;  // 왼쪽 보면 뒤집기
     }
 
     private void HoverInPlace()

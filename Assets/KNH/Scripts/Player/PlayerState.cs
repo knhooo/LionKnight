@@ -33,7 +33,7 @@ public class PlayerState
     {
         stateTimer -= Time.deltaTime;
 
-        player.anim.SetFloat("HP", player.hp);
+        player.anim.SetFloat("HP", player.playerData.hp);
 
         xInput = Input.GetAxisRaw("Horizontal");
         yInput = Input.GetAxisRaw("Vertical");
