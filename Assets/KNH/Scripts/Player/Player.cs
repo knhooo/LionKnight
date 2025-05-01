@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
     public bool isInIntro = false;
 
     private Coroutine flashRoutine;
+    private PlayerSoundClip soundClip => GetComponentInParent<PlayerSoundClip>();
     #endregion
 
     #region States
