@@ -6,7 +6,7 @@ public class BossGrimmAttackCapeSpike : BossGrimmState
     private float upDelay;
     private float upDuration;
     private float soundTiming;
-    // private bool isAction;
+    private float nightmareDelay;
     private int stateType;
     public BossGrimmAttackCapeSpike(BossGrimm _boss, BossGrimmStateMachine _stateMachine, string _animBoolName) : base(_boss, _stateMachine, _animBoolName)
     {
@@ -19,6 +19,7 @@ public class BossGrimmAttackCapeSpike : BossGrimmState
         actionDuration = boss.spikeActionDuration;
         soundTiming = boss.spikeSoundTiming;
         upDuration = boss.spikeUpDuration;
+        nightmareDelay = 0.2f;
         stateType = 1;
     }
 
@@ -26,14 +27,25 @@ public class BossGrimmAttackCapeSpike : BossGrimmState
     {
         base.Update();
 
+        Debug.Log("hear");
+
         // 준비 끝
-        if (triggerCalled)
+        if (triggerCalled && !boss.isNightmare)
         {
             triggerCalled = false;
             // 액션
             boss.anim.SetTrigger("attackCapeSpikeAction");
             boss.BossCapeSpikeEnable();
             stateType = 2;
+        }
+        else if(boss.isNightmare && stateType == 1)
+        {
+            nightmareDelay -= Time.deltaTime;
+            if(nightmareDelay <= 0)
+            {
+                boss.BossCapeSpikeEnable();
+                stateType = 2;
+            }
         }
 
         if (stateType == 2)
@@ -82,7 +94,14 @@ public class BossGrimmAttackCapeSpike : BossGrimmState
             actionDuration -= Time.deltaTime;
             if (actionDuration <= 0)
             {
-                boss.stateMachine.ChangeState(boss.teleportInState);
+                if (boss.isNightmare)
+                {
+                    boss.stateMachine.ChangeState(boss.attackSelectState);
+                }
+                else
+                {
+                    boss.stateMachine.ChangeState(boss.teleportInState);
+                }
             }
         }
     }

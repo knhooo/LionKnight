@@ -109,4 +109,24 @@ public class BossGrimmAnimationTrigger : MonoBehaviour
     {
         boss.frontDashAttackPoint.GetComponent<Collider2D>().enabled = false;
     }
+
+    private void GrimmBodyCollEnable()
+    {
+        boss.bossBodyPoint.GetComponent<Collider2D>().enabled = true;
+    }
+
+    private void GrimmBodyCollDisable()
+    {
+        boss.bossBodyPoint.GetComponent<Collider2D>().enabled = false;
+    }
+
+    private void GrimmSmallBodyCollEnable()
+    {
+        boss.bossSmallBodyPoint.GetComponent<Collider2D>().enabled = true;
+    }
+
+    private void GrimmSmallBodyCollDisable()
+    {
+        boss.bossSmallBodyPoint.GetComponent<Collider2D>().enabled = false;
+    }
 }

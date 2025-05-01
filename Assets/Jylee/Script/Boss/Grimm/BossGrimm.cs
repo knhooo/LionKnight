@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -9,16 +10,21 @@ public class BossGrimm : BossBase
 {
 
     [Header("수치 관련")]
+    public bool isNightmare;
     public int nextAttackType;
     public float attackEndTeleportDelay;
     public float teleportOutDelay;
     public float groundY;
     public float bossDeadDelay;
     [SerializeField] private GameObject nGrimmIntro;
+    [SerializeField] private int attackSelectMax;
+    [SerializeField] private int attackSelectMin;
 
     [Header("공중 대쉬 공격")]
     public float adAirDashPower;
     public float adGroundDashPower;
+    public float adLandDelay;
+    public GameObject adDashTrail;
 
     [Header("대쉬 어퍼컷 공격")]
     public float duDashPower;
@@ -34,6 +40,7 @@ public class BossGrimm : BossBase
     public float firstShotDelay;
     public float secondShotDelay;
     public float thirdShotDelay;
+    public float fourthShotDelay;
     public float shotEndDelay;
 
     [Header("가시 망토 공격")]
@@ -70,6 +77,7 @@ public class BossGrimm : BossBase
     public GameObject airDashAttackPoint;
     public GameObject frontDashAttackPoint;
     public GameObject bossBodyPoint;
+    public GameObject bossSmallBodyPoint;
 
     [Header("위치 조정 관련")]
     [SerializeField] private float airDashYPos;
@@ -82,6 +90,7 @@ public class BossGrimm : BossBase
     [SerializeField] private Transform bulletHellPos;
     [SerializeField] private Transform heightMax;
     [SerializeField] private Transform heightMin;
+    [SerializeField] private Transform trailPos;
 
     [Header("이펙트")]
     [SerializeField] private GameObject deadEventPrefab;
@@ -102,6 +111,7 @@ public class BossGrimm : BossBase
     private bool firstBatChange;
     private bool useLandEff;
     private Coroutine loopRoutine;
+    private Coroutine dashTrailCoroutine;
 
     public float bossGravity;
 
@@ -122,6 +132,7 @@ public class BossGrimm : BossBase
     public BossGrimmAttackCast castState { get; private set; }
     public BossGrimmAttackAirDashAttack airDash { get; private set; }
     public BossGrimmAttackCapeSpike capeSpike { get; private set; }
+    public BossGrimmWait waitState { get; private set; }
     public BossGrimmAttackBulletHell bulletHell { get; private set; }
     public BossGrimmChangeBat batState { get; private set; }
     public BossGrimmDeath deathState { get; private set; }
@@ -139,6 +150,7 @@ public class BossGrimm : BossBase
         castState = new BossGrimmAttackCast(this, stateMachine, "attackCast");
         airDash = new BossGrimmAttackAirDashAttack(this, stateMachine, "attackAirDash");
         capeSpike = new BossGrimmAttackCapeSpike(this, stateMachine, "attackCapeSpike");
+        waitState = new BossGrimmWait(this, stateMachine, "IsIdle");
         bulletHell = new BossGrimmAttackBulletHell(this, stateMachine, "attackBulletHell");
         batState = new BossGrimmChangeBat(this, stateMachine, "IsBat");
         deathState = new BossGrimmDeath(this, stateMachine, "IsDeath");
@@ -243,6 +255,18 @@ public class BossGrimm : BossBase
         stateMachine.ChangeState(greetState);
     }
 
+    public void BossGrimmNightmareStart()
+    {
+        groundY = transform.position.y;
+        SetTeleportDelay(attackEndTeleportDelay);
+        stateMachine.ChangeState(teleportInState);
+
+        foreach (GameObject i in spikeList)
+        {
+            i.GetComponentInChildren<Animator>().SetBool("IsNightmare", true);
+        }
+    }
+
     public void AnimationTrigger()
     {
         stateMachine.currentState.AnimationFinishTrigger();
@@ -266,6 +290,7 @@ public class BossGrimm : BossBase
         rb.simulated = true;
         TeleportEffGenerate();
         TeleportSmokeEffGenerate();
+        soundClip.GrimmTeleportOut();
     }
 
     public void SelectGrimmAttack()
@@ -292,8 +317,8 @@ public class BossGrimm : BossBase
         else
         {
             // 일반패턴 1~4
-            nextAttackType = Random.Range(1, 5);
-            // nextAttackType = 3;
+            nextAttackType = Random.Range(attackSelectMin, attackSelectMax);
+            // nextAttackType = 4;
         }
     }
 
@@ -483,6 +508,18 @@ public class BossGrimm : BossBase
         Vector3 scale = fireBat.transform.localScale;
         scale.x = facingLeft ? 1 : -1;
         fireBat.transform.localScale = scale;
+
+        Instantiate(castAttackEff, batFirePoint.position, Quaternion.identity);
+    }
+
+    public void BossFireBatFireUp()
+    {
+        GameObject fireBat = Instantiate(fireBatPrefab, batFirePoint.position, Quaternion.identity);
+        Vector3 scale = fireBat.transform.localScale;
+        scale.x = facingLeft ? 1 : -1;
+        fireBat.transform.localScale = scale;
+
+        fireBat.GetComponent<BossGrimmFireBat>().UpFireBat();
 
         Instantiate(castAttackEff, batFirePoint.position, Quaternion.identity);
     }
@@ -677,6 +714,7 @@ public class BossGrimm : BossBase
         soundClip.GrimmBatsCircling();
 
         grimmBatObj = Instantiate(grimmBatPrefab, teleportEffTransform.position, Quaternion.identity);
+        grimmBatObj.GetComponent<BossGrimmBat>().GetMainBossObj(gameObject);
         for (int i = 0; i < grimmBatShadowCount; i++)
         {
             GameObject obj = Instantiate(grimmBatShadowPrefab, teleportEffTransform.position, Quaternion.identity);
@@ -694,5 +732,31 @@ public class BossGrimm : BossBase
         }
 
         batShadowList.Clear();
+    }
+
+    public void BossGrimmDashTrailCoroutineStart()
+    {
+        if (dashTrailCoroutine == null)
+        {
+            dashTrailCoroutine = StartCoroutine(BossGrimmTrailGenerate());
+        }
+    }
+
+    public void BossGrimmDashTrailCoroutineEnd()
+    {
+        if (dashTrailCoroutine != null)
+        {
+            StopCoroutine(dashTrailCoroutine);
+            dashTrailCoroutine = null;
+        }
+    }
+
+    private IEnumerator BossGrimmTrailGenerate()
+    {
+        while (true)
+        {
+            Instantiate(adDashTrail, trailPos.position, Quaternion.identity);
+            yield return new WaitForSeconds(0.02f);
+        }
     }
 }
