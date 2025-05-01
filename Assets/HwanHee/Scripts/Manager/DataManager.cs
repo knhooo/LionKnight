@@ -1,32 +1,23 @@
 using UnityEngine;
 using System.IO;
-using UnityEngine.SceneManagement;
+using System.Data;
 
-public class DataManager : MonoBehaviour
+public class DataManager : Singleton<DataManager>
 {
-    public static DataManager instance;
-
     string path;
     string liftSaveFileName = "lift_save.json";
     string playerSaveFileName = "player_save.json";
 
-    private void Awake()
-    {
-        Singleton();
+    private Player player;
+    private Lift lift;
 
+    public void RegisterPlayer(Player _player) => player = _player;
+    public void RegisterLift(Lift _lift) => lift = _lift;
+
+    protected override void Awake()
+    {
+        base.Awake();
         PrepareSaveDirectory();
-    }
-
-    private void Singleton()
-    {
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     private void PrepareSaveDirectory()
@@ -47,24 +38,18 @@ public class DataManager : MonoBehaviour
 
     private void SavePlayer()
     {
-        //Player player = PlayerManager.instance.player;
-        Player player = GameObject.FindAnyObjectByType<Player>();
-
         if (player != null)
         {
-            PlayerData data = player.playerData;
-            string json = JsonUtility.ToJson(data);
-            File.WriteAllText(Path.Combine(path, playerSaveFileName), json);
+            //string json = JsonUtility.ToJson(player.GetSaveData());
+            //File.WriteAllText(Path.Combine(path, playerSaveFileName), json);
         }
     }
 
     private void SaveLift()
     {
-        Lift lift = GameObject.FindAnyObjectByType<Lift>();
         if (lift != null)
         {
-            LiftData data = lift.liftData;
-            string json = JsonUtility.ToJson(data);
+            string json = JsonUtility.ToJson(lift.GetSaveData());
             File.WriteAllText(Path.Combine(path, liftSaveFileName), json);
         }
     }
@@ -78,32 +63,20 @@ public class DataManager : MonoBehaviour
     private void LoadPlayer()
     {
         string fullPath = Path.Combine(path, playerSaveFileName);
-
-        if (!File.Exists(fullPath))
-            return;
-
-        //Player player = PlayerManager.instance.player;
-        Player player = GameObject.FindAnyObjectByType<Player>();
-
-        if (player != null)
+        if (File.Exists(fullPath) && player != null)
         {
             string data = File.ReadAllText(fullPath);
-            player.playerData = JsonUtility.FromJson<PlayerData>(data);
+            //player.LoadFromData(JsonUtility.FromJson<PlayerData>(data));
         }
     }
 
     private void LoadLift()
     {
         string fullPath = Path.Combine(path, liftSaveFileName);
-
-        if (!File.Exists(fullPath))
-            return;
-
-        Lift lift = GameObject.FindAnyObjectByType<Lift>();
-        if (lift != null)
+        if (File.Exists(fullPath) && lift != null)
         {
             string data = File.ReadAllText(fullPath);
-            lift.liftData = JsonUtility.FromJson<LiftData>(data);
+            lift.LoadFromData(JsonUtility.FromJson<LiftData>(data));
         }
     }
 }

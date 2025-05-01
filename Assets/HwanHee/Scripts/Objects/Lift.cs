@@ -23,7 +23,7 @@ public class Lift : ShakeObject
     [SerializeField] private GameObject[] wheels;
     [SerializeField] private float rotationSpeed = 360f;
 
-    public LiftData liftData = new LiftData();
+    private LiftData liftData = new LiftData();
 
     private bool canMoveStart = true;
     private bool isArrive = true;
@@ -33,6 +33,8 @@ public class Lift : ShakeObject
     {
         //player = PlayerManager.instance.player;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        DataManager.instance.RegisterLift(this);
     }
 
     private void Start()
@@ -184,5 +186,16 @@ public class Lift : ShakeObject
     {
         Gizmos.color = new Color(0, 1, 0, 0.3f);
         Gizmos.DrawCube(LiftCheck.position, boxSize);
+    }
+
+    public LiftData GetSaveData()
+    {
+        return liftData;
+    }
+
+    public void LoadFromData(LiftData _liftData)
+    {
+        liftData = _liftData;
+        liftData.isLiftUp = _liftData.isLiftUp;
     }
 }
