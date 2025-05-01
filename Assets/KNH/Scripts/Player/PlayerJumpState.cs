@@ -24,17 +24,23 @@ public class PlayerJumpState : PlayerState
     {
         base.Update();
 
+        xInput = Input.GetAxisRaw("Horizontal");
+
         if (Input.GetKey(KeyCode.Z) && player.isJumping)
         {
             if (player.jumpTimer > 0)
             {
-                player.SetVelocityY(player.jumpForce); // 계속 상승
+                player.SetVelocity(xInput * player.moveSpeed, player.jumpForce);
                 player.jumpTimer -= Time.deltaTime;
             }
             else
             {
                 player.isJumping = false;
             }
+        }
+        else
+        {
+            player.SetVelocity(xInput * player.moveSpeed, rb.linearVelocityY); 
         }
 
         if (Input.GetKeyUp(KeyCode.Z))
