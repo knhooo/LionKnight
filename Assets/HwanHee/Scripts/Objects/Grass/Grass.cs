@@ -9,6 +9,7 @@ public class Grass : MonoBehaviour
     [SerializeField] private bool canBeCut = false;
     [SerializeField] private Sprite cutImg;
     [SerializeField] private GameObject grassParticle;
+    [SerializeField] private AudioClip grassCut;
 
     private void Awake()
     {
@@ -23,8 +24,13 @@ public class Grass : MonoBehaviour
 
     public void CutGraas()
     {
-        sp.sprite = cutImg;
+        if (canBeCut == false)
+            return;
+
         canBeCut = false;
+        SoundManager.Instance.audioSource.PlayOneShot(grassCut  );
+
+        sp.sprite = cutImg;
         for (int i = 0; i < 25; i++)
         {
             PoolManager.instance.Spawn(PoolType.GrassParticle, grassParticle, transform.position, Quaternion.identity);

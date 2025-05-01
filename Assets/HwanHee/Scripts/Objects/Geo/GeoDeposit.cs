@@ -7,6 +7,7 @@ public class GeoDeposit : ShakeObject
 
     [SerializeField] private Sprite sprite;
     [SerializeField] private GameObject geoPrefab;
+    [SerializeField] private AudioClip[] geoDepositHits;
 
     private int life = 4;
 
@@ -19,6 +20,8 @@ public class GeoDeposit : ShakeObject
     {
         if (collision.GetComponent<Player>() != null && life > 0)
         {
+            int index = Random.Range(0, geoDepositHits.Length);
+            SoundManager.Instance.audioSource.PlayOneShot(geoDepositHits[index]);
             Shake(sp.transform, true);
             CreateGeo();
         }

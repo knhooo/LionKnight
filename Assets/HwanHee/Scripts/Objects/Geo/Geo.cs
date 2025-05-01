@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Geo : AddForceObject
 {
+    [SerializeField] private AudioClip[] geoGrounds;
+    [SerializeField] private AudioClip[] geoCollects;
+
     protected override void OnEnable()
     {
         rb.linearVelocity = Vector2.zero;
@@ -15,6 +18,15 @@ public class Geo : AddForceObject
             PlayerManager.instance.player.playerData.money++;
             gameObject.SetActive(false);
             Debug.Log("Money : " + PlayerManager.instance.player.playerData.money);
+
+            int index = Random.Range(0, geoCollects.Length);
+            SoundManager.Instance.audioSource.PlayOneShot(geoCollects[index]);
+        }
+
+        else if (collision.gameObject.GetComponent<BoxCollider2D>() != null)
+        {
+            int index = Random.Range(0, geoGrounds.Length);
+            SoundManager.Instance.audioSource.PlayOneShot(geoGrounds[index]);
         }
     }
 }
