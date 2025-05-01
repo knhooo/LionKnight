@@ -56,6 +56,7 @@ public class PlayerAirState : PlayerState
         }
         if (player.IsGroundDetected())
         {
+            player.soundClip.PlayerSoundOneShot(10);
             stateMachine.ChangeState(player.idleState);
             player.hasDoubleJumped = false;
             player.hasAirAttacked = false;

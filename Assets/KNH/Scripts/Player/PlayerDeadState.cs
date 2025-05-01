@@ -16,6 +16,7 @@ public class PlayerDeadState : PlayerState
         base.Enter();
         player.SetZeroVelocity();
         stateTimer = 1.5f;
+        player.soundClip.PlayerSoundOneShot(6);
     }
 
     public override void Exit()

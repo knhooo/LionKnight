@@ -13,6 +13,7 @@ public class PlayerJumpState : PlayerState
         player.SetVelocityY(player.jumpForce);
         player.isJumping = true;
         player.jumpTimer = player.variableJumpTime;
+        player.soundClip.PlayerSoundOneShot(8);
     }
     public override void Exit()
     {

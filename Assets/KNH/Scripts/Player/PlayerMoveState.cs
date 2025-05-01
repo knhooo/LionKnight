@@ -9,6 +9,7 @@ public class PlayerMoveState : PlayerGroundState
     public override void Enter()
     {
         base.Enter();
+        player.soundClip.audioSources[0].Play();
     }
 
     public override void Update()
@@ -24,5 +25,6 @@ public class PlayerMoveState : PlayerGroundState
     public override void Exit()
     {
         base.Exit();
+        player.soundClip.audioSources[0].Stop();
     }
 }

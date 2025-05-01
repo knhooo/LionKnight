@@ -13,7 +13,9 @@ public class PlayerBenchState : PlayerState
         player.rb.bodyType = RigidbodyType2D.Static;
         player.isOnBench = true;
         player.SetHPandMP(player.playerData.maxHp, 0);//체력 회복
+        player.soundClip.PlayerSoundOneShot(0);
         //저장 처리
+        DataManager.instance.SaveData();
     }
 
     public override void Exit()

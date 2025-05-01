@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
     public bool isInIntro = false;
 
     private Coroutine flashRoutine;
+    public PlayerSoundClip soundClip => GetComponentInParent<PlayerSoundClip>();
     #endregion
 
     #region States
@@ -103,9 +104,20 @@ public class Player : MonoBehaviour
     public PlayerDeadState deadState { get; private set; }
     #endregion
 
+    public PlayerData GetSaveData()
+    {
+        return playerData;
+    }
+
+    public void LoadFromData(PlayerData _playerData)
+    {
+        playerData = _playerData;
+    }
 
     protected virtual void Awake()
     {
+        DataManager.instance.RegisterPlayer(this);
+
         // 상태 머신 인스턴스 생성
         stateMachine = new PlayerStateMachine();
         // 각 상태 인스턴스 생성 (this: 플레이어 객체, stateMachine: 상태 머신, "Idle"/"Move": 상태 이름)
@@ -375,9 +387,8 @@ public class Player : MonoBehaviour
             playerData.lostMoney = playerData.money;
         }
 
-
         //저장 처리
-
+        DataManager.instance.SaveData();
         stateMachine.ChangeState(deadState);
     }
 }

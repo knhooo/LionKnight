@@ -21,6 +21,9 @@ public class PlayerPrimaryAttackState : PlayerState
         player.anim.SetInteger("ComboCounter", comboCounter);
         player.anim.speed = 1.5f;
 
+        if(comboCounter == 0) player.soundClip.PlayerSoundOneShot(19);
+        else if(comboCounter == 1) player.soundClip.PlayerSoundOneShot(21);
+
 
         float attackDir = player.facingDir;
 

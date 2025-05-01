@@ -11,6 +11,7 @@ public class PlayerDashState : PlayerState
         base.Enter();
         stateTimer = player.dashDuration;
         player.SetZeroVelocity();
+        player.soundClip.PlayerSoundOneShot(5);
     }
 
 
