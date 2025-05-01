@@ -8,29 +8,14 @@ public enum PoolType
     BrokenParticle
 }
 
-public class PoolManager : MonoBehaviour
+public class PoolManager : Singleton<PoolManager>
 {
-    public static PoolManager instance;
-
     private Dictionary<PoolType, Queue<GameObject>> poolDict;
 
-    private void Awake()
+    protected override void Awake()
     {
-        Singleton();
-
+        base.Awake();
         poolDict = new Dictionary<PoolType, Queue<GameObject>>();
-    }
-
-    private void Singleton()
-    {
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Create(PoolType type, GameObject prefab)

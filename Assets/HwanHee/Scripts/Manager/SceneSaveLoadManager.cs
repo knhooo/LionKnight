@@ -1,27 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneSaveLoadManager : MonoBehaviour
+public class SceneSaveLoadManager : Singleton<SceneSaveLoadManager>
 {
-    public static SceneSaveLoadManager instance;
-
     public bool canDataSave = true;
 
     [SerializeField] private SceneFader sceneFader;
     private string sceneName;
 
-    private void Awake()
+    protected override void Awake()
     {
-        #region 싱글톤
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-        #endregion
+        base.Awake();
 
         sceneFader = Instantiate(sceneFader).GetComponent<SceneFader>();
         sceneFader.transform.SetParent(transform);
@@ -32,6 +21,8 @@ public class SceneSaveLoadManager : MonoBehaviour
         sceneName = _sceneName;
         DataManager.instance.SaveData();
         sceneFader.FadeToScene();
+
+        BGMManager.instance.BGMFadeOut();
     }
 
     public void LoadScene()
