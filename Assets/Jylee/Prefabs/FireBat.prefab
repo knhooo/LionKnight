@@ -202,6 +202,8 @@ MonoBehaviour:
   xMoveSpeed: 15
   yMoveSpeed: 15
   duration: 5
+  upPower: 30
+  upDuration: 0.2
   fireBatSound: {fileID: 8300000, guid: 52e9f5a82024f3f42a9a00b333fd457b, type: 3}
 --- !u!114 &8652833220483055399
 MonoBehaviour:

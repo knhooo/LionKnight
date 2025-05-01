@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Lift : ShakeObject
 {
@@ -23,6 +24,11 @@ public class Lift : ShakeObject
     [SerializeField] private GameObject[] wheels;
     [SerializeField] private float rotationSpeed = 360f;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip activate;
+    [SerializeField] private AudioClip arrive;
+
+    private AudioSource audiosource;
     private LiftData liftData = new LiftData();
 
     private bool canMoveStart = true;
@@ -34,6 +40,7 @@ public class Lift : ShakeObject
         //player = PlayerManager.instance.player;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
+        audiosource = GetComponent<AudioSource>();
         DataManager.instance.RegisterLift(this);
     }
 
@@ -89,17 +96,17 @@ public class Lift : ShakeObject
         if (collider != null && collider.gameObject.GetComponent<Player>() && canMoveStart)
         {
             player.transform.SetParent(transform);
-
-            isArrive = false;
-            canMoveStart = false;
-            Shake(transform, false);
-            Invoke("MoveLift", duration + 0.1f);
+            if (canMoveStart)
+            {
+                LiftActivate();
+            }
         }
 
+        // 도착해서 플레이어 내렸을 경우 : 리프트 다시 움직일 수 있음
         else if (isArrive && !canMoveStart && collider == null)
             canMoveStart = true;
 
-        if (player.transform.parent == transform && collider == null)
+        if (player.transform.parent == transform && isArrive && collider == null)
         {
             player.transform.SetParent(null);
         }
@@ -111,8 +118,20 @@ public class Lift : ShakeObject
         }
     }
 
+    private void LiftActivate()
+    {
+        SoundManager.Instance.audioSource.PlayOneShot(activate);
+
+        isArrive = false;
+        canMoveStart = false;
+        Shake(transform, false);
+        Invoke("MoveLift", duration + 0.1f);
+    }
+
     private void MoveLift()
     {
+        audiosource.Play();
+
         if (transform.position.y == upperPos.position.y)
             liftData.isLiftUp = false;
         else if (transform.position.y == lowerPos.position.y)
@@ -159,6 +178,9 @@ public class Lift : ShakeObject
         isArrive = true;
         target.position = endPoint;
 
+        audiosource.Stop();
+        SoundManager.Instance.audioSource.PlayOneShot(arrive);
+
         if (target.gameObject.GetComponent<Lift>())
         {
             Shake(target, false);
@@ -196,6 +218,5 @@ public class Lift : ShakeObject
     public void LoadFromData(LiftData _liftData)
     {
         liftData = _liftData;
-        liftData.isLiftUp = _liftData.isLiftUp;
     }
 }

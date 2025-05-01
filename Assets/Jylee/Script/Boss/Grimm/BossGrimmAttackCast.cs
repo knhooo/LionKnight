@@ -13,6 +13,7 @@ public class BossGrimmAttackCast : BossGrimmState
     private float firstShotTime;
     private float secondShotTime;
     private float thirdShotTime;
+    private float fourthShotTime;
     private float shotEndTime;
 
     private int teleportCount;
@@ -34,7 +35,8 @@ public class BossGrimmAttackCast : BossGrimmState
         firstShotTime = boss.firstShotDelay;
         secondShotTime = boss.secondShotDelay;
         thirdShotTime = boss.thirdShotDelay;
-        shotEndTime = boss.shotEndDelay;
+        fourthShotTime = boss.fourthShotDelay;
+        shotEndTime = 0.2f;
     }
 
     public override void Update()
@@ -110,12 +112,10 @@ public class BossGrimmAttackCast : BossGrimmState
                 if (!boss.facingLeft && boss.transform.position.x - boss.emeTeleportDistance < boss.playerTransform.position.x)
                 {
                     doEmeTeleport = true;
-                    Debug.Log(1);
                 }
                 else if(boss.facingLeft && boss.transform.position.x + boss.emeTeleportDistance > boss.playerTransform.position.x)
                 {
                     doEmeTeleport = true;
-                    Debug.Log(2);
                 }
 
                 if (doEmeTeleport)
@@ -141,7 +141,14 @@ public class BossGrimmAttackCast : BossGrimmState
                     secondShotTime -= Time.deltaTime;
                     if (secondShotTime <= 0)
                     {
-                        boss.BossFireBatFire();
+                        if (boss.isNightmare)
+                        {
+                            boss.BossFireBatFireUp();
+                        }
+                        else
+                        {
+                            boss.BossFireBatFire();
+                        }
                         shotCount++;
                     }
                     break;
@@ -154,11 +161,32 @@ public class BossGrimmAttackCast : BossGrimmState
                     }
                     break;
                 case 3:
+                    if (boss.isNightmare)
+                    {
+                        fourthShotTime -= Time.deltaTime;
+                        if (fourthShotTime <= 0)
+                        {
+                            boss.BossFireBatFireUp();
+                            shotCount++;
+                        }
+                    }
+                    else
+                    {
+                        shotEndTime -= Time.deltaTime;
+                        if (shotEndTime <= 0)
+                        {
+                            shotCount++;
+                            boss.anim.SetTrigger("attackCastOff");
+                            isFiring = false;
+                            isDone = true;
+                        }
+                    }
+                    break;
+                case 4:
                     shotEndTime -= Time.deltaTime;
                     if (shotEndTime <= 0)
                     {
                         shotCount++;
-                        boss.anim.SetTrigger("attackCastOff");
                         isFiring = false;
                         isDone = true;
                     }
@@ -166,9 +194,10 @@ public class BossGrimmAttackCast : BossGrimmState
             }
         }
 
-        if (triggerCalled && isDone)
+        if ((triggerCalled && isDone) || (boss.isNightmare && isDone))
         {
-            boss.stateMachine.ChangeState(boss.teleportInState);
+            Debug.Log("hear");
+            boss.stateMachine.ChangeState(boss.waitState);
         }
     }
 

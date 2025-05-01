@@ -1,3 +1,4 @@
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class BossGrimmBat : MonoBehaviour
@@ -19,6 +20,8 @@ public class BossGrimmBat : MonoBehaviour
     public float minY = -2f; // 바닥 제한
     public float maxY = 6f;  // 천장 제한
 
+    public EnemyFx fx { get; private set; }
+
     private Vector2 targetPos;
     private float timer;
     private float turnTimer;
@@ -29,6 +32,8 @@ public class BossGrimmBat : MonoBehaviour
     private float lastDirX = 0f;
     private Vector2 moveDir;
 
+    private GameObject bossObj;
+
     void Start()
     {
         if (player == null)
@@ -37,6 +42,7 @@ public class BossGrimmBat : MonoBehaviour
         PickNewTarget();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        fx = GetComponentInChildren<EnemyFx>();
         lastDirX = Mathf.Sign(targetPos.x - transform.position.x);
         spriteRenderer.flipX = lastDirX < 0;
         moveDir = (targetPos - (Vector2)transform.position).normalized;
@@ -140,6 +146,20 @@ public class BossGrimmBat : MonoBehaviour
 
             if (spriteRenderer != null)
                 spriteRenderer.flipX = dirX < 0;
+        }
+    }
+
+    public void GetMainBossObj(GameObject obj)
+    {
+        bossObj = obj;
+    }
+
+    public void BatGetHit(float damage)
+    {
+        fx.StartCoroutine("FlashFX");
+        if (bossObj != null)
+        {
+            bossObj.GetComponent<BossBase>().BossTakeDamage(damage);
         }
     }
 }
