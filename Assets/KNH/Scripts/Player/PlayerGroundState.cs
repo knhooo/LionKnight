@@ -29,6 +29,7 @@ public class PlayerGroundState : PlayerState
         if (player.IsNearBench() && Input.GetKey(KeyCode.UpArrow))
         {
             player.transform.position = player.IsNearBench().transform.position;
+            player.soundClip.PlayerSoundOneShot(0);
             stateMachine.ChangeState(player.benchState);
         }
 

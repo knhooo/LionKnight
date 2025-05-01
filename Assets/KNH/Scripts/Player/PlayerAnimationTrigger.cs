@@ -30,6 +30,11 @@ public class PlayerAnimationTrigger : MonoBehaviour
             {
                 hit.GetComponent<BossBase>().BossTakeDamage(player.attackPower);
             }
+            //그림 박쥐 공격
+            if (hit.GetComponent<BossGrimmBat>() != null)
+            {
+                hit.GetComponent<BossGrimmBat>().BatGetHit(player.attackPower);
+            }
             player.SetHPandMP(0, 10);
         }
     }
