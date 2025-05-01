@@ -9,7 +9,7 @@ public class GrimmBackgroundScaleController : MonoBehaviour
     [SerializeField] Vector3 maxScale = Vector3.one;
     [SerializeField] AudioSource heartBeatAudio;
 
-    private void Start()
+    public void StartPulsate()
     {
         StartCoroutine(Pulsate());
     }
@@ -24,7 +24,7 @@ public class GrimmBackgroundScaleController : MonoBehaviour
             float t = Mathf.Sin(time);
             transform.localScale = Vector3.Lerp(originScale, maxScale, t);
 
-            if (Vector3.Distance(transform.localScale, maxScale) < 0.03f && heartBeatAudio != null && !heartBeatAudio.isPlaying)
+            if (heartBeatAudio != null && !heartBeatAudio.isPlaying && heartBeatAudio.isActiveAndEnabled)
                 heartBeatAudio.Play();
 
             if (t <= 0)

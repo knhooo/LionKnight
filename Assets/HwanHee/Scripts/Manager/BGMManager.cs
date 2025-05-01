@@ -19,9 +19,42 @@ public class BGMManager : Singleton<BGMManager>
         audioSources = GetComponents<AudioSource>();
     }
 
-    public void SetNewBGM(AudioClip[] _newAudioClips)
+    public void PlayBGM()
+    {
+        foreach (AudioSource audioSource in audioSources)
+        {
+            if (audioSource.clip != null)
+            {
+                audioSource.volume = 1f;
+                audioSource.Play();
+            }
+        }
+    }
+
+    public void StopBGM()
+    {
+        foreach (AudioSource audioSource in audioSources)
+        {
+            if (audioSource.clip != null)
+            {
+                audioSource.Stop();
+            }
+        }
+    }
+
+    public void SetNewBGM(AudioClip newClip)
+    {
+        audioSources[0].clip = newClip;
+    }
+
+    public void SetNewBGMs(AudioClip[] _newAudioClips)
     {
         newAudioClips = _newAudioClips;
+    }
+
+    public void BGMFadeOut(float BGMVolume)
+    {
+        StartCoroutine(VolumeFadeInOut(audioSources[0].volume, BGMVolume));
     }
 
     public void BGMFadeOut()
@@ -50,7 +83,7 @@ public class BGMManager : Singleton<BGMManager>
         }
 
         // volume 0 : 새로운 bgm 재생
-        if (audioSources[0].volume == 0)
+        if (audioSources[0].volume == 0 && newAudioClips != null)
         {
             yield return new WaitForSeconds(0.5f);
             PlayNewBGM();
