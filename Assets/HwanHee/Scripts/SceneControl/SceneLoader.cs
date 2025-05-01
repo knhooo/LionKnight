@@ -29,7 +29,7 @@ public class SceneLoader : MonoBehaviour
                     SoundManager.Instance.audioSource.PlayOneShot(bell);
 
                 if (newAudioSources.Length > 0)
-                    BGMManager.instance.SetNewBGM(newAudioSources);
+                    BGMManager.instance.SetNewBGMs(newAudioSources);
                 BGMManager.instance.CurrentBGMVolume = CurrentBGMVolume;
                 BGMManager.instance.NewBGMVolume = NewBGMVolume;
 
