@@ -19,7 +19,14 @@ public class BossGrimmIdle : BossGrimmState
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            stateMachine.ChangeState(boss.greetState);
+            if (boss.isNightmare)
+            {
+                boss.BossGrimmNightmareStart();
+            }
+            else
+            {
+                stateMachine.ChangeState(boss.greetState);
+            }
         }
     }
 

@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 public class BossGrimmAttackAirDashAttack : BossGrimmState
 {
     private bool isAirDash;
+    private float landDelay;
     private float finishWait;
     private float playerAngle;
     private Vector3 playerLocation;
@@ -12,8 +13,9 @@ public class BossGrimmAttackAirDashAttack : BossGrimmState
     // 1 : 공중대쉬 준비상태
     // 2 : 공중대쉬 공격중
     // 3 : 지상착지중
-    // 4 : 지상대쉬 공격중
-    // 5 : 지상대쉬 공격후 착지
+    // 4 : 지상착지 딜레이
+    // 5 : 지상대쉬 공격중
+    // 6 : 지상대쉬 공격후 착지
     private int stateType;
 
     public BossGrimmAttackAirDashAttack(BossGrimm _boss, BossGrimmStateMachine _stateMachine, string _animBoolName) : base(_boss, _stateMachine, _animBoolName)
@@ -25,6 +27,7 @@ public class BossGrimmAttackAirDashAttack : BossGrimmState
         base.Enter();
         isAirDash = false;
         stateType = 1;
+        landDelay = boss.adLandDelay;
         finishWait = 0.5f;
 
         playerAngle = boss.BossPlayerGaze();
@@ -49,6 +52,10 @@ public class BossGrimmAttackAirDashAttack : BossGrimmState
             isAirDash = true;
             stateType = 2;
 
+            // 악몽의 왕인 경우 트레일 생성
+            if(boss.isNightmare)
+                boss.BossGrimmDashTrailCoroutineStart();
+
             // 수치만큼 돌진
             Vector2 airDashDirection = (playerLocation - boss.transform.position).normalized;
             rb.linearVelocity = airDashDirection * boss.adAirDashPower;
@@ -66,30 +73,52 @@ public class BossGrimmAttackAirDashAttack : BossGrimmState
             // 플레이어 위치에 따른 뒤집기
             boss.BossFlip(false);
 
+            // 악몽의 왕인 경우 트레일 중지
+            if (boss.isNightmare)
+                boss.BossGrimmDashTrailCoroutineEnd();
+
             // 착지 모션 전환
             stateType = 3;
             boss.anim.SetTrigger("attackAirDashLanding");
         }
 
+        // 착지 후 딜레이
+        if (isAirDash && triggerCalled && stateType == 3)
+        {
+            landDelay -= Time.deltaTime;
+            if(landDelay <= 0)
+            {
+                stateType = 4;
+            }
+        }
+
         // 착지 후 대쉬 전환
-        if(isAirDash && triggerCalled && stateType == 3)
+        if (isAirDash && triggerCalled && stateType == 4)
         {
             triggerCalled = false;
-            stateType = 4;
+            stateType = 5;
             boss.anim.SetTrigger("attackAirDashLandingToDash");
             rb.linearVelocity = new Vector2(boss.facingLeft ? boss.adGroundDashPower : -boss.adGroundDashPower, rb.linearVelocityY);
+
+            // 악몽의 왕인 경우 트레일 생성
+            if (boss.isNightmare)
+                boss.BossGrimmDashTrailCoroutineStart();
         }
 
         // 착지 대쉬 후 랜딩 전환
-        if(stateType == 4 && triggerCalled)
+        if(stateType == 5 && triggerCalled)
         {
-            stateType = 5;
+            stateType = 6;
             boss.anim.SetTrigger("attackAirDashLanding");
             boss.SetZeroVelocity();
+
+            // 악몽의 왕인 경우 트레일 중지
+            if (boss.isNightmare)
+                boss.BossGrimmDashTrailCoroutineEnd();
         }
 
         // 랜딩 대기시간
-        if(stateType == 5)
+        if(stateType == 6)
         {
             finishWait -= Time.deltaTime;
         }

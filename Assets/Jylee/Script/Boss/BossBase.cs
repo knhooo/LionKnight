@@ -19,6 +19,7 @@ public class BossBase : MonoBehaviour
     public Rigidbody2D rb;
     public SpriteRenderer sr;
     public Collider2D cd;
+    public EnemyFx fx { get; private set; }
 
     public int facingDir { get; private set; } = 1;
 
@@ -30,6 +31,7 @@ public class BossBase : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         sr = GetComponentInChildren<SpriteRenderer>();
         cd = GetComponent<Collider2D>();
+        fx = GetComponentInChildren<EnemyFx>();
 
         currentHealthPoint = healthPoint;
     }
@@ -79,6 +81,7 @@ public class BossBase : MonoBehaviour
     public void BossTakeDamage(float damage)
     {
         currentHealthPoint -= damage;
+        fx.StartCoroutine("FlashFX");
         BossCheckHealthPoint();
     }
 
