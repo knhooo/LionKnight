@@ -170,3 +170,9 @@ MonoBehaviour:
   usePlayerDirection: 0
   torque: 0
   directionValue: 1
+  geoGrounds:
+  - {fileID: 8300000, guid: 2c3575e03a2fdec44916a1296fdf8cfc, type: 3}
+  - {fileID: 8300000, guid: 27405b79eb46567489f91e72ea1015f9, type: 3}
+  geoCollects:
+  - {fileID: 8300000, guid: 60aabbd85e0286748a8f0ddd9bee4e24, type: 3}
+  - {fileID: 8300000, guid: e87a42af65c40a548925585f7bed79df, type: 3}

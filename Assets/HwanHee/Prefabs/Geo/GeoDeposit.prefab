@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1848385223
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 0acc64df8e9d96a4589eb148a1cdf55a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -138,6 +138,10 @@ MonoBehaviour:
   duration: 0.1
   sprite: {fileID: 21300000, guid: ed931c170d6c70f4496c4306655cf91a, type: 3}
   geoPrefab: {fileID: 3301233404599489056, guid: ef292114d3d0fa34ba546ef8c5650c13, type: 3}
+  geoDepositHits:
+  - {fileID: 8300000, guid: 40601d050fcbf9c42b81946adebab1ef, type: 3}
+  - {fileID: 8300000, guid: 44b86127a6fbf1c459c16ea71180790d, type: 3}
+  - {fileID: 8300000, guid: e7c5622fa8fe13449a026c3a7f866015, type: 3}
 --- !u!61 &3353347141115343203
 BoxCollider2D:
   m_ObjectHideFlags: 0
