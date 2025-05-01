@@ -24,6 +24,7 @@ public class Shadow : MonoBehaviour
     protected bool isKnocked;
     protected bool isDie = false;
     public int facingDir { get; private set; } = 1;
+    public ShadowSoundClip soundClip => GetComponentInParent<ShadowSoundClip>();
 
     #region States
 
@@ -80,6 +81,7 @@ public class Shadow : MonoBehaviour
         Vector2 direction = (player.position - transform.position).normalized;
         rb.linearVelocity = direction * moveSpeed;
 
+        soundClip.ShadowSoundOneShot(0);
         //플레이어 방향을 바라보게 flip
         if (direction.x > 0)
         {
@@ -96,13 +98,13 @@ public class Shadow : MonoBehaviour
     private void HoverInPlace()
     {
         rb.linearVelocity = Vector2.zero;
-        // 여기서 약간 떠오르는 애니메이션 효과를 넣어도 좋음
+        soundClip.ShadowSoundOneShot(1);
     }
 
     public void TakeDamage()
     {
         hp -= 10;
-
+        soundClip.ShadowSoundOneShot(3);
         StartCoroutine("HitKnockBack");
     }
 
@@ -121,6 +123,7 @@ public class Shadow : MonoBehaviour
     {
         if (hp <= 0)
         {
+            soundClip.ShadowSoundOneShot(2);
             rb.linearVelocity = new Vector2(0, 0);
             isDie = true;
             stateMachine.ChangeState(dieState);

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 1967063549586727506}
   - component: {fileID: 3070196252844145955}
   - component: {fileID: 5330504503050339333}
+  - component: {fileID: 3126749725303487050}
   m_Layer: 9
   m_Name: Shade
   m_TagString: Boss
@@ -239,3 +240,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.042936683}
   m_Size: {x: 0.5, y: 1.4947951}
   m_Direction: 0
+--- !u!114 &3126749725303487050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6005396011981447267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada6040b88ccdd642805a86ec7528097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioArr:
+  - {fileID: 8300000, guid: 4f1bcfcd88ed61c45b6f682dccf72ffc, type: 3}
+  - {fileID: 8300000, guid: 642ceff77d8727a45ba5743fd7f5fea0, type: 3}
+  - {fileID: 8300000, guid: 4a94f97baf1aca84aa98e9f4eb260e41, type: 3}
+  - {fileID: 8300000, guid: 2bf20290c7ceca14a921dfa7bca2066c, type: 3}

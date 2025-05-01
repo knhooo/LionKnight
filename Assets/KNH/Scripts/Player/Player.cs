@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
     public bool isInIntro = false;
 
     private Coroutine flashRoutine;
-    private PlayerSoundClip soundClip => GetComponentInParent<PlayerSoundClip>();
+    public PlayerSoundClip soundClip => GetComponentInParent<PlayerSoundClip>();
     #endregion
 
     #region States
@@ -376,9 +376,8 @@ public class Player : MonoBehaviour
             playerData.lostMoney = playerData.money;
         }
 
-
         //저장 처리
-
+        DataManager.instance.SaveData();
         stateMachine.ChangeState(deadState);
     }
 }

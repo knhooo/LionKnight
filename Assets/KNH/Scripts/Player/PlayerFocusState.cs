@@ -17,7 +17,7 @@ public class PlayerFocusState : PlayerState
         base.Enter();
         player.focusTimer = 0f;
         player.isFocusing = true;
-
+        player.soundClip.audioSources[2].Play();
         player.SetZeroVelocity(); // 집중할 때 움직이지 않게
     }
 
@@ -26,6 +26,7 @@ public class PlayerFocusState : PlayerState
         base.Exit();
         player.isFocusing = false;
         player.focusTimer = 0f;
+        player.soundClip.audioSources[2].Stop();
     }
 
     public override void Update()

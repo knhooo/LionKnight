@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class PlayerSoundClip : MonoBehaviour
 {
-    [SerializeField] private AudioClip[] audioArr;
+    [SerializeField] public AudioClip[] audioClips;
+    [SerializeField] public AudioSource[] audioSources;
 
     public void PlayerSoundOneShot(int i)
     {
-        SoundManager.Instance.audioSource.PlayOneShot(audioArr[i]);
+        SoundManager.Instance.audioSource.PlayOneShot(audioClips[i]);
     }
 }

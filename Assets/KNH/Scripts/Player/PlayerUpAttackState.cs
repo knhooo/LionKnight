@@ -17,7 +17,8 @@ public class PlayerUpAttackState : PlayerState
         player.anim.speed = 1.5f;
 
         float attackDir = player.facingDir;
-        //AttackCheck 위치 다시 설정해줘야함
+
+        player.soundClip.PlayerSoundOneShot(22);
 
         if (xInput != 0)
         {

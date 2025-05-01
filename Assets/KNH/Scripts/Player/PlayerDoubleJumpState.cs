@@ -19,6 +19,7 @@ public class PlayerDoubleJumpState : PlayerJumpState
         player.isJumping = true;
         player.jumpTimer = player.variableJumpTime;
         player.hasAirAttacked = false;
+        player.soundClip.PlayerSoundOneShot(18);
     }
 
     public override void Exit()

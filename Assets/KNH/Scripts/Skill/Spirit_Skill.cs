@@ -11,6 +11,7 @@ public class Spirit_Skill : Skill
 
     public void UseSpiritSkill()
     {
+        player.soundClip.PlayerSoundOneShot(14);
         Vector3 spawnPos = player.transform.position + new Vector3(0, 0.5f, 0);
         GameObject obj = Instantiate(spiritPrefab, spawnPos, Quaternion.identity);
 

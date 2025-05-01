@@ -9,11 +9,13 @@ public class PlayerWallSlideState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        player.soundClip.audioSources[1].Play();
     }
 
     public override void Exit()
     {
         base.Exit();
+        player.soundClip.audioSources[1].Stop();
     }
 
     public override void Update()

@@ -10,6 +10,7 @@ public class PlayerHitState : PlayerState
     {
         base.Enter();
         stateTimer = player.knockbackDuration;
+        player.soundClip.PlayerSoundOneShot(4);
     }
 
     public override void Update()

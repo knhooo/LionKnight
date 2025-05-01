@@ -719,6 +719,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shade
       objectReference: {fileID: 0}
+    - target: {fileID: 6005396011981447267, guid: 5d7a77b49a1009149ab4416142d4173a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7895822405936684532, guid: 5d7a77b49a1009149ab4416142d4173a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.53

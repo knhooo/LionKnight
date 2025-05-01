@@ -11,6 +11,7 @@ public class PlayerWallJumpState : PlayerState
 
         stateTimer = 0.1f;
         player.SetVelocity(5 * -player.facingDir, 2*player.jumpForce);
+        player.soundClip.PlayerSoundOneShot(16);
     }
 
     public override void Exit()
