@@ -6,8 +6,9 @@ public class BreakableObject : MonoBehaviour
     private SpriteRenderer sp;
 
     [SerializeField] private GameObject brokenParticle;
-    [SerializeField] private GameObject fragment;
+    [SerializeField] private GameObject brokenBase;
     [SerializeField] private Sprite sprite;
+    [SerializeField] private AudioClip breakSound;
 
     private bool isBroken;
 
@@ -16,26 +17,32 @@ public class BreakableObject : MonoBehaviour
         sp = GetComponent<SpriteRenderer>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Break()
     {
-        if (collision.GetComponent<Player>() != null && !isBroken)
-        {
-            isBroken = true;
-            Break();
-        }
+        if (isBroken)
+            return;
+        isBroken = true;
+
+        SoundManager.Instance.audioSource.PlayOneShot(breakSound);
+
+        CreateBaseAndParticles();
     }
 
-    private void Break()
+    private void CreateBaseAndParticles()
     {
         sp.sprite = sprite;
-        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 1f);
-        fragment = Instantiate(fragment, pos, Quaternion.identity);
 
-        fragment.GetComponent<SpriteRenderer>().sortingLayerID = sp.sortingLayerID;
-        fragment.GetComponent<SpriteRenderer>().sortingOrder = sp.sortingOrder;
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 1f);
+        brokenBase = Instantiate(brokenBase, pos, Quaternion.identity);
+
+        brokenBase.GetComponent<SpriteRenderer>().sortingLayerID = sp.sortingLayerID;
+        brokenBase.GetComponent<SpriteRenderer>().sortingOrder = sp.sortingOrder;
 
         if (brokenParticle == null)
+        {
+            Debug.LogError("Broken particle 없음");
             return;
+        }
 
         for (int i = 0; i < 10; i++)
         {

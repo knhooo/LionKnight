@@ -6233,6 +6233,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 2094461717}
     m_Modifications:
     - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: bell
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e9bca5d9d9893445a1718ed772661ce, type: 3}
+    - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: isBell
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: isAutoLoad
       value: 0
       objectReference: {fileID: 0}

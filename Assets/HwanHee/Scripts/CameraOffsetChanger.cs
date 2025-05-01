@@ -6,19 +6,26 @@ public class CameraOffsetChanger : MonoBehaviour
     [SerializeField] private CinemachineCamera cinemachineCamera;
     [SerializeField] private float originCameraOffset;
     [SerializeField] private float modifiedCameraOffset;
+    [SerializeField] private Collider2D originCameraBound;
     [SerializeField] private Collider2D newCameraBound;
 
-    private Collider2D originCameraBound;
 
     private void Awake()
     {
-        originCameraBound = cinemachineCamera.GetComponent<CinemachineConfiner2D>().BoundingShape2D;
+        if (originCameraBound == null)
+            originCameraBound = cinemachineCamera.GetComponent<CinemachineConfiner2D>().BoundingShape2D;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
+            if (cinemachineCamera == null)
+            {
+                Debug.Log("CinemachineCamera 없음");
+                return;
+            }
+
             cinemachineCamera.GetComponent<CameraMove>().ChangeCameraOffset(modifiedCameraOffset);
 
             if (newCameraBound != null)
@@ -31,6 +38,11 @@ public class CameraOffsetChanger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if (cinemachineCamera == null)
+            {
+                Debug.Log("CinemachineCamera 없음");
+                return;
+            }
             cinemachineCamera.GetComponent<CameraMove>().ChangeCameraOffset(originCameraOffset);
 
             if (newCameraBound != null)
