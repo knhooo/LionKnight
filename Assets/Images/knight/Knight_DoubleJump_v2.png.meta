@@ -1,0 +1,358 @@
+fileFormatVersion: 2
+guid: b9f34d66ce056044397f92c374a9c7fb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1852334801448716516
+    second: Knight_DoubleJump_v2_0
+  - first:
+      213: -6623403602647088254
+    second: Knight_DoubleJump_v2_1
+  - first:
+      213: -70516102245637917
+    second: Knight_DoubleJump_v2_2
+  - first:
+      213: -8687887987369968915
+    second: Knight_DoubleJump_v2_3
+  - first:
+      213: -181753907648372017
+    second: Knight_DoubleJump_v2_4
+  - first:
+      213: -6179398550371946235
+    second: Knight_DoubleJump_v2_5
+  - first:
+      213: 4277327357611920035
+    second: Knight_DoubleJump_v2_6
+  - first:
+      213: -1281619040627579264
+    second: Knight_DoubleJump_v2_7
+  - first:
+      213: -1539728264409430727
+    second: Knight_DoubleJump_v2_8
+  - first:
+      213: -5138223726778431714
+    second: Knight_DoubleJump_v2_9
+  - first:
+      213: -3634173236770337430
+    second: Knight_DoubleJump_v2_10
+  - first:
+      213: 2395073692078278512
+    second: Knight_DoubleJump_v2_11
+  - first:
+      213: -5568739858008593215
+    second: Knight_DoubleJump_v2_12
+  - first:
+      213: 571873344110721768
+    second: Knight_DoubleJump_v2_13
+  - first:
+      213: 4286006848562297766
+    second: Knight_DoubleJump_v2_14
+  - first:
+      213: 639606501546281710
+    second: Knight_DoubleJump_v2_15
+  - first:
+      213: -2501792348660747992
+    second: Knight_DoubleJump_v2_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Knight_DoubleJump_v2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 324
+      alignment: 9
+      pivot: {x: 0.50000006, y: 0.27747574}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9e80eaa74275b64d84f71a4a66f3b4d
+      internalID: -49571706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_DoubleJump_v2_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 317
+        height: 324
+      alignment: 9
+      pivot: {x: 0.4867931, y: 0.30876243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb67e87f0378655479e63dc946378230
+      internalID: -920064069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_DoubleJump_v2_2
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 0
+        width: 283
+        height: 324
+      alignment: 9
+      pivot: {x: 0.46324822, y: 0.2530691}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b0d5d60ba6f1ae4d9788a753ed8aeb9
+      internalID: -1966815111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_DoubleJump_v2_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 324
+      alignment: 9
+      pivot: {x: 0.4302242, y: 0.23640235}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eef535a595b3ae7489b3d7b3e22d4630
+      internalID: -1557539343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_DoubleJump_v2_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 324
+      alignment: 9
+      pivot: {x: 0.50704753, y: 0.21505584}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bd12e1fa44a44c419e84b4ef1196c35
+      internalID: -1761657101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_DoubleJump_v2_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 300
+        height: 324
+      alignment: 9
+      pivot: {x: 0.47866535, y: 0.2456612}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 809416df77afa6b4f87e2f8689622515
+      internalID: 487145332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 235bc1d2ad46f514b9d56dbce956f43d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Knight_DoubleJump_v2_0: -49571706
+      Knight_DoubleJump_v2_1: -920064069
+      Knight_DoubleJump_v2_2: -1966815111
+      Knight_DoubleJump_v2_3: -1557539343
+      Knight_DoubleJump_v2_4: -1761657101
+      Knight_DoubleJump_v2_5: 487145332
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
