@@ -50,6 +50,7 @@ public class Shadow : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform; // 태그로 플레이어 찾기
 
         stateMachine.Initialize(idleState);
+        soundClip.audioSources[0].Play();
     }
     private void Update()
     {
@@ -67,10 +68,18 @@ public class Shadow : MonoBehaviour
         if (isChasing)
         {
             ChasePlayer();
+            if (!soundClip.audioSources[1].isPlaying)
+            {
+                soundClip.audioSources[1].Play();
+            }
+            soundClip.audioSources[0].Stop();
         }
         else
         {
             HoverInPlace();
+            if (!soundClip.audioSources[0].isPlaying)
+                soundClip.audioSources[0].Play();
+            soundClip.audioSources[1].Stop();
         }
 
         Die();
@@ -81,7 +90,6 @@ public class Shadow : MonoBehaviour
         Vector2 direction = (player.position - transform.position).normalized;
         rb.linearVelocity = direction * moveSpeed;
 
-        soundClip.ShadowSoundOneShot(0);
         //플레이어 방향을 바라보게 flip
         if (direction.x > 0)
         {
@@ -98,13 +106,12 @@ public class Shadow : MonoBehaviour
     private void HoverInPlace()
     {
         rb.linearVelocity = Vector2.zero;
-        soundClip.ShadowSoundOneShot(1);
     }
 
     public void TakeDamage()
     {
         hp -= 10;
-        soundClip.ShadowSoundOneShot(3);
+        soundClip.ShadowSoundOneShot(1);
         StartCoroutine("HitKnockBack");
     }
 
@@ -123,7 +130,7 @@ public class Shadow : MonoBehaviour
     {
         if (hp <= 0)
         {
-            soundClip.ShadowSoundOneShot(2);
+            soundClip.ShadowSoundOneShot(0);
             rb.linearVelocity = new Vector2(0, 0);
             isDie = true;
             stateMachine.ChangeState(dieState);
