@@ -27,11 +27,5 @@ public class PlayerDeadState : PlayerState
     public override void Update()
     {
         base.Update();
-
-        //if (stateTimer < 0)
-        //{
-        //    stateMachine.ChangeState(player.idleState);
-        //    SceneManager.LoadScene("Dirtmouth");
-        //}
     }
 }

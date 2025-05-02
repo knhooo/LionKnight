@@ -9,7 +9,8 @@ public class ShadowAnimationTrigger : MonoBehaviour
         playerData.money = playerData.lostMoney;
         playerData.lostMoney = 0;
         playerData.lastDeathLocation = 0;
-
+        playerData.isShadowAlive = false;
+        DataManager.instance.SaveData();
         Destroy(transform.parent.gameObject);
     }
 }
