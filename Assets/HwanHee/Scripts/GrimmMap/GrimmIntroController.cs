@@ -1,6 +1,12 @@
 using System.Collections;
+using System.Diagnostics;
 using Unity.Cinemachine;
 using UnityEngine;
+
+public enum CinematicStep
+{
+    Intro1, Intro2, FinalIntro, HalfHP, Outro1, Outro2, FinalOutro
+}
 
 public class GrimmIntroController : MonoBehaviour
 {
@@ -13,7 +19,8 @@ public class GrimmIntroController : MonoBehaviour
 
     [Header("보스 트리거")]
     [SerializeField] public Collider2D bossStartTrigger;
-    [SerializeField] public FadeSprite fadeSprite;
+    [SerializeField] public FadeObject fadeSprite;
+    [SerializeField] public float fadeSpriteDurtaion;
 
     [Header("카메라")]
     [SerializeField] public GameObject cinemachineCamera;
@@ -32,63 +39,72 @@ public class GrimmIntroController : MonoBehaviour
     [SerializeField] public AudioSource burstAudioLoop;
 
     [Space]
+    [Header("GrimmIntroUI")]
     [Header("효과1")]
-    [SerializeField] public float effect1StartDelay = 1f;
-    [SerializeField] public float effect1Duration = 0.5f;
-    [SerializeField] public float grimmLight1FadeDuration = 0.1f;
-    [SerializeField] public ParticleSystem particleSystemPlay;
-    [SerializeField] public FadeInOutObject grimmIntroLight1;
+    [SerializeField] public float intro1StartDelay = 1f;
+    [SerializeField] public float fadeIntroEffect1Duration = 0.1f;
+    [SerializeField] public FadeObject grimmIntroLightSP1;
+    [SerializeField] public FadeObject grimmIntroLight1;
+    [SerializeField] public ParticleSystem particleEffect;
     [SerializeField] public GrimmBackgroundScaleController[] backgroundScales;
 
 
     [Header("카메라 Shake")]
+    [SerializeField] public float introCameraShake1Duration = 0.5f;
     [SerializeField] public float shakeAmplitude1 = 1.5f;
     [SerializeField] public float shakeFrequency1 = 15f;
 
     [Space]
     [Header("효과2")]
-    [SerializeField] public float effect2StartDelay = 1f;
-    [SerializeField] public float effect2Durtaion = 1f;
-    [SerializeField] public FadeInOutObject grimmIntroLight2;
+    [SerializeField] public float intro2StartDelay = 1f;
+    [SerializeField] public float fadeIntroEffect2Duration = 1f;
+    [SerializeField] public FadeObject grimmIntroLightSP2;
+    [SerializeField] public FadeObject grimmIntroLight2;
     [SerializeField] public float particleEmission = 800f;
 
     [Header("카메라 Shake")]
+    [SerializeField] public float introCameraShake2Duration = 1f;
     [SerializeField] public float shakeAmplitude2 = 3f;
     [SerializeField] public float shakeFrequency2 = 20f;
 
     [Space]
     [Header("효과3")]
-    [SerializeField] public float effect3StartDelay = 1.5f;
-    [SerializeField] public float effect3Durtaion = 2f;
+    [SerializeField] public float intro3StartDelay = 1.5f;
     [SerializeField] public GameObject FVX;
 
     [Header("카메라 Shake")]
+    [SerializeField] public float introCameraShake3Duration = 2f;
     [SerializeField] public float shakeAmplitude3 = 4f;
     [SerializeField] public float shakeFrequency3 = 30f;
 
     [Header("GrimmShape")]
-    [SerializeField] FadeInOutObject grimmSilhouette;
+    [SerializeField] FadeObject grimmSilhouette;
     [SerializeField] float grimmSilhouetteActiveTime = 1f;
     [SerializeField] float grimmSilhouetteGrowSpeed = 0.5f;
     [SerializeField] float grimmSilhouetteGrowSpeedBigger = 0.5f;
 
     [Space]
     [Header("마지막효과")]
-    [Header("GrimmIntroUI")]
     [SerializeField] Canvas grimmTextCanvas;
-    [SerializeField] public float finalEffectDurtaion = 1.7f;
+    [SerializeField] public float finalIntroEffectDurtaion = 1.7f;
     [SerializeField] public float moveToPlayerTime = 0.5f;
     [SerializeField] public float canvasFadeOutDuration = 0.5f;
+
+    [Space]
+    [Header("보스 체력 절반 이하")]
+    [SerializeField] public FadeObject[] eyes;
+    [SerializeField] public float fadeEyesDuration;
 
     public Player player;
     public Vector3 destination;
 
     public bool isBossStart = false;
 
-    GrimmIntroStep currentIntroStep;
+    GrimmCinematicStep currentIntroStep;
     GrimmIntroStep1 grimmIntroStep1;
     GrimmIntroStep2 grimmIntroStep2;
-    GrimmIntroStep3 grimmIntroStep3;
+    GrimmFinalIntroStep grimmFinalIntroStep;
+    GrimmHalfHpStep grimmHalfHpStep;
 
     private float bossGroundY;
 
@@ -101,15 +117,17 @@ public class GrimmIntroController : MonoBehaviour
 
         grimmIntroStep1 = new GrimmIntroStep1(this);
         grimmIntroStep2 = new GrimmIntroStep2(this);
-        grimmIntroStep3 = new GrimmIntroStep3(this);
-        currentIntroStep = grimmIntroStep1;
+        grimmFinalIntroStep = new GrimmFinalIntroStep(this);
+        grimmHalfHpStep = new GrimmHalfHpStep(this);
 
+        currentIntroStep = grimmIntroStep1;
     }
 
     public void Start()
     {
         TurnOffEffects();
-        grimmIntroLight1.gameObject.SetActive(false);
+
+        grimmIntroLightSP1.gameObject.SetActive(false);
         grimmSilhouette.gameObject.SetActive(false);
         fadeSprite.gameObject.SetActive(true);
 
@@ -120,9 +138,24 @@ public class GrimmIntroController : MonoBehaviour
         BGMManager.instance.StopBGM();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ChangeStep(CinematicStep.HalfHP);
+        }
+    }
+
     public void TurnOffEffects()
     {
+        foreach (var eye in eyes)
+        {
+            eye.gameObject.SetActive(false);
+        }
+
+        particleEffect.Clear();
         grimmSilhouette.gameObject.SetActive(false);
+        grimmIntroLightSP2.gameObject.SetActive(false);
         grimmIntroLight2.gameObject.SetActive(false);
         grimmTextCanvas.gameObject.SetActive(false);
         FVX.SetActive(false);
@@ -132,7 +165,7 @@ public class GrimmIntroController : MonoBehaviour
     {
         if (collision.transform == bossStartTrigger.transform && !player.isInIntro && isIntroPlay)
         {
-            StartCoroutine(fadeSprite.StartFadeOut());
+            fadeSprite.StartSpriteFade(fadeSpriteDurtaion, 1f, 0f);
 
             isIntroPlay = false;
             bossGrimm.GetComponent<BossGrimm>().BossGrimmGreet();
@@ -168,8 +201,6 @@ public class GrimmIntroController : MonoBehaviour
     public void StartIntro()
     {
         StartCoroutine(CameraMove());
-        StartCoroutine(fadeSprite.StartFadeOut());
-
     }
 
     public IEnumerator CameraMove()
@@ -196,7 +227,7 @@ public class GrimmIntroController : MonoBehaviour
             if (transform.position == CameraPos[CameraPos.Length - 1].position)
             {
                 BGMManager.instance.BGMFadeOut(0f);
-                Invoke("PlayIntro", effect1StartDelay);
+                Invoke("PlayIntro", intro1StartDelay);
                 break;
             }
         }
@@ -207,21 +238,32 @@ public class GrimmIntroController : MonoBehaviour
         currentIntroStep.Enter();
     }
 
-    public void ChangeStep(int stepIndex, float delayTime)
+    public void ChangeStep(CinematicStep cinematicStepIndex, float delayTime = 0f)
     {
-        switch (stepIndex)
+        switch (cinematicStepIndex)
         {
-            case 1:
+            case CinematicStep.Intro1:
                 currentIntroStep = grimmIntroStep1;
                 break;
-            case 2:
+            case CinematicStep.Intro2:
                 currentIntroStep = grimmIntroStep2;
                 break;
-            case 3:
-                currentIntroStep = grimmIntroStep3;
+            case CinematicStep.FinalIntro:
+                currentIntroStep = grimmFinalIntroStep;
                 break;
+            case CinematicStep.HalfHP:
+                currentIntroStep = grimmHalfHpStep;
+                break;
+                //case CinematicStep.Outro1:
+                //    currentIntroStep = grimmIntroStep1;
+                //    break;
+                //case CinematicStep.Outro2:
+                //    currentIntroStep = grimmIntroStep1;
+                //    break;
+                //case CinematicStep.FinalOutro:
+                //    currentIntroStep = grimmIntroStep1;
+                //    break;
         }
-
         StartCoroutine(StartNextStep(delayTime));
     }
 
@@ -283,13 +325,13 @@ public class GrimmIntroController : MonoBehaviour
         BGMManager.instance.SetNewBGM(bossBGM2);
         BGMManager.instance.PlayBGM();
 
-        Invoke("EffectFinish", finalEffectDurtaion);
+        Invoke("EffectFinish", finalIntroEffectDurtaion);
     }
 
     public void EffectFinish()
     {
         StartCoroutine(MoveToPlayer());
-        grimmSilhouette.StartFadeInOut(canvasFadeOutDuration, 1f, 0f);
+        grimmSilhouette.StartSpriteFade(canvasFadeOutDuration, 1f, 0f);
         TurnOffEffects();
     }
 
@@ -307,8 +349,6 @@ public class GrimmIntroController : MonoBehaviour
 
         cinemachineCamera.GetComponent<CinemachineCamera>().Follow = player.transform;
         cinemachineCamera.GetComponent<CinemachineCamera>().LookAt = player.transform;
-
-        gameObject.SetActive(false);
 
         isBossStart = true;
         player.isInIntro = false;
