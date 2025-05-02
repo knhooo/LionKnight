@@ -8,8 +8,9 @@ public class BGMManager : Singleton<BGMManager>
     private float fadeDuration = 0.5f;
 
     private AudioSource[] audioSources;
-    [HideInInspector] public float CurrentBGMVolume;
-    [HideInInspector] public float NewBGMVolume;
+    [HideInInspector] public float currentBGMVolume;
+    [HideInInspector] public float newBGMVolume;
+    [HideInInspector] public bool playImmediately;
     private AudioClip[] newAudioClips;
 
     protected override void Awake()
@@ -59,7 +60,24 @@ public class BGMManager : Singleton<BGMManager>
 
     public void BGMFadeOut()
     {
-        StartCoroutine(VolumeFadeInOut(audioSources[0].volume, CurrentBGMVolume));
+        StartCoroutine(VolumeFadeInOut(audioSources[0].volume, currentBGMVolume));
+    }
+
+    private void PlayNewBGM()
+    {
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            if (i < newAudioClips.Length)
+            {
+                audioSources[i].clip = newAudioClips[i];
+                if (playImmediately)
+                    audioSources[i].Play();
+            }
+            else
+                audioSources[i].clip = null;
+        }
+        if (playImmediately)
+            StartCoroutine(VolumeFadeInOut(0f, newBGMVolume));
     }
 
     private IEnumerator VolumeFadeInOut(float startVolume, float endVolume)
@@ -90,18 +108,11 @@ public class BGMManager : Singleton<BGMManager>
         }
     }
 
-    private void PlayNewBGM()
+
+    public void SetValues(float _currentBGMVolume, float _newBGMVolume, bool _playImmediately)
     {
-        for (int i = 0; i < audioSources.Length; i++)
-        {
-            if (i < newAudioClips.Length)
-            {
-                audioSources[i].clip = newAudioClips[i];
-                audioSources[i].Play();
-            }
-            else
-                audioSources[i].clip = null;
-        }
-        StartCoroutine(VolumeFadeInOut(0f, NewBGMVolume));
+        currentBGMVolume = _currentBGMVolume;
+        newBGMVolume = _newBGMVolume;
+        playImmediately = _playImmediately;
     }
 }

@@ -1826,6 +1826,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5555456408065041862, guid: dd2e91c86f1f8374f957cf34246ade61, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9188066507400008042, guid: dd2e91c86f1f8374f957cf34246ade61, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1283364
@@ -13406,11 +13410,11 @@ PrefabInstance:
       objectReference: {fileID: 560125521}
     - target: {fileID: 8575390204935405768, guid: 764eee25f4362d4408b1e6815b8729ce, type: 3}
       propertyPath: attackSelectMax
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8575390204935405768, guid: 764eee25f4362d4408b1e6815b8729ce, type: 3}
       propertyPath: attackSelectMin
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8575390204935405768, guid: 764eee25f4362d4408b1e6815b8729ce, type: 3}
       propertyPath: teleportLeftMax
