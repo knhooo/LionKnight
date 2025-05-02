@@ -17,6 +17,19 @@ public class SceneLoader : MonoBehaviour
     private bool playerInTrigger;
     private bool isLoadScene = false;
 
+    private void OnValidate()
+    {
+        if (newAudioSources == null || newAudioSources.Length == 0)
+        {
+            newBGMVolume = 0;
+        }
+
+        if (!isBell)
+        {
+            bell = null;
+        }
+    }
+
     private void Update()
     {
         if (playerInTrigger && !isLoadScene)
@@ -25,7 +38,7 @@ public class SceneLoader : MonoBehaviour
             {
                 isLoadScene = true;
 
-                if(isBell)
+                if (isBell)
                     SoundManager.Instance.audioSource.PlayOneShot(bell);
 
                 if (newAudioSources.Length > 0)

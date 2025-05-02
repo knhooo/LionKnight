@@ -1012,6 +1012,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: currentBGMVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: ChangeCurrentVolumeValue
       value: 1
       objectReference: {fileID: 0}

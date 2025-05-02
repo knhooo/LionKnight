@@ -121,5 +121,10 @@ public class GrimmHalfHpStep : GrimmCinematicStep
             eye.StartSpriteFade(controller.fadeEyesDuration);
             eye.StartLightFade(controller.fadeEyesDuration);
         }
+
+        foreach(var grimmPulsate in controller.grimmPulsates)
+        {
+            grimmPulsate.SetPulssateFaster(controller.newPulseValue, controller.newPulseDalyTime);
+        }
     }
 }

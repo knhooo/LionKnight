@@ -4757,7 +4757,7 @@ Transform:
   m_GameObject: {fileID: 551404117}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.300697, y: 0.5208819, z: -1.218956}
+  m_LocalPosition: {x: 16.549303, y: 3.1708817, z: -1.218956}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6906,6 +6906,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: NewBGMVolume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: newBGMVolume
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
@@ -17413,8 +17417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d0aeaa461be4d49afcc2e1c0f9c467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleSpeed: 7
-  delayTime: 0.5
   maxScale: {x: 0.8, y: 0.8, z: 0.8}
   heartBeatAudio: {fileID: 0}
 --- !u!1 &1369964235
@@ -19255,8 +19257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d0aeaa461be4d49afcc2e1c0f9c467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleSpeed: 7
-  delayTime: 0.5
   maxScale: {x: 0.8, y: 0.8, z: 0.8}
   heartBeatAudio: {fileID: 0}
 --- !u!1001 &1524636200
@@ -20019,7 +20019,7 @@ Transform:
   m_GameObject: {fileID: 1617911313}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.300705, y: 4.259682, z: -1.218956}
+  m_LocalPosition: {x: 16.549307, y: 4.259682, z: -1.218956}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20196,11 +20196,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2022260313471799872, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.41
+      value: 17.44
       objectReference: {fileID: 0}
     - target: {fileID: 2022260313471799872, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.09
+      value: 2.56
       objectReference: {fileID: 0}
     - target: {fileID: 2022260313471799872, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21882,8 +21882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d0aeaa461be4d49afcc2e1c0f9c467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleSpeed: 7
-  delayTime: 0.5
   maxScale: {x: 0.8, y: 0.8, z: 0.8}
   heartBeatAudio: {fileID: 1700872215}
 --- !u!1 &1828048163
@@ -23270,10 +23268,12 @@ MonoBehaviour:
   grimmIntroLightSP1: {fileID: 371172383}
   grimmIntroLight1: {fileID: 943426332}
   particleEffect: {fileID: 820397537}
-  backgroundScales:
+  grimmPulsates:
   - {fileID: 1506392899}
   - {fileID: 1368737784}
   - {fileID: 1822418975}
+  pulseValue: 7
+  pulseDelayTime: 0.5
   introCameraShake1Duration: 0.5
   shakeAmplitude1: 1.5
   shakeFrequency1: 15
@@ -23310,6 +23310,8 @@ MonoBehaviour:
   - {fileID: 1559452176}
   - {fileID: 735578182}
   fadeEyesDuration: 0.5
+  newPulseValue: 10
+  newPulseDalyTime: 0.3
   player: {fileID: 0}
   destination: {x: 0, y: 0, z: 0}
   isBossStart: 0
