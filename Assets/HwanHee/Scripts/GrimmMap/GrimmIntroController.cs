@@ -9,6 +9,7 @@ public class GrimmIntroController : MonoBehaviour
 
     [Header("보스 프리팹")]
     [SerializeField] public GameObject bossGrimm;
+    [SerializeField] public GameObject bossNightmareGrimm;
 
     [Header("보스 트리거")]
     [SerializeField] public Collider2D bossStartTrigger;
@@ -90,6 +91,8 @@ public class GrimmIntroController : MonoBehaviour
     GrimmIntroStep2 grimmIntroStep2;
     GrimmIntroStep3 grimmIntroStep3;
 
+    private float bossGroundY;
+
     public void Awake()
     {
         //player = PlayerManager.instance.player;
@@ -135,9 +138,15 @@ public class GrimmIntroController : MonoBehaviour
             isIntroPlay = false;
             bossGrimm.GetComponent<BossGrimm>().BossGrimmGreet();
 
-            // 나중에 이거 지우기
             BGMManager.instance.PlayBGM();
+
+            Invoke("DefualtValueSetting", 1f);
         }
+    }
+
+    private void DefualtValueSetting()
+    {
+        bossGroundY = bossGrimm.GetComponent<BossGrimm>().groundY;
     }
 
     public void NightmareGrimmTrigger()
@@ -186,7 +195,6 @@ public class GrimmIntroController : MonoBehaviour
 
             if (transform.position == CameraPos[CameraPos.Length - 1].position)
             {
-                // 이것도 나중에 지우기
                 BGMManager.instance.BGMFadeOut(0f);
                 Invoke("PlayIntro", effect1StartDelay);
                 break;
@@ -305,6 +313,9 @@ public class GrimmIntroController : MonoBehaviour
 
         isBossStart = true;
         player.isInIntro = false;
+
+        bossNightmareGrimm.SetActive(true);
+        bossNightmareGrimm.GetComponent<BossGrimm>().BossGrimmNightmareStart(bossGroundY);
     }
 
     public void SwitchConfiner() => cinemachineCamera.GetComponent<CinemachineConfiner2D>().BoundingShape2D = bossCameraBoundingShape;

@@ -16,6 +16,7 @@ public class BossGrimmDeath : BossGrimmState
         boss.BossGrimmDefeat();
         boss.bossBodyPoint.GetComponent<Collider2D>().enabled = false;
         isDone = false;
+        boss.isInvincible = true;
     }
 
     public override void Update()

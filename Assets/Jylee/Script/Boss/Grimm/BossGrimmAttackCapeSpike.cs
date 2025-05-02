@@ -27,8 +27,6 @@ public class BossGrimmAttackCapeSpike : BossGrimmState
     {
         base.Update();
 
-        Debug.Log("hear");
-
         // 준비 끝
         if (triggerCalled && !boss.isNightmare)
         {
