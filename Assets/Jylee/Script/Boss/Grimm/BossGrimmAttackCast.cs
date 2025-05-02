@@ -196,7 +196,6 @@ public class BossGrimmAttackCast : BossGrimmState
 
         if ((triggerCalled && isDone) || (boss.isNightmare && isDone))
         {
-            Debug.Log("hear");
             boss.stateMachine.ChangeState(boss.waitState);
         }
     }

@@ -271,6 +271,8 @@ public class BossGrimm : BossBase
     private void StartDelay()
     {
         stateMachine.ChangeState(teleportInState);
+        rb.gravityScale = 1;
+        bossGravity = 1;
     }
 
     public void AnimationTrigger()
@@ -450,6 +452,7 @@ public class BossGrimm : BossBase
             if (nextAttackType == 3)
             {
                 yPosAdd = airDashYPos;
+                SetZeroVelocity();
                 rb.gravityScale = 0;
             }
         }

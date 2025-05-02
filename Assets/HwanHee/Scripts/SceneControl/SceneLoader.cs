@@ -9,8 +9,8 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private string sceneToLoad;
 
     [Header("BGM")]
-    [SerializeField] private float CurrentBGMVolume;
-    [SerializeField] private float NewBGMVolume = 1f;
+    [SerializeField] private float currentBGMVolume;
+    [SerializeField] private float newBGMVolume = 1f;
     [SerializeField] private AudioClip[] newAudioSources;
     [SerializeField] private AudioClip bell;
 
@@ -30,8 +30,7 @@ public class SceneLoader : MonoBehaviour
 
                 if (newAudioSources.Length > 0)
                     BGMManager.instance.SetNewBGMs(newAudioSources);
-                BGMManager.instance.CurrentBGMVolume = CurrentBGMVolume;
-                BGMManager.instance.NewBGMVolume = NewBGMVolume;
+                BGMManager.instance.SetValues(currentBGMVolume, newBGMVolume);
 
                 SceneSaveLoadManager.instance.StartLoadScene(sceneToLoad);
             }
