@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2b0f20a0f00feab48b5c2d08c5bf6bb4
+guid: d948a6a98e9e22346bf6b4de3e255d21
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4162838104207881920
-    second: soul_orb_glow0000_0
+      213: 4078842633176747544
+    second: low_health_hit0000_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: soul_orb_glow0000_0
+      name: low_health_hit0000_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 130
-        height: 125
+        x: 1
+        y: 1
+        width: 81
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0498a35ccc0aa36c0800000000000000
-      internalID: -4162838104207881920
+      spriteID: 81e0835a3c5fa9830800000000000000
+      internalID: 4078842633176747544
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      soul_orb_glow0000_0: -4162838104207881920
+      low_health_hit0000_0: 4078842633176747544
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

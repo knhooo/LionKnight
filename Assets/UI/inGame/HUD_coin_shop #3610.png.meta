@@ -148,10 +148,10 @@ TextureImporter:
       name: HUD_coin_shop #3610_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 55
-        height: 60
+        x: 0
+        y: 0
+        width: 58
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,55 +166,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: HUD_coin_shop #3610_1
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 41
-        width: 6
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9514c0e733e4f73e0800000000000000
-      internalID: -2053836921992625831
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HUD_coin_shop #3610_2
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 3
-        width: 10
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 68fdb9a2eec8cab00800000000000000
-      internalID: 841202184956403590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5ed593b78e4352c43abb0ad6d7e79ed2
     internalID: 0
     vertices: []
     indices: 
@@ -225,8 +181,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       HUD_coin_shop #3610_0: -3985999520841169758
-      HUD_coin_shop #3610_1: -2053836921992625831
-      HUD_coin_shop #3610_2: 841202184956403590
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
