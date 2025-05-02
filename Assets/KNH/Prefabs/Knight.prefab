@@ -332,6 +332,10 @@ MonoBehaviour:
   spiritDuration: 1
   knockbackDirection: {x: 5, y: 10}
   knockbackDuration: 1
+  shakeAmplitude: 1.5
+  shakeFrequency: 1.5
+  shakeDuration: 0.5
+  cineCam: {fileID: 0}
   attackCheck: {fileID: 1658797656900072200}
   attackCheckRadius: 0.8
   posArr:

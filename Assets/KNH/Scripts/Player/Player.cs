@@ -1,7 +1,9 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -54,6 +56,13 @@ public class Player : MonoBehaviour
     [SerializeField] protected Vector2 knockbackDirection;
     [SerializeField] public float knockbackDuration;
     protected bool isKnocked;
+
+    [Header("카메라 정보")]
+    [SerializeField] private float shakeAmplitude;
+    [SerializeField] private float shakeFrequency;
+    [SerializeField] private float shakeDuration;
+    [SerializeField] private CinemachineCamera cineCam;
+
 
     [Header("충돌 정보")]
     public Transform attackCheck;
@@ -157,6 +166,7 @@ public class Player : MonoBehaviour
         // 게임 시작 시 초기 상태를 대기 상태(idleState)로 설정
         StateInit();
         CheckShadow();
+        cineCam = FindFirstObjectByType<CinemachineCamera>();
     }
 
     private void StateInit()
@@ -189,7 +199,6 @@ public class Player : MonoBehaviour
             SetZeroVelocity();
             stateMachine.ChangeState(idleState);
         }
-        DamageTrigger();
 
         //개발용 키
         //피격
@@ -208,16 +217,6 @@ public class Player : MonoBehaviour
             SetHPandMP(-100, 0);
         }
     }
-    private void DamageTrigger()
-    {
-        Collider2D collider = Physics2D.OverlapCircle(transform.position, 0.5f);
-
-        if (collider.gameObject.tag == "Shade")
-        {
-            TakeDamage();
-        }
-
-    }
 
     public void SetVelocityY(float y)
     {
@@ -234,6 +233,7 @@ public class Player : MonoBehaviour
                 StopCoroutine(flashRoutine);
 
             flashRoutine = StartCoroutine(FlashBlack());
+            cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, shakeDuration);
             StartCoroutine("HitKnockBack");
         }
     }
@@ -376,6 +376,8 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        
+        cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, 1.4f);
         isKnocked = true;//데미지 받지 않음
         Debug.Log("죽음");
         //그림자가 존재하는 상태에서 죽었을 경우
