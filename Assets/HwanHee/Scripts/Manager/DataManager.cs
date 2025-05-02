@@ -62,21 +62,43 @@ public class DataManager : Singleton<DataManager>
 
     private void LoadPlayer()
     {
+        if (player == null)
+        {
+            Debug.Log("플레이어 없음");
+            return;
+        }
+
         string fullPath = Path.Combine(path, playerSaveFileName);
-        if (File.Exists(fullPath) && player != null)
+
+        if (File.Exists(fullPath))
         {
             string data = File.ReadAllText(fullPath);
             player.LoadFromData(JsonUtility.FromJson<PlayerData>(data));
+        }
+        else
+        {
+            SavePlayer();
         }
     }
 
     private void LoadLift()
     {
+        if (lift == null)
+        {
+            Debug.Log("리프트 없음");
+            return;
+        }
+
         string fullPath = Path.Combine(path, liftSaveFileName);
-        if (File.Exists(fullPath) && lift != null)
+
+        if (File.Exists(fullPath))
         {
             string data = File.ReadAllText(fullPath);
             lift.LoadFromData(JsonUtility.FromJson<LiftData>(data));
+        }
+        else
+        {
+            SaveLift();
         }
     }
 }

@@ -24,7 +24,7 @@ public class GeoDeposit : ShakeObject
         CreateGeo();
     }
 
-    private void CreateGeo()
+    public void CreateGeo()
     {
         if (life == 1)
             sp.sprite = sprite;
