@@ -14,6 +14,7 @@ public class PlayerData
     public float mp = 0;      //영혼
     public float maxMp = 100; //최대영혼
     public int lastDeathLocation = 0;//최근에 죽은 장소
+    public bool isShadowAlive = false;//그림자 존재 여부
 }
 
 public class LiftData

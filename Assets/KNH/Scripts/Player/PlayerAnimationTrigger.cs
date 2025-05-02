@@ -60,7 +60,6 @@ public class PlayerAnimationTrigger : MonoBehaviour
     }
     private void DieAnimation()
     {
-        Debug.Log(player.transform.position);
         GameObject obj1 = Instantiate(head, player.headPos.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
         Rigidbody2D rb = obj1.GetComponent<Rigidbody2D>();
         rb.AddForce(new Vector2(-2f, 3f), ForceMode2D.Impulse);

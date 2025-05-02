@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     #region Info
     [Header("Stats")]
-    public PlayerData playerData = new PlayerData();
+    public PlayerData playerData;
 
     [Header("공격 디테일")]
     public Vector2[] attackMovement;
@@ -140,6 +140,7 @@ public class Player : MonoBehaviour
     protected virtual void Start()
     {
         DataManager.instance.RegisterPlayer(this);
+        DataManager.instance.LoadData();
 
         Debug.Log("lastDeathLocation: " + playerData.lastDeathLocation);
         sr = GetComponentInChildren<SpriteRenderer>();
@@ -168,7 +169,7 @@ public class Player : MonoBehaviour
     {
         //최근 죽은 장소에 도착했을 때 그림자 생성
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if (sceneIndex != 0 && sceneIndex == playerData.lastDeathLocation)
+        if (playerData.isShadowAlive && sceneIndex != 0 && sceneIndex == playerData.lastDeathLocation)
         {
             Instantiate(shadow, posArr[sceneIndex], Quaternion.identity);
         }
@@ -207,7 +208,7 @@ public class Player : MonoBehaviour
     {
         Collider2D collider = Physics2D.OverlapCircle(transform.position, 0.5f);
 
-        if (collider.gameObject.tag == "Boss")
+        if (collider.gameObject.tag == "Shade")
         {
             TakeDamage();
         }
@@ -374,21 +375,22 @@ public class Player : MonoBehaviour
         isKnocked = true;//데미지 받지 않음
         Debug.Log("죽음");
         //그림자가 존재하는 상태에서 죽었을 경우
-        if (playerData.lastDeathLocation != 0)
+        if (playerData.isShadowAlive)
         {    
-            playerData.lastDeathLocation = 0;
             playerData.lostMoney = 0;
         }
         else
-        {
-            //죽은 씬 저장
-            playerData.lastDeathLocation = SceneManager.GetActiveScene().buildIndex;
+        {   
             //잃은 돈 저장
             playerData.lostMoney = playerData.money;
         }
+        //죽은 씬 저장
+        playerData.lastDeathLocation = SceneManager.GetActiveScene().buildIndex;
+        playerData.isShadowAlive = true;
 
         //저장 처리
         DataManager.instance.SaveData();
+        Debug.Log("씬 저장 "+ playerData.lastDeathLocation);
         stateMachine.ChangeState(deadState);
     }
 }

@@ -40,8 +40,8 @@ public class DataManager : Singleton<DataManager>
     {
         if (player != null)
         {
-            //string json = JsonUtility.ToJson(player.GetSaveData());
-            //File.WriteAllText(Path.Combine(path, playerSaveFileName), json);
+            string json = JsonUtility.ToJson(player.GetSaveData());
+            File.WriteAllText(Path.Combine(path, playerSaveFileName), json);
         }
     }
 
@@ -66,7 +66,7 @@ public class DataManager : Singleton<DataManager>
         if (File.Exists(fullPath) && player != null)
         {
             string data = File.ReadAllText(fullPath);
-            //player.LoadFromData(JsonUtility.FromJson<PlayerData>(data));
+            player.LoadFromData(JsonUtility.FromJson<PlayerData>(data));
         }
     }
 
