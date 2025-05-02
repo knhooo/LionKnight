@@ -1,10 +1,7 @@
 using System.Collections;
 using Unity.Cinemachine;
-using Unity.Properties;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {

@@ -7,6 +7,7 @@ public class PlayerAnimationTrigger : MonoBehaviour
 
     [SerializeField] private GameObject head;
     [SerializeField] private GameObject ghost;
+    [SerializeField] private GameObject effect;
 
     private void AnimationTrigger()
     {
@@ -24,16 +25,19 @@ public class PlayerAnimationTrigger : MonoBehaviour
             if (hit.GetComponent<Shadow>() != null)
             {
                 hit.GetComponent<Shadow>().TakeDamage();
+                Instantiate(effect, transform.position, Quaternion.identity);
             }
             //그림 공격
             if (hit.GetComponent<BossBase>() != null)
             {
                 hit.GetComponent<BossBase>().BossTakeDamage(player.attackPower);
+                Instantiate(effect, transform.position, Quaternion.identity);
             }
             //그림 박쥐 공격
             if (hit.GetComponent<BossGrimmBat>() != null)
             {
                 hit.GetComponent<BossGrimmBat>().BatGetHit(player.attackPower);
+                Instantiate(effect, transform.position, Quaternion.identity);
             }
             //풀 자르기
             if (hit.GetComponent<Grass>() != null)
@@ -50,10 +54,12 @@ public class PlayerAnimationTrigger : MonoBehaviour
             {
                 hit.GetComponent<GeoDeposit>().HitGeoDeposit();
             }
+            //몬스터
             if (hit.GetComponent<HuskBullyController>() != null)
             {
                 Vector2 knockbackDir = (hit.transform.position - transform.position).normalized;
                 hit.GetComponent<HuskBullyController>().TakeDamage(player.attackPower,knockbackDir*3);
+                Instantiate(effect, transform.position, Quaternion.identity);
             }
             player.SetHPandMP(0, 10);
         }
