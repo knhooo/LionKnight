@@ -115,6 +115,12 @@ public class Shadow : MonoBehaviour
         StartCoroutine("HitKnockBack");
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Player>() != null)
+            collision.gameObject.GetComponent<Player>().TakeDamage();
+    }
+
     protected virtual IEnumerator HitKnockBack()
     {
         isKnocked = true;

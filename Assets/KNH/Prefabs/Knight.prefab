@@ -332,6 +332,11 @@ MonoBehaviour:
   spiritDuration: 1
   knockbackDirection: {x: 5, y: 10}
   knockbackDuration: 1
+  shakeAmplitude: 1.5
+  shakeFrequency: 1.5
+  shakeDuration: 0.5
+  cineCam: {fileID: 0}
+  hitCrack: {fileID: 4219134517736072173, guid: ba33299544962f444b8a52ac176ac46f, type: 3}
   attackCheck: {fileID: 1658797656900072200}
   attackCheckRadius: 0.8
   posArr:
@@ -582,6 +587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   head: {fileID: 5213338638322737426, guid: cd9d5fb507e442c4b82c3e7a2a75d045, type: 3}
   ghost: {fileID: 8661588278632172482, guid: b81a5c64a31b80a439732dde5a260652, type: 3}
+  effect: {fileID: 8445962420653194407, guid: 5c6339e42f068564097de019987d1aa3, type: 3}
 --- !u!1 &8852736422388843667
 GameObject:
   m_ObjectHideFlags: 0

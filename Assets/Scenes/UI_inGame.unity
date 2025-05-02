@@ -3389,7 +3389,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7923396928617773902, guid: dd6389894a8b12849aa2ae53c84681ed, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4658,7 +4658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1446269419
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4920,7 +4920,7 @@ GameObject:
   - component: {fileID: 1584730082}
   - component: {fileID: 1584730081}
   m_Layer: 0
-  m_Name: Store
+  m_Name: shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7510,7 +7510,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 305990765008996294, guid: 23f32d730d0ccc94fa7742c85d94367c, type: 3}
+  m_Sprite: {fileID: -677073617, guid: 23f32d730d0ccc94fa7742c85d94367c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
