@@ -13336,6 +13336,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 612766533}
     m_Modifications:
+    - target: {fileID: 1443182685192188885, guid: 764eee25f4362d4408b1e6815b8729ce, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1860763148804487969, guid: 764eee25f4362d4408b1e6815b8729ce, type: 3}
       propertyPath: m_SortingLayer
       value: 7
@@ -13400,6 +13404,14 @@ PrefabInstance:
       propertyPath: bulletHellPos
       value: 
       objectReference: {fileID: 560125521}
+    - target: {fileID: 8575390204935405768, guid: 764eee25f4362d4408b1e6815b8729ce, type: 3}
+      propertyPath: attackSelectMax
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575390204935405768, guid: 764eee25f4362d4408b1e6815b8729ce, type: 3}
+      propertyPath: attackSelectMin
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8575390204935405768, guid: 764eee25f4362d4408b1e6815b8729ce, type: 3}
       propertyPath: teleportLeftMax
       value: 
@@ -17082,6 +17094,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3264892858544539603, guid: 8fc90544a848b004faf8705390abb3f2, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5144642468764612947, guid: 8fc90544a848b004faf8705390abb3f2, type: 3}
       propertyPath: heightMax
       value: 
@@ -17706,7 +17722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000853134006182788, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
       propertyPath: jumpForce
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7083494780227276177, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
       propertyPath: m_LocalPosition.x
