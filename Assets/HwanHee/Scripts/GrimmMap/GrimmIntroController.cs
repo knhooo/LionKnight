@@ -46,7 +46,9 @@ public class GrimmIntroController : MonoBehaviour
     [SerializeField] public FadeObject grimmIntroLightSP1;
     [SerializeField] public FadeObject grimmIntroLight1;
     [SerializeField] public ParticleSystem particleEffect;
-    [SerializeField] public GrimmBackgroundScaleController[] backgroundScales;
+    [SerializeField] public GrimmPulsate[] grimmPulsates;
+    [SerializeField] public float pulseValue;
+    [SerializeField] public float pulseDelayTime;
 
 
     [Header("카메라 Shake")]
@@ -94,6 +96,8 @@ public class GrimmIntroController : MonoBehaviour
     [Header("보스 체력 절반 이하")]
     [SerializeField] public FadeObject[] eyes;
     [SerializeField] public float fadeEyesDuration;
+    [SerializeField] public float newPulseValue;
+    [SerializeField] public float newPulseDalyTime;
 
     public Player player;
     public Vector3 destination;
@@ -190,9 +194,9 @@ public class GrimmIntroController : MonoBehaviour
         bossStartTrigger.gameObject.SetActive(false);
         transform.SetParent(null);
 
-        foreach (var backgroundScale in backgroundScales)
+        foreach (var backgroundScale in grimmPulsates)
         {
-            backgroundScale.StartPulsate();
+            backgroundScale.StartPulsate(pulseValue, pulseDelayTime);
         }
 
         Invoke("StartIntro", 2f);
