@@ -239,9 +239,17 @@ public class Player : MonoBehaviour
             cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, shakeDuration);
             //넉백
             StartCoroutine("HitKnockBack");
+            //시간느려지는효과
+            StartCoroutine(HitStop(0.3f, 0.2f));
         }
     }
 
+    IEnumerator HitStop(float duration, float slowTimeScale)
+    {
+        Time.timeScale = slowTimeScale;
+        yield return new WaitForSecondsRealtime(duration);
+        Time.timeScale = 1f;
+    }
 
     protected virtual IEnumerator HitKnockBack()
     {
