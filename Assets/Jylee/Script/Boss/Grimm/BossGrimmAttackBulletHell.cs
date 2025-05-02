@@ -20,6 +20,8 @@ public class BossGrimmAttackBulletHell : BossGrimmState
         fireDelay = boss.bulletFireDelay;
         endDelay = boss.bulletFireDelay * 2;
 
+        boss.isInvincible = true;
+
         boss.BossFlip(true);
     }
 
@@ -70,5 +72,6 @@ public class BossGrimmAttackBulletHell : BossGrimmState
     public override void Exit()
     {
         base.Exit();
+        boss.isInvincible = false;
     }
 }

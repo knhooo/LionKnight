@@ -17,11 +17,11 @@ public class BossGrimmIdle : BossGrimmState
 
         boss.BossFlip(false);
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             if (boss.isNightmare)
             {
-                boss.BossGrimmNightmareStart();
+                boss.BossGrimmNightmareStart(0.63f);
             }
             else
             {
