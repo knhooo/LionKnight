@@ -16,15 +16,12 @@ public class GeoDeposit : ShakeObject
         sp = GetComponentInChildren<SpriteRenderer>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void HitGeoDeposit()
     {
-        if (collision.GetComponent<Player>() != null && life > 0)
-        {
-            int index = Random.Range(0, geoDepositHits.Length);
-            SoundManager.Instance.audioSource.PlayOneShot(geoDepositHits[index]);
-            Shake(sp.transform, true);
-            CreateGeo();
-        }
+        int index = Random.Range(0, geoDepositHits.Length);
+        SoundManager.Instance.audioSource.PlayOneShot(geoDepositHits[index]);
+        Shake(sp.transform, true);
+        CreateGeo();
     }
 
     private void CreateGeo()

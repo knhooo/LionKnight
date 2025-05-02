@@ -45,6 +45,11 @@ public class PlayerAnimationTrigger : MonoBehaviour
             {
                 hit.GetComponent<BreakableObject>().Break();
             }
+            //지오상자
+            if (hit.GetComponent<GeoDeposit>() != null)
+            {
+                hit.GetComponent<GeoDeposit>().HitGeoDeposit();
+            }
             player.SetHPandMP(0, 10);
         }
     }

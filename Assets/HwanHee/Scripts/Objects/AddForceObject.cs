@@ -23,6 +23,7 @@ public class AddForceObject : MonoBehaviour
 
     protected virtual void OnEnable()
     {
+        rb.linearVelocity = Vector2.zero;
         AddForce();
     }
 

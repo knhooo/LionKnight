@@ -32,6 +32,7 @@ public class ShakeObject : MonoBehaviour
             elapsed += Time.deltaTime;
 
             float offset = Mathf.Sin(elapsed * 2f * Mathf.PI * frequency) * amount;
+
             if (isHorizontalShake)
                 target.transform.position = originalPos + new Vector3(offset, 0f, 0f);
             else
