@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.Cinemachine;
+using Unity.Properties;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -57,11 +58,12 @@ public class Player : MonoBehaviour
     [SerializeField] public float knockbackDuration;
     protected bool isKnocked;
 
-    [Header("카메라 정보")]
+    [Header("피격 정보")]
     [SerializeField] private float shakeAmplitude;
     [SerializeField] private float shakeFrequency;
     [SerializeField] private float shakeDuration;
     [SerializeField] private CinemachineCamera cineCam;
+    [SerializeField] private GameObject hitCrack;
 
 
     [Header("충돌 정보")]
@@ -231,9 +233,14 @@ public class Player : MonoBehaviour
             stateMachine.ChangeState(hitState);
             if (flashRoutine != null)
                 StopCoroutine(flashRoutine);
-
+            //깜빡임 효과
             flashRoutine = StartCoroutine(FlashBlack());
+            //이펙트
+            GameObject obj = Instantiate(hitCrack, transform.position, Quaternion.identity);
+            obj.transform.SetParent(transform);
+            //카메라 쉐이크
             cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, shakeDuration);
+            //넉백
             StartCoroutine("HitKnockBack");
         }
     }

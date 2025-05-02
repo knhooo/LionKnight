@@ -336,6 +336,7 @@ MonoBehaviour:
   shakeFrequency: 1.5
   shakeDuration: 0.5
   cineCam: {fileID: 0}
+  hitCrack: {fileID: 4219134517736072173, guid: ba33299544962f444b8a52ac176ac46f, type: 3}
   attackCheck: {fileID: 1658797656900072200}
   attackCheckRadius: 0.8
   posArr:
