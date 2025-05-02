@@ -102,6 +102,8 @@ public class Player : MonoBehaviour
     public PlayerSpiritState spiritState { get; private set; }
     public PlayerHitState hitState { get; private set; }
     public PlayerDeadState deadState { get; private set; }
+    public PlayerLookUpState lookUpState { get; private set; }
+    public PlayerLookDownState lookDownState { get; private set; }
     #endregion
 
     public PlayerData GetSaveData()
@@ -135,6 +137,8 @@ public class Player : MonoBehaviour
         spiritState = new PlayerSpiritState(this, stateMachine, "Spirit");
         hitState = new PlayerHitState(this, stateMachine, "Hit");
         deadState = new PlayerDeadState(this, stateMachine, "Die");
+        lookUpState = new PlayerLookUpState(this, stateMachine, "LookUp");
+        lookDownState = new PlayerLookDownState(this, stateMachine, "LookDown");
     }
 
     protected virtual void Start()

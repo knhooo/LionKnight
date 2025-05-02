@@ -37,6 +37,14 @@ public class PlayerGroundState : PlayerState
         if (Input.GetKeyDown(KeyCode.Z) && player.IsGroundDetected())
             stateMachine.ChangeState(player.jumpState);
 
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            stateMachine.ChangeState(player.lookUpState);
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            stateMachine.ChangeState(player.lookDownState);
+        }
         //Attack
         if (Input.GetKeyDown(KeyCode.X))
             stateMachine.ChangeState(player.primaryAttack);
