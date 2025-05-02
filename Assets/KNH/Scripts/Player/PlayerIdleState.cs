@@ -16,11 +16,16 @@ public class PlayerIdleState : PlayerGroundState
     {
         base.Update();
 
+        if (yInput != 0)
+            xInput = 0;
+        
         if (xInput == player.facingDir && player.IsWallDetected())
             return;
 
         if (xInput != 0 && !player.isBusy)
             stateMachine.ChangeState(player.moveState);
+
+
     }
     public override void Exit()
     {

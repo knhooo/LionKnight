@@ -1,5 +1,5 @@
 using System.Collections;
-using UnityEditorInternal;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -55,6 +55,14 @@ public class Player : MonoBehaviour
     [SerializeField] public float knockbackDuration;
     protected bool isKnocked;
 
+    [Header("피격 정보")]
+    [SerializeField] private float shakeAmplitude;
+    [SerializeField] private float shakeFrequency;
+    [SerializeField] private float shakeDuration;
+    [SerializeField] private CinemachineCamera cineCam;
+    [SerializeField] private GameObject hitCrack;
+
+
     [Header("충돌 정보")]
     public Transform attackCheck;
     public float attackCheckRadius;
@@ -102,6 +110,8 @@ public class Player : MonoBehaviour
     public PlayerSpiritState spiritState { get; private set; }
     public PlayerHitState hitState { get; private set; }
     public PlayerDeadState deadState { get; private set; }
+    public PlayerLookUpState lookUpState { get; private set; }
+    public PlayerLookDownState lookDownState { get; private set; }
     #endregion
 
     public PlayerData GetSaveData()
@@ -135,6 +145,8 @@ public class Player : MonoBehaviour
         spiritState = new PlayerSpiritState(this, stateMachine, "Spirit");
         hitState = new PlayerHitState(this, stateMachine, "Hit");
         deadState = new PlayerDeadState(this, stateMachine, "Die");
+        lookUpState = new PlayerLookUpState(this, stateMachine, "LookUp");
+        lookDownState = new PlayerLookDownState(this, stateMachine, "LookDown");
     }
 
     protected virtual void Start()
@@ -153,6 +165,7 @@ public class Player : MonoBehaviour
         // 게임 시작 시 초기 상태를 대기 상태(idleState)로 설정
         StateInit();
         CheckShadow();
+        cineCam = FindFirstObjectByType<CinemachineCamera>();
     }
 
     private void StateInit()
@@ -185,7 +198,6 @@ public class Player : MonoBehaviour
             SetZeroVelocity();
             stateMachine.ChangeState(idleState);
         }
-        DamageTrigger();
 
         //개발용 키
         //피격
@@ -204,16 +216,6 @@ public class Player : MonoBehaviour
             SetHPandMP(-100, 0);
         }
     }
-    private void DamageTrigger()
-    {
-        Collider2D collider = Physics2D.OverlapCircle(transform.position, 0.5f);
-
-        if (collider.gameObject.tag == "Shade")
-        {
-            TakeDamage();
-        }
-
-    }
 
     public void SetVelocityY(float y)
     {
@@ -228,12 +230,26 @@ public class Player : MonoBehaviour
             stateMachine.ChangeState(hitState);
             if (flashRoutine != null)
                 StopCoroutine(flashRoutine);
-
+            //깜빡임 효과
             flashRoutine = StartCoroutine(FlashBlack());
+            //이펙트
+            GameObject obj = Instantiate(hitCrack, transform.position, Quaternion.identity);
+            obj.transform.SetParent(transform);
+            //카메라 쉐이크
+            cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, shakeDuration);
+            //넉백
             StartCoroutine("HitKnockBack");
+            //시간느려지는효과
+            StartCoroutine(HitStop(0.3f, 0.2f));
         }
     }
 
+    IEnumerator HitStop(float duration, float slowTimeScale)
+    {
+        Time.timeScale = slowTimeScale;
+        yield return new WaitForSecondsRealtime(duration);
+        Time.timeScale = 1f;
+    }
 
     protected virtual IEnumerator HitKnockBack()
     {
@@ -372,6 +388,8 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        
+        cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, 1.4f);
         isKnocked = true;//데미지 받지 않음
         Debug.Log("죽음");
         //그림자가 존재하는 상태에서 죽었을 경우
