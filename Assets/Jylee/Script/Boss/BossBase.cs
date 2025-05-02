@@ -8,6 +8,7 @@ public class BossBase : MonoBehaviour
     public float healthPoint;
     public float currentHealthPoint;
     public float damagePoint;
+    public bool isInvincible;
 
     [Header("충돌 정보")]
     [SerializeField] protected Transform groundCheck;
@@ -80,6 +81,11 @@ public class BossBase : MonoBehaviour
 
     public void BossTakeDamage(float damage)
     {
+        if (isInvincible)
+        {
+            return;
+        }
+
         currentHealthPoint -= damage;
         fx.StartCoroutine("FlashFX");
         BossCheckHealthPoint();

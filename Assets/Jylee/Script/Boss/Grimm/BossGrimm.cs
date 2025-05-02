@@ -255,16 +255,22 @@ public class BossGrimm : BossBase
         stateMachine.ChangeState(greetState);
     }
 
-    public void BossGrimmNightmareStart()
+    public void BossGrimmNightmareStart(float _groundY)
     {
-        groundY = transform.position.y;
+        groundY = _groundY;
         SetTeleportDelay(attackEndTeleportDelay);
-        stateMachine.ChangeState(teleportInState);
 
         foreach (GameObject i in spikeList)
         {
             i.GetComponentInChildren<Animator>().SetBool("IsNightmare", true);
         }
+
+        Invoke("StartDelay", 1f);
+    }
+
+    private void StartDelay()
+    {
+        stateMachine.ChangeState(teleportInState);
     }
 
     public void AnimationTrigger()
