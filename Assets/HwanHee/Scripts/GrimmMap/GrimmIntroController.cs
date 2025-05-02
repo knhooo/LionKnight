@@ -309,6 +309,7 @@ public class GrimmIntroController : MonoBehaviour
 
         cinemachineCamera.GetComponent<CinemachineCamera>().Follow = player.transform;
         cinemachineCamera.GetComponent<CinemachineCamera>().LookAt = player.transform;
+
         gameObject.SetActive(false);
 
         isBossStart = true;
