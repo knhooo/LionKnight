@@ -102,8 +102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brokenParticle: {fileID: 291386456326822676, guid: ee350b6f55cf2fc48b7b90f8c792c6ca, type: 3}
-  fragment: {fileID: 5291474636183057941, guid: 53ab1a74bc93f2246b30f15e6a3fa5c3, type: 3}
+  brokenTop: {fileID: 5291474636183057941, guid: 53ab1a74bc93f2246b30f15e6a3fa5c3, type: 3}
   sprite: {fileID: 21300000, guid: 9e00a82be01af4a45a9b0bebfa43ecd6, type: 3}
+  breakSound: {fileID: 8300000, guid: 56652a43d537a554f95db63ca7617e95, type: 3}
 --- !u!61 &584251276890691780
 BoxCollider2D:
   m_ObjectHideFlags: 0

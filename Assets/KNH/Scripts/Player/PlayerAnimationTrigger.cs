@@ -35,6 +35,16 @@ public class PlayerAnimationTrigger : MonoBehaviour
             {
                 hit.GetComponent<BossGrimmBat>().BatGetHit(player.attackPower);
             }
+            //풀 자르기
+            if (hit.GetComponent<Grass>() != null)
+            {
+                hit.GetComponent<Grass>().CutGraas();
+            }
+            //구조물자르기
+            if (hit.GetComponent<BreakableObject>() != null)
+            {
+                hit.GetComponent<BreakableObject>().Break();
+            }
             player.SetHPandMP(0, 10);
         }
     }

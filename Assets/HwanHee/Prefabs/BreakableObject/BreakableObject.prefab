@@ -101,11 +101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8550337808d758f429252283c6f6c8b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fragment: {fileID: 291386456326822676, guid: 42784f37e25b2994da7d23b22428f620, type: 3}
+  brokenParticle: {fileID: 291386456326822676, guid: ee350b6f55cf2fc48b7b90f8c792c6ca, type: 3}
+  brokenTop: {fileID: 291386456326822676, guid: 42784f37e25b2994da7d23b22428f620, type: 3}
   sprite: {fileID: -6004289424380267417, guid: baff3da5ade428a4d914d0a77efd6ea2, type: 3}
-  forceValueX: 7
-  forceValueY: 5
-  torque: 50
+  breakSound: {fileID: 8300000, guid: 56652a43d537a554f95db63ca7617e95, type: 3}
 --- !u!61 &7956809504166039686
 BoxCollider2D:
   m_ObjectHideFlags: 0
