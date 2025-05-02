@@ -52,6 +52,11 @@ public class HuskBullyController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Debug.Log("[Test] K pressed: triggering death");
+            Die();
+        }
         stateTimer -= Time.deltaTime;
         HandleState();
     }
@@ -111,11 +116,6 @@ public class HuskBullyController : MonoBehaviour
                 break;
 
             case State.AttackPrep:
-                if (!PlayerInPatrolArea() || !PlayerInRange())
-                {
-                    TransitionTo(State.Walk);
-                    return;
-                }
                 if (stateTimer <= 0f)
                 {
                     TransitionTo(State.Attack, 1f);
@@ -164,6 +164,7 @@ public class HuskBullyController : MonoBehaviour
 
             case State.DeathLand:
                 rb.linearVelocity = Vector2.zero;
+                rb.gravityScale = 0f;
                 if (hitbox != null)
                 {
                     hitbox.gameObject.SetActive(false);
@@ -206,8 +207,8 @@ public class HuskBullyController : MonoBehaviour
         currentState = newState;
         stateTimer = timer;
 
-        if (newState == State.AttackPrep && PlayerInRange()) anim.SetTrigger("isAttack1");
-        if (newState == State.Attack && PlayerInRange()) anim.SetTrigger("isAttack2");
+        if (newState == State.AttackPrep) anim.SetTrigger("isAttack1");
+        if (newState == State.Attack) anim.SetTrigger("isAttack2");
         if (newState == State.AttackCooldown) anim.SetTrigger("isCoolDown");
         if (newState == State.DeathAir) anim.SetTrigger("isDeathAir");
         if (newState == State.DeathLand) anim.SetTrigger("isDeathLand");
@@ -264,7 +265,8 @@ public class HuskBullyController : MonoBehaviour
     public void Die()
     {
         rb.linearVelocity = Vector2.zero;
-        rb.AddForce(new Vector2(facingRight ? -1 : 1, 1) * deathKnockbackForce, ForceMode2D.Impulse);
+        Vector2 knockbackDir = new Vector2(facingRight ? -1.2f : 1.2f, 1.2f).normalized * deathKnockbackForce;
+        rb.AddForce(knockbackDir, ForceMode2D.Impulse);
         TransitionTo(State.DeathAir);
     }
 
