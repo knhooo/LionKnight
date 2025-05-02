@@ -13,7 +13,6 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private float newBGMVolume = 1f;
     [SerializeField] private AudioClip[] newAudioSources;
     [SerializeField] private AudioClip bell;
-    [SerializeField] private bool playImmediately = true;
 
     private bool playerInTrigger;
     private bool isLoadScene = false;
@@ -31,7 +30,7 @@ public class SceneLoader : MonoBehaviour
 
                 if (newAudioSources.Length > 0)
                     BGMManager.instance.SetNewBGMs(newAudioSources);
-                BGMManager.instance.SetValues(currentBGMVolume, newBGMVolume, playImmediately);
+                BGMManager.instance.SetValues(currentBGMVolume, newBGMVolume);
 
                 SceneSaveLoadManager.instance.StartLoadScene(sceneToLoad);
             }

@@ -23,7 +23,6 @@ public class GrimmIntroController : MonoBehaviour
 
     [Space]
     [Header("BGM")]
-    [SerializeField] public AudioSource heartBeatAudio;
     [SerializeField] public AudioClip bossBGM1;
     [SerializeField] public AudioClip bossBGM2;
     [SerializeField] public AudioClip bossBusrtAudio;
@@ -110,6 +109,7 @@ public class GrimmIntroController : MonoBehaviour
     public void Start()
     {
         TurnOffEffects();
+        grimmIntroLight1.gameObject.SetActive(false);
         grimmSilhouette.gameObject.SetActive(false);
         fadeSprite.gameObject.SetActive(true);
 
@@ -123,7 +123,6 @@ public class GrimmIntroController : MonoBehaviour
     public void TurnOffEffects()
     {
         grimmSilhouette.gameObject.SetActive(false);
-        grimmIntroLight1.gameObject.SetActive(false);
         grimmIntroLight2.gameObject.SetActive(false);
         grimmTextCanvas.gameObject.SetActive(false);
         FVX.SetActive(false);
@@ -138,6 +137,7 @@ public class GrimmIntroController : MonoBehaviour
             isIntroPlay = false;
             bossGrimm.GetComponent<BossGrimm>().BossGrimmGreet();
 
+            BGMManager.instance.SetNewBGM(bossBGM1);
             BGMManager.instance.PlayBGM();
 
             Invoke("DefualtValueSetting", 1f);
@@ -291,8 +291,6 @@ public class GrimmIntroController : MonoBehaviour
         StartCoroutine(MoveToPlayer());
         grimmSilhouette.StartFadeInOut(canvasFadeOutDuration, 1f, 0f);
         TurnOffEffects();
-
-        heartBeatAudio.gameObject.SetActive(false);
     }
 
     public IEnumerator MoveToPlayer()
