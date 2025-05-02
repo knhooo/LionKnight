@@ -50,6 +50,11 @@ public class PlayerAnimationTrigger : MonoBehaviour
             {
                 hit.GetComponent<GeoDeposit>().HitGeoDeposit();
             }
+            if (hit.GetComponent<HuskBullyController>() != null)
+            {
+                Vector2 knockbackDir = (hit.transform.position - transform.position).normalized;
+                hit.GetComponent<HuskBullyController>().TakeDamage(player.attackPower,knockbackDir*3);
+            }
             player.SetHPandMP(0, 10);
         }
     }
