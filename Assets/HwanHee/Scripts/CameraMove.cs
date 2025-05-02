@@ -24,7 +24,7 @@ public class CameraMove : MonoBehaviour
     private float holdKeyElpased = 0f;
     private KeyDirection keyDirection = KeyDirection.None;
 
-    public bool isCameraAnimationPlay = true;
+    public bool isCameraAnimationPlay = false;
 
     void Start()
     {
