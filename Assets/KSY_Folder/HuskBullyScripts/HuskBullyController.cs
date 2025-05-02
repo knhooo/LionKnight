@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class HuskBullyController : MonoBehaviour
 {
@@ -33,10 +32,23 @@ public class HuskBullyController : MonoBehaviour
     [SerializeField] private float attackPrepTime = 0.5f;
     [SerializeField] private float deathKnockbackForce = 5f;
 
+    [Header("Combat")]
+    [SerializeField] private int maxHealth = 30;
+    [SerializeField] private float damageToPlayer = 10f;
+    [SerializeField] private Vector2 knockbackFromPlayer = new Vector2(5f, 3f);
+
     private State currentState = State.Idle;
     private float stateTimer = 0f;
     private bool facingRight = false;
     private bool hasTurnedRecently = false;
+    private int currentHealth;
+    private HuskBullyHitbox hitbox;
+
+    private void Start()
+    {
+        hitbox = GetComponentInChildren<HuskBullyHitbox>();
+        currentHealth = maxHealth;
+    }
 
     private void Update()
     {
@@ -46,13 +58,14 @@ public class HuskBullyController : MonoBehaviour
 
     private void HandleState()
     {
-        if (IsWallAhead() && !hasTurnedRecently && currentState == State.Walk)
+        if (currentState == State.Walk && IsWallAhead() && !hasTurnedRecently)
         {
             rb.linearVelocity = Vector2.zero;
             hasTurnedRecently = true;
             TransitionTo(State.Turn, 0.5f);
             return;
         }
+
         SetAnimatorStates();
 
         switch (currentState)
@@ -67,7 +80,8 @@ public class HuskBullyController : MonoBehaviour
 
             case State.Walk:
                 rb.linearVelocity = new Vector2((facingRight ? walkSpeed : -walkSpeed), rb.linearVelocity.y);
-                if (PlayerInRange())
+
+                if (PlayerInPatrolArea() && PlayerInRange())
                 {
                     rb.linearVelocity = Vector2.zero;
                     TransitionTo(State.AttackPrep, attackPrepTime);
@@ -78,12 +92,12 @@ public class HuskBullyController : MonoBehaviour
                     hasTurnedRecently = true;
                     TransitionTo(State.Turn, 0.5f);
                 }
-                if (PlayerInRange())
+                else if (!IsWithinPatrolBounds())
                 {
                     rb.linearVelocity = Vector2.zero;
-                    TransitionTo(State.AttackPrep, attackPrepTime);
+                    hasTurnedRecently = true;
+                    TransitionTo(State.Turn, 0.5f);
                 }
-
                 break;
 
             case State.Turn:
@@ -96,13 +110,23 @@ public class HuskBullyController : MonoBehaviour
                 break;
 
             case State.AttackPrep:
+                if (!PlayerInPatrolArea() || !PlayerInRange())
+                {
+                    TransitionTo(State.Walk);
+                    return;
+                }
                 if (stateTimer <= 0f)
                 {
-                    TransitionTo(State.Attack, 0.4f);
+                    TransitionTo(State.Attack, 1f);
                 }
                 break;
 
             case State.Attack:
+                if (hitbox != null)
+                {
+                    hitbox.ResizeHitbox(facingRight);
+                }
+
                 if (stateTimer <= 0f)
                 {
                     TransitionTo(State.AttackCooldown, attackCooldownTime);
@@ -110,14 +134,30 @@ public class HuskBullyController : MonoBehaviour
                 break;
 
             case State.AttackCooldown:
+                if (hitbox != null)
+                {
+                    hitbox.ResetHitbox();
+                }
+
                 if (stateTimer <= 0f)
                 {
-                    TransitionTo(State.Idle);
+                    TransitionTo(State.Walk);
+                }
+                break;
+
+            case State.Hurt:
+                if (stateTimer <= 0f)
+                {
+                    TransitionTo(State.Walk);
                 }
                 break;
 
             case State.DeathAir:
                 rb.linearVelocity = Vector2.zero;
+                if (Mathf.Abs(rb.linearVelocity.y) < 0.01f)
+                {
+                    TransitionTo(State.DeathLand);
+                }
                 break;
 
             case State.DeathLand:
@@ -136,25 +176,24 @@ public class HuskBullyController : MonoBehaviour
     {
         Vector2 direction = facingRight ? Vector2.right : Vector2.left;
         Vector2 origin = wallCheck.position;
-        RaycastHit2D hit = Physics2D.Raycast(origin, direction, 0.1f);
-        return hit.collider != null && hit.collider != enemyCollider;
-    }
+        float rayDistance = 0.5f;
+        int groundMask = LayerMask.GetMask("Ground");
 
-    private void ResetAllTriggers()
-    {
-        animator.ResetTrigger("isAttack1");
-        animator.ResetTrigger("isAttack2");
-        animator.ResetTrigger("isCoolDown");
-        animator.ResetTrigger("isDeathAir");
-        animator.ResetTrigger("isDeathLand");
-        animator.ResetTrigger("isTurn");
+        Debug.DrawRay(origin, direction * rayDistance, Color.red);
+
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction, rayDistance, groundMask);
+        if (hit.collider != null)
+        {
+            Debug.Log($"[WallCheck] Hit: {hit.collider.name}, Tag: {hit.collider.tag}, Trigger: {hit.collider.isTrigger}");
+            return hit.collider != enemyCollider;
+        }
+
+        return false;
     }
 
     private void TransitionTo(State newState, float timer = 1f)
     {
         if (currentState == newState) return;
-
-        ResetAllTriggers();
 
         if (newState == State.AttackPrep) animator.SetTrigger("isAttack1");
         if (newState == State.Attack) animator.SetTrigger("isAttack2");
@@ -169,11 +208,20 @@ public class HuskBullyController : MonoBehaviour
 
     private bool PlayerInRange()
     {
-        return Vector2.Distance(transform.position, player.position) < attackRange &&
-               player.position.x >= leftLimit.position.x && player.position.x <= rightLimit.position.x;
+        return Vector2.Distance(transform.position, player.position) < attackRange;
     }
 
-    void Flip()
+    private bool PlayerInPatrolArea()
+    {
+        return player.position.x >= leftLimit.position.x && player.position.x <= rightLimit.position.x;
+    }
+
+    private bool IsWithinPatrolBounds()
+    {
+        return transform.position.x >= leftLimit.position.x && transform.position.x <= rightLimit.position.x;
+    }
+
+    private void Flip()
     {
         facingRight = !facingRight;
         spriteRenderer.flipX = facingRight;
@@ -183,16 +231,43 @@ public class HuskBullyController : MonoBehaviour
         wallCheck.localPosition = localPos;
     }
 
+    public void TakeDamage(int damage, Vector2 knockbackDir)
+    {
+        Debug.Log($"[HuskBully] Damage Received: {damage}, Current HP: {currentHealth - damage}");
+
+        if (currentState == State.DeathAir || currentState == State.DeathLand) return;
+
+        currentHealth -= damage;
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(knockbackDir, ForceMode2D.Impulse);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            TransitionTo(State.Hurt, 0.2f);
+        }
+    }
 
     public void Die()
     {
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(new Vector2(facingRight ? -1 : 1, 1) * deathKnockbackForce, ForceMode2D.Impulse);
-        rb.linearVelocity = Vector2.zero;
-        enemyCollider.enabled = false;
-        TransitionTo(State.DeathLand);
+        TransitionTo(State.DeathAir);
     }
 
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Player player = other.GetComponent<Player>();
+            if (player != null)
+            {
+                Debug.Log("[HuskBully] Player Hit");
+                player.TakeDamage();
+            }
+        }
+    }
 }
-
