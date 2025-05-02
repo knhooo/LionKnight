@@ -105,7 +105,6 @@ public class GrimmIntroController : MonoBehaviour
         grimmIntroStep3 = new GrimmIntroStep3(this);
         currentIntroStep = grimmIntroStep1;
 
-        BGMManager.instance.StopBGM();
     }
 
     public void Start()
@@ -118,6 +117,7 @@ public class GrimmIntroController : MonoBehaviour
         {
             fadeSprite.gameObject.SetActive(false);
         }
+        BGMManager.instance.StopBGM();
     }
 
     public void TurnOffEffects()
