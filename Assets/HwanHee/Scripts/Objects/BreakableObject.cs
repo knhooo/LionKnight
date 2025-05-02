@@ -6,7 +6,7 @@ public class BreakableObject : MonoBehaviour
     private SpriteRenderer sp;
 
     [SerializeField] private GameObject brokenParticle;
-    [SerializeField] private GameObject brokenBase;
+    [SerializeField] private GameObject brokenTop;
     [SerializeField] private Sprite sprite;
     [SerializeField] private AudioClip breakSound;
 
@@ -33,10 +33,10 @@ public class BreakableObject : MonoBehaviour
         sp.sprite = sprite;
 
         Vector3 pos = new Vector3(transform.position.x, transform.position.y + 1f);
-        brokenBase = Instantiate(brokenBase, pos, Quaternion.identity);
+        brokenTop = Instantiate(brokenTop, pos, Quaternion.identity);
 
-        brokenBase.GetComponent<SpriteRenderer>().sortingLayerID = sp.sortingLayerID;
-        brokenBase.GetComponent<SpriteRenderer>().sortingOrder = sp.sortingOrder;
+        brokenTop.GetComponent<SpriteRenderer>().sortingLayerID = sp.sortingLayerID;
+        brokenTop.GetComponent<SpriteRenderer>().sortingOrder = sp.sortingOrder;
 
         if (brokenParticle == null)
         {
