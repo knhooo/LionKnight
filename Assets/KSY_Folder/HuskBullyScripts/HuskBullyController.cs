@@ -16,7 +16,7 @@ public class HuskBullyController : MonoBehaviour
     }
 
     [Header("References")]
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator anim;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform player;
     [SerializeField] private Collider2D enemyCollider;
@@ -58,6 +58,7 @@ public class HuskBullyController : MonoBehaviour
 
     private void HandleState()
     {
+        // 공격 중 플레이어가 사라져도 공격은 끝까지 이어감
         if (currentState == State.Walk && IsWallAhead() && !hasTurnedRecently)
         {
             rb.linearVelocity = Vector2.zero;
@@ -127,6 +128,8 @@ public class HuskBullyController : MonoBehaviour
                     hitbox.ResizeHitbox(facingRight);
                 }
 
+                // 공격 도중 플레이어가 사라져도 모션은 유지
+
                 if (stateTimer <= 0f)
                 {
                     TransitionTo(State.AttackCooldown, attackCooldownTime);
@@ -153,8 +156,7 @@ public class HuskBullyController : MonoBehaviour
                 break;
 
             case State.DeathAir:
-                rb.linearVelocity = Vector2.zero;
-                if (Mathf.Abs(rb.linearVelocity.y) < 0.01f)
+                if (rb.IsTouchingLayers(LayerMask.GetMask("Ground")))
                 {
                     TransitionTo(State.DeathLand);
                 }
@@ -162,6 +164,10 @@ public class HuskBullyController : MonoBehaviour
 
             case State.DeathLand:
                 rb.linearVelocity = Vector2.zero;
+                if (hitbox != null)
+                {
+                    hitbox.gameObject.SetActive(false);
+                }
                 enemyCollider.enabled = false;
                 break;
         }
@@ -169,7 +175,7 @@ public class HuskBullyController : MonoBehaviour
 
     private void SetAnimatorStates()
     {
-        animator.SetBool("isWalk", currentState == State.Walk);
+        anim.SetBool("isWalk", currentState == State.Walk);
     }
 
     private bool IsWallAhead()
@@ -195,15 +201,19 @@ public class HuskBullyController : MonoBehaviour
     {
         if (currentState == newState) return;
 
-        if (newState == State.AttackPrep) animator.SetTrigger("isAttack1");
-        if (newState == State.Attack) animator.SetTrigger("isAttack2");
-        if (newState == State.AttackCooldown) animator.SetTrigger("isCoolDown");
-        if (newState == State.DeathAir) animator.SetTrigger("isDeathAir");
-        if (newState == State.DeathLand) animator.SetTrigger("isDeathLand");
-        if (newState == State.Turn) animator.SetTrigger("isTurn");
+
 
         currentState = newState;
         stateTimer = timer;
+
+        if (newState == State.AttackPrep && PlayerInRange()) anim.SetTrigger("isAttack1");
+        if (newState == State.Attack && PlayerInRange()) anim.SetTrigger("isAttack2");
+        if (newState == State.AttackCooldown) anim.SetTrigger("isCoolDown");
+        if (newState == State.DeathAir) anim.SetTrigger("isDeathAir");
+        if (newState == State.DeathLand) anim.SetTrigger("isDeathLand");
+        if (newState == State.Turn) anim.SetTrigger("isTurn");
+
+
     }
 
     private bool PlayerInRange()
