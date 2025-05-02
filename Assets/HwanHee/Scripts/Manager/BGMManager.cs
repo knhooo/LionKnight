@@ -10,7 +10,6 @@ public class BGMManager : Singleton<BGMManager>
     private AudioSource[] audioSources;
     [HideInInspector] public float currentBGMVolume;
     [HideInInspector] public float newBGMVolume;
-    [HideInInspector] public bool playImmediately;
     private AudioClip[] newAudioClips;
 
     protected override void Awake()
@@ -70,13 +69,11 @@ public class BGMManager : Singleton<BGMManager>
             if (i < newAudioClips.Length)
             {
                 audioSources[i].clip = newAudioClips[i];
-                if (playImmediately)
                     audioSources[i].Play();
             }
             else
                 audioSources[i].clip = null;
         }
-        if (playImmediately)
             StartCoroutine(VolumeFadeInOut(0f, newBGMVolume));
     }
 
@@ -109,10 +106,9 @@ public class BGMManager : Singleton<BGMManager>
     }
 
 
-    public void SetValues(float _currentBGMVolume, float _newBGMVolume, bool _playImmediately)
+    public void SetValues(float _currentBGMVolume, float _newBGMVolume)
     {
         currentBGMVolume = _currentBGMVolume;
         newBGMVolume = _newBGMVolume;
-        playImmediately = _playImmediately;
     }
 }

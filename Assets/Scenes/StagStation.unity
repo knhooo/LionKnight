@@ -1059,6 +1059,10 @@ PrefabInstance:
       value: Grimm
       objectReference: {fileID: 0}
     - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: newBGMVolume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: playImmediately
       value: 0
       objectReference: {fileID: 0}
@@ -1073,7 +1077,7 @@ PrefabInstance:
     - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: 'newAudioSources.Array.data[0]'
       value: 
-      objectReference: {fileID: 8300000, guid: 25b3e122e47062944ac7a34c7720143a, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2253682059423401758, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_Name
       value: GrimmSceneLoader
@@ -11892,9 +11896,9 @@ SceneRoots:
   - {fileID: 1367561765}
   - {fileID: 697951811447340552}
   - {fileID: 1288269489}
+  - {fileID: 1421940338}
+  - {fileID: 606500448}
   - {fileID: 16091134}
   - {fileID: 219033514}
   - {fileID: 2043406054}
   - {fileID: 680323017}
-  - {fileID: 1421940338}
-  - {fileID: 606500448}
