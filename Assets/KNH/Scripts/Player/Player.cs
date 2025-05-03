@@ -173,7 +173,7 @@ public class Player : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Dirtmouth")
         {
             stateMachine.Initialize(benchState);
-            transform.position = new Vector3(-0.027f, -5.277f, 0);
+            transform.position = new Vector3(0, 0.29f, 0);
         }
         else stateMachine.Initialize(idleState);
     }

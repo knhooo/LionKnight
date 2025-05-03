@@ -36,6 +36,6 @@ public class SceneSaveLoadManager : Singleton<SceneSaveLoadManager>
         SceneManager.sceneLoaded -= OnSceneLoaded; 
         DataManager.instance.LoadData();
 
-        BGMManager.instance.ChangeBGM(true);
+        BGMManager.instance.ChangeBGM(0.5f);
     }
 }
