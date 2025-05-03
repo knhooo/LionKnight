@@ -4,9 +4,15 @@
 // - 상점
 // - 사슴정거장 Lift
 
+
+using System.Collections.Generic;
+using UnityEngine;
+
 public class PlayerData
 {
-    public string name;
+    public Dictionary<string, Vector2> posKey = new Dictionary<string, Vector2>();
+    public string prevSceneName;
+    public string currentSceneName;
     public int money = 0;     //지오
     public int lostMoney = 0; //잃어버린 지오
     public float hp = 0;      //체력

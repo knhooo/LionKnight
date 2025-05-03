@@ -75,10 +75,6 @@ public class DataManager : Singleton<DataManager>
             string data = File.ReadAllText(fullPath);
             player.LoadFromData(JsonUtility.FromJson<PlayerData>(data));
         }
-        else
-        {
-            SavePlayer();
-        }
     }
 
     private void LoadLift()
@@ -95,10 +91,6 @@ public class DataManager : Singleton<DataManager>
         {
             string data = File.ReadAllText(fullPath);
             lift.LoadFromData(JsonUtility.FromJson<LiftData>(data));
-        }
-        else
-        {
-            SaveLift();
         }
     }
 }

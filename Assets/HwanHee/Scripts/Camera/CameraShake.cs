@@ -21,5 +21,6 @@ public class CameraShake : MonoBehaviour
     private void StopShake()
     {
         noise.AmplitudeGain = 0f;
+        noise.FrequencyGain = 0f;
     }
 }

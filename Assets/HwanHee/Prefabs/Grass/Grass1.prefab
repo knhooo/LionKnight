@@ -105,6 +105,7 @@ MonoBehaviour:
   canBeCut: 1
   cutImg: {fileID: 21300000, guid: ba6ed5626431a6a41855444db3a64025, type: 3}
   grassParticle: {fileID: 5094146106227670751, guid: d162b69095535e9478a14c8e21b03a95, type: 3}
+  grassCut: {fileID: 8300000, guid: 80430f269fc47b34a811042ad0c20939, type: 3}
 --- !u!61 &-1140958883137657292
 BoxCollider2D:
   m_ObjectHideFlags: 0

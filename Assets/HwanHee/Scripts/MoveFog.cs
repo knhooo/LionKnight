@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class MoveParticle : MonoBehaviour
+public class MoveFog : MonoBehaviour
 {
     private float moveSpeed = 2f;
     private void Start()
