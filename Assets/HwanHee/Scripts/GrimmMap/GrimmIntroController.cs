@@ -175,7 +175,7 @@ public class GrimmIntroController : MonoBehaviour
             bossGrimm.GetComponent<BossGrimm>().BossGrimmGreet();
 
             BGMManager.instance.SetBGM(bossBGM1, 0f, 1f);
-            BGMManager.instance.ChangeBGM(false);
+            BGMManager.instance.ChangeBGM(0f, false);
 
             Invoke("DefualtValueSetting", 1f);
         }
@@ -327,7 +327,7 @@ public class GrimmIntroController : MonoBehaviour
 
         SoundManager.Instance.audioSource.PlayOneShot(bossBusrtAudio);
         BGMManager.instance.SetBGM(bossBGM2, 0f, 1f);
-        BGMManager.instance.ChangeBGM(false);
+        BGMManager.instance.ChangeBGM(0f, false);
 
         Invoke("EffectFinish", finalIntroEffectDurtaion);
     }

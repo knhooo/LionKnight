@@ -24,18 +24,14 @@ public class BGMManager : Singleton<BGMManager>
     public void SetBGM(AudioClip[] _newAudioClips, float _currentBGMVolume, float _newBGMVolume)
     {
         if (_newAudioClips.Length > 0)
-        {
-            isBGMChange = true;
             newAudioClips = _newAudioClips;
-        }
         else
-        {
-            isBGMChange = false;
             newAudioClips = null;
-        }
 
         currentBGMTargetVolume = _currentBGMVolume;
         newBGMTargetVolume = _newBGMVolume;
+
+        isBGMChange = _newAudioClips.Length > 0;
     }
 
     public void BGMFadeOut(float _startVolume = -99f, float _targetVolume = -99f)
@@ -56,19 +52,18 @@ public class BGMManager : Singleton<BGMManager>
         StartCoroutine(VolumeFadeInOut(_startVolume, _targetVolume));
     }
 
-    public void ChangeBGM(bool isWait)
+    public void ChangeBGM(float delay = 0f, bool isFade = true)
     {
         if (!isBGMChange)
             return;
 
-        if (isWait)
-            Invoke("ApplyBGMChange", 0.5f);
-        else
-            ApplyBGMChange();
+        StartCoroutine(ApplyBGMChange(delay, isFade));
     }
 
-    private void ApplyBGMChange()
+    private IEnumerator ApplyBGMChange(float delay, bool isFade)
     {
+        yield return new WaitForSeconds(delay);
+
         for (int i = 0; i < audioSources.Length; i++)
         {
             if (i < newAudioClips.Length)
@@ -76,20 +71,20 @@ public class BGMManager : Singleton<BGMManager>
             else
                 audioSources[i].clip = null;
 
-            if (audioSources[i].clip != null)
-            {
-                audioSources[i].Stop();
-                audioSources[i].Play();
-            }
+            audioSources[i].Stop();
+            audioSources[i].Play();
         }
-        BGMFadeIn();
+
+        if (isFade)
+            BGMFadeIn();
+        else
+            audioSources[0].volume = 1f;
+
+        yield return null;
     }
 
     public void BGMFadeIn(float _startVolume = -99f, float _targetVolume = -99f)
     {
-        if (!isBGMChange)
-            return;
-
         if (_startVolume == -99f)
         {
             _startVolume = 0f;
