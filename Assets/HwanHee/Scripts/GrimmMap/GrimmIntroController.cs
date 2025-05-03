@@ -30,8 +30,8 @@ public class GrimmIntroController : MonoBehaviour
 
     [Space]
     [Header("BGM")]
-    [SerializeField] public AudioClip bossBGM1;
-    [SerializeField] public AudioClip bossBGM2;
+    [SerializeField] public AudioClip[] bossBGM1;
+    [SerializeField] public AudioClip[] bossBGM2;
     [SerializeField] public AudioClip bossBusrtAudio;
     [SerializeField] public AudioClip burstAudio1;
     [SerializeField] public AudioClip burstAudio2;
@@ -174,8 +174,8 @@ public class GrimmIntroController : MonoBehaviour
             isIntroPlay = false;
             bossGrimm.GetComponent<BossGrimm>().BossGrimmGreet();
 
-            BGMManager.instance.SetNewBGM(bossBGM1);
-            BGMManager.instance.PlayBGM();
+            BGMManager.instance.SetBGM(bossBGM1, 0f, 1f);
+            BGMManager.instance.ChangeBGM(false);
 
             Invoke("DefualtValueSetting", 1f);
         }
@@ -230,7 +230,7 @@ public class GrimmIntroController : MonoBehaviour
 
             if (transform.position == CameraPos[CameraPos.Length - 1].position)
             {
-                BGMManager.instance.BGMFadeOut(0f);
+                BGMManager.instance.BGMFadeOut();
                 Invoke("PlayIntro", intro1StartDelay);
                 break;
             }
@@ -326,8 +326,8 @@ public class GrimmIntroController : MonoBehaviour
         burstAudioLoop.Stop();
 
         SoundManager.Instance.audioSource.PlayOneShot(bossBusrtAudio);
-        BGMManager.instance.SetNewBGM(bossBGM2);
-        BGMManager.instance.PlayBGM();
+        BGMManager.instance.SetBGM(bossBGM2, 0f, 1f);
+        BGMManager.instance.ChangeBGM(false);
 
         Invoke("EffectFinish", finalIntroEffectDurtaion);
     }

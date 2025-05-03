@@ -9,7 +9,6 @@ public class CameraOffsetChanger : MonoBehaviour
     [SerializeField] private Collider2D originCameraBound;
     [SerializeField] private Collider2D newCameraBound;
 
-
     private void Awake()
     {
         if (originCameraBound == null)
@@ -47,7 +46,6 @@ public class CameraOffsetChanger : MonoBehaviour
 
             if (newCameraBound != null)
                 cinemachineCamera.GetComponent<CinemachineConfiner2D>().BoundingShape2D = originCameraBound;
-
         }
     }
 }

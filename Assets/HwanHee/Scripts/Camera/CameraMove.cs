@@ -115,7 +115,6 @@ public class CameraMove : MonoBehaviour
         isCameraMoving = false;
     }
 
-
     public void ChangeCameraOffset(float newOffset)
     {
         if (this != null && !isCameraMoving)

@@ -9,9 +9,9 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private string sceneToLoad;
 
     [Header("BGM")]
-    [SerializeField] private float currentBGMVolume;
-    [SerializeField] private float newBGMVolume = 1f;
-    [SerializeField] private AudioClip[] newAudioSources;
+    [SerializeField] private float currentBGMTargetVolume;
+    [SerializeField] private float newBGMTargetVolume = 1f;
+    [SerializeField] private AudioClip[] newAudioClips;
     [SerializeField] private AudioClip bell;
 
     private bool playerInTrigger;
@@ -19,9 +19,9 @@ public class SceneLoader : MonoBehaviour
 
     private void OnValidate()
     {
-        if (newAudioSources == null || newAudioSources.Length == 0)
+        if (newAudioClips == null || newAudioClips.Length == 0)
         {
-            newBGMVolume = 0;
+            newBGMTargetVolume = 0;
         }
 
         if (!isBell)
@@ -41,9 +41,7 @@ public class SceneLoader : MonoBehaviour
                 if (isBell)
                     SoundManager.Instance.audioSource.PlayOneShot(bell);
 
-                if (newAudioSources.Length > 0)
-                    BGMManager.instance.SetNewBGMs(newAudioSources);
-                BGMManager.instance.SetValues(currentBGMVolume, newBGMVolume);
+                BGMManager.instance.SetBGM(newAudioClips, currentBGMTargetVolume, newBGMTargetVolume);
 
                 SceneSaveLoadManager.instance.StartLoadScene(sceneToLoad);
             }

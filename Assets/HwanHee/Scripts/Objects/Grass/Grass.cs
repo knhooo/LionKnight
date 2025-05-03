@@ -28,7 +28,7 @@ public class Grass : MonoBehaviour
             return;
 
         canBeCut = false;
-        SoundManager.Instance.audioSource.PlayOneShot(grassCut  );
+        SoundManager.Instance.audioSource.PlayOneShot(grassCut);
 
         sp.sprite = cutImg;
         for (int i = 0; i < 25; i++)
