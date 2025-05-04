@@ -13,7 +13,6 @@ public class PlayerBenchState : PlayerState
         player.rb.bodyType = RigidbodyType2D.Static;
         player.isOnBench = true;
         player.SetHPandMP(player.playerData.maxHp, 0);//체력 회복
-
         //저장 처리
         DataManager.instance.SaveData();
     }
@@ -21,13 +20,15 @@ public class PlayerBenchState : PlayerState
     public override void Exit()
     {
         base.Exit();
+        PlayerManager.instance.isFirst = false;
+
     }
 
     public override void Update()
     {
         base.Update();
 
-        if(xInput != 0)
+        if (xInput != 0)
         {
             player.rb.bodyType = RigidbodyType2D.Dynamic;
             player.isOnBench = false;

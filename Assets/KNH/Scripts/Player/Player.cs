@@ -133,15 +133,26 @@ public class Player : MonoBehaviour
         playerData.toSceneName = SceneManager.GetActiveScene().name;
 
         string loadKeyName = $"{playerData.fromSceneName}To{playerData.toSceneName}";
-
         if (loadKeyName == "StagStationToDirtmouth")
+        {
+            Flip();
             transform.position = StagStationToDirtmouth.position;
+        }
         else if (loadKeyName == "StoreToDirtmouth")
+        {
+            Flip();
             transform.position = StoreToDirtmouth.position;
+        }
         else if (loadKeyName == "ForgottenCrossroadsToDirtmouth")
+        {
+            Flip();
             transform.position = ForgottenCrossroadsToDirtmouth.position;
+        }
         else if (loadKeyName == "GrimmToStagStation")
+        {
+            Flip();
             transform.position = GrimmToStagStation.position;
+        }
         else
             transform.position = new Vector2(0f, 0f);
     }
@@ -176,7 +187,6 @@ public class Player : MonoBehaviour
         DataManager.instance.RegisterPlayer(this);
         DataManager.instance.LoadData();
 
-        Debug.Log("lastDeathLocation: " + playerData.lastDeathLocation);
         sr = GetComponentInChildren<SpriteRenderer>();
         //fx = GetComponent<EntityFX>();
         anim = GetComponentInChildren<Animator>();
@@ -192,7 +202,7 @@ public class Player : MonoBehaviour
 
     private void StateInit()
     {
-        if (SceneManager.GetActiveScene().name == "Dirtmouth")
+        if (PlayerManager.instance.isFirst && SceneManager.GetActiveScene().name == "Dirtmouth")
         {
             stateMachine.Initialize(benchState);
             transform.position = new Vector3(0, 0.29f, 0);
