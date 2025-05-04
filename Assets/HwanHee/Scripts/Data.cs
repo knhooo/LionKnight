@@ -5,19 +5,8 @@
 // - 사슴정거장 Lift
 
 
-using System.Collections.Generic;
-using UnityEngine;
-
-[System.Serializable]
-public class PlayerPositionData
-{
-    public string sceneName;
-    public Vector2 position;
-}
-
 public class PlayerData
 {
-    public List<PlayerPositionData> playerPositionData = new List<PlayerPositionData>();
     public string fromSceneName;
     public string toSceneName;
     public int money = 0;     //지오

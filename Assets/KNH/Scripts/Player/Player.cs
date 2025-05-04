@@ -80,6 +80,12 @@ public class Player : MonoBehaviour
     [SerializeField] protected LayerMask whatIsGround;
     [SerializeField] protected LayerMask whatIsBench;
 
+    [Header("각 씬 시작 위치")]
+    [SerializeField] private Transform StagStationToDirtmouth;
+    [SerializeField] private Transform StoreToDirtmouth;
+    [SerializeField] private Transform ForgottenCrossroadsToDirtmouth;
+    [SerializeField] private Transform GrimmToStagStation;
+
     public int facingDir { get; private set; } = 1;
     protected bool facingRight = true;
     public bool isOnBench = false;
@@ -118,18 +124,6 @@ public class Player : MonoBehaviour
     public PlayerData GetSaveData()
     {
         playerData.fromSceneName = SceneManager.GetActiveScene().name;
-
-        if (playerData.fromSceneName != playerData.toSceneName)
-        {
-            string saveKeyName = $"{playerData.fromSceneName}To{playerData.toSceneName}";
-            Debug.Log($"Adding posKey: {saveKeyName} -> {transform.position}");
-            playerData.playerPositionData.Add(new PlayerPositionData
-            {
-                sceneName = saveKeyName,
-                position = transform.position
-            });
-        }
-
         return playerData;
     }
 
@@ -139,26 +133,17 @@ public class Player : MonoBehaviour
         playerData.toSceneName = SceneManager.GetActiveScene().name;
 
         string loadKeyName = $"{playerData.fromSceneName}To{playerData.toSceneName}";
-        PlayerPositionData pos = playerData.playerPositionData.FirstOrDefault(data => data.sceneName == loadKeyName);
 
-        if (pos != null)
-        {
-            transform.position = pos.position;
-        }
+        if (loadKeyName == "StagStationToDirtmouth")
+            transform.position = StagStationToDirtmouth.position;
+        else if (loadKeyName == "StoreToDirtmouth")
+            transform.position = StoreToDirtmouth.position;
+        else if (loadKeyName == "ForgottenCrossroadsToDirtmouth")
+            transform.position = ForgottenCrossroadsToDirtmouth.position;
+        else if (loadKeyName == "GrimmToStagStation")
+            transform.position = GrimmToStagStation.position;
         else
-        {
             transform.position = new Vector2(0f, 0f);
-            Debug.LogWarning(loadKeyName + "없음");
-        }
-
-        if (loadKeyName == "ForgottenCrossroadsToDirtmouth")
-        {
-            transform.position = new Vector2(34.01f, 0.29f);
-        }
-        else if (loadKeyName == "DirtmouthToForgottenCrossroads")
-        {
-            transform.position = new Vector2(0f, 0f);
-        }
     }
 
     protected virtual void Awake()

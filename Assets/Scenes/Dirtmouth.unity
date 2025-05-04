@@ -9011,7 +9011,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.009995, y: 2.91533, z: -10}
+  m_LocalPosition: {x: 14.98, y: 2.97, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25573,6 +25573,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1486836630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1486836631}
+  m_Layer: 0
+  m_Name: SceneTransitionPositoin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1486836631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486836630}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.4414036, y: -0.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2096730538}
+  - {fileID: 1720934140}
+  - {fileID: 1696157141}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1496162199
 GameObject:
   m_ObjectHideFlags: 0
@@ -27466,11 +27500,73 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1696157140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1696157141}
+  m_Layer: 0
+  m_Name: ForgottenCrossroadsToDirtmouthPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1696157141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696157140}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 34.01, y: -2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1486836631}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1712451392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2105116294646624815, guid: 031f789eed830f143aebcad10e1d4b6c, type: 3}
   m_PrefabInstance: {fileID: 1379786259}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1720934139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1720934140}
+  m_Layer: 0
+  m_Name: StoreToDirtmouthPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1720934140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720934139}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.98, y: -0.09, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1486836631}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1724730243
 GameObject:
   m_ObjectHideFlags: 0
@@ -28281,11 +28377,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2022260313471799872, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.01
+      value: 14.98
       objectReference: {fileID: 0}
     - target: {fileID: 2022260313471799872, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.5
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 2022260313471799872, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28331,6 +28427,18 @@ PrefabInstance:
       propertyPath: spiritDuration
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 6000853134006182788, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
+      propertyPath: StoreToDirtmouth
+      value: 
+      objectReference: {fileID: 1720934140}
+    - target: {fileID: 6000853134006182788, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
+      propertyPath: StagStationToDirtmouth
+      value: 
+      objectReference: {fileID: 2096730538}
+    - target: {fileID: 6000853134006182788, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
+      propertyPath: ForgottenCrossroadsToDirtmouth
+      value: 
+      objectReference: {fileID: 1696157141}
     - target: {fileID: 8194620242227406579, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
       propertyPath: m_Name
       value: Knight
@@ -40344,6 +40452,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2096730537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2096730538}
+  m_Layer: 0
+  m_Name: StagStationToDirtmouthPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2096730538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096730537}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.16, y: -0.09, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1486836631}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2103442994
 GameObject:
   m_ObjectHideFlags: 0
@@ -40968,11 +41107,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 561206573642685095, guid: 6529f88a24ab37844b4f0864090cc0aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.01
+      value: 14.98
       objectReference: {fileID: 0}
     - target: {fileID: 561206573642685095, guid: 6529f88a24ab37844b4f0864090cc0aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 2.97
       objectReference: {fileID: 0}
     - target: {fileID: 561206573642685095, guid: 6529f88a24ab37844b4f0864090cc0aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -41039,6 +41178,7 @@ SceneRoots:
   - {fileID: 303905750}
   - {fileID: 490009348}
   - {fileID: 290012990}
+  - {fileID: 1486836631}
   - {fileID: 1752181105}
   - {fileID: 1556875845}
   - {fileID: 1531846162}
