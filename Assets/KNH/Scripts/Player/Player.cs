@@ -258,7 +258,8 @@ public class Player : MonoBehaviour
             GameObject obj = Instantiate(hitCrack, transform.position, Quaternion.identity);
             obj.transform.SetParent(transform);
             //카메라 쉐이크
-            cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, shakeDuration);
+            if (cineCam.GetComponent<CameraShake>() != null)
+                cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, shakeDuration);
             //넉백
             StartCoroutine("HitKnockBack");
             //시간느려지는효과
@@ -410,8 +411,8 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-
-        cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, 1.4f);
+        if (cineCam.GetComponent<CameraShake>() != null)
+            cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, 1.4f);
         isKnocked = true;//데미지 받지 않음
         Debug.Log("죽음");
         //그림자가 존재하는 상태에서 죽었을 경우

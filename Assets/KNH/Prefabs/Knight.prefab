@@ -341,8 +341,8 @@ MonoBehaviour:
   attackCheckRadius: 0.8
   posArr:
   - {x: -19.98, y: 1.32, z: -0.055944238}
-  - {x: 12.51, y: 6.21, z: -0.0435379}
-  - {x: 12.89, y: 5.61, z: 0}
+  - {x: 19.88, y: -7.79, z: -0.0435379}
+  - {x: -3.75, y: 3.83, z: 0}
   shadow: {fileID: 6005396011981447267, guid: 5d7a77b49a1009149ab4416142d4173a, type: 3}
   groundCheck: {fileID: 4459084927540969436}
   groundCheckDistance: 0.2
@@ -355,6 +355,10 @@ MonoBehaviour:
   whatIsBench:
     serializedVersion: 2
     m_Bits: 1024
+  StagStationToDirtmouth: {fileID: 0}
+  StoreToDirtmouth: {fileID: 0}
+  ForgottenCrossroadsToDirtmouth: {fileID: 0}
+  GrimmToStagStation: {fileID: 0}
   isOnBench: 0
   isRidingLift: 0
   isInIntro: 0
