@@ -5,7 +5,7 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
     [SerializeField] public Player player;
-    [SerializeField] public bool isFirst = true;
+    [SerializeField] public bool isAwake = true;
 
     private void Awake()
     {
@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded; // 씬 로드 시 호출 등록
         }
-        isFirst = true;
+        isAwake = true;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

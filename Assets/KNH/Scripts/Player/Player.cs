@@ -63,6 +63,10 @@ public class Player : MonoBehaviour
     [SerializeField] private CinemachineCamera cineCam;
     [SerializeField] private GameObject hitCrack;
 
+    [Header("사망 정보")]
+    [SerializeField] private GameObject die_effect;
+    private bool isDie = false;
+
 
     [Header("충돌 정보")]
     public Transform attackCheck;
@@ -202,7 +206,7 @@ public class Player : MonoBehaviour
 
     private void StateInit()
     {
-        if (PlayerManager.instance.isFirst && SceneManager.GetActiveScene().name == "Dirtmouth")
+        if (PlayerManager.instance.isAwake && SceneManager.GetActiveScene().name == "Dirtmouth")
         {
             stateMachine.Initialize(benchState);
             transform.position = new Vector3(0, 0.29f, 0);
@@ -271,7 +275,8 @@ public class Player : MonoBehaviour
             if (cineCam.GetComponent<CameraShake>() != null)
                 cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, shakeDuration);
             //넉백
-            StartCoroutine("HitKnockBack");
+            if (playerData.hp > 0)
+                StartCoroutine("HitKnockBack");
             //시간느려지는효과
             StartCoroutine(HitStop(0.3f, 0.2f));
         }
@@ -421,28 +426,36 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        if (cineCam.GetComponent<CameraShake>() != null)
-            cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, 1.4f);
-        isKnocked = true;//데미지 받지 않음
-        Debug.Log("죽음");
-        //그림자가 존재하는 상태에서 죽었을 경우
-        if (playerData.isShadowAlive)
+        if (!isDie)
         {
-            playerData.lostMoney = 0;
-        }
-        else
-        {
-            //잃은 돈 저장
-            playerData.lostMoney = playerData.money;
-        }
-        //죽은 씬 저장
-        playerData.lastDeathLocation = SceneManager.GetActiveScene().buildIndex;
-        playerData.isShadowAlive = true;
+            isDie = true;
+            SetZeroVelocity();
+            if (cineCam.GetComponent<CameraShake>() != null)
+                cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, 1.4f);
+            isKnocked = true;//데미지 받지 않음
+            Debug.Log("죽음");
+            //이펙트 생성
+            Instantiate(die_effect, transform.position, Quaternion.identity);
+            //그림자가 존재하는 상태에서 죽었을 경우
+            if (playerData.isShadowAlive)
+            {
+                playerData.lostMoney = 0;
+            }
+            else
+            {
+                //잃은 돈 저장
+                playerData.lostMoney = playerData.money;
+            }
+            //죽은 씬 저장
+            playerData.lastDeathLocation = SceneManager.GetActiveScene().buildIndex;
+            playerData.isShadowAlive = true;
 
-        //저장 처리
-        DataManager.instance.SaveData();
-        Debug.Log("씬 저장 " + playerData.lastDeathLocation);
-        stateMachine.ChangeState(deadState);
+            //저장 처리
+            DataManager.instance.SaveData();
+            Debug.Log("씬 저장 " + playerData.lastDeathLocation);
+            PlayerManager.instance.isAwake = true;
+            stateMachine.ChangeState(deadState);
+        }
     }
 }
 

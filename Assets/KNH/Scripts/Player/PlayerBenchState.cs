@@ -20,7 +20,7 @@ public class PlayerBenchState : PlayerState
     public override void Exit()
     {
         base.Exit();
-        PlayerManager.instance.isFirst = false;
+        PlayerManager.instance.isAwake = false;
 
     }
 
