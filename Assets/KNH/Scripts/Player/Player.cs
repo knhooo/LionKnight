@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour
 
     #region Info
     [Header("Stats")]
-    public PlayerData playerData;
+    public PlayerData playerData = new PlayerData();
 
     [Header("공격 디테일")]
     public Vector2[] attackMovement;
@@ -116,12 +117,48 @@ public class Player : MonoBehaviour
 
     public PlayerData GetSaveData()
     {
+        playerData.fromSceneName = SceneManager.GetActiveScene().name;
+
+        if (playerData.fromSceneName != playerData.toSceneName)
+        {
+            string saveKeyName = $"{playerData.fromSceneName}To{playerData.toSceneName}";
+            Debug.Log($"Adding posKey: {saveKeyName} -> {transform.position}");
+            playerData.playerPositionData.Add(new PlayerPositionData
+            {
+                sceneName = saveKeyName,
+                position = transform.position
+            });
+        }
+
         return playerData;
     }
 
     public void LoadFromData(PlayerData _playerData)
     {
         playerData = _playerData;
+        playerData.toSceneName = SceneManager.GetActiveScene().name;
+
+        string loadKeyName = $"{playerData.fromSceneName}To{playerData.toSceneName}";
+        PlayerPositionData pos = playerData.playerPositionData.FirstOrDefault(data => data.sceneName == loadKeyName);
+
+        if (pos != null)
+        {
+            transform.position = pos.position;
+        }
+        else
+        {
+            transform.position = new Vector2(0f, 0f);
+            Debug.LogWarning(loadKeyName + "없음");
+        }
+
+        if (loadKeyName == "ForgottenCrossroadsToDirtmouth")
+        {
+            transform.position = new Vector2(34.01f, 0.29f);
+        }
+        else if (loadKeyName == "DirtmouthToForgottenCrossroads")
+        {
+            transform.position = new Vector2(0f, 0f);
+        }
     }
 
     protected virtual void Awake()
@@ -371,7 +408,7 @@ public class Player : MonoBehaviour
         sr.color = Color.white;
     }
 
-    public void SetHPandMP(float _hp,float _mp)
+    public void SetHPandMP(float _hp, float _mp)
     {
         playerData.hp += _hp;
         playerData.mp += _mp;
@@ -388,17 +425,17 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        
+
         cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, 1.4f);
         isKnocked = true;//데미지 받지 않음
         Debug.Log("죽음");
         //그림자가 존재하는 상태에서 죽었을 경우
         if (playerData.isShadowAlive)
-        {    
+        {
             playerData.lostMoney = 0;
         }
         else
-        {   
+        {
             //잃은 돈 저장
             playerData.lostMoney = playerData.money;
         }
@@ -408,7 +445,7 @@ public class Player : MonoBehaviour
 
         //저장 처리
         DataManager.instance.SaveData();
-        Debug.Log("씬 저장 "+ playerData.lastDeathLocation);
+        Debug.Log("씬 저장 " + playerData.lastDeathLocation);
         stateMachine.ChangeState(deadState);
     }
 }

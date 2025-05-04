@@ -45,7 +45,6 @@ public class FadeObject : MonoBehaviour
         StartCoroutine(SpriteFadeInOut(_fadeDuration, _startAlpha, _endAlpha));
     }
 
-
     private IEnumerator SpriteFadeInOut(float _fadeDuration, float startAlpha, float endAlpha)
     {
         if (sps == null)

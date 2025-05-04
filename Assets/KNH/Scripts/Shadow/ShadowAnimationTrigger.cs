@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class ShadowAnimationTrigger : MonoBehaviour
 {
-    private PlayerData playerData = new PlayerData();
+    //private PlayerData playerData = new PlayerData();
 
     public void Destroy()
     {
-        playerData.money = playerData.lostMoney;
-        playerData.lostMoney = 0;
-        playerData.lastDeathLocation = 0;
-        playerData.isShadowAlive = false;
+        Player player = PlayerManager.instance.player;
+        player.playerData.money = player.playerData.lostMoney;
+        player.playerData.lostMoney = 0;
+        player.playerData.lastDeathLocation = 0;
+        player.playerData.isShadowAlive = false;
         DataManager.instance.SaveData();
         Destroy(transform.parent.gameObject);
     }

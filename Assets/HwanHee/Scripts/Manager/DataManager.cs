@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.IO;
-using System.Data;
 
 public class DataManager : Singleton<DataManager>
 {
@@ -70,7 +69,7 @@ public class DataManager : Singleton<DataManager>
 
         string fullPath = Path.Combine(path, playerSaveFileName);
 
-        if (File.Exists(fullPath))
+        if (File.Exists(fullPath)) 
         {
             string data = File.ReadAllText(fullPath);
             player.LoadFromData(JsonUtility.FromJson<PlayerData>(data));
