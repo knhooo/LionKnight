@@ -8,11 +8,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class PlayerPositionData
+{
+    public string sceneName;
+    public Vector2 position;
+}
+
 public class PlayerData
 {
-    public Dictionary<string, Vector2> posKey = new Dictionary<string, Vector2>();
-    public string prevSceneName;
-    public string currentSceneName;
+    public List<PlayerPositionData> playerPositionData = new List<PlayerPositionData>();
+    public string fromSceneName;
+    public string toSceneName;
     public int money = 0;     //지오
     public int lostMoney = 0; //잃어버린 지오
     public float hp = 0;      //체력

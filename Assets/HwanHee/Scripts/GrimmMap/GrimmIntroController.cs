@@ -99,6 +99,10 @@ public class GrimmIntroController : MonoBehaviour
     [SerializeField] public float newPulseValue;
     [SerializeField] public float newPulseDalyTime;
 
+    [Space]
+    [Header("아웃트로1")]
+
+
     public Player player;
     public Vector3 destination;
 

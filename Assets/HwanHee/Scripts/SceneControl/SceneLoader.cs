@@ -43,6 +43,8 @@ public class SceneLoader : MonoBehaviour
 
                 BGMManager.instance.SetBGM(newAudioClips, currentBGMTargetVolume, newBGMTargetVolume);
 
+                PlayerManager.instance.player.playerData.toSceneName = sceneToLoad;
+
                 SceneSaveLoadManager.instance.StartLoadScene(sceneToLoad);
             }
         }

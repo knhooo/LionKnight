@@ -47363,8 +47363,16 @@ PrefabInstance:
       value: CamerOffsetChange
       objectReference: {fileID: 0}
     - target: {fileID: 7406370562172533326, guid: f7257399633caf546be80e991d980c13, type: 3}
+      propertyPath: m_Size.x
+      value: 5.015628
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406370562172533326, guid: f7257399633caf546be80e991d980c13, type: 3}
       propertyPath: m_Size.y
       value: 7.3927097
+      objectReference: {fileID: 0}
+    - target: {fileID: 7406370562172533326, guid: f7257399633caf546be80e991d980c13, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.40586603
       objectReference: {fileID: 0}
     - target: {fileID: 7406370562172533326, guid: f7257399633caf546be80e991d980c13, type: 3}
       propertyPath: m_Offset.y
