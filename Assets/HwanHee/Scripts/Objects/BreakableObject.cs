@@ -46,7 +46,7 @@ public class BreakableObject : MonoBehaviour
 
         for (int i = 0; i < 10; i++)
         {
-            GameObject particle = Instantiate(brokenParticle, pos, Quaternion.identity);
+            GameObject particle = PoolManager.instance.Spawn(PoolType.BrokenParticle, brokenParticle, transform.position, Quaternion.identity).GetComponent<GameObject>();
             particle.GetComponent<BrokenParticle>().SetSortingInfo(sp.sortingLayerID, sp.sortingOrder);
         }
     }
