@@ -131,7 +131,7 @@ public class FinalGrimmIntro_UI : GrimmCinematicStep
     {
         controller.grimmTextCanvas.gameObject.SetActive(true);
 
-        controller.burstAudioLoop.GetComponent<AudioSource>().Play();
+        controller.burstAudioLoop.GetComponent<AudioSource>().Stop();
 
         SoundManager.Instance.audioSource.PlayOneShot(controller.bossBusrtAudio);
         BGMManager.instance.SetBGM(controller.bossBGM2, 0f, 1f);
@@ -238,8 +238,11 @@ public class GrimmOutroStep3 : GrimmCinematicStep
         SoundManager.Instance.audioSource.PlayOneShot(controller.burstAudio3);
         controller.burstAudioLoop.GetComponent<AudioSource>().Play();
         controller.outroFVX.SetActive(true);
+
         controller.grimmSilhouette.gameObject.SetActive(true);
         controller.grimmSilhouette.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        controller.grimmSilhouette.gameObject.transform.position = new Vector3(-47.49725f, 5.334857f);
+        controller.grimmSilhouette.GetComponent<SpriteRenderer>().color = new Color32(140, 0, 0, 0);
         controller.grimmSilhouette.StartSpriteFade(controller.outroSilhouetteFadeInDuration, 0f, 1f);
 
         NextStep();
@@ -295,16 +298,6 @@ public class FinalGrimmOutroStep : GrimmCinematicStep
         SoundManager.Instance.audioSource.PlayOneShot(controller.burstAudio3);
 
         controller.grimmSilhouette.StartSpriteFade(controller.outroSilhouetteFadeOutDuration, 1f, 0f);
-    }
-
-    public override void NextStep()
-    {
-        base.NextStep();
-        controller.ChangeStep(cinematicStep);
-        Exit();
-    }
-
-    public override void Exit()
-    {
+        controller.CreateGrimmSilhouetteParticle();
     }
 }

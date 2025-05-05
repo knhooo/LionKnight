@@ -3095,6 +3095,7 @@ GameObject:
   m_Component:
   - component: {fileID: 340516030}
   - component: {fileID: 340516029}
+  - component: {fileID: 340516031}
   m_Layer: 0
   m_Name: BurstAudioLoop
   m_TagString: Untagged
@@ -3214,6 +3215,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 559256662}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &340516031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340516028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80040a0c9ebdc5f458aeb0cbe99b11b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sps: []
+  lights: []
+  audioSources:
+  - {fileID: 340516029}
+  fadeDuration: 0
+  startAlpha: -99
+  endAlpha: -99
+  startIntensity: -99
+  endIntensity: -99
+  startVolume: 0
+  endVolume: 1
+  isFadeEnd: 0
 --- !u!1 &346805375
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,11 +3505,14 @@ MonoBehaviour:
   sps:
   - {fileID: 371172384}
   lights: []
+  audioSources: []
   fadeDuration: 0
   startAlpha: 0
   endAlpha: 1
   startIntensity: -99
   endIntensity: -99
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
 --- !u!212 &371172384
 SpriteRenderer:
@@ -3885,11 +3913,14 @@ MonoBehaviour:
   - {fileID: 12787591}
   lights:
   - {fileID: 1124384336}
+  audioSources: []
   fadeDuration: 0
   startAlpha: 0
   endAlpha: 1
   startIntensity: 0
   endIntensity: 2
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
 --- !u!1 &417593232
 GameObject:
@@ -4449,11 +4480,14 @@ MonoBehaviour:
   sps:
   - {fileID: 506182131}
   lights: []
+  audioSources: []
   fadeDuration: 0
   startAlpha: 0
   endAlpha: 1
   startIntensity: -99
   endIntensity: -99
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
 --- !u!212 &506182131
 SpriteRenderer:
@@ -4725,11 +4759,14 @@ MonoBehaviour:
   - {fileID: 1463234090}
   lights:
   - {fileID: 1665223680}
+  audioSources: []
   fadeDuration: 0
   startAlpha: 0
   endAlpha: 1
   startIntensity: 0
   endIntensity: 1
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
 --- !u!1 &551404117
 GameObject:
@@ -5246,11 +5283,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5373270309770337530, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.84
+      value: 0.021598816
       objectReference: {fileID: 0}
     - target: {fileID: 5373270309770337530, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.12
+      value: 1.5732999
       objectReference: {fileID: 0}
     - target: {fileID: 5373270309770337530, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5262,15 +5299,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5373270309770337530, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5373270309770337530, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5373270309770337530, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5373270309770337530, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5346,10 +5383,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8086267639503950974, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.ctime1
-      value: 25983
+      value: 65535
       objectReference: {fileID: 0}
     - target: {fileID: 8086267639503950974, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.ctime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086267639503950974, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.ctime3
       value: 65535
       objectReference: {fileID: 0}
     - target: {fileID: 8086267639503950974, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
@@ -5374,15 +5415,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8086267639503950974, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key1.b
-      value: 0.27889434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8086267639503950974, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key1.g
-      value: 0.25015837
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8086267639503950974, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key1.r
-      value: 0.9911022
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8086267639503950974, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key2.a
@@ -5405,11 +5446,27 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8086267639503950974, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key3.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086267639503950974, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key3.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086267639503950974, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.key3.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086267639503950974, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8086267639503950974, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.m_NumAlphaKeys
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8086267639503950974, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
+      propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.m_NumColorKeys
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8987362240045080084, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
@@ -5538,7 +5595,7 @@ Transform:
   m_GameObject: {fileID: 606641748}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.8616, y: -5.5467, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6363,11 +6420,14 @@ MonoBehaviour:
   - {fileID: 1056117033}
   lights:
   - {fileID: 1909701356}
+  audioSources: []
   fadeDuration: 0
   startAlpha: 0
   endAlpha: 1
   startIntensity: 0
   endIntensity: 1
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
 --- !u!1 &716868915 stripped
 GameObject:
@@ -6689,11 +6749,14 @@ MonoBehaviour:
   - {fileID: 1184179356}
   lights:
   - {fileID: 49128339}
+  audioSources: []
   fadeDuration: 0
   startAlpha: 0
   endAlpha: 1
   startIntensity: 0
   endIntensity: 1
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
 --- !u!1 &751457429
 GameObject:
@@ -7547,8 +7610,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820397534}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.55, y: 7.21, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.31159973, y: 1.6633, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12580,7 +12643,7 @@ Transform:
   m_GameObject: {fileID: 827431170}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.6916, y: 5.3967, z: 0}
+  m_LocalPosition: {x: 1.1699982, y: -0.1500001, z: 0}
   m_LocalScale: {x: 11.376804, y: 15.027578, z: 8.409833}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13039,11 +13102,14 @@ MonoBehaviour:
   - {fileID: 609242782}
   lights:
   - {fileID: 779834604}
+  audioSources: []
   fadeDuration: 0
   startAlpha: 0
   endAlpha: 1
   startIntensity: 0
   endIntensity: 1
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
 --- !u!1 &858830708
 GameObject:
@@ -13695,11 +13761,14 @@ MonoBehaviour:
   sps: []
   lights:
   - {fileID: 943426331}
+  audioSources: []
   fadeDuration: 3
   startAlpha: -99
   endAlpha: -99
   startIntensity: 0
   endIntensity: 12
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
 --- !u!1 &944176164
 GameObject:
@@ -16041,11 +16110,14 @@ MonoBehaviour:
   - {fileID: 1720769231}
   lights:
   - {fileID: 2117586363}
+  audioSources: []
   fadeDuration: 0
   startAlpha: 0
   endAlpha: 1
   startIntensity: 0
   endIntensity: 1.5
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
 --- !u!1 &1177764035
 GameObject:
@@ -16158,8 +16230,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1180307508}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 30.8616, y: -5.5467, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17119,11 +17191,14 @@ MonoBehaviour:
   - {fileID: 1697939050}
   lights:
   - {fileID: 93493927}
+  audioSources: []
   fadeDuration: 0
   startAlpha: 0
   endAlpha: 1
   startIntensity: 0
   endIntensity: 2
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
 --- !u!1 &1254883661 stripped
 GameObject:
@@ -17145,13 +17220,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1270650005}
   - component: {fileID: 1270650006}
+  - component: {fileID: 1270650007}
   m_Layer: 0
   m_Name: OutroFadeSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1270650005
 Transform:
   m_ObjectHideFlags: 0
@@ -17161,7 +17237,7 @@ Transform:
   m_GameObject: {fileID: 1270650004}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.0844, y: 6.1846, z: 0}
+  m_LocalPosition: {x: -0.22280121, y: 0.6378999, z: 0}
   m_LocalScale: {x: 32.37716, y: 19.49352, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17210,9 +17286,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 490947673
   m_SortingLayer: 8
-  m_SortingOrder: 100
+  m_SortingOrder: 9
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -17222,6 +17298,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1270650007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270650004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80040a0c9ebdc5f458aeb0cbe99b11b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sps:
+  - {fileID: 1270650006}
+  lights: []
+  audioSources: []
+  fadeDuration: 1
+  startAlpha: 0
+  endAlpha: 1
+  startIntensity: -99
+  endIntensity: -99
+  startVolume: -99
+  endVolume: -99
+  isFadeEnd: 0
 --- !u!4 &1300870143 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8576723769630892656, guid: a53cc79105f6ab540ba3c11eedcf1a73, type: 3}
@@ -17550,7 +17650,7 @@ Transform:
   m_GameObject: {fileID: 1364544858}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.84, y: 5.59, z: 0}
+  m_LocalPosition: {x: 0.021598816, y: 0.04330015, z: 0}
   m_LocalScale: {x: 3.3193078, y: 3.2980578, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17571,11 +17671,14 @@ MonoBehaviour:
   sps:
   - {fileID: 1364544860}
   lights: []
+  audioSources: []
   fadeDuration: 0.5
   startAlpha: 0
   endAlpha: 1
   startIntensity: -99
   endIntensity: -99
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
 --- !u!1001 &1367050282
 PrefabInstance:
@@ -17661,8 +17764,8 @@ Transform:
   m_GameObject: {fileID: 1368737781}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.13052624, w: 0.9914449}
-  m_LocalPosition: {x: -28.312498, y: 8.123301, z: 1}
-  m_LocalScale: {x: 0.733919, y: 0.7645969, z: 0.73391896}
+  m_LocalPosition: {x: 2.5491028, y: 2.5766006, z: 1}
+  m_LocalScale: {x: 0.7339191, y: 0.764597, z: 0.73391896}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 413656622}
@@ -18708,7 +18811,6 @@ GameObject:
   - component: {fileID: 1462355642}
   - component: {fileID: 1462355644}
   - component: {fileID: 1462355643}
-  - component: {fileID: 1462355645}
   - component: {fileID: 1462355646}
   m_Layer: 12
   m_Name: GrimmSilhouette
@@ -18726,8 +18828,8 @@ Transform:
   m_GameObject: {fileID: 1462355641}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.5836, y: 7.4575, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 13.777751}
+  m_LocalPosition: {x: 0.27799988, y: 1.9108, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 606641749}
@@ -18777,7 +18879,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18809,27 +18911,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1462355645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462355641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80040a0c9ebdc5f458aeb0cbe99b11b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sps:
-  - {fileID: 1462355644}
-  lights: []
-  fadeDuration: 0.3
-  startAlpha: 0
-  endAlpha: 1
-  startIntensity: -99
-  endIntensity: -99
-  isFadeEnd: 0
 --- !u!114 &1462355646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18842,13 +18923,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760377b6ba73d9a4c95fad0832ad9aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sps: []
+  sps:
+  - {fileID: 1462355644}
   lights: []
+  audioSources: []
   fadeDuration: 0
-  startAlpha: -99
-  endAlpha: -99
+  startAlpha: 0
+  endAlpha: 1
   startIntensity: -99
   endIntensity: -99
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
   controller: {fileID: 2004633080}
 --- !u!1 &1463234088
@@ -19524,8 +19609,8 @@ Transform:
   m_GameObject: {fileID: 1506392896}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.13052616, w: 0.9914449}
-  m_LocalPosition: {x: -33.351997, y: 8.382601, z: 1}
-  m_LocalScale: {x: 0.73391896, y: 0.7645969, z: 0.73391896}
+  m_LocalPosition: {x: -2.4903946, y: 2.8359008, z: 1}
+  m_LocalScale: {x: 0.73391896, y: 0.764597, z: 0.73391896}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1250773412}
@@ -19897,11 +19982,14 @@ MonoBehaviour:
   sps: []
   lights:
   - {fileID: 1541125607}
+  audioSources: []
   fadeDuration: 3
   startAlpha: -99
   endAlpha: -99
   startIntensity: 0
   endIntensity: 2
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
 --- !u!1 &1549097272
 GameObject:
@@ -20042,11 +20130,14 @@ MonoBehaviour:
   - {fileID: 731421285}
   lights:
   - {fileID: 1145493383}
+  audioSources: []
   fadeDuration: 0
   startAlpha: 0
   endAlpha: 1
   startIntensity: 0
   endIntensity: 1
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
 --- !u!1 &1559551584
 GameObject:
@@ -20100,11 +20191,14 @@ MonoBehaviour:
   - {fileID: 1358147191}
   lights:
   - {fileID: 1105172678}
+  audioSources: []
   fadeDuration: 0
   startAlpha: 0
   endAlpha: 1
   startIntensity: 0
   endIntensity: 1
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
 --- !u!4 &1570175307 stripped
 Transform:
@@ -22146,7 +22240,7 @@ Transform:
   m_GameObject: {fileID: 1822418972}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.65, y: 7.01, z: 0.1596}
+  m_LocalPosition: {x: 0.21160126, y: 1.4633002, z: 0.1596}
   m_LocalScale: {x: 0.7393584, y: 0.7702636, z: 0.7393584}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22398,11 +22492,14 @@ MonoBehaviour:
   - {fileID: 669818120}
   lights:
   - {fileID: 1628018693}
+  audioSources: []
   fadeDuration: 0
   startAlpha: 0
   endAlpha: 1
   startIntensity: 0
   endIntensity: 1.5
+  startVolume: -99
+  endVolume: -99
   isFadeEnd: 0
 --- !u!4 &1865993462 stripped
 Transform:
@@ -23611,7 +23708,7 @@ MonoBehaviour:
   burstAudio1: {fileID: 8300000, guid: fe4e966a2e472854285b3efc4a657066, type: 3}
   burstAudio2: {fileID: 8300000, guid: b1b38ce0bd80c3449aa4bc5e96c63f52, type: 3}
   burstAudio3: {fileID: 8300000, guid: 3a61f90cf1f68b34ea9be917c1251a6e, type: 3}
-  burstAudioLoop: {fileID: 340516029}
+  burstAudioLoop: {fileID: 340516031}
   intro1StartDelay: 1
   fadeIntroEffect1Duration: 0.1
   grimmIntroLightSP1: {fileID: 371172383}
@@ -23662,23 +23759,26 @@ MonoBehaviour:
   fadeEyesDuration: 0.5
   newPulseValue: 10
   newPulseDalyTime: 0.3
+  outro1StartDelay: 1
   outro1FadeSpriteDuration: 0.3
   outro1FadeSpriteAlpha: 0.3
-  outroCameraShake1Duration: 999
   outroShake1Amplitude: 4
   outroShake1Frequency3: 30
   spriteFadeDuration: 0
   outro2StartDelay: 1
   outroEyesLightIntensity: 2
-  outroburstAudio1: {fileID: 8300000, guid: b1b38ce0bd80c3449aa4bc5e96c63f52, type: 3}
   outro3StartDelay: 1
   outroSilhouetteFadeInDuration: 1
   outroFVX: {fileID: 572462553}
-  outro3CameraShakeDuration: 2
   outro3Shake3Amplitude: 4
   outro3ShakeFrequency: 30
-  outroSilhouetteFadeDoutDuration: 0.5
-  outroburstAudio3: {fileID: 0}
+  outro4StartDelay: 3
+  outroFadeSprite: {fileID: 1270650007}
+  outroFadeSpriteDuration: 1
+  finalOutroStartDelay: 1
+  burstAudioLoopFadeOutDuration: 0.5
+  outroSilhouetteFadeOutDuration: 0.5
+  grimmParticle: {fileID: 291386456326822676, guid: 652654e0ac2578143a212b603e32f1dc, type: 3}
   player: {fileID: 0}
   destination: {x: 0, y: 0, z: 0}
   isBossStart: 0
@@ -25035,11 +25135,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5373270309770337530, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.84
+      value: 0.021598816
       objectReference: {fileID: 0}
     - target: {fileID: 5373270309770337530, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.12
+      value: 1.5732999
       objectReference: {fileID: 0}
     - target: {fileID: 5373270309770337530, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25051,15 +25151,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5373270309770337530, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5373270309770337530, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5373270309770337530, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5373270309770337530, guid: 2efbafcd5b2241a4d9f1e0d9637e9694, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

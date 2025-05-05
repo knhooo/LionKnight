@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Diagnostics;
 using Unity.Cinemachine;
+using UnityEditor.EditorTools;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -140,6 +141,7 @@ public class GrimmIntroController : MonoBehaviour
     [SerializeField] public float finalOutroStartDelay = 1f;
     [SerializeField] public float burstAudioLoopFadeOutDuration = 0.5f;
     [SerializeField] public float outroSilhouetteFadeOutDuration = 0.5f;
+    [SerializeField] public GameObject grimmParticle;
 
 
     [HideInInspector] public Player player;
@@ -389,5 +391,15 @@ public class GrimmIntroController : MonoBehaviour
         bossNightmareGrimm.GetComponent<BossGrimm>().BossGrimmNightmareStart(bossGroundY);
     }
 
+    public void CreateGrimmSilhouetteParticle()
+    {
+        for (int i = 0; i < 50; i++)
+        {
+            GrimmSilhouetteParticle particle = PoolManager.instance.Spawn(PoolType.GrimmParticle, grimmParticle, grimmSilhouette.transform.position, Quaternion.identity).GetComponent<GrimmSilhouetteParticle>();
+            particle.StartSpriteFade(outroSilhouetteFadeOutDuration, 0f, 1f);
+        }
+    }
+
     public void SwitchConfiner() => cinemachineCamera.GetComponent<CinemachineConfiner2D>().BoundingShape2D = bossCameraBoundingShape;
+
 }

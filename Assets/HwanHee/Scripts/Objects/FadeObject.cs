@@ -4,9 +4,9 @@ using UnityEngine.Rendering.Universal;
 
 public class FadeObject : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer[] sps;
-    [SerializeField] private Light2D[] lights;
-    [SerializeField] private AudioSource[] audioSources;
+    [SerializeField] protected SpriteRenderer[] sps;
+    [SerializeField] protected Light2D[] lights;
+    [SerializeField] protected AudioSource[] audioSources;
 
     [Space]
     [SerializeField] private float fadeDuration;
