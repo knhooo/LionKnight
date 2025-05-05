@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Diagnostics;
 using Unity.Cinemachine;
+using UnityEditor.EditorTools;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public enum CinematicStep
 {
-    Intro1, Intro2, FinalIntro, HalfHP, Outro1, Outro2, FinalOutro
+    None, Intro1, Intro2, Intro3, FinalIntro_UI, HalfHP, Outro1, Outro2, Outro3, Outro4, FinalOutro
 }
 
 public class GrimmIntroController : MonoBehaviour
@@ -19,7 +21,7 @@ public class GrimmIntroController : MonoBehaviour
 
     [Header("보스 트리거")]
     [SerializeField] public Collider2D bossStartTrigger;
-    [SerializeField] public FadeObject fadeSprite;
+    [SerializeField] public GrimmFadeSprite fadeSprite;
     [SerializeField] public float fadeSpriteDurtaion;
 
     [Header("카메라")]
@@ -30,13 +32,14 @@ public class GrimmIntroController : MonoBehaviour
 
     [Space]
     [Header("BGM")]
+    [SerializeField] public float BGM1StartDelay = 0.7f;
     [SerializeField] public AudioClip[] bossBGM1;
     [SerializeField] public AudioClip[] bossBGM2;
     [SerializeField] public AudioClip bossBusrtAudio;
     [SerializeField] public AudioClip burstAudio1;
     [SerializeField] public AudioClip burstAudio2;
     [SerializeField] public AudioClip burstAudio3;
-    [SerializeField] public AudioSource burstAudioLoop;
+    [SerializeField] public FadeObject burstAudioLoop;
 
     [Space]
     [Header("GrimmIntroUI")]
@@ -79,15 +82,15 @@ public class GrimmIntroController : MonoBehaviour
     [SerializeField] public float shakeAmplitude3 = 4f;
     [SerializeField] public float shakeFrequency3 = 30f;
 
-    [Header("GrimmShape")]
-    [SerializeField] FadeObject grimmSilhouette;
-    [SerializeField] float grimmSilhouetteActiveTime = 1f;
-    [SerializeField] float grimmSilhouetteGrowSpeed = 0.5f;
-    [SerializeField] float grimmSilhouetteGrowSpeedBigger = 0.5f;
+    [Header("그림 실루엣")]
+    [SerializeField] public GrimmSilhouette grimmSilhouette;
+    [SerializeField] public float grimmSilhouetteActiveTime = 1f;
+    [SerializeField] public float grimmSilhouetteGrowSpeed = 0.5f;
+    [SerializeField] public float grimmSilhouetteOverGrowSpeed = 0.5f;
 
     [Space]
-    [Header("마지막효과")]
-    [SerializeField] Canvas grimmTextCanvas;
+    [Header("마지막효과 - UI")]
+    [SerializeField] public Canvas grimmTextCanvas;
     [SerializeField] public float finalIntroEffectDurtaion = 1.7f;
     [SerializeField] public float moveToPlayerTime = 0.5f;
     [SerializeField] public float canvasFadeOutDuration = 0.5f;
@@ -95,24 +98,69 @@ public class GrimmIntroController : MonoBehaviour
     [Space]
     [Header("보스 체력 절반 이하")]
     [SerializeField] public FadeObject[] eyes;
+    [SerializeField] public float introEyesLightIntensity = 0.5f;
     [SerializeField] public float fadeEyesDuration;
     [SerializeField] public float newPulseValue;
     [SerializeField] public float newPulseDalyTime;
 
     [Space]
     [Header("아웃트로1")]
+    [SerializeField] public float outro1StartDelay = 1f;
+    [SerializeField] public float outro1FadeSpriteDuration = 0.5f;
+    [SerializeField] public float outro1FadeSpriteAlpha = 0.5f;
+
+    [Header("카메라 Shake")]
+    [SerializeField] public float outroShake1Amplitude = 4f;
+    [SerializeField] public float outroShake1Frequency3 = 30f;
+    [SerializeField] public float spriteFadeDuration;
+
+    [Space]
+    [Header("아웃트로2")]
+    [SerializeField] public float outro2StartDelay = 1f;
+    [SerializeField] public float outroEyesLightIntensity = 2f;
+
+    [Space]
+    [Header("아웃트로3")]
+    [SerializeField] public float outro3StartDelay = 1f;
+    [SerializeField] public float outroSilhouetteFadeInDuration = 2f;
+    [SerializeField] public GameObject outroFVX;
+
+    [Header("카메라 Shake")]
+    [SerializeField] public float outro3Shake3Amplitude = 4f;
+    [SerializeField] public float outro3ShakeFrequency = 30f;
+
+    [Space]
+    [Header("아웃트로4")]
+    [SerializeField] public float outro4StartDelay = 1f;
+    [SerializeField] public FadeObject outroFadeSprite;
+    [SerializeField] public float outroFadeSpriteDuration = 1f;
 
 
-    public Player player;
-    public Vector3 destination;
+    [Space]
+    [Header("아웃트로5")]
+    [SerializeField] public float finalOutroStartDelay = 1f;
+    [SerializeField] public float burstAudioLoopFadeOutDuration = 0.5f;
+    [SerializeField] public float outroSilhouetteFadeOutDuration = 0.5f;
+    [SerializeField] public GameObject grimmParticle;
 
-    public bool isBossStart = false;
 
-    GrimmCinematicStep currentIntroStep;
-    GrimmIntroStep1 grimmIntroStep1;
-    GrimmIntroStep2 grimmIntroStep2;
-    GrimmFinalIntroStep grimmFinalIntroStep;
-    GrimmHalfHpStep grimmHalfHpStep;
+    [HideInInspector] public Player player;
+    [HideInInspector] public Vector3 destination;
+
+    [HideInInspector] public bool isBossStart = false;
+    [HideInInspector] public bool isOutro = false;
+
+    private GrimmCinematicStep currentIntroStep;
+    private GrimmIntroStep1 grimmIntroStep1;
+    private GrimmIntroStep2 grimmIntroStep2;
+    private GrimmIntroStep3 grimmFinalIntroStep;
+    private FinalGrimmIntro_UI finalGrimmIntro_UI;
+    private GrimmHalfHpStep grimmHalfHpStep;
+    private GrimmOutroStep1 grimmOutroStep1;
+    private GrimmOutroStep2 grimmOutroStep2;
+    private GrimmOutroStep3 grimmOutroStep3;
+    private GrimmOutroStep4 grimmOutroStep4;
+    private FinalGrimmOutroStep finalGrimmOutro;
 
     private float bossGroundY;
 
@@ -125,8 +173,14 @@ public class GrimmIntroController : MonoBehaviour
 
         grimmIntroStep1 = new GrimmIntroStep1(this);
         grimmIntroStep2 = new GrimmIntroStep2(this);
-        grimmFinalIntroStep = new GrimmFinalIntroStep(this);
+        grimmFinalIntroStep = new GrimmIntroStep3(this);
+        finalGrimmIntro_UI = new FinalGrimmIntro_UI(this);
         grimmHalfHpStep = new GrimmHalfHpStep(this);
+        grimmOutroStep1 = new GrimmOutroStep1(this);
+        grimmOutroStep2 = new GrimmOutroStep2(this);
+        grimmOutroStep3 = new GrimmOutroStep3(this);
+        grimmOutroStep4 = new GrimmOutroStep4(this);
+        finalGrimmOutro = new FinalGrimmOutroStep(this);
 
         currentIntroStep = grimmIntroStep1;
     }
@@ -152,6 +206,10 @@ public class GrimmIntroController : MonoBehaviour
         {
             ChangeStep(CinematicStep.HalfHP);
         }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            StartOutro();
+        }
     }
 
     public void TurnOffEffects()
@@ -167,19 +225,21 @@ public class GrimmIntroController : MonoBehaviour
         grimmIntroLight2.gameObject.SetActive(false);
         grimmTextCanvas.gameObject.SetActive(false);
         FVX.SetActive(false);
+        outroFVX.SetActive(false);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform == bossStartTrigger.transform && !player.isInIntro && isIntroPlay)
         {
+            SwitchConfiner();
             fadeSprite.StartSpriteFade(fadeSpriteDurtaion, 1f, 0f);
 
             isIntroPlay = false;
             bossGrimm.GetComponent<BossGrimm>().BossGrimmGreet();
 
             BGMManager.instance.SetBGM(bossBGM1, 0f, 1f);
-            BGMManager.instance.ChangeBGM(0f, false);
+            BGMManager.instance.ChangeBGM(BGM1StartDelay, false);
 
             Invoke("DefualtValueSetting", 1f);
         }
@@ -194,29 +254,32 @@ public class GrimmIntroController : MonoBehaviour
     {
         player.isInIntro = true;
         destination = player.transform.position;
+        BGMManager.instance.BGMFadeOut();
 
         bossStartTrigger.gameObject.SetActive(false);
-        transform.SetParent(null);
 
         foreach (var backgroundScale in grimmPulsates)
         {
             backgroundScale.StartPulsate(pulseValue, pulseDelayTime);
         }
 
-        Invoke("StartIntro", 2f);
+        Invoke("StartCameraMove", 2f);
     }
 
-    public void StartIntro()
+    public void StartCameraMove()
     {
         StartCoroutine(CameraMove());
     }
 
-    public IEnumerator CameraMove()
+    private IEnumerator CameraMove()
     {
         while (true)
         {
             for (int i = 0; i < CameraPos.Length; i++)
             {
+                if (isOutro)
+                    i = CameraPos.Length - 1;
+
                 Vector3 startPos = transform.position;
 
                 float elapsed = 0f;
@@ -234,16 +297,23 @@ public class GrimmIntroController : MonoBehaviour
 
             if (transform.position == CameraPos[CameraPos.Length - 1].position)
             {
-                BGMManager.instance.BGMFadeOut();
-                Invoke("PlayIntro", intro1StartDelay);
-                break;
+                if (!isOutro)
+                {
+                    Invoke("PlayIntro", intro1StartDelay);
+                    break;
+                }
             }
         }
     }
 
-    public void PlayIntro()
+    private void PlayIntro()
     {
         currentIntroStep.Enter();
+    }
+
+    public void StartOutro()
+    {
+        ChangeStep(CinematicStep.Outro1, outro1StartDelay);
     }
 
     public void ChangeStep(CinematicStep cinematicStepIndex, float delayTime = 0f)
@@ -256,21 +326,30 @@ public class GrimmIntroController : MonoBehaviour
             case CinematicStep.Intro2:
                 currentIntroStep = grimmIntroStep2;
                 break;
-            case CinematicStep.FinalIntro:
+            case CinematicStep.Intro3:
                 currentIntroStep = grimmFinalIntroStep;
+                break;
+            case CinematicStep.FinalIntro_UI:
+                currentIntroStep = finalGrimmIntro_UI;
                 break;
             case CinematicStep.HalfHP:
                 currentIntroStep = grimmHalfHpStep;
                 break;
-                //case CinematicStep.Outro1:
-                //    currentIntroStep = grimmIntroStep1;
-                //    break;
-                //case CinematicStep.Outro2:
-                //    currentIntroStep = grimmIntroStep1;
-                //    break;
-                //case CinematicStep.FinalOutro:
-                //    currentIntroStep = grimmIntroStep1;
-                //    break;
+            case CinematicStep.Outro1:
+                currentIntroStep = grimmOutroStep1;
+                break;
+            case CinematicStep.Outro2:
+                currentIntroStep = grimmOutroStep2;
+                break;
+            case CinematicStep.Outro3:
+                currentIntroStep = grimmOutroStep3;
+                break;
+            case CinematicStep.Outro4:
+                currentIntroStep = grimmOutroStep4;
+                break;
+            case CinematicStep.FinalOutro:
+                currentIntroStep = finalGrimmOutro;
+                break;
         }
         StartCoroutine(StartNextStep(delayTime));
     }
@@ -281,69 +360,19 @@ public class GrimmIntroController : MonoBehaviour
         currentIntroStep.Enter();
     }
 
-    public void ActiveGrimmSilhouette()
+    public void CallIntroFinish()
     {
-        Invoke("GrimmSilhouetteSetScale", grimmSilhouetteActiveTime);
+        Invoke("IntroFinish", finalIntroEffectDurtaion);
     }
 
-    public void GrimmSilhouetteSetScale()
+    private void IntroFinish()
     {
-        grimmSilhouette.gameObject.SetActive(true);
-        StartCoroutine(SetGrimmSilhouetteScale());
-    }
-
-    public IEnumerator SetGrimmSilhouetteScale()
-    {
-        Vector3 originScale = grimmSilhouette.transform.localScale;
-
-        float elapsed = 0f;
-        while (elapsed <= grimmSilhouetteGrowSpeed)
-        {
-            elapsed += Time.deltaTime;
-            grimmSilhouette.transform.localScale = Vector3.Lerp(originScale, new Vector3(0.7f, 0.7f, 0.7f), elapsed / grimmSilhouetteGrowSpeed);
-            yield return null;
-        }
-        StartCoroutine(SetGrimmSilhouetteScaleBigger());
-    }
-
-    public IEnumerator SetGrimmSilhouetteScaleBigger()
-    {
-        Vector3 originScale = grimmSilhouette.transform.localScale;
-        Vector3 originPos = grimmSilhouette.transform.position;
-
-        float elapsed = 0f;
-        while (elapsed <= grimmSilhouetteGrowSpeed)
-        {
-            elapsed += Time.deltaTime;
-            grimmSilhouette.transform.localScale = Vector3.Lerp(originScale, new Vector3(60f, 60f, 60f), elapsed / grimmSilhouetteGrowSpeedBigger);
-            grimmSilhouette.transform.position = Vector3.Lerp(originPos, originPos + new Vector3(0f, -13f, 0f), elapsed / grimmSilhouetteGrowSpeedBigger);
-            yield return null;
-        }
-        ShowGrimmUI();
-    }
-
-    public void ShowGrimmUI()
-    {
-        SwitchConfiner();
-        grimmTextCanvas.gameObject.SetActive(true);
-
-        burstAudioLoop.Stop();
-
-        SoundManager.Instance.audioSource.PlayOneShot(bossBusrtAudio);
-        BGMManager.instance.SetBGM(bossBGM2, 0f, 1f);
-        BGMManager.instance.ChangeBGM(0f, false);
-
-        Invoke("EffectFinish", finalIntroEffectDurtaion);
-    }
-
-    public void EffectFinish()
-    {
-        StartCoroutine(MoveToPlayer());
-        grimmSilhouette.StartSpriteFade(canvasFadeOutDuration, 1f, 0f);
+        StartCoroutine(MoveCameraToPlayer());
+        grimmSilhouette.GetComponent<FadeObject>().StartSpriteFade(canvasFadeOutDuration, 1f, 0f);
         TurnOffEffects();
     }
 
-    public IEnumerator MoveToPlayer()
+    public IEnumerator MoveCameraToPlayer()
     {
         yield return new WaitForSeconds(canvasFadeOutDuration);
 
@@ -355,9 +384,6 @@ public class GrimmIntroController : MonoBehaviour
             yield return null;
         }
 
-        cinemachineCamera.GetComponent<CinemachineCamera>().Follow = player.transform;
-        cinemachineCamera.GetComponent<CinemachineCamera>().LookAt = player.transform;
-
         isBossStart = true;
         player.isInIntro = false;
 
@@ -365,5 +391,15 @@ public class GrimmIntroController : MonoBehaviour
         bossNightmareGrimm.GetComponent<BossGrimm>().BossGrimmNightmareStart(bossGroundY);
     }
 
+    public void CreateGrimmSilhouetteParticle()
+    {
+        for (int i = 0; i < 50; i++)
+        {
+            GrimmSilhouetteParticle particle = PoolManager.instance.Spawn(PoolType.GrimmParticle, grimmParticle, grimmSilhouette.transform.position, Quaternion.identity).GetComponent<GrimmSilhouetteParticle>();
+            particle.StartSpriteFade(outroSilhouetteFadeOutDuration, 0f, 1f);
+        }
+    }
+
     public void SwitchConfiner() => cinemachineCamera.GetComponent<CinemachineConfiner2D>().BoundingShape2D = bossCameraBoundingShape;
+
 }

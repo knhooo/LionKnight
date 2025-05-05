@@ -5,48 +5,73 @@ public enum PoolType
 {
     Geo,
     GrassParticle,
-    BrokenParticle
+    BrokenParticle,
+    GrimmParticle
+}
+
+[System.Serializable]
+public class Pool
+{
+    public PoolType type;
+    public GameObject prefab;
+    public int size;
 }
 
 public class PoolManager : Singleton<PoolManager>
 {
+    public List<Pool> pools;
     private Dictionary<PoolType, Queue<GameObject>> poolDict;
+    private Dictionary<PoolType, GameObject> poolPrefab;
 
     protected override void Awake()
     {
         base.Awake();
+
         poolDict = new Dictionary<PoolType, Queue<GameObject>>();
+        poolPrefab = new Dictionary<PoolType, GameObject>();
+
+        Create();
     }
 
-    private void Create(PoolType type, GameObject prefab)
+    private void Create()
     {
-        Queue<GameObject> objPool = new Queue<GameObject>();
+        foreach (Pool pool in pools)
+        {
+            Queue<GameObject> queue = new Queue<GameObject>();
 
-        GameObject obj = Instantiate(prefab, transform);
-        obj.SetActive(false);
-        objPool.Enqueue(obj);
+            for (int i = 0; i < pool.size; i++)
+            {
+                GameObject obj = Instantiate(pool.prefab, transform);
+                obj.SetActive(false);
+                queue.Enqueue(obj);
+            }
 
-        poolDict.Add(type, objPool);
+            poolDict[pool.type] = queue;
+            poolPrefab[pool.type] = pool.prefab;
+        }
     }
 
     public GameObject Spawn(PoolType type, GameObject prefab, Vector3 position, Quaternion rotation)
     {
         if (!poolDict.ContainsKey(type))
-            Create(type, prefab);
-
-        else if (poolDict[type].Count < 1)
         {
-            GameObject newObj = Instantiate(prefab, transform);
-            newObj.SetActive(false);
-            poolDict[type].Enqueue(newObj);
+            Debug.LogError("풀매니저에 " + tag + "옵젝 없음");
         }
 
         Queue<GameObject> pool = poolDict[type];
-        GameObject obj = pool.Dequeue();
+        GameObject obj;
 
-        obj.SetActive(true);
+        if (pool.Count >0)
+        {
+            obj = pool.Dequeue();
+        }
+        else
+        {
+            obj = Instantiate(poolPrefab[type], transform);
+        }
+
         obj.transform.SetPositionAndRotation(position, rotation);
-
+        obj.SetActive(true);
         return obj;
     }
 
@@ -55,6 +80,7 @@ public class PoolManager : Singleton<PoolManager>
         if (!poolDict.ContainsKey(type))
         {
             Debug.Log("풀매니저에 " + tag + "옵젝 없음");
+            Destroy(obj); 
             return;
         }
 
