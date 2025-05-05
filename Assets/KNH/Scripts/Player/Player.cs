@@ -31,7 +31,6 @@ public class Player : MonoBehaviour
     public float moveSpeed = 12f;
     public float jumpForce = 12f;
     public float variableJumpTime = 0.3f; // 최대 점프 유지 시간
-    public float variableJumpMultiplier = 1f;
     [HideInInspector]
     public bool isJumping = false;
     [HideInInspector]
@@ -39,6 +38,10 @@ public class Player : MonoBehaviour
     public bool canDoubleJump = true;
     [HideInInspector]
     public bool hasDoubleJumped = false;
+    private float fallStartY;
+    private bool isFalling = false;
+    [HideInInspector] public float jumpStartY;
+    public float maxJumpHeight = 5f; // 최대 점프 높이 설정
 
     [Header("대시 정보")]
     public float dashSpeed;
@@ -63,6 +66,10 @@ public class Player : MonoBehaviour
     [SerializeField] private CinemachineCamera cineCam;
     [SerializeField] private GameObject hitCrack;
 
+    [Header("사망 정보")]
+    [SerializeField] private GameObject die_effect;
+    private bool isDie = false;
+
 
     [Header("충돌 정보")]
     public Transform attackCheck;
@@ -85,6 +92,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform StoreToDirtmouth;
     [SerializeField] private Transform ForgottenCrossroadsToDirtmouth;
     [SerializeField] private Transform GrimmToStagStation;
+    [SerializeField] public Transform benchPos;
 
     public int facingDir { get; private set; } = 1;
     protected bool facingRight = true;
@@ -112,40 +120,16 @@ public class Player : MonoBehaviour
     public PlayerPrimaryAttackState primaryAttack { get; private set; }
     public PlayerUpAttackState upAttack { get; private set; }
     public PlayerDownAttackState downAttack { get; private set; }
-    public PlayerBenchState benchState { get; private set; }
+    public PlayerAwakeState awakeState { get; private set; }
     public PlayerFocusState focusState { get; private set; }
     public PlayerSpiritState spiritState { get; private set; }
     public PlayerHitState hitState { get; private set; }
     public PlayerDeadState deadState { get; private set; }
     public PlayerLookUpState lookUpState { get; private set; }
     public PlayerLookDownState lookDownState { get; private set; }
+    public PlayerLandingState landingState { get; private set; }
+    public PlayerSaveState saveState { get; private set; }
     #endregion
-
-    public PlayerData GetSaveData()
-    {
-        playerData.fromSceneName = SceneManager.GetActiveScene().name;
-        return playerData;
-    }
-
-    public void LoadFromData(PlayerData _playerData)
-    {
-        playerData = _playerData;
-        playerData.toSceneName = SceneManager.GetActiveScene().name;
-
-        string loadKeyName = $"{playerData.fromSceneName}To{playerData.toSceneName}";
-
-        if (loadKeyName == "StagStationToDirtmouth")
-            transform.position = StagStationToDirtmouth.position;
-        else if (loadKeyName == "StoreToDirtmouth")
-            transform.position = StoreToDirtmouth.position;
-        else if (loadKeyName == "ForgottenCrossroadsToDirtmouth")
-            transform.position = ForgottenCrossroadsToDirtmouth.position;
-        else if (loadKeyName == "GrimmToStagStation")
-            transform.position = GrimmToStagStation.position;
-        else
-            transform.position = new Vector2(0f, 0f);
-    }
-
     protected virtual void Awake()
     {
         // 상태 머신 인스턴스 생성
@@ -162,21 +146,60 @@ public class Player : MonoBehaviour
         primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
         upAttack = new PlayerUpAttackState(this, stateMachine, "UpAttack");
         downAttack = new PlayerDownAttackState(this, stateMachine, "DownAttack");
-        benchState = new PlayerBenchState(this, stateMachine, "Sitting");
+        awakeState = new PlayerAwakeState(this, stateMachine, "Sitting");
         focusState = new PlayerFocusState(this, stateMachine, "Focus");
         spiritState = new PlayerSpiritState(this, stateMachine, "Spirit");
         hitState = new PlayerHitState(this, stateMachine, "Hit");
         deadState = new PlayerDeadState(this, stateMachine, "Die");
         lookUpState = new PlayerLookUpState(this, stateMachine, "LookUp");
         lookDownState = new PlayerLookDownState(this, stateMachine, "LookDown");
+        landingState = new PlayerLandingState(this, stateMachine, "Landing");
+        saveState = new PlayerSaveState(this, stateMachine, "Save");
     }
+
+    public PlayerData GetSaveData()
+    {
+        playerData.fromSceneName = SceneManager.GetActiveScene().name;
+        return playerData;
+    }
+
+    public void LoadFromData(PlayerData _playerData)
+    {
+        playerData = _playerData;
+        playerData.toSceneName = SceneManager.GetActiveScene().name;
+
+        string loadKeyName = $"{playerData.fromSceneName}To{playerData.toSceneName}";
+        if (loadKeyName == "StagStationToDirtmouth")
+        {
+            Flip();
+            transform.position = StagStationToDirtmouth.position;
+        }
+        else if (loadKeyName == "StoreToDirtmouth")
+        {
+            Flip();
+            transform.position = StoreToDirtmouth.position;
+        }
+        else if (loadKeyName == "ForgottenCrossroadsToDirtmouth")
+        {
+            Flip();
+            transform.position = ForgottenCrossroadsToDirtmouth.position;
+        }
+        else if (loadKeyName == "GrimmToStagStation")
+        {
+            Flip();
+            transform.position = GrimmToStagStation.position;
+        }
+        else
+            transform.position = new Vector2(0f, 0f);
+    }
+
+    
 
     protected virtual void Start()
     {
         DataManager.instance.RegisterPlayer(this);
         DataManager.instance.LoadData();
 
-        Debug.Log("lastDeathLocation: " + playerData.lastDeathLocation);
         sr = GetComponentInChildren<SpriteRenderer>();
         //fx = GetComponent<EntityFX>();
         anim = GetComponentInChildren<Animator>();
@@ -192,9 +215,9 @@ public class Player : MonoBehaviour
 
     private void StateInit()
     {
-        if (SceneManager.GetActiveScene().name == "Dirtmouth")
+        if (PlayerManager.instance.isAwake && SceneManager.GetActiveScene().name == "Dirtmouth")
         {
-            stateMachine.Initialize(benchState);
+            stateMachine.Initialize(awakeState);
             transform.position = new Vector3(0, 0.29f, 0);
         }
         else stateMachine.Initialize(idleState);
@@ -214,6 +237,22 @@ public class Player : MonoBehaviour
     {
         stateMachine.currentState.Update();
         CheckForDashInput();
+
+        if (!IsGroundDetected() && !isFalling)
+        {
+            fallStartY = transform.position.y;
+            isFalling = true;
+        }
+        else
+        {
+            float fallDistance = fallStartY - transform.position.y;
+            if (fallDistance > 0.4f)
+            {
+                stateMachine.ChangeState(landingState); // 착지 상태로 전환
+            }
+            fallStartY = transform.position.y;
+            isFalling = false; // 낙하 종료
+        }
 
         if (isInIntro)
         {
@@ -258,9 +297,11 @@ public class Player : MonoBehaviour
             GameObject obj = Instantiate(hitCrack, transform.position, Quaternion.identity);
             obj.transform.SetParent(transform);
             //카메라 쉐이크
-            cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, shakeDuration);
+            if (cineCam.GetComponent<CameraShake>() != null)
+                cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, shakeDuration);
             //넉백
-            StartCoroutine("HitKnockBack");
+            if (playerData.hp > 0)
+                StartCoroutine("HitKnockBack");
             //시간느려지는효과
             StartCoroutine(HitStop(0.3f, 0.2f));
         }
@@ -410,28 +451,36 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-
-        cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, 1.4f);
-        isKnocked = true;//데미지 받지 않음
-        Debug.Log("죽음");
-        //그림자가 존재하는 상태에서 죽었을 경우
-        if (playerData.isShadowAlive)
+        if (!isDie)
         {
-            playerData.lostMoney = 0;
-        }
-        else
-        {
-            //잃은 돈 저장
-            playerData.lostMoney = playerData.money;
-        }
-        //죽은 씬 저장
-        playerData.lastDeathLocation = SceneManager.GetActiveScene().buildIndex;
-        playerData.isShadowAlive = true;
+            isDie = true;
+            SetZeroVelocity();
+            if (cineCam.GetComponent<CameraShake>() != null)
+                cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, 1.4f);
+            isKnocked = true;//데미지 받지 않음
+            Debug.Log("죽음");
+            //이펙트 생성
+            Instantiate(die_effect, transform.position, Quaternion.identity);
+            //그림자가 존재하는 상태에서 죽었을 경우
+            if (playerData.isShadowAlive)
+            {
+                playerData.lostMoney = 0;
+            }
+            else
+            {
+                //잃은 돈 저장
+                playerData.lostMoney = playerData.money;
+            }
+            //죽은 씬 저장
+            playerData.lastDeathLocation = SceneManager.GetActiveScene().buildIndex;
+            playerData.isShadowAlive = true;
 
-        //저장 처리
-        DataManager.instance.SaveData();
-        Debug.Log("씬 저장 " + playerData.lastDeathLocation);
-        stateMachine.ChangeState(deadState);
+            //저장 처리
+            DataManager.instance.SaveData();
+            Debug.Log("씬 저장 " + playerData.lastDeathLocation);
+            PlayerManager.instance.isAwake = true;
+            stateMachine.ChangeState(deadState);
+        }
     }
 }
 

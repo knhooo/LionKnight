@@ -1,28 +1,22 @@
 fileFormatVersion: 2
-guid: 5cbfd0dd2f3e32344bef637df2decb75
+guid: 80a582b720a3b72419414c95538a41e6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1491799790243075375
-    second: Ghost_IDle_0
+      213: 3617512394982378739
+    second: knight_Save_0
   - first:
-      213: 4227282002522055770
-    second: Ghost_IDle_1
+      213: 3946057017383895285
+    second: knight_Save_1
   - first:
-      213: -8741820233257161323
-    second: Ghost_IDle_2
+      213: 5099107531576013818
+    second: knight_Save_2
   - first:
-      213: -309741706883901780
-    second: Ghost_IDle_3
+      213: 391543154111035254
+    second: knight_Save_3
   - first:
-      213: -3578392994036239903
-    second: Ghost_IDle_4
-  - first:
-      213: -4283028549793876353
-    second: Ghost_IDle_5
-  - first:
-      213: -6988382661201356844
-    second: Ghost_IDle_6
+      213: 4339182869464767611
+    second: knight_Save_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -69,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 60
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -170,155 +164,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ghost_IDle_0
+      name: knight_Save_0
       rect:
         serializedVersion: 2
-        x: 35
-        y: 25
-        width: 44
-        height: 97
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 62
+        y: 37
+        width: 85
+        height: 131
+      alignment: 9
+      pivot: {x: 0.46113065, y: 0.07485155}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f25d07d5100f3b410800000000000000
-      internalID: 1491799790243075375
+      spriteID: 3fc4f795b5cf33230800000000000000
+      internalID: 3617512394982378739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_IDle_1
+      name: knight_Save_1
       rect:
         serializedVersion: 2
-        x: 110
-        y: 25
-        width: 47
-        height: 97
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 163
+        y: 0
+        width: 213
+        height: 243
+      alignment: 9
+      pivot: {x: 0.49113643, y: 0.18145747}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a54aabd85925aaa30800000000000000
-      internalID: 4227282002522055770
+      spriteID: 5f0ca9043f533c630800000000000000
+      internalID: 3946057017383895285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_IDle_2
+      name: knight_Save_2
       rect:
         serializedVersion: 2
-        x: 195
-        y: 25
-        width: 42
-        height: 97
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 388
+        y: 35
+        width: 85
+        height: 135
+      alignment: 9
+      pivot: {x: 0.5055531, y: 0.05248656}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 59d626260d0dea680800000000000000
-      internalID: -8741820233257161323
+      spriteID: af37b13a84ba3c640800000000000000
+      internalID: 5099107531576013818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_IDle_3
+      name: knight_Save_3
       rect:
         serializedVersion: 2
-        x: 270
-        y: 21
-        width: 46
-        height: 97
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 554
+        y: 37
+        width: 85
+        height: 135
+      alignment: 9
+      pivot: {x: 0.48334172, y: 0.052486617}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca6df050f8393bbf0800000000000000
-      internalID: -309741706883901780
+      spriteID: 67736079c6a0f6500800000000000000
+      internalID: 391543154111035254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_IDle_4
+      name: knight_Save_4
       rect:
         serializedVersion: 2
-        x: 356
-        y: 20
-        width: 40
-        height: 97
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 702
+        y: 36
+        width: 85
+        height: 134
+      alignment: 9
+      pivot: {x: 0.5055535, y: 0.042102244}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e139b3f78ef65ec0800000000000000
-      internalID: -3578392994036239903
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ghost_IDle_5
-      rect:
-        serializedVersion: 2
-        x: 428
-        y: 19
-        width: 48
-        height: 97
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f76fda6f930af84c0800000000000000
-      internalID: -4283028549793876353
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ghost_IDle_6
-      rect:
-        serializedVersion: 2
-        x: 517
-        y: 19
-        width: 41
-        height: 97
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4d71894eef6440f90800000000000000
-      internalID: -6988382661201356844
+      spriteID: b7c58ed64dfd73c30800000000000000
+      internalID: 4339182869464767611
       vertices: []
       indices: 
       edges: []
@@ -327,7 +277,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: fb0f66bcdcb78da408dd6315cfcaf3da
+    spriteID: 41e52a10983fa0d428a2c0e661408a5b
     internalID: 0
     vertices: []
     indices: 
@@ -337,13 +287,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ghost_IDle_0: 1491799790243075375
-      Ghost_IDle_1: 4227282002522055770
-      Ghost_IDle_2: -8741820233257161323
-      Ghost_IDle_3: -309741706883901780
-      Ghost_IDle_4: -3578392994036239903
-      Ghost_IDle_5: -4283028549793876353
-      Ghost_IDle_6: -6988382661201356844
+      knight_Save_0: 3617512394982378739
+      knight_Save_1: 3946057017383895285
+      knight_Save_2: 5099107531576013818
+      knight_Save_3: 391543154111035254
+      knight_Save_4: 4339182869464767611
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

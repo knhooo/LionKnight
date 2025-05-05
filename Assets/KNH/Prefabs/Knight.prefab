@@ -1,5 +1,98 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &167578658950332500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 585674628999907338}
+  m_Layer: 7
+  m_Name: StationToDirthMouth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &585674628999907338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167578658950332500}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.72, y: 0.62, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2022260313471799872}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1294421227580725663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1270666231573322865}
+  m_Layer: 0
+  m_Name: BenchPos
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1270666231573322865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294421227580725663}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.034, y: 0.39, z: -0.0507502}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2022260313471799872}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1394773890302394552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7320368903622657615}
+  m_Layer: 7
+  m_Name: ForgottenToDirtMouth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7320368903622657615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394773890302394552}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.67, y: -1.82, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2022260313471799872}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3499344729138118504
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,6 +150,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.1, y: 0.578, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2022260313471799872}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3782155047124483222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3238348546923808576}
+  m_Layer: 7
+  m_Name: StoreToDirtMouth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3238348546923808576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3782155047124483222}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.25, y: 0.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -295,6 +419,11 @@ Transform:
   - {fileID: 4459084927540969436}
   - {fileID: 5022582712348804916}
   - {fileID: 581594343192743052}
+  - {fileID: 585674628999907338}
+  - {fileID: 3238348546923808576}
+  - {fileID: 7320368903622657615}
+  - {fileID: 3189322441690739141}
+  - {fileID: 1270666231573322865}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6000853134006182788
@@ -318,12 +447,13 @@ MonoBehaviour:
   spiritAttackPower: 20
   moveSpeed: 5
   jumpForce: 8
-  variableJumpTime: 0.5
-  variableJumpMultiplier: 2
+  variableJumpTime: 0.3
   isJumping: 0
   jumpTimer: 0
   canDoubleJump: 1
   hasDoubleJumped: 0
+  jumpStartY: 0
+  maxJumpHeight: 1
   dashSpeed: 15
   dashDuration: 0.3
   focusTimer: 0
@@ -337,12 +467,13 @@ MonoBehaviour:
   shakeDuration: 0.5
   cineCam: {fileID: 0}
   hitCrack: {fileID: 4219134517736072173, guid: ba33299544962f444b8a52ac176ac46f, type: 3}
+  die_effect: {fileID: 8366451379316071479, guid: 9c768d1f6fddbab4e83ae72fe1b2178d, type: 3}
   attackCheck: {fileID: 1658797656900072200}
   attackCheckRadius: 0.8
   posArr:
   - {x: -19.98, y: 1.32, z: -0.055944238}
-  - {x: 12.51, y: 6.21, z: -0.0435379}
-  - {x: 12.89, y: 5.61, z: 0}
+  - {x: 19.88, y: -7.79, z: -0.0435379}
+  - {x: -3.75, y: 3.83, z: 0}
   shadow: {fileID: 6005396011981447267, guid: 5d7a77b49a1009149ab4416142d4173a, type: 3}
   groundCheck: {fileID: 4459084927540969436}
   groundCheckDistance: 0.2
@@ -355,6 +486,11 @@ MonoBehaviour:
   whatIsBench:
     serializedVersion: 2
     m_Bits: 1024
+  StagStationToDirtmouth: {fileID: 585674628999907338}
+  StoreToDirtmouth: {fileID: 3238348546923808576}
+  ForgottenCrossroadsToDirtmouth: {fileID: 7320368903622657615}
+  GrimmToStagStation: {fileID: 3189322441690739141}
+  benchPos: {fileID: 1270666231573322865}
   isOnBench: 0
   isRidingLift: 0
   isInIntro: 0
@@ -462,6 +598,37 @@ MonoBehaviour:
   - {fileID: 4981893041341540112}
   - {fileID: 7867169046009120}
   - {fileID: 1846079021659489936}
+--- !u!1 &8348299754738755209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3189322441690739141}
+  m_Layer: 0
+  m_Name: GrimmToStagStation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3189322441690739141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348299754738755209}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.04, y: 0.43, z: -0.0507502}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2022260313471799872}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8576234906408021584
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +754,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   head: {fileID: 5213338638322737426, guid: cd9d5fb507e442c4b82c3e7a2a75d045, type: 3}
   ghost: {fileID: 8661588278632172482, guid: b81a5c64a31b80a439732dde5a260652, type: 3}
-  effect: {fileID: 8445962420653194407, guid: 5c6339e42f068564097de019987d1aa3, type: 3}
+  hit_effect: {fileID: 8445962420653194407, guid: 5c6339e42f068564097de019987d1aa3, type: 3}
+  die_effect: {fileID: 8366451379316071479, guid: 9c768d1f6fddbab4e83ae72fe1b2178d, type: 3}
 --- !u!1 &8852736422388843667
 GameObject:
   m_ObjectHideFlags: 0
