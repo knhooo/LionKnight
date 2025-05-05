@@ -28,19 +28,26 @@ public class PlayerGroundState : PlayerState
         //Bench
         if (player.IsNearBench() && Input.GetKey(KeyCode.UpArrow))
         {
-            player.transform.position = player.IsNearBench().transform.position;
-            player.soundClip.PlayerSoundOneShot(0);
-            stateMachine.ChangeState(player.benchState);
+            if (PlayerManager.instance.isAwake)
+            {
+                stateMachine.ChangeState(player.awakeState);//처음 시작할 때
+            }
+            else
+            {
+                player.soundClip.PlayerSoundOneShot(0);
+                stateMachine.ChangeState(player.saveState);//중간 저장할 때
+            }
         }
 
         //Jump
         if (Input.GetKeyDown(KeyCode.Z) && player.IsGroundDetected())
             stateMachine.ChangeState(player.jumpState);
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) && player.IsNearBench() == null)
         {
             stateMachine.ChangeState(player.lookUpState);
         }
+
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             stateMachine.ChangeState(player.lookDownState);

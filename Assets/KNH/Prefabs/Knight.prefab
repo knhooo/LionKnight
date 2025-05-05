@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2022260313471799872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1294421227580725663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1270666231573322865}
+  m_Layer: 0
+  m_Name: BenchPos
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1270666231573322865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294421227580725663}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.034, y: 0.39, z: -0.0507502}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2022260313471799872}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1394773890302394552
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +423,7 @@ Transform:
   - {fileID: 3238348546923808576}
   - {fileID: 7320368903622657615}
   - {fileID: 3189322441690739141}
+  - {fileID: 1270666231573322865}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6000853134006182788
@@ -415,12 +447,13 @@ MonoBehaviour:
   spiritAttackPower: 20
   moveSpeed: 5
   jumpForce: 8
-  variableJumpTime: 0.5
-  variableJumpMultiplier: 2
+  variableJumpTime: 0.3
   isJumping: 0
   jumpTimer: 0
   canDoubleJump: 1
   hasDoubleJumped: 0
+  jumpStartY: 0
+  maxJumpHeight: 1
   dashSpeed: 15
   dashDuration: 0.3
   focusTimer: 0
@@ -457,6 +490,7 @@ MonoBehaviour:
   StoreToDirtmouth: {fileID: 3238348546923808576}
   ForgottenCrossroadsToDirtmouth: {fileID: 7320368903622657615}
   GrimmToStagStation: {fileID: 3189322441690739141}
+  benchPos: {fileID: 1270666231573322865}
   isOnBench: 0
   isRidingLift: 0
   isInIntro: 0

@@ -31,7 +31,6 @@ public class Player : MonoBehaviour
     public float moveSpeed = 12f;
     public float jumpForce = 12f;
     public float variableJumpTime = 0.3f; // 최대 점프 유지 시간
-    public float variableJumpMultiplier = 1f;
     [HideInInspector]
     public bool isJumping = false;
     [HideInInspector]
@@ -41,6 +40,8 @@ public class Player : MonoBehaviour
     public bool hasDoubleJumped = false;
     private float fallStartY;
     private bool isFalling = false;
+    [HideInInspector] public float jumpStartY;
+    public float maxJumpHeight = 5f; // 최대 점프 높이 설정
 
     [Header("대시 정보")]
     public float dashSpeed;
@@ -91,6 +92,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform StoreToDirtmouth;
     [SerializeField] private Transform ForgottenCrossroadsToDirtmouth;
     [SerializeField] private Transform GrimmToStagStation;
+    [SerializeField] public Transform benchPos;
 
     public int facingDir { get; private set; } = 1;
     protected bool facingRight = true;
@@ -118,7 +120,7 @@ public class Player : MonoBehaviour
     public PlayerPrimaryAttackState primaryAttack { get; private set; }
     public PlayerUpAttackState upAttack { get; private set; }
     public PlayerDownAttackState downAttack { get; private set; }
-    public PlayerBenchState benchState { get; private set; }
+    public PlayerAwakeState awakeState { get; private set; }
     public PlayerFocusState focusState { get; private set; }
     public PlayerSpiritState spiritState { get; private set; }
     public PlayerHitState hitState { get; private set; }
@@ -126,6 +128,7 @@ public class Player : MonoBehaviour
     public PlayerLookUpState lookUpState { get; private set; }
     public PlayerLookDownState lookDownState { get; private set; }
     public PlayerLandingState landingState { get; private set; }
+    public PlayerSaveState saveState { get; private set; }
     #endregion
     protected virtual void Awake()
     {
@@ -143,7 +146,7 @@ public class Player : MonoBehaviour
         primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
         upAttack = new PlayerUpAttackState(this, stateMachine, "UpAttack");
         downAttack = new PlayerDownAttackState(this, stateMachine, "DownAttack");
-        benchState = new PlayerBenchState(this, stateMachine, "Sitting");
+        awakeState = new PlayerAwakeState(this, stateMachine, "Sitting");
         focusState = new PlayerFocusState(this, stateMachine, "Focus");
         spiritState = new PlayerSpiritState(this, stateMachine, "Spirit");
         hitState = new PlayerHitState(this, stateMachine, "Hit");
@@ -151,6 +154,7 @@ public class Player : MonoBehaviour
         lookUpState = new PlayerLookUpState(this, stateMachine, "LookUp");
         lookDownState = new PlayerLookDownState(this, stateMachine, "LookDown");
         landingState = new PlayerLandingState(this, stateMachine, "Landing");
+        saveState = new PlayerSaveState(this, stateMachine, "Save");
     }
 
     public PlayerData GetSaveData()
@@ -213,7 +217,7 @@ public class Player : MonoBehaviour
     {
         if (PlayerManager.instance.isAwake && SceneManager.GetActiveScene().name == "Dirtmouth")
         {
-            stateMachine.Initialize(benchState);
+            stateMachine.Initialize(awakeState);
             transform.position = new Vector3(0, 0.29f, 0);
         }
         else stateMachine.Initialize(idleState);
@@ -242,7 +246,6 @@ public class Player : MonoBehaviour
         else
         {
             float fallDistance = fallStartY - transform.position.y;
-            Debug.Log(fallDistance);
             if (fallDistance > 0.4f)
             {
                 stateMachine.ChangeState(landingState); // 착지 상태로 전환

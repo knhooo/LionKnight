@@ -10,6 +10,8 @@ public class PlayerJumpState : PlayerState
     {
         base.Enter();
 
+        player.jumpStartY = player.transform.position.y;
+
         player.SetVelocityY(player.jumpForce);
         player.isJumping = true;
         player.jumpTimer = player.variableJumpTime;
@@ -30,17 +32,25 @@ public class PlayerJumpState : PlayerState
         {
             if (player.jumpTimer > 0)
             {
-                player.SetVelocity(xInput * player.moveSpeed, player.jumpForce);
-                player.jumpTimer -= Time.deltaTime;
+                // 현재 높이 계산
+                float currentHeight = player.transform.position.y - player.jumpStartY;
+                Debug.Log(currentHeight);
+
+                // 최대 점프 높이 이하일 때만 상승
+                if (currentHeight < player.maxJumpHeight)
+                {
+                    player.SetVelocity(xInput * player.moveSpeed, player.jumpForce);
+                    player.jumpTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    player.isJumping = false;
+                }
             }
             else
             {
                 player.isJumping = false;
             }
-        }
-        else
-        {
-            player.SetVelocity(xInput * player.moveSpeed, rb.linearVelocityY); 
         }
 
         if (Input.GetKeyUp(KeyCode.Z))
