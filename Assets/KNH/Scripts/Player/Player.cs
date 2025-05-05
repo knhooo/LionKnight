@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
     public bool canDoubleJump = true;
     [HideInInspector]
     public bool hasDoubleJumped = false;
+    private float fallStartY;
+    private bool isFalling = false;
 
     [Header("대시 정보")]
     public float dashSpeed;
@@ -123,7 +125,33 @@ public class Player : MonoBehaviour
     public PlayerDeadState deadState { get; private set; }
     public PlayerLookUpState lookUpState { get; private set; }
     public PlayerLookDownState lookDownState { get; private set; }
+    public PlayerLandingState landingState { get; private set; }
     #endregion
+    protected virtual void Awake()
+    {
+        // 상태 머신 인스턴스 생성
+        stateMachine = new PlayerStateMachine();
+        // 각 상태 인스턴스 생성 (this: 플레이어 객체, stateMachine: 상태 머신, "Idle"/"Move": 상태 이름)
+        idleState = new PlayerIdleState(this, stateMachine, "Idle");
+        moveState = new PlayerMoveState(this, stateMachine, "Move");
+        jumpState = new PlayerJumpState(this, stateMachine, "Jump");
+        doubleJumpState = new PlayerDoubleJumpState(this, stateMachine, "DoubleJump");
+        airState = new PlayerAirState(this, stateMachine, "Jump");
+        dashState = new PlayerDashState(this, stateMachine, "Dash");
+        wallSlide = new PlayerWallSlideState(this, stateMachine, "WallSlide");
+        wallJump = new PlayerWallJumpState(this, stateMachine, "Jump");
+        primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
+        upAttack = new PlayerUpAttackState(this, stateMachine, "UpAttack");
+        downAttack = new PlayerDownAttackState(this, stateMachine, "DownAttack");
+        benchState = new PlayerBenchState(this, stateMachine, "Sitting");
+        focusState = new PlayerFocusState(this, stateMachine, "Focus");
+        spiritState = new PlayerSpiritState(this, stateMachine, "Spirit");
+        hitState = new PlayerHitState(this, stateMachine, "Hit");
+        deadState = new PlayerDeadState(this, stateMachine, "Die");
+        lookUpState = new PlayerLookUpState(this, stateMachine, "LookUp");
+        lookDownState = new PlayerLookDownState(this, stateMachine, "LookDown");
+        landingState = new PlayerLandingState(this, stateMachine, "Landing");
+    }
 
     public PlayerData GetSaveData()
     {
@@ -161,30 +189,7 @@ public class Player : MonoBehaviour
             transform.position = new Vector2(0f, 0f);
     }
 
-    protected virtual void Awake()
-    {
-        // 상태 머신 인스턴스 생성
-        stateMachine = new PlayerStateMachine();
-        // 각 상태 인스턴스 생성 (this: 플레이어 객체, stateMachine: 상태 머신, "Idle"/"Move": 상태 이름)
-        idleState = new PlayerIdleState(this, stateMachine, "Idle");
-        moveState = new PlayerMoveState(this, stateMachine, "Move");
-        jumpState = new PlayerJumpState(this, stateMachine, "Jump");
-        doubleJumpState = new PlayerDoubleJumpState(this, stateMachine, "DoubleJump");
-        airState = new PlayerAirState(this, stateMachine, "Jump");
-        dashState = new PlayerDashState(this, stateMachine, "Dash");
-        wallSlide = new PlayerWallSlideState(this, stateMachine, "WallSlide");
-        wallJump = new PlayerWallJumpState(this, stateMachine, "Jump");
-        primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
-        upAttack = new PlayerUpAttackState(this, stateMachine, "UpAttack");
-        downAttack = new PlayerDownAttackState(this, stateMachine, "DownAttack");
-        benchState = new PlayerBenchState(this, stateMachine, "Sitting");
-        focusState = new PlayerFocusState(this, stateMachine, "Focus");
-        spiritState = new PlayerSpiritState(this, stateMachine, "Spirit");
-        hitState = new PlayerHitState(this, stateMachine, "Hit");
-        deadState = new PlayerDeadState(this, stateMachine, "Die");
-        lookUpState = new PlayerLookUpState(this, stateMachine, "LookUp");
-        lookDownState = new PlayerLookDownState(this, stateMachine, "LookDown");
-    }
+    
 
     protected virtual void Start()
     {
@@ -228,6 +233,23 @@ public class Player : MonoBehaviour
     {
         stateMachine.currentState.Update();
         CheckForDashInput();
+
+        if (!IsGroundDetected() && !isFalling)
+        {
+            fallStartY = transform.position.y;
+            isFalling = true;
+        }
+        else
+        {
+            float fallDistance = fallStartY - transform.position.y;
+            Debug.Log(fallDistance);
+            if (fallDistance > 0.4f)
+            {
+                stateMachine.ChangeState(landingState); // 착지 상태로 전환
+            }
+            fallStartY = transform.position.y;
+            isFalling = false; // 낙하 종료
+        }
 
         if (isInIntro)
         {
