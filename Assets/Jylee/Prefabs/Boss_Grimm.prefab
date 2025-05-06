@@ -339,6 +339,7 @@ MonoBehaviour:
   healthPoint: 100
   currentHealthPoint: 0
   damagePoint: 1
+  isInvincible: 0
   groundCheck: {fileID: 1876287646020762697}
   groundCheckDistance: 0.05
   whatIsGround:
@@ -418,6 +419,7 @@ MonoBehaviour:
   teleportEff: {fileID: 7444804033130088038, guid: 5b6f173e2fee5dc4ea31b15c8b59de09, type: 3}
   teleportSmokeEff: {fileID: 3040545226191380589, guid: a6601dcfccc585e4ca410a73773eab1a, type: 3}
   castAttackEff: {fileID: 9113932396167134706, guid: b75d1d55a7a119240a2f984aa249a452, type: 3}
+  castAttackParticle: {fileID: 1760280223821061383, guid: b0e903e77727abd4f9d72407568ced63, type: 3}
   bossGravity: 0
   playerTransform: {fileID: 0}
 --- !u!50 &3264892858544539603
@@ -505,6 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2058ee2f0e57e2740b0e3c6976b2e329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grimmGreeting: {fileID: 8300000, guid: dfaf5d6b1a7e0044186ee71b488c07d6, type: 3}
   grimmAppear: {fileID: 8300000, guid: 657d4c67bfd8a924287e77f77c9f5698, type: 3}
   grimmCast1: {fileID: 8300000, guid: 1206a1418fe1d5145899ae6bf8c6cbbc, type: 3}
   grimmCast2: {fileID: 8300000, guid: 10384cc53ce5c1c49948fd6f2e426a06, type: 3}

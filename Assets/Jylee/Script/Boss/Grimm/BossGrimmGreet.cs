@@ -14,6 +14,7 @@ public class BossGrimmGreet : BossGrimmState
         stateTimer = 2f;
         triggerOn = false;
         boss.groundY = boss.transform.position.y;
+        boss.BossGrimmGreetSound();
     }
 
     public override void Update()

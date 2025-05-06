@@ -878,6 +878,7 @@ MonoBehaviour:
   healthPoint: 100
   currentHealthPoint: 0
   damagePoint: 1
+  isInvincible: 0
   groundCheck: {fileID: 8585793226768490092}
   groundCheckDistance: 0.05
   whatIsGround:
@@ -895,7 +896,7 @@ MonoBehaviour:
   groundY: 0
   bossDeadDelay: 0
   nGrimmIntro: {fileID: 0}
-  attackSelectMax: 5
+  attackSelectMax: 6
   attackSelectMin: 1
   adAirDashPower: 30
   adGroundDashPower: 30
@@ -914,15 +915,16 @@ MonoBehaviour:
   thirdShotDelay: 0.3
   fourthShotDelay: 0.3
   shotEndDelay: 0.7
-  spikeList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  spikeList: []
   spikeActionDuration: 0.8
   spikeUpDelay: 0.5
   spikeUpDuration: 0.5
   spikeSoundTiming: 0.3
+  firePillarCirclePrefab: {fileID: 5569080899625966955, guid: c3c60ce5557744c4cb5af7a545c9df70, type: 3}
+  firePillarPrefab: {fileID: 9113932396167134706, guid: b75d1d55a7a119240a2f984aa249a452, type: 3}
+  firePillarCount: 4
+  firePillarDelay: 0.8
+  firePillarEndDelay: 1
   fireballPrefab: {fileID: 1751388657372171890, guid: d47a06c6eaf32154e96dd311fbb2b471, type: 3}
   bulletFireCount: 12
   bulletFireDelay: 0.8
@@ -961,6 +963,7 @@ MonoBehaviour:
   teleportEff: {fileID: 7444804033130088038, guid: 5b6f173e2fee5dc4ea31b15c8b59de09, type: 3}
   teleportSmokeEff: {fileID: 3040545226191380589, guid: a6601dcfccc585e4ca410a73773eab1a, type: 3}
   castAttackEff: {fileID: 9113932396167134706, guid: b75d1d55a7a119240a2f984aa249a452, type: 3}
+  castAttackParticle: {fileID: 1760280223821061383, guid: b0e903e77727abd4f9d72407568ced63, type: 3}
   bossGravity: 0
   playerTransform: {fileID: 0}
 --- !u!50 &1443182685192188885
@@ -1048,6 +1051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2058ee2f0e57e2740b0e3c6976b2e329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grimmGreeting: {fileID: 8300000, guid: dfaf5d6b1a7e0044186ee71b488c07d6, type: 3}
   grimmAppear: {fileID: 8300000, guid: 657d4c67bfd8a924287e77f77c9f5698, type: 3}
   grimmCast1: {fileID: 8300000, guid: 1206a1418fe1d5145899ae6bf8c6cbbc, type: 3}
   grimmCast2: {fileID: 8300000, guid: 10384cc53ce5c1c49948fd6f2e426a06, type: 3}

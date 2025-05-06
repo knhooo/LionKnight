@@ -50,6 +50,13 @@ public class BossGrimm : BossBase
     public float spikeUpDuration;
     public float spikeSoundTiming;
 
+    [Header("불 기둥 공격")]
+    public GameObject firePillarCirclePrefab;
+    public GameObject firePillarPrefab;
+    public int firePillarCount;
+    public float firePillarDelay;
+    public float firePillarEndDelay;
+
     [Header("불릿 헬 공격")]
     public GameObject fireballPrefab;
     public int bulletFireCount;
@@ -103,6 +110,7 @@ public class BossGrimm : BossBase
     [SerializeField] private GameObject teleportEff;
     [SerializeField] private GameObject teleportSmokeEff;
     [SerializeField] private GameObject castAttackEff;
+    [SerializeField] private GameObject castAttackParticle;
 
     private GameObject deadEventObj;
     private bool bulletHellTrigger;
@@ -132,6 +140,7 @@ public class BossGrimm : BossBase
     public BossGrimmAttackCast castState { get; private set; }
     public BossGrimmAttackAirDashAttack airDash { get; private set; }
     public BossGrimmAttackCapeSpike capeSpike { get; private set; }
+    public BossGrimmAttackFirePillar firePillar { get; private set; }
     public BossGrimmWait waitState { get; private set; }
     public BossGrimmAttackBulletHell bulletHell { get; private set; }
     public BossGrimmChangeBat batState { get; private set; }
@@ -150,6 +159,7 @@ public class BossGrimm : BossBase
         castState = new BossGrimmAttackCast(this, stateMachine, "attackCast");
         airDash = new BossGrimmAttackAirDashAttack(this, stateMachine, "attackAirDash");
         capeSpike = new BossGrimmAttackCapeSpike(this, stateMachine, "attackCapeSpike");
+        firePillar = new BossGrimmAttackFirePillar(this, stateMachine, "IsIdle");
         waitState = new BossGrimmWait(this, stateMachine, "IsIdle");
         bulletHell = new BossGrimmAttackBulletHell(this, stateMachine, "attackBulletHell");
         batState = new BossGrimmChangeBat(this, stateMachine, "IsBat");
@@ -456,9 +466,16 @@ public class BossGrimm : BossBase
                 rb.gravityScale = 0;
             }
         }
-        else if(nextAttackType == 2 || nextAttackType == 4)
+        else if(nextAttackType == 2 || nextAttackType == 4 || nextAttackType == 5)
         {
             xPosAdd = Random.Range(teleportPlayerMidDistanceMin, teleportPlayerMidDistanceMax);
+            if (nextAttackType == 5)
+            {
+                Debug.Log("aa");
+                yPosAdd = airDashYPos;
+                SetZeroVelocity();
+                rb.gravityScale = 0;
+            }
         }
 
         if (leftRightSelect == 1 && playerTransform.position.x + xPosAdd > teleportRightMax.position.x)
@@ -518,7 +535,8 @@ public class BossGrimm : BossBase
         scale.x = facingLeft ? 1 : -1;
         fireBat.transform.localScale = scale;
 
-        Instantiate(castAttackEff, batFirePoint.position, Quaternion.identity);
+        // Instantiate(castAttackEff, batFirePoint.position, Quaternion.identity);
+        CastParticleGenerate();
     }
 
     public void BossFireBatFireUp()
@@ -530,7 +548,8 @@ public class BossGrimm : BossBase
 
         fireBat.GetComponent<BossGrimmFireBat>().UpFireBat();
 
-        Instantiate(castAttackEff, batFirePoint.position, Quaternion.identity);
+        // Instantiate(castAttackEff, batFirePoint.position, Quaternion.identity);
+        CastParticleGenerate();
     }
 
     public void BossCapeSpikeEnable()
@@ -590,6 +609,11 @@ public class BossGrimm : BossBase
         soundClip.GrimmBalloonDeflate();
     }
 
+    public void BossGrimmGreetSound()
+    {
+        soundClip.GrimmGreeting();
+    }
+
     public void BossGrimmAppearSound()
     {
         soundClip.GrimmAppear();
@@ -598,6 +622,11 @@ public class BossGrimm : BossBase
     public void BossGrimmEvadeSound()
     {
         soundClip.GrimmEvade();
+    }
+
+    public void BossGrimmFirePillarVoice()
+    {
+        soundClip.GrimmCast2();
     }
 
     public void BossGrimmDefeat()
@@ -624,6 +653,14 @@ public class BossGrimm : BossBase
     {
         Vector3 temp = new Vector3(groundDashTransform.position.x, groundDashTransform.position.y + 0.5f);
         GameObject effect = Instantiate(teleportSmokeEff, temp, Quaternion.identity);
+        Destroy(effect, 1f);
+    }
+
+    public void CastParticleGenerate()
+    {
+        Vector3 temp = new Vector3(batFirePoint.position.x, batFirePoint.position.y);
+        Quaternion rotation = Quaternion.Euler(-90f, 0f, 0f); // 위쪽으로 향하게
+        GameObject effect = Instantiate(castAttackParticle, temp, rotation);
         Destroy(effect, 1f);
     }
 
@@ -767,5 +804,10 @@ public class BossGrimm : BossBase
             Instantiate(adDashTrail, trailPos.position, Quaternion.identity);
             yield return new WaitForSeconds(0.02f);
         }
+    }
+
+    public void BossGrimmFirePillarGenerate()
+    {
+        GameObject fireCircle = Instantiate(firePillarCirclePrefab, new Vector3(playerTransform.position.x, groundY + 0.2f), Quaternion.identity);
     }
 }
