@@ -13,7 +13,6 @@ public class AddForceObject : MonoBehaviour
     [SerializeField] protected float directionValue = 0.5f;
 
     protected Vector2 velocity;
-    private bool justInstantiated = true;
 
     protected virtual void Awake()
     {
@@ -24,12 +23,6 @@ public class AddForceObject : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-        if(justInstantiated)
-        {
-            justInstantiated = false;
-            return;
-        }
-
         rb.linearVelocity = Vector2.zero;
         AddForce();
     }

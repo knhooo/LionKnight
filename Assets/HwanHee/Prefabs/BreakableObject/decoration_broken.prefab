@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6180973125764851199}
   - component: {fileID: 735082137170544600}
   - component: {fileID: 2326136883576610953}
+  - component: {fileID: -3504353052914040468}
   m_Layer: 8
   m_Name: decoration_broken
   m_TagString: Untagged
@@ -180,3 +181,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.12866172, y: 1.18}
   m_EdgeRadius: 0
+--- !u!114 &-3504353052914040468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291386456326822676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0b93b560f50c04b92cd104c04e6ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breakSounds:
+  - {fileID: 8300000, guid: 0f9e09dd6841ef64fafa7437104d35e9, type: 3}
+  - {fileID: 8300000, guid: aea2609f10e93ab49aed4a9728b79686, type: 3}
