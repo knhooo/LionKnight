@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7427598203351186349}
   - component: {fileID: 4539363196717306983}
   - component: {fileID: -1140958883137657292}
+  - component: {fileID: 2687448531301231468}
   m_Layer: 0
   m_Name: Grass1
   m_TagString: Untagged
@@ -101,11 +102,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ca71e8ab81c8147adeffbfd2ab9256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationName: Grass1
   canBeCut: 1
   cutImg: {fileID: 21300000, guid: ba6ed5626431a6a41855444db3a64025, type: 3}
   grassParticle: {fileID: 5094146106227670751, guid: d162b69095535e9478a14c8e21b03a95, type: 3}
   grassCut: {fileID: 8300000, guid: 213b67026b545f2468fc7371b1cb0a5b, type: 3}
+  grassMoveAudio:
+  - {fileID: 8300000, guid: 9bae761f985320a458bc12f672a7b40c, type: 3}
+  - {fileID: 8300000, guid: 6c4110d375450594c9e17987b4dfd4b7, type: 3}
+  - {fileID: 8300000, guid: d2dae65efb15b8d478fc2935ef466b44, type: 3}
+  - {fileID: 8300000, guid: a9450c93c0a1b304a9bbf1b58eaefc90, type: 3}
+  - {fileID: 8300000, guid: 544b918735cea7b4cb685deb37d4dbc5, type: 3}
+  - {fileID: 8300000, guid: f21d4df54813fa840bb01a6a15729468, type: 3}
 --- !u!61 &-1140958883137657292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -152,3 +159,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.43, y: 1.73}
   m_EdgeRadius: 0
+--- !u!95 &2687448531301231468
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4740526476007705442}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f5470e92a6c262b47928cf339f45901a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
