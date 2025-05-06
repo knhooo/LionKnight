@@ -118,7 +118,7 @@ MonoBehaviour:
   - {fileID: 1798581409039360720, guid: b96c66c9770129740864fb0c1457a0d1, type: 3}
   - {fileID: 8262934070709468964, guid: b96c66c9770129740864fb0c1457a0d1, type: 3}
   speed: 0.5
-  torque: 30
+  torque: 50
   fadeOutDelay: 2
 --- !u!50 &-7750077618881943334
 Rigidbody2D:

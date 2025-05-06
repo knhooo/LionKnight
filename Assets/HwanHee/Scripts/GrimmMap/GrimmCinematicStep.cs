@@ -158,7 +158,7 @@ public class GrimmHalfHpStep : GrimmCinematicStep
 
         foreach (var grimmPulsate in controller.grimmPulsates)
         {
-            grimmPulsate.SetPulssateFaster(controller.newPulseValue, controller.newPulseDalyTime);
+            grimmPulsate.SetPulsateFaster(controller.newPulseValue, controller.newPulseDalyTime);
         }
     }
 }
@@ -205,7 +205,7 @@ public class GrimmOutroStep2 : GrimmCinematicStep
 
         foreach (var eye in controller.eyes)
         {
-            eye.StartLightFade(controller.fadeEyesDuration, controller.introEyesLightIntensity, controller.outroEyesLightIntensity);
+            eye.StartLightFade(0f, controller.introEyesLightIntensity, controller.outroEyesLightIntensity);
         }
 
         SoundManager.Instance.audioSource.PlayOneShot(controller.burstAudio2);
@@ -299,5 +299,9 @@ public class FinalGrimmOutroStep : GrimmCinematicStep
 
         controller.grimmSilhouette.StartSpriteFade(controller.outroSilhouetteFadeOutDuration, 1f, 0f);
         controller.CreateGrimmSilhouetteParticle();
+        foreach (var grimmPulsate in controller.grimmPulsates)
+        {
+            grimmPulsate.StopPulsate();
+        }
     }
 }

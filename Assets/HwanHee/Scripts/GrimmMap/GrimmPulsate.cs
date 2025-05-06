@@ -21,7 +21,7 @@ public class GrimmPulsate : MonoBehaviour
         pulsateCoroutine = StartCoroutine(Pulsate());
     }
 
-    public void SetPulssateFaster(float _pulseSpeed, float _pulseDelayTime)
+    public void SetPulsateFaster(float _pulseSpeed, float _pulseDelayTime)
     {
         pulseSpeed = _pulseSpeed;
         pulseDelayTime = _pulseDelayTime;
@@ -53,5 +53,18 @@ public class GrimmPulsate : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void StopPulsate()
+    {
+        if (pulsateCoroutine != null)
+        {
+            StopCoroutine(pulsateCoroutine);
+            pulsateCoroutine = null;
+        }
+
+        transform.localScale = originScale;
+        if (heartBeatAudio != null && heartBeatAudio.isPlaying)
+            heartBeatAudio.Stop();
     }
 }
