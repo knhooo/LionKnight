@@ -34,7 +34,6 @@ public class PlayerJumpState : PlayerState
             {
                 // 현재 높이 계산
                 float currentHeight = player.transform.position.y - player.jumpStartY;
-                Debug.Log(currentHeight);
 
                 // 최대 점프 높이 이하일 때만 상승
                 if (currentHeight < player.maxJumpHeight)
@@ -91,6 +90,7 @@ public class PlayerJumpState : PlayerState
         //DoubleJump
         if (!player.IsGroundDetected() && Input.GetKeyDown(KeyCode.Z) && player.canDoubleJump && !player.hasDoubleJumped)
         {
+            player.InstantiateWingParticle();
             stateMachine.ChangeState(player.doubleJumpState);
         }
 

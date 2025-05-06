@@ -455,6 +455,7 @@ MonoBehaviour:
   hasDoubleJumped: 0
   jumpStartY: 0
   maxJumpHeight: 1
+  wingParticle: {fileID: 3288268553486023834, guid: d7432a8da8a4de14bb6b8161630862c4, type: 3}
   dashSpeed: 15
   dashDuration: 0.3
   focusTimer: 0
@@ -471,6 +472,7 @@ MonoBehaviour:
   hitParticle: {fileID: 710893575667390779, guid: cd099d4a8d445ee4e9ac33e3ead6a012, type: 3}
   hurtParticle: {fileID: 2995780255217733760}
   die_effect: {fileID: 8366451379316071479, guid: 9c768d1f6fddbab4e83ae72fe1b2178d, type: 3}
+  dieParticle: {fileID: 710893575667390779, guid: 25a08143b401d6144a7531f89559120d, type: 3}
   attackCheck: {fileID: 1658797656900072200}
   attackCheckRadius: 0.8
   posArr:

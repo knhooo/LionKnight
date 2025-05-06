@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -42,6 +41,7 @@ public class Player : MonoBehaviour
     private bool isFalling = false;
     [HideInInspector] public float jumpStartY;
     public float maxJumpHeight = 5f; // 최대 점프 높이 설정
+    [SerializeField] public GameObject wingParticle;
 
     [Header("대시 정보")]
     public float dashSpeed;
@@ -71,6 +71,7 @@ public class Player : MonoBehaviour
     [Header("사망 정보")]
     [SerializeField] private GameObject die_effect;
     private bool isDie = false;
+    [SerializeField] private GameObject dieParticle;
 
 
     [Header("충돌 정보")]
@@ -474,6 +475,7 @@ public class Player : MonoBehaviour
             Debug.Log("죽음");
             //이펙트 생성
             Instantiate(die_effect, transform.position, Quaternion.identity);
+            Instantiate(dieParticle, transform.position, Quaternion.identity);
             //그림자가 존재하는 상태에서 죽었을 경우
             if (playerData.isShadowAlive)
             {
@@ -494,6 +496,13 @@ public class Player : MonoBehaviour
             PlayerManager.instance.isAwake = true;
             stateMachine.ChangeState(deadState);
         }
+    }
+    public void InstantiateWingParticle()
+    {
+        //파티클
+        GameObject obj = Instantiate(wingParticle, transform.position, Quaternion.identity);
+        obj.transform.SetParent(transform);
+        //Destroy(obj, 2f);
     }
 }
 
