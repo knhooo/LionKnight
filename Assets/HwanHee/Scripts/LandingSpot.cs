@@ -1,7 +1,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 
-public class CameraShaker : MonoBehaviour
+public class LandingSpot : MonoBehaviour
 {
     [SerializeField] private CinemachineCamera cineCam;
 
@@ -9,13 +9,16 @@ public class CameraShaker : MonoBehaviour
     [SerializeField] private float shakeFrequency;
     [SerializeField] private float shakeDuration;
 
-    private bool isShake = false;
+    [SerializeField] private AudioClip landingSound;
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player") && !isShake)
+        if (collision.CompareTag("Player"))
         {
-            isShake = true;
+            SoundManager.Instance.audioSource.PlayOneShot(landingSound);
             cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, shakeDuration);
+            Destroy(gameObject);
         }
     }
 }
