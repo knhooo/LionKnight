@@ -65,6 +65,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float shakeDuration;
     [SerializeField] private CinemachineCamera cineCam;
     [SerializeField] private GameObject hitCrack;
+    [SerializeField] private GameObject hitParticle;
+    [SerializeField] private GameObject hurtParticle;
 
     [Header("사망 정보")]
     [SerializeField] private GameObject die_effect;
@@ -296,6 +298,10 @@ public class Player : MonoBehaviour
             //이펙트
             GameObject obj = Instantiate(hitCrack, transform.position, Quaternion.identity);
             obj.transform.SetParent(transform);
+            //파티클
+            GameObject obj2 = Instantiate(hitParticle, transform.position, Quaternion.identity);
+            obj2.transform.SetParent(transform);
+            Destroy(obj2, 2f);
             //카메라 쉐이크
             if (cineCam.GetComponent<CameraShake>() != null)
                 cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, shakeDuration);
@@ -304,6 +310,11 @@ public class Player : MonoBehaviour
                 StartCoroutine("HitKnockBack");
             //시간느려지는효과
             StartCoroutine(HitStop(0.3f, 0.2f));
+
+            if(playerData.hp <= 10)
+            {
+                hurtParticle.SetActive(true);
+            }
         }
     }
 
@@ -446,6 +457,8 @@ public class Player : MonoBehaviour
         if (playerData.hp <= 0) Die();
         if (playerData.mp < 0) playerData.mp = 0;
 
+        if (playerData.hp > 10)
+            hurtParticle.SetActive(false);
         Debug.Log("Hp: " + playerData.hp + " MP: " + playerData.mp);
     }
 
