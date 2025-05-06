@@ -93,12 +93,15 @@ public class Lift : ShakeObject
     private void Update()
     {
         Collider2D collider = Physics2D.OverlapBox(LiftCheck.position, boxSize, 0, targetLayer);
-        if (collider != null && collider.gameObject.GetComponent<Player>() && canMoveStart)
+        if (collider != null && collider.gameObject.GetComponent<Player>())
         {
             player.transform.SetParent(transform);
             if (canMoveStart)
             {
-                LiftActivate();
+                if (canMoveStart)
+                {
+                    LiftActivate();
+                }
             }
         }
 
@@ -106,7 +109,7 @@ public class Lift : ShakeObject
         else if (isArrive && !canMoveStart && collider == null)
             canMoveStart = true;
 
-        if (player.transform.parent == transform && isArrive && collider == null)
+        if (player.transform.parent == transform && /*isArrive && */collider == null)
         {
             player.transform.SetParent(null);
         }

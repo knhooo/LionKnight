@@ -1,7 +1,5 @@
 using System.Collections;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class BGMManager : Singleton<BGMManager>
 {
@@ -12,7 +10,11 @@ public class BGMManager : Singleton<BGMManager>
     [HideInInspector] public float currentBGMTargetVolume;
     [HideInInspector] public float newBGMTargetVolume;
 
+    [SerializeField] private AudioClip[] defaultBGMs;
+
     private bool isBGMChange = false;
+
+    [HideInInspector] public bool isPlayerDead = false;
 
     protected override void Awake()
     {
@@ -54,6 +56,12 @@ public class BGMManager : Singleton<BGMManager>
 
     public void ChangeBGM(float delay = 0f, bool isFade = true)
     {
+        if (isPlayerDead)
+        {
+            isPlayerDead = false;
+            SetBGM(defaultBGMs, 0f, 1f);
+        }
+
         if (!isBGMChange)
             return;
 

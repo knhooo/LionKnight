@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2318678270902966277}
   - component: {fileID: 5640594621355018805}
-  - component: {fileID: 825823519159487942}
   - component: {fileID: 7956809504166039686}
+  - component: {fileID: 6604733840369947759}
   m_Layer: 0
   m_Name: BreakableObject
   m_TagString: Untagged
@@ -89,22 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &825823519159487942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 477020426630848318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8550337808d758f429252283c6f6c8b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brokenParticle: {fileID: 291386456326822676, guid: ee350b6f55cf2fc48b7b90f8c792c6ca, type: 3}
-  brokenTop: {fileID: 291386456326822676, guid: 42784f37e25b2994da7d23b22428f620, type: 3}
-  sprite: {fileID: -6004289424380267417, guid: baff3da5ade428a4d914d0a77efd6ea2, type: 3}
-  breakSound: {fileID: 8300000, guid: 56652a43d537a554f95db63ca7617e95, type: 3}
 --- !u!61 &7956809504166039686
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -151,3 +135,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.35, y: 2.11}
   m_EdgeRadius: 0
+--- !u!114 &6604733840369947759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477020426630848318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8550337808d758f429252283c6f6c8b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brokenParticle: {fileID: 291386456326822676, guid: ee350b6f55cf2fc48b7b90f8c792c6ca, type: 3}
+  brokenTop: {fileID: 291386456326822676, guid: 42784f37e25b2994da7d23b22428f620, type: 3}
+  sprite: {fileID: 21300000, guid: 9e00a82be01af4a45a9b0bebfa43ecd6, type: 3}
+  breakSound: {fileID: 8300000, guid: 0f9e09dd6841ef64fafa7437104d35e9, type: 3}

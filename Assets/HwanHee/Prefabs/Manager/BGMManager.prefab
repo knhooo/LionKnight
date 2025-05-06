@@ -46,7 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37695ecac08e1ee4389fd3d714b81a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChangeCurrentVolumeValue: 0
+  currentBGMTargetVolume: 0
+  newBGMTargetVolume: 0
+  defaultBGMs:
+  - {fileID: 8300000, guid: a507f2016ec0f7b46b4a6f7720c5d5da, type: 3}
+  - {fileID: 8300000, guid: 9cf9937d5f45fac4aab3dcba95eefe32, type: 3}
+  isPlayerDead: 0
 --- !u!82 &5359995694341994760
 AudioSource:
   m_ObjectHideFlags: 0

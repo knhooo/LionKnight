@@ -23,6 +23,7 @@ public class GrimmIntroController : MonoBehaviour
     [SerializeField] public Collider2D bossStartTrigger;
     [SerializeField] public GrimmFadeSprite fadeSprite;
     [SerializeField] public float fadeSpriteDurtaion;
+    [SerializeField] public GameObject grimmGate;
 
     [Header("카메라")]
     [SerializeField] public GameObject cinemachineCamera;
@@ -220,6 +221,7 @@ public class GrimmIntroController : MonoBehaviour
         }
 
         particleEffect.Clear();
+        grimmGate.SetActive(false);
         grimmSilhouette.gameObject.SetActive(false);
         grimmIntroLightSP2.gameObject.SetActive(false);
         grimmIntroLight2.gameObject.SetActive(false);
@@ -242,6 +244,8 @@ public class GrimmIntroController : MonoBehaviour
             BGMManager.instance.ChangeBGM(BGM1StartDelay, false);
 
             Invoke("DefualtValueSetting", 1f);
+
+            grimmGate.SetActive(true);
         }
     }
 
@@ -258,9 +262,9 @@ public class GrimmIntroController : MonoBehaviour
 
         bossStartTrigger.gameObject.SetActive(false);
 
-        foreach (var backgroundScale in grimmPulsates)
+        foreach (var grimmPulsate in grimmPulsates)
         {
-            backgroundScale.StartPulsate(pulseValue, pulseDelayTime);
+            grimmPulsate.StartPulsate(pulseValue, pulseDelayTime);
         }
 
         Invoke("StartCameraMove", 2f);

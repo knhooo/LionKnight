@@ -17,7 +17,7 @@ public class Geo : MonoBehaviour
             SoundManager.Instance.audioSource.PlayOneShot(geoCollects[index]);
         }
 
-        else if (collision.GetComponent<BoxCollider2D>() != null)
+        else if(collision.CompareTag("Ground"))
         {
             int index = Random.Range(0, geoGrounds.Length);
             SoundManager.Instance.audioSource.PlayOneShot(geoGrounds[index]);
