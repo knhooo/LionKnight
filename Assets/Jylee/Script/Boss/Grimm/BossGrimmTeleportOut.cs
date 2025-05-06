@@ -49,7 +49,7 @@ public class BossGrimmTeleportOut : BossGrimmState
                     boss.stateMachine.ChangeState(boss.capeSpike);
                     break;
                 case 5:
-                    boss.stateMachine.ChangeState(boss.capeSpike);
+                    boss.stateMachine.ChangeState(boss.firePillar);
                     break;
             }
         }

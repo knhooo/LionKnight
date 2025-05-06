@@ -124,6 +124,10 @@ public class BossGrimmAttackCast : BossGrimmState
                     boss.anim.SetTrigger("IsEmeTeleport");
                     isFiring = false;
                     shotCount = 2;
+                    if (boss.isNightmare)
+                    {
+                        fourthShotTime = 0;
+                    }
                 }
             }
 

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BossGrimmSoundClip : MonoBehaviour
 {
+    [SerializeField] private AudioClip grimmGreeting;
     [SerializeField] private AudioClip grimmAppear;
     [SerializeField] private AudioClip grimmCast1;
     [SerializeField] private AudioClip grimmCast2;
@@ -25,6 +26,7 @@ public class BossGrimmSoundClip : MonoBehaviour
     [SerializeField] private AudioClip grimmBatsReform;
     [SerializeField] private AudioClip grimmLongDefeat;
 
+    public void GrimmGreeting() { SoundManager.Instance.audioSource.PlayOneShot(grimmGreeting); }
     public void GrimmAppear() { SoundManager.Instance.audioSource.PlayOneShot(grimmAppear); }
     public void GrimmCast1() { SoundManager.Instance.audioSource.PlayOneShot(grimmCast1); }
     public void GrimmCast2() { SoundManager.Instance.audioSource.PlayOneShot(grimmCast2); }
