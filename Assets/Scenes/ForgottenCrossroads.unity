@@ -20847,18 +20847,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 555535329}
     m_Modifications:
-    - target: {fileID: 2768658241429020657, guid: d70a50592b1420546972e66efb2113cf, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2768658241429020657, guid: d70a50592b1420546972e66efb2113cf, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2768658241429020657, guid: d70a50592b1420546972e66efb2113cf, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -742149867
-      objectReference: {fileID: 0}
     - target: {fileID: 4072747474533187019, guid: d70a50592b1420546972e66efb2113cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 53.15
@@ -25774,7 +25762,7 @@ GameObject:
   - component: {fileID: 1165907931}
   - component: {fileID: 1165907930}
   m_Layer: 0
-  m_Name: CameraShaker
+  m_Name: LandingSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25811,6 +25799,7 @@ MonoBehaviour:
   shakeAmplitude: 0.2
   shakeFrequency: 5
   shakeDuration: 0.5
+  landingSound: {fileID: 8300000, guid: 0d96c95560bca174fbbe3dc67e244314, type: 3}
 --- !u!61 &1165907931
 BoxCollider2D:
   m_ObjectHideFlags: 0
