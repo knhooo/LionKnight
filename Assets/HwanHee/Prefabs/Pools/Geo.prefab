@@ -88,6 +88,7 @@ MonoBehaviour:
   geoCollects:
   - {fileID: 8300000, guid: 60aabbd85e0286748a8f0ddd9bee4e24, type: 3}
   - {fileID: 8300000, guid: e87a42af65c40a548925585f7bed79df, type: 3}
+  geoEffectPrefab: {fileID: 6920236929822826513, guid: 7415cdad45d495c4d825583adc0d8503, type: 3}
 --- !u!50 &2455898017411936706
 Rigidbody2D:
   serializedVersion: 5
