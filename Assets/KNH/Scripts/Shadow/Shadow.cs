@@ -23,6 +23,9 @@ public class Shadow : MonoBehaviour
     [SerializeField] public float knockbackDuration;
     protected bool isKnocked;
     protected bool isDie = false;
+
+    [SerializeField] public GameObject hitParticle;
+    [SerializeField] public GameObject dieParticle;
     public int facingDir { get; private set; } = 1;
     public ShadowSoundClip soundClip => GetComponentInParent<ShadowSoundClip>();
 
@@ -112,6 +115,8 @@ public class Shadow : MonoBehaviour
     {
         hp -= 10;
         soundClip.ShadowSoundOneShot(1);
+        GameObject obj = Instantiate(hitParticle, transform.position, Quaternion.identity);
+        obj.transform.SetParent(transform);
         StartCoroutine("HitKnockBack");
     }
 
@@ -137,6 +142,7 @@ public class Shadow : MonoBehaviour
         if (hp <= 0)
         {
             soundClip.ShadowSoundOneShot(0);
+            Instantiate(dieParticle, transform.position, Quaternion.identity);
             rb.linearVelocity = new Vector2(0, 0);
             isDie = true;
             stateMachine.ChangeState(dieState);

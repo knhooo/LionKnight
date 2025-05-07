@@ -45,6 +45,8 @@ public class PlayerGroundState : PlayerState
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && player.IsNearBench() == null)
         {
+            if (Input.GetKey(KeyCode.A))
+                stateMachine.ChangeState(player.howlingState);
             stateMachine.ChangeState(player.lookUpState);
         }
 
@@ -72,19 +74,25 @@ public class PlayerGroundState : PlayerState
         {
             aKeyHoldTime += Time.deltaTime;
 
-            if (aKeyHoldTime >= 0.2f && player.playerData.mp >= 50)
+            if (aKeyHoldTime >= 0.2f && player.playerData.mp >= 33)
             {
                 isAHolding = false;
                 stateMachine.ChangeState(player.focusState);
             }
         }
 
-        // A 키를 뗐을 때 
+        if (isAHolding && Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            if (player.playerData.mp >= 33)
+                stateMachine.ChangeState(player.howlingState);
+        }
+
+        // A 키를 뗐을 때
         if (isAHolding && Input.GetKeyUp(KeyCode.A))
         {
             isAHolding = false;
 
-            if (player.playerData.mp >= 50)
+            if (player.playerData.mp >= 33)
             {
                 stateMachine.ChangeState(player.spiritState);
             }

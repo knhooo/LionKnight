@@ -15319,12 +15319,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 310111036}
     - target: {fileID: 8575390204935405768, guid: 764eee25f4362d4408b1e6815b8729ce, type: 3}
+      propertyPath: nGrimmIntro
+      value: 
+      objectReference: {fileID: 2004633079}
+    - target: {fileID: 8575390204935405768, guid: 764eee25f4362d4408b1e6815b8729ce, type: 3}
       propertyPath: bulletHellPos
       value: 
       objectReference: {fileID: 560125521}
     - target: {fileID: 8575390204935405768, guid: 764eee25f4362d4408b1e6815b8729ce, type: 3}
       propertyPath: attackSelectMax
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8575390204935405768, guid: 764eee25f4362d4408b1e6815b8729ce, type: 3}
       propertyPath: attackSelectMin

@@ -74,7 +74,7 @@ public class PlayerAirState : PlayerState
         // A 키를 뗐을 때
         if (Input.GetKeyUp(KeyCode.A))
         {
-            if (player.playerData.mp >= 50)
+            if (player.playerData.mp >= 33)
             {
                 stateMachine.ChangeState(player.spiritState);
             }
