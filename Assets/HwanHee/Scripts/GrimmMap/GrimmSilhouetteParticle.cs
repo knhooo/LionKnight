@@ -34,7 +34,7 @@ public class GrimmSilhouetteParticle : FadeObject
         speed = Random.Range(speed - 0.1f, speed + 0.1f);
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         if (justInstantiated)
         {
