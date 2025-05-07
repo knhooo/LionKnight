@@ -129,4 +129,9 @@ public class BossGrimmAnimationTrigger : MonoBehaviour
     {
         boss.bossSmallBodyPoint.GetComponent<Collider2D>().enabled = false;
     }
+
+    private void GroggyEff()
+    {
+        boss.BossGroggy();
+    }
 }

@@ -884,6 +884,11 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  shakeAmplitude: 1.5
+  shakeFrequency: 1.5
+  shakeDuration: 0.5
+  cineCam: {fileID: 0}
+  hitCrack: {fileID: 4219134517736072173, guid: ba33299544962f444b8a52ac176ac46f, type: 3}
   anim: {fileID: 0}
   rb: {fileID: 0}
   sr: {fileID: 0}
