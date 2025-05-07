@@ -405,5 +405,4 @@ public class GrimmIntroController : MonoBehaviour
     }
 
     public void SwitchConfiner() => cinemachineCamera.GetComponent<CinemachineConfiner2D>().BoundingShape2D = bossCameraBoundingShape;
-
 }

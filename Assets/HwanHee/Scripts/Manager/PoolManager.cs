@@ -4,6 +4,7 @@ using UnityEngine;
 public enum PoolType
 {
     Geo,
+    GeoEffect,
     GrassParticle,
     BrokenParticle,
     GrimmParticle
@@ -37,6 +38,10 @@ public class PoolManager : Singleton<PoolManager>
     {
         foreach (Pool pool in pools)
         {
+            if (pool.type == PoolType.GeoEffect)
+            {
+                int a = 0;
+            }
             Queue<GameObject> queue = new Queue<GameObject>();
 
             for (int i = 0; i < pool.size; i++)
@@ -61,7 +66,7 @@ public class PoolManager : Singleton<PoolManager>
         Queue<GameObject> pool = poolDict[type];
         GameObject obj;
 
-        if (pool.Count >0)
+        if (pool.Count > 0)
         {
             obj = pool.Dequeue();
         }
@@ -80,7 +85,7 @@ public class PoolManager : Singleton<PoolManager>
         if (!poolDict.ContainsKey(type))
         {
             Debug.Log("풀매니저에 " + tag + "옵젝 없음");
-            Destroy(obj); 
+            Destroy(obj);
             return;
         }
 

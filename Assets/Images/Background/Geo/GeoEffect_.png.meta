@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cba430fb577cd8445a4bb9eed23dfdf7
+guid: 8884709480dda2a43b08d308f1353d52
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6042047740170538317
-    second: cd_wall_04_0
+      213: -1938152174305041415
+    second: GeoEffect__0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cd_wall_04_0
+      name: GeoEffect__0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 0
-        width: 155
-        height: 432
+        x: 3
+        y: 5
+        width: 162
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3b2fe2ba795562ca0800000000000000
-      internalID: -6042047740170538317
+      spriteID: 9f3a5e1cddc4a15e0800000000000000
+      internalID: -1938152174305041415
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      cd_wall_04_0: -6042047740170538317
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
