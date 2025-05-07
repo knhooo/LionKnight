@@ -32,6 +32,6 @@ public class GeoEffect : MonoBehaviour
 
     private void AnimationTrigger()
     {
-        gameObject.SetActive(false);
+        PoolManager.instance.ReturnToPool(PoolType.GeoEffect, gameObject);
     }
 }

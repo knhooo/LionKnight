@@ -7,7 +7,8 @@ public enum PoolType
     GeoEffect,
     GrassParticle,
     BrokenParticle,
-    GrimmParticle
+    GrimmParticle,
+    WaterParticle,
 }
 
 [System.Serializable]
@@ -56,7 +57,7 @@ public class PoolManager : Singleton<PoolManager>
         }
     }
 
-    public GameObject Spawn(PoolType type, GameObject prefab, Vector3 position, Quaternion rotation)
+    public GameObject Spawn(PoolType type, Vector3 position, Quaternion rotation)
     {
         if (!poolDict.ContainsKey(type))
         {

@@ -1,0 +1,608 @@
+fileFormatVersion: 2
+guid: 9151492008d546c46903b1c0157b5c56
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 279372807127532820
+    second: whitesplash_particle_type_0
+  - first:
+      213: -4681467356598405333
+    second: whitesplash_particle_type_1
+  - first:
+      213: 6082806774664250947
+    second: whitesplash_particle_type_2
+  - first:
+      213: 4456165366711592400
+    second: whitesplash_particle_type_3
+  - first:
+      213: -9144372306734739848
+    second: whitesplash_particle_type_4
+  - first:
+      213: 5459073544496025645
+    second: whitesplash_particle_type_5
+  - first:
+      213: 2674612553031262056
+    second: whitesplash_particle_type_6
+  - first:
+      213: -7251667847725796090
+    second: whitesplash_particle_type_7
+  - first:
+      213: 1846460510093276166
+    second: whitesplash_particle_type_8
+  - first:
+      213: -1322716498392461788
+    second: whitesplash_particle_type_9
+  - first:
+      213: 6532282895313044999
+    second: whitesplash_particle_type_10
+  - first:
+      213: -4516797852680818350
+    second: whitesplash_particle_type_11
+  - first:
+      213: -6222943643408631053
+    second: whitesplash_particle_type_12
+  - first:
+      213: -2305735431591860008
+    second: whitesplash_particle_type_13
+  - first:
+      213: 3403456504870849505
+    second: whitesplash_particle_type_14
+  - first:
+      213: -5585563866627258419
+    second: whitesplash_particle_type_15
+  - first:
+      213: -660256412636317202
+    second: whitesplash_particle_type_16
+  - first:
+      213: 7783921549230944503
+    second: whitesplash_particle_type_17
+  - first:
+      213: -3143436155201945931
+    second: whitesplash_particle_type_18
+  - first:
+      213: -1129660910232345533
+    second: whitesplash_particle_type_19
+  - first:
+      213: -3530245980805398134
+    second: whitesplash_particle_type_20
+  - first:
+      213: 1858107050104668269
+    second: whitesplash_particle_type_21
+  - first:
+      213: 3507073186597035163
+    second: whitesplash_particle_type_22
+  - first:
+      213: -4809846483840762852
+    second: whitesplash_particle_type_23
+  - first:
+      213: -6944385528534079682
+    second: whitesplash_particle_type_24
+  - first:
+      213: -940752668380810506
+    second: whitesplash_particle_type_25
+  - first:
+      213: -8150189659496481919
+    second: whitesplash_particle_type_26
+  - first:
+      213: -1557633940248287389
+    second: whitesplash_particle_type_27
+  - first:
+      213: -6719396271726488425
+    second: whitesplash_particle_type_28
+  - first:
+      213: -4008738727987596982
+    second: whitesplash_particle_type_29
+  - first:
+      213: 8127864909855230718
+    second: whitesplash_particle_type_30
+  - first:
+      213: 1521705527316349279
+    second: whitesplash_particle_type_31
+  - first:
+      213: -5835603997037748546
+    second: whitesplash_particle_type_32
+  - first:
+      213: 1576554752606229589
+    second: whitesplash_particle_type_33
+  - first:
+      213: 8687524285127423085
+    second: whitesplash_particle_type_34
+  - first:
+      213: -8068833828898335216
+    second: whitesplash_particle_type_35
+  - first:
+      213: 2518788213803825268
+    second: whitesplash_particle_type_36
+  - first:
+      213: -2551197372248488219
+    second: whitesplash_particle_type_37
+  - first:
+      213: -5044219839061464916
+    second: whitesplash_particle_type_38
+  - first:
+      213: 7174229355549155269
+    second: whitesplash_particle_type_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: whitesplash_particle_type_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fd85e6ec03e55c4498c83a0330113b3
+      internalID: 1412278005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitesplash_particle_type_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 110
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac33d8e5b1ef72e45b1c9d109f766a65
+      internalID: 654694921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitesplash_particle_type_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 110
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9ed5375b56044e469db240fcc633205
+      internalID: -1430265616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitesplash_particle_type_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 110
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5eb3a722aff61f4ebf14461c2c9888a
+      internalID: 1420547908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitesplash_particle_type_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 110
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4f372449005c9346acc11923f4c09fa
+      internalID: 788408957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitesplash_particle_type_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 55
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdc0a2399e1cdfd4a93243dd68191c51
+      internalID: -1904414830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitesplash_particle_type_6
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 55
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0727526411a8545439520f7172081496
+      internalID: -768775423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitesplash_particle_type_7
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 55
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bc376216d9c37d4c801261823b75e20
+      internalID: 1392511999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitesplash_particle_type_8
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 55
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6d8fa74739d4f54cb33eb1dd3e462d2
+      internalID: -1580676251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitesplash_particle_type_9
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 55
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 696371d40ade0e44eb39cc714d9c3499
+      internalID: 1861172844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitesplash_particle_type_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eab7dbb4ce40ef479eec5e9019bb094
+      internalID: -1320554706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitesplash_particle_type_11
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5cac1b8d143b694db86eaa717351579
+      internalID: 945634327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitesplash_particle_type_12
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6054d2c70274a064aa955ff8f8bc8bb8
+      internalID: 1591399555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitesplash_particle_type_13
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2289be73d6211a440b0f82e55e77f725
+      internalID: -1445540486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitesplash_particle_type_14
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a16285eee6a7464fb5790574d07df66
+      internalID: 628404327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: da9dc2afec7b4694b9de2fb21d4f0535
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      whitesplash_particle_type_0: 1412278005
+      whitesplash_particle_type_1: 654694921
+      whitesplash_particle_type_10: -1320554706
+      whitesplash_particle_type_11: 945634327
+      whitesplash_particle_type_12: 1591399555
+      whitesplash_particle_type_13: -1445540486
+      whitesplash_particle_type_14: 628404327
+      whitesplash_particle_type_2: -1430265616
+      whitesplash_particle_type_3: 1420547908
+      whitesplash_particle_type_4: 788408957
+      whitesplash_particle_type_5: -1904414830
+      whitesplash_particle_type_6: -768775423
+      whitesplash_particle_type_7: 1392511999
+      whitesplash_particle_type_8: -1580676251
+      whitesplash_particle_type_9: 1861172844
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

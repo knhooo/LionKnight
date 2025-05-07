@@ -9,7 +9,6 @@ public class Grass : MonoBehaviour
     [Header("Cut")]
     [SerializeField] private bool canBeCut = false;
     [SerializeField] private Sprite cutImg;
-    [SerializeField] private GameObject grassParticle;
     [SerializeField] private AudioClip grassCut;
     [Header("Move")]
     [SerializeField] private AudioClip[] grassMoveAudio;
@@ -36,7 +35,7 @@ public class Grass : MonoBehaviour
         for (int i = 0; i < 25; i++)
         {
             isCut = true;
-            PoolManager.instance.Spawn(PoolType.GrassParticle, grassParticle, transform.position, Quaternion.identity);
+            PoolManager.instance.Spawn(PoolType.GrassParticle, transform.position, Quaternion.identity);
         }
     }
 
