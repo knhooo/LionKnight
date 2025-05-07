@@ -72,6 +72,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject die_effect;
     private bool isDie = false;
     [SerializeField] private GameObject dieParticle;
+    [SerializeField] private GameObject dieParticle_L;
+    [SerializeField] private GameObject dieParticle_R;
 
 
     [Header("충돌 정보")]
@@ -476,6 +478,10 @@ public class Player : MonoBehaviour
             //이펙트 생성
             Instantiate(die_effect, transform.position, Quaternion.identity);
             Instantiate(dieParticle, transform.position, Quaternion.identity);
+            Instantiate(dieParticle_L, headPos.position, dieParticle_L.transform.rotation);
+            Instantiate(dieParticle_R, headPos.position, dieParticle_R.transform.rotation);
+            dieParticle_L.transform.SetParent(transform);
+            dieParticle_R.transform.SetParent(transform);
             //그림자가 존재하는 상태에서 죽었을 경우
             if (playerData.isShadowAlive)
             {

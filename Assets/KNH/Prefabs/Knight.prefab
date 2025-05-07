@@ -473,6 +473,8 @@ MonoBehaviour:
   hurtParticle: {fileID: 2995780255217733760}
   die_effect: {fileID: 8366451379316071479, guid: 9c768d1f6fddbab4e83ae72fe1b2178d, type: 3}
   dieParticle: {fileID: 710893575667390779, guid: 25a08143b401d6144a7531f89559120d, type: 3}
+  dieParticle_L: {fileID: 6412004585403650264, guid: fe50930e256f18d41a2b7d344e6ce8e7, type: 3}
+  dieParticle_R: {fileID: 695789750895262532, guid: 235eeeaf664b5f640b3dbabbef5bc64f, type: 3}
   attackCheck: {fileID: 1658797656900072200}
   attackCheckRadius: 0.8
   posArr:
