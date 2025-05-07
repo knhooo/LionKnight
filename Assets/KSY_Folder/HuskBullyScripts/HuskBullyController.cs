@@ -43,6 +43,8 @@ public class HuskBullyController : MonoBehaviour
     private bool hasTurnedRecently = false;
     private int currentHealth;
     private HuskBullyHitbox hitbox;
+    [SerializeField] private GameObject geoPrefab;
+    [SerializeField] private int geoCount = 5;
 
     private void Start()
     {
@@ -267,6 +269,7 @@ public class HuskBullyController : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         Vector2 knockbackDir = new Vector2(facingRight ? -1.2f : 1.2f, 1.2f).normalized * deathKnockbackForce;
         rb.AddForce(knockbackDir, ForceMode2D.Impulse);
+        CreateGeo();
         TransitionTo(State.DeathAir);
     }
 
@@ -282,4 +285,14 @@ public class HuskBullyController : MonoBehaviour
             }
         }
     }
+    public void CreateGeo()
+    {
+        for (int i = 0; i < geoCount; i++)
+        {
+            Geo geo = PoolManager.instance.Spawn(PoolType.Geo, geoPrefab, transform.position, Quaternion.identity).GetComponent<Geo>();
+        }
+
+    }
+
+       
 }
