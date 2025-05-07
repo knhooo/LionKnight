@@ -6,7 +6,6 @@ public class GeoDeposit : ShakeObject
     SpriteRenderer sp;
 
     [SerializeField] private Sprite sprite;
-    [SerializeField] private GameObject geoPrefab;
     [SerializeField] private AudioClip[] geoDepositHits;
 
     private int life = 4;
@@ -38,7 +37,7 @@ public class GeoDeposit : ShakeObject
 
         for (int i = 0; i < geoCount; i++)
         {
-            Geo geo = PoolManager.instance.Spawn(PoolType.Geo, geoPrefab, transform.position, Quaternion.identity).GetComponent<Geo>();
+            Geo geo = PoolManager.instance.Spawn(PoolType.Geo, transform.position, Quaternion.identity).GetComponent<Geo>();
         }
 
         life--;
