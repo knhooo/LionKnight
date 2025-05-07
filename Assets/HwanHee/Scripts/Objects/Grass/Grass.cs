@@ -26,11 +26,13 @@ public class Grass : MonoBehaviour
     {
         if (canBeCut == false)
             return;
-
         canBeCut = false;
+
+        anim.enabled = false;
+        sp.sprite = cutImg;
+
         SoundManager.Instance.audioSource.PlayOneShot(grassCut);
 
-        sp.sprite = cutImg;
         for (int i = 0; i < 25; i++)
         {
             isCut = true;
