@@ -10,6 +10,7 @@ public class PlayerLandingState : PlayerState
     {
         base.Enter();
         stateTimer = 0.5f;
+        player.soundClip.PlayerSoundOneShot(9);
     }
 
     public override void Exit()

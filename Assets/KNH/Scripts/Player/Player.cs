@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -42,17 +41,19 @@ public class Player : MonoBehaviour
     private bool isFalling = false;
     [HideInInspector] public float jumpStartY;
     public float maxJumpHeight = 5f; // 최대 점프 높이 설정
+    [SerializeField] public GameObject wingParticle;
 
     [Header("대시 정보")]
     public float dashSpeed;
     public float dashDuration;
     public float dashDir { get; private set; }
 
-    [Header("집중 정보")]
+    [Header("스킬 정보")]
     public float focusTimer;
     public float requiredFocusTime = 1.5f;
     public bool isFocusing;
     public float spiritDuration;
+    public float howlingDuration;
 
     [Header("넉백 정보")]
     [SerializeField] protected Vector2 knockbackDirection;
@@ -65,10 +66,15 @@ public class Player : MonoBehaviour
     [SerializeField] private float shakeDuration;
     [SerializeField] private CinemachineCamera cineCam;
     [SerializeField] private GameObject hitCrack;
+    [SerializeField] private GameObject hitParticle;
+    [SerializeField] private GameObject hurtParticle;
 
     [Header("사망 정보")]
     [SerializeField] private GameObject die_effect;
     private bool isDie = false;
+    [SerializeField] private GameObject dieParticle;
+    [SerializeField] private GameObject dieParticle_L;
+    [SerializeField] private GameObject dieParticle_R;
 
 
     [Header("충돌 정보")]
@@ -81,7 +87,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] protected Transform groundCheck;
     [SerializeField] protected float groundCheckDistance;
-    [SerializeField] protected Transform wallCheck;
+    [SerializeField] public Transform wallCheck;
     [SerializeField] public Transform headPos;
     [SerializeField] protected float wallCheckDistance;
     [SerializeField] protected LayerMask whatIsGround;
@@ -92,6 +98,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform StoreToDirtmouth;
     [SerializeField] private Transform ForgottenCrossroadsToDirtmouth;
     [SerializeField] private Transform GrimmToStagStation;
+    [SerializeField] private Transform GruzMotherToForgottenCrossroads;
     [SerializeField] public Transform benchPos;
 
     public int facingDir { get; private set; } = 1;
@@ -129,6 +136,7 @@ public class Player : MonoBehaviour
     public PlayerLookDownState lookDownState { get; private set; }
     public PlayerLandingState landingState { get; private set; }
     public PlayerSaveState saveState { get; private set; }
+    public PlayerHowlingState howlingState { get; private set; }
     #endregion
     protected virtual void Awake()
     {
@@ -155,6 +163,7 @@ public class Player : MonoBehaviour
         lookDownState = new PlayerLookDownState(this, stateMachine, "LookDown");
         landingState = new PlayerLandingState(this, stateMachine, "Landing");
         saveState = new PlayerSaveState(this, stateMachine, "Save");
+        howlingState = new PlayerHowlingState(this, stateMachine, "Howling");
     }
 
     public PlayerData GetSaveData()
@@ -188,6 +197,10 @@ public class Player : MonoBehaviour
         {
             Flip();
             transform.position = GrimmToStagStation.position;
+        }
+        else if (loadKeyName == "GruzMotherToForgottenCrossroads")
+        {
+            transform.position = GruzMotherToForgottenCrossroads.position;
         }
         else
             transform.position = new Vector2(0f, 0f);
@@ -246,7 +259,7 @@ public class Player : MonoBehaviour
         else
         {
             float fallDistance = fallStartY - transform.position.y;
-            if (fallDistance > 0.4f)
+            if (IsGroundDetected() && fallDistance > 0.4f)
             {
                 stateMachine.ChangeState(landingState); // 착지 상태로 전환
             }
@@ -296,6 +309,10 @@ public class Player : MonoBehaviour
             //이펙트
             GameObject obj = Instantiate(hitCrack, transform.position, Quaternion.identity);
             obj.transform.SetParent(transform);
+            //파티클
+            GameObject obj2 = Instantiate(hitParticle, transform.position, Quaternion.identity);
+            obj2.transform.SetParent(transform);
+            Destroy(obj2, 2f);
             //카메라 쉐이크
             if (cineCam.GetComponent<CameraShake>() != null)
                 cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, shakeDuration);
@@ -304,6 +321,11 @@ public class Player : MonoBehaviour
                 StartCoroutine("HitKnockBack");
             //시간느려지는효과
             StartCoroutine(HitStop(0.3f, 0.2f));
+
+            if(playerData.hp <= 10)
+            {
+                hurtParticle.SetActive(true);
+            }
         }
     }
 
@@ -446,6 +468,8 @@ public class Player : MonoBehaviour
         if (playerData.hp <= 0) Die();
         if (playerData.mp < 0) playerData.mp = 0;
 
+        if (playerData.hp > 10)
+            hurtParticle.SetActive(false);
         Debug.Log("Hp: " + playerData.hp + " MP: " + playerData.mp);
     }
 
@@ -461,6 +485,11 @@ public class Player : MonoBehaviour
             Debug.Log("죽음");
             //이펙트 생성
             Instantiate(die_effect, transform.position, Quaternion.identity);
+            Instantiate(dieParticle, transform.position, Quaternion.identity);
+            Instantiate(dieParticle_L, headPos.position, dieParticle_L.transform.rotation);
+            Instantiate(dieParticle_R, headPos.position, dieParticle_R.transform.rotation);
+            dieParticle_L.transform.SetParent(transform);
+            dieParticle_R.transform.SetParent(transform);
             //그림자가 존재하는 상태에서 죽었을 경우
             if (playerData.isShadowAlive)
             {
@@ -481,6 +510,13 @@ public class Player : MonoBehaviour
             PlayerManager.instance.isAwake = true;
             stateMachine.ChangeState(deadState);
         }
+    }
+    public void InstantiateWingParticle()
+    {
+        //파티클
+        GameObject obj = Instantiate(wingParticle, transform.position, Quaternion.identity);
+        obj.transform.SetParent(transform);
+        //Destroy(obj, 2f);
     }
 }
 

@@ -4,6 +4,7 @@ public class Spirit_Skill : Skill
 {
     [SerializeField] private GameObject spiritPrefab;
     [SerializeField] private float spiritSpeed = 20f;
+    [SerializeField] protected GameObject spirit_effect;
     public override void UseSkill()
     {
         base.UseSkill();
@@ -12,6 +13,10 @@ public class Spirit_Skill : Skill
     public void UseSpiritSkill()
     {
         player.soundClip.PlayerSoundOneShot(14);
+
+        GameObject obj0 = Instantiate(spirit_effect, player.wallCheck.position, Quaternion.identity);
+        Destroy(obj0, 0.45f);
+
         Vector3 spawnPos = player.transform.position + new Vector3(0, 0.5f, 0);
         GameObject obj = Instantiate(spiritPrefab, spawnPos, Quaternion.identity);
 
@@ -21,6 +26,6 @@ public class Spirit_Skill : Skill
         SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
         if (sr != null)
             sr.flipX = player.facingDir == -1;
-        player.SetHPandMP(0, -50);
+        player.SetHPandMP(0, -33);
     }
 }
