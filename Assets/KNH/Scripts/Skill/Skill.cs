@@ -6,7 +6,7 @@ public class Skill : MonoBehaviour
     protected float cooldownTimer;
 
     private Transform closestEnemy;
-    public Player player;
+    protected Player player;
 
 
     protected virtual void Start()

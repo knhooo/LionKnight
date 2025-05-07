@@ -251,7 +251,7 @@ public class Player : MonoBehaviour
         else
         {
             float fallDistance = fallStartY - transform.position.y;
-            if (fallDistance > 0.4f)
+            if (IsGroundDetected() && fallDistance > 0.4f)
             {
                 stateMachine.ChangeState(landingState); // 착지 상태로 전환
             }

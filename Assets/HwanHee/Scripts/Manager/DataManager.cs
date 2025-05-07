@@ -66,14 +66,10 @@ public class DataManager : Singleton<DataManager>
             Debug.Log("플레이어 없음");
             return;
         }
-        else
-        {
-            Debug.Log(player);
-        }
 
-            string fullPath = Path.Combine(path, playerSaveFileName);
+        string fullPath = Path.Combine(path, playerSaveFileName);
 
-        if (File.Exists(fullPath)) 
+        if (File.Exists(fullPath))
         {
             string data = File.ReadAllText(fullPath);
             player.LoadFromData(JsonUtility.FromJson<PlayerData>(data));

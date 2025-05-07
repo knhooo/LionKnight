@@ -39114,6 +39114,7 @@ MonoBehaviour:
   cooldown: 0.5
   spiritPrefab: {fileID: 4157484365331445197, guid: 9e8f354b51763364eaffed2b8a44b4c1, type: 3}
   spiritSpeed: 20
+  spirit_effect: {fileID: 4157484365331445197, guid: 9e8f354b51763364eaffed2b8a44b4c1, type: 3}
 --- !u!1 &1919083003
 GameObject:
   m_ObjectHideFlags: 0
