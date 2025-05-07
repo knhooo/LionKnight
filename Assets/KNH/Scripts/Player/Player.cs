@@ -97,6 +97,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform StoreToDirtmouth;
     [SerializeField] private Transform ForgottenCrossroadsToDirtmouth;
     [SerializeField] private Transform GrimmToStagStation;
+    [SerializeField] private Transform GruzMotherToForgottenCrossroads;
     [SerializeField] public Transform benchPos;
 
     public int facingDir { get; private set; } = 1;
@@ -193,6 +194,10 @@ public class Player : MonoBehaviour
         {
             Flip();
             transform.position = GrimmToStagStation.position;
+        }
+        else if (loadKeyName == "GruzMotherToForgottenCrossroads")
+        {
+            transform.position = GruzMotherToForgottenCrossroads.position;
         }
         else
             transform.position = new Vector2(0f, 0f);
