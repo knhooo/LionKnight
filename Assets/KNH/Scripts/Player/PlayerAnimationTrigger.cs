@@ -76,6 +76,10 @@ public class PlayerAnimationTrigger : MonoBehaviour
     {
         SkillManager.instance.spirit.UseSpiritSkill();
     }
+    private void HowlingTrigger()
+    {
+        SkillManager.instance.howling.UseHowlingSkill();
+    }
     private void DieAnimation()
     {
         GameObject obj1 = Instantiate(head, player.headPos.position + new Vector3(0, 0.5f, 0), Quaternion.identity);

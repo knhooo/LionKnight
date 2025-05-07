@@ -494,6 +494,7 @@ MonoBehaviour:
   requiredFocusTime: 1.5
   isFocusing: 0
   spiritDuration: 1
+  howlingDuration: 0.5
   knockbackDirection: {x: 5, y: 10}
   knockbackDuration: 1
   shakeAmplitude: 1.5
@@ -529,6 +530,7 @@ MonoBehaviour:
   StoreToDirtmouth: {fileID: 3238348546923808576}
   ForgottenCrossroadsToDirtmouth: {fileID: 7320368903622657615}
   GrimmToStagStation: {fileID: 3189322441690739141}
+  GruzMotherToForgottenCrossroads: {fileID: 0}
   benchPos: {fileID: 1270666231573322865}
   isOnBench: 0
   isRidingLift: 0

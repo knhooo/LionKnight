@@ -48,11 +48,12 @@ public class Player : MonoBehaviour
     public float dashDuration;
     public float dashDir { get; private set; }
 
-    [Header("집중 정보")]
+    [Header("스킬 정보")]
     public float focusTimer;
     public float requiredFocusTime = 1.5f;
     public bool isFocusing;
     public float spiritDuration;
+    public float howlingDuration;
 
     [Header("넉백 정보")]
     [SerializeField] protected Vector2 knockbackDirection;
@@ -86,7 +87,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] protected Transform groundCheck;
     [SerializeField] protected float groundCheckDistance;
-    [SerializeField] protected Transform wallCheck;
+    [SerializeField] public Transform wallCheck;
     [SerializeField] public Transform headPos;
     [SerializeField] protected float wallCheckDistance;
     [SerializeField] protected LayerMask whatIsGround;
@@ -135,6 +136,7 @@ public class Player : MonoBehaviour
     public PlayerLookDownState lookDownState { get; private set; }
     public PlayerLandingState landingState { get; private set; }
     public PlayerSaveState saveState { get; private set; }
+    public PlayerHowlingState howlingState { get; private set; }
     #endregion
     protected virtual void Awake()
     {
@@ -161,6 +163,7 @@ public class Player : MonoBehaviour
         lookDownState = new PlayerLookDownState(this, stateMachine, "LookDown");
         landingState = new PlayerLandingState(this, stateMachine, "Landing");
         saveState = new PlayerSaveState(this, stateMachine, "Save");
+        howlingState = new PlayerHowlingState(this, stateMachine, "Howling");
     }
 
     public PlayerData GetSaveData()

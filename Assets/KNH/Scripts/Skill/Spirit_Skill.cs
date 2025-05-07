@@ -14,7 +14,7 @@ public class Spirit_Skill : Skill
     {
         player.soundClip.PlayerSoundOneShot(14);
 
-        GameObject obj0 = Instantiate(spirit_effect, player.headPos.transform.position, Quaternion.identity);
+        GameObject obj0 = Instantiate(spirit_effect, player.wallCheck.position, Quaternion.identity);
         Destroy(obj0, 0.45f);
 
         Vector3 spawnPos = player.transform.position + new Vector3(0, 0.5f, 0);
@@ -26,6 +26,6 @@ public class Spirit_Skill : Skill
         SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
         if (sr != null)
             sr.flipX = player.facingDir == -1;
-        player.SetHPandMP(0, -50);
+        player.SetHPandMP(0, -33);
     }
 }
