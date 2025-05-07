@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEditor;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
@@ -252,6 +253,11 @@ public class BossGrimm : BossBase
         {
             stateMachine.ChangeState(batState);
             firstBatChange = false;
+
+            if (isNightmare && nGrimmIntro != null)
+            {
+                nGrimmIntro.GetComponent<GrimmIntroController>().ChangeStep(CinematicStep.HalfHP);
+            }
         }
         else if (currentHealthPoint <= healthPoint / 1.5 && firstBulletHell)
         {
@@ -275,13 +281,12 @@ public class BossGrimm : BossBase
             i.GetComponentInChildren<Animator>().SetBool("IsNightmare", true);
         }
 
-        Invoke("StartDelay", 1f);
+        Invoke("StartDelay", 0.5f);
     }
 
     private void StartDelay()
     {
         stateMachine.ChangeState(teleportInState);
-        rb.gravityScale = 1;
         bossGravity = 1;
     }
 
@@ -350,9 +355,16 @@ public class BossGrimm : BossBase
     {
         deadEventObj.GetComponent<BossGrimmDeadEvent>().CancelCenterCircleGenerate();
         soundClip.GrimmExplodeIntoBats();
-        if (nGrimmIntro != null)
+        if (nGrimmIntro != null && !isNightmare)
         {
             Invoke("NGrimmTrigger", 1f);
+            sr.enabled = false;
+            cd.enabled = false;
+            rb.simulated = false;
+        }
+        else if(nGrimmIntro != null && isNightmare)
+        {
+            Invoke("NGrimmDeathTrigger", 1f);
             sr.enabled = false;
             cd.enabled = false;
             rb.simulated = false;
@@ -368,6 +380,11 @@ public class BossGrimm : BossBase
         nGrimmIntro.GetComponent<GrimmIntroController>().NightmareGrimmTrigger();
 
         Destroy(gameObject);
+    }
+
+    private void NGrimmDeathTrigger()
+    {
+        nGrimmIntro.GetComponent<GrimmIntroController>().StartOutro();
     }
 
     // 이펙트 생성
@@ -419,7 +436,7 @@ public class BossGrimm : BossBase
         gazePos = reverse ? gazePos * -1 : gazePos;
 
         // 좌우 반전 했을경우
-        if (FlipController(gazePos))
+        if (FlipController(gazePos, false))
         {
             // 박쥐 소환 포인트 뒤집기
             Vector3 firePointLocalPos = batFirePoint.localPosition;
@@ -526,6 +543,14 @@ public class BossGrimm : BossBase
 
             i.GetComponentInChildren<BossGrimmSpikeTrigger>().SpikeAttackDisable();
         }
+
+        if (isNightmare)
+        {
+            BossGrimmDashTrailCoroutineEnd();
+        }
+
+        SetZeroVelocity();
+        BossRotationZero();
     }
 
     public void BossFireBatFire()
@@ -809,5 +834,24 @@ public class BossGrimm : BossBase
     public void BossGrimmFirePillarGenerate()
     {
         GameObject fireCircle = Instantiate(firePillarCirclePrefab, new Vector3(playerTransform.position.x, groundY + 0.2f), Quaternion.identity);
+    }
+
+    public void BossGroggy()
+    {
+        //이펙트
+        GameObject obj = Instantiate(hitCrack, teleportEffTransform.position, Quaternion.identity);
+        obj.transform.SetParent(transform);
+        //카메라 쉐이크
+        if (cineCam.GetComponent<CameraShake>() != null)
+            cineCam.GetComponent<CameraShake>().ShakeCamera(shakeAmplitude, shakeFrequency, shakeDuration);
+        //시간느려지는효과
+        StartCoroutine(HitStop(0.3f, 0.2f));
+    }
+
+    IEnumerator HitStop(float duration, float slowTimeScale)
+    {
+        Time.timeScale = slowTimeScale;
+        yield return new WaitForSecondsRealtime(duration);
+        Time.timeScale = 1f;
     }
 }

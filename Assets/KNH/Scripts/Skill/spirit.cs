@@ -15,6 +15,12 @@ public class spirit : MonoBehaviour
         {
             collision.GetComponent<BossBase>().BossTakeDamage(PlayerManager.instance.player.spiritAttackPower);
         }
+        //몬스터
+        if (collision.GetComponent<HuskBullyController>() != null)
+        {
+            Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
+            collision.GetComponent<HuskBullyController>().TakeDamage(PlayerManager.instance.player.attackPower, knockbackDir * 3);
+        }
     }
     private void OnBecameInvisible()
     {
