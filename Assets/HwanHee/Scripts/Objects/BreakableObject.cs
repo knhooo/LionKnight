@@ -40,7 +40,6 @@ public class BreakableObject : MonoBehaviour
 
         if (brokenParticle == null)
         {
-            Debug.LogError("Broken particle 없음");
             return;
         }
 
