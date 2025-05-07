@@ -345,6 +345,11 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  shakeAmplitude: 1.5
+  shakeFrequency: 1.5
+  shakeDuration: 0.5
+  cineCam: {fileID: 0}
+  hitCrack: {fileID: 4219134517736072173, guid: ba33299544962f444b8a52ac176ac46f, type: 3}
   anim: {fileID: 0}
   rb: {fileID: 0}
   sr: {fileID: 0}
@@ -381,6 +386,11 @@ MonoBehaviour:
   spikeUpDelay: 0.5
   spikeUpDuration: 0.5
   spikeSoundTiming: 0.3
+  firePillarCirclePrefab: {fileID: 0}
+  firePillarPrefab: {fileID: 0}
+  firePillarCount: 0
+  firePillarDelay: 0
+  firePillarEndDelay: 0
   fireballPrefab: {fileID: 1751388657372171890, guid: d47a06c6eaf32154e96dd311fbb2b471, type: 3}
   bulletFireCount: 12
   bulletFireDelay: 0.8
