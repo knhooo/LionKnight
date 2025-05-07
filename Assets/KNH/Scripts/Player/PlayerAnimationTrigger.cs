@@ -85,6 +85,7 @@ public class PlayerAnimationTrigger : MonoBehaviour
     }
     private void ReSpawn()
     {
+        BGMManager.instance.isPlayerDead = true;
         sceneManaer.StartLoadScene("Dirtmouth");
     }
 }

@@ -6,7 +6,7 @@ public class Skill : MonoBehaviour
     protected float cooldownTimer;
 
     private Transform closestEnemy;
-    protected Player player;
+    public Player player;
 
 
     protected virtual void Start()
@@ -17,6 +17,9 @@ public class Skill : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (player == null)
+            player = PlayerManager.instance.player;
+
         cooldownTimer -= Time.deltaTime;
     }
 
@@ -41,30 +44,4 @@ public class Skill : MonoBehaviour
     {
         //스킬사용
     }
-
-    //protected virtual Transform FindClosestEnemy(Transform _checkTransform)
-    //{
-
-    //    Collider2D[] colliders = Physics2D.OverlapCircleAll(_checkTransform.position, 25);
-
-    //    float closestDistance = Mathf.Infinity;
-
-
-    //    foreach (var hit in colliders)
-    //    {
-    //        if (hit.GetComponent<Enemy>() != null)
-    //        {
-    //            float distanceToEnemy = Vector2.Distance(_checkTransform.position, hit.transform.position);
-
-    //            if (distanceToEnemy < closestDistance)
-    //            {
-    //                closestDistance = distanceToEnemy;
-    //                closestEnemy = hit.transform;
-    //            }
-
-    //        }
-    //    }
-
-    //    return closestEnemy;
-    //}
 }
