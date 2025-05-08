@@ -60,8 +60,12 @@ public class PlayerAnimationTrigger : MonoBehaviour
             if (hit.GetComponent<HuskBullyController>() != null)
             {
                 Vector2 knockbackDir = (hit.transform.position - transform.position).normalized;
-                hit.GetComponent<HuskBullyController>().TakeDamage(player.attackPower,knockbackDir*3);
+                hit.GetComponent<HuskBullyController>().TakeDamage(player.attackPower, knockbackDir * 3);
                 Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
+            }
+            if (hit.GetComponent<Water>() != null)
+            {
+                GameObject waterSplash = Instantiate(player.WaterSplash, player.attackCheck.position, Quaternion.identity);
             }
             player.SetHPandMP(0, 10);
         }
