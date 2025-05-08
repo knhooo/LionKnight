@@ -48,6 +48,7 @@ public class BossGruzMotherAttackSlam : BossGruzMotherState
                 boss.LandEffGenerate(1);
                 boss.anim.SetTrigger("IsCrashUp");
                 isCrash = true;
+                boss.BossWallCrashSound();
             }
             else if (!isUp && boss.IsGroundDetected())
             {
@@ -56,6 +57,7 @@ public class BossGruzMotherAttackSlam : BossGruzMotherState
                 boss.LandEffGenerate(3);
                 boss.anim.SetTrigger("IsCrashDown");
                 isCrash = true;
+                boss.BossWallCrashSound();
             }
             else if (boss.IsWallDetected())
             {

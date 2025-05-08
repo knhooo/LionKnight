@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7673292743469929148}
   - component: {fileID: 8761933551507183004}
   - component: {fileID: 8200559188900110293}
+  - component: {fileID: 9068692783521263294}
   m_Layer: 9
   m_Name: Boss_GruzMother
   m_TagString: Boss
@@ -166,20 +167,21 @@ MonoBehaviour:
   slamYSpeed: 20
   slamDuration: 7
   slamDelay: 0.2
-  dyingTime: 5
+  dyingTime: 3.5
   dieForceX: 5
   dieForceY: 5
   dieBoundForce: 5
   deadFirstDelay: 5
   gurgleDelay: 3
   gurgleCount: 3
-  burstDelay: 5
+  burstDelay: 3
   gruzPrefab: {fileID: 8618888271263854399, guid: db17e72ad09100f44af522b2e3d0db7e, type: 3}
   gruzSpawnCount: 7
   gruzCheck: []
   reboundEff: {fileID: 1976536269412959973, guid: 0a6528841a4d214469116c74b0c69af4, type: 3}
   playerTransform: {fileID: 0}
   attackColl: {fileID: 6187777847859247876}
+  doorObj: {fileID: 0}
 --- !u!114 &8200559188900110293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +195,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitMat: {fileID: 2100000, guid: 0a1d1cc1d16530e4eacc9e77681d3153, type: 2}
+--- !u!114 &9068692783521263294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525343301967968375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7230ef9b6c07b94c9fc952e48cebbe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gruzMotherWallCrash: {fileID: 8300000, guid: 8d19a3aec1739c04c88f2d878bd96537, type: 3}
+  gruzMotherGrugle: {fileID: 8300000, guid: 577f2e76287827f43962b5010dc2f339, type: 3}
+  gruzMotherBurst: {fileID: 8300000, guid: af4ab5c4ee1f8f342a9284ce3c7d5d8d, type: 3}
+  bossDefeat: {fileID: 8300000, guid: 7c72c4ccea3a00d4eb3a4007c2a8ee8b, type: 3}
+  bossExplode: {fileID: 8300000, guid: 18f1c4572f807ee448d25f84e0a0d9ec, type: 3}
+  bossGushing: {fileID: 8300000, guid: 4be696f1655964e43af376318fca8d69, type: 3}
+  bossFinalHit: {fileID: 8300000, guid: 046b29c6a8b71e64c82e0c9181c97e58, type: 3}
 --- !u!1 &1688754384943870632
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +474,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 909032279
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 5328494650397765004, guid: 0f7d172e7461c3d41b07ce78ff048a1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
