@@ -18668,6 +18668,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6000853134006182788, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
+      propertyPath: WaterSplash
+      value: 
+      objectReference: {fileID: 8849211030984565028, guid: 6918b03a658ce3f4fa5cec6e9451bb0a, type: 3}
+    - target: {fileID: 6000853134006182788, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
       propertyPath: GruzMotherToForgottenCrossroads
       value: 
       objectReference: {fileID: 0}

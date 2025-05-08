@@ -11558,6 +11558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031d80e083e47dd499c15d6ad720e03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gruzMotherBGM:
+  - {fileID: 8300000, guid: d79394735521e184183d6370c7c6d946, type: 3}
   doorAudio: {fileID: 8300000, guid: 972a9cdd5860ea24c884c3fe0cbc3cc7, type: 3}
   doorClosePoint: {fileID: 1514058207}
   doorOpenPoint: {fileID: 1655726023}
