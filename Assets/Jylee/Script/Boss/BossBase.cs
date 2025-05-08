@@ -1,9 +1,6 @@
 using System.Collections;
 using Unity.Cinemachine;
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UIElements;
 
 public class BossBase : MonoBehaviour
 {

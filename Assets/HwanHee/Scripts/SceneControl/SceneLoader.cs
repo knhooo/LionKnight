@@ -1,6 +1,4 @@
-using Mono.Cecil.Cil;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class SceneLoader : MonoBehaviour
 {
