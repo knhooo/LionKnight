@@ -235,13 +235,11 @@ public class Player : MonoBehaviour
     {
         if (PlayerManager.instance.isAwake && SceneManager.GetActiveScene().name == "Dirtmouth")
         {
-            transform.position = benchPos.position;
             stateMachine.Initialize(awakeState);
             transform.position = new Vector3(0, 0.29f, 0);
         }
-        if(SceneManager.GetActiveScene().name == "DeveloperRoom")
+        else if(SceneManager.GetActiveScene().name == "DeveloperRoom")
         {
-            transform.position = benchPos2.position;
             stateMachine.Initialize(awakeState);
             transform.position = new Vector3(-0.04f, 0, 0);
         }

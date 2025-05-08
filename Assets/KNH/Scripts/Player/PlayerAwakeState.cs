@@ -16,7 +16,6 @@ public class PlayerAwakeState : PlayerState
     public override void Exit()
     {
         base.Exit();
-        PlayerManager.instance.isAwake = false;
     }
 
     public override void Update()
@@ -27,6 +26,7 @@ public class PlayerAwakeState : PlayerState
         {
             player.rb.bodyType = RigidbodyType2D.Dynamic;
             player.isOnBench = false;
+            PlayerManager.instance.isAwake = false;
             stateMachine.ChangeState(player.idleState);
         }
 
