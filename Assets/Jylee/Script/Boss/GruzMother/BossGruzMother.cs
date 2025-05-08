@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static UnityEngine.ParticleSystem;
 
 public class BossGruzMother : BossBase
 {
@@ -9,10 +11,12 @@ public class BossGruzMother : BossBase
     [Header("수치 관련")]
     public float bossSpeed;
     public float bossAttackDelay;
+    public int nextAttackType;
     public float xPower;
     public float yPower;
     public bool isUp;
     public float detectDelay;
+    public Vector2 cdSize;
 
     [Header("도움 닫기")]
     public float runUpSpeed;
@@ -26,16 +30,30 @@ public class BossGruzMother : BossBase
     [Header("슬램 공격")]
     public float slamXSpeed;
     public float slamYSpeed;
-    public int slamCount;
+    public float slamDuration;
+    public float slamDelay;
+
+    [Header("죽음 관련")]
+    public float dyingTime;
+    public float dieForceX;
+    public float dieForceY;
+    public float dieBoundForce;
+    public float deadFirstDelay;
+    public float gurgleDelay;
+    public int gurgleCount;
+    public float burstDelay;
 
     [Header("자폭")]
     public GameObject gruzPrefab;
     public int gruzSpawnCount;
+    public List<GameObject> gruzCheck;
 
     [Header("이펙트 관련")]
     public GameObject reboundEff;
 
     public Transform playerTransform;
+    public Collider2D attackColl;
+    public GameObject doorObj;
 
 
     // 적의 상태를 관리하는 상태 머신
@@ -47,6 +65,9 @@ public class BossGruzMother : BossBase
     public BossGruzMotherIdle idleState { get; private set; }
     public BossGruzMotherAttackCharge attackCharge { get; private set; }
     public BossGruzMotherAttackDash dashAttack { get; private set; }
+    public BossGruzMotherAttackSlam slamAttack { get; private set; }
+    public BossGruzMotherDying dyingState { get; private set; }
+    public BossGruzMotherDead deadState { get; private set; }
 
     private void Awake()
     {
@@ -57,6 +78,9 @@ public class BossGruzMother : BossBase
         idleState = new BossGruzMotherIdle(this, stateMachine, "IsIdle");
         attackCharge = new BossGruzMotherAttackCharge(this, stateMachine, "IsAttackReady");
         dashAttack = new BossGruzMotherAttackDash(this, stateMachine, "IsDashAttack");
+        slamAttack = new BossGruzMotherAttackSlam(this, stateMachine, "IsSlamAttack");
+        dyingState = new BossGruzMotherDying(this, stateMachine, "IsDying");
+        deadState = new BossGruzMotherDead(this, stateMachine, "IsDead");
     }
 
     protected override void Start()
@@ -65,7 +89,8 @@ public class BossGruzMother : BossBase
 
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
-        // 초기 상태를 대기 상태(idleState)로 설정
+
+        // 초기 상태를 대기 상태(sleepState)로 설정
         stateMachine.Initalize(sleepState);
 
         isSleep = true;
@@ -76,6 +101,35 @@ public class BossGruzMother : BossBase
         base.Update();
 
         stateMachine.currentState.Update();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            stateMachine.ChangeState(dyingState);
+        }
+    }
+
+    public void BossStartEvent()
+    {
+        if(doorObj != null)
+        {
+            doorObj.GetComponent<GruzMotherDoor>().StartCloseDoor();
+        }
+    }
+
+    public void BossDyingEvent()
+    {
+        if (doorObj != null)
+        {
+            BGMManager.instance.StopBGMFadeOut();
+        }
+    }
+
+    public void BossEndEvent()
+    {
+        if (doorObj != null)
+        {
+            doorObj.GetComponent<GruzMotherDoor>().StartOpenDoor();
+        }
     }
 
     protected override void BossCheckHealthPoint()
@@ -86,6 +140,10 @@ public class BossGruzMother : BossBase
         {
             isSleep = false;
             stateMachine.ChangeState(awakeState);
+        }
+        else if(currentHealthPoint <= 0)
+        {
+            stateMachine.ChangeState(dyingState);
         }
     }
 
@@ -124,5 +182,69 @@ public class BossGruzMother : BossBase
         float temp = Random.Range(1f, bossSpeed);
         xPower = facingLeft ? -temp : temp;
         yPower = isUp ? bossSpeed - temp : (bossSpeed - temp) * -1;
+    }
+
+    public void LandEffGenerate(int type)
+    {
+        Vector2 pos;
+        Quaternion rot;
+
+        if (type == 1)
+        {
+            pos = ceilCheck.position;
+            rot = Quaternion.Euler(0, 0, 180);
+        }
+        else if(type == 2)
+        {
+            pos = wallCheck.position;
+            rot = facingLeft ? Quaternion.Euler(0, 0, -90) : Quaternion.Euler(0, 0, 90);
+        }
+        else
+        {
+            pos = groundCheck.position;
+            rot = Quaternion.identity;
+        }
+
+        // 좌
+        Instantiate(reboundEff, pos, rot);
+
+        // 우
+        GameObject mirroEff = Instantiate(reboundEff, pos, rot);
+        Vector3 scale = mirroEff.transform.localScale;
+        scale.x *= -1;
+        mirroEff.transform.localScale = scale;
+    }
+
+    public void SelectGruzAttack()
+    {
+        nextAttackType = Random.Range(1, 3);
+    }
+
+    public void GenerateGruzBaby()
+    {
+        float yForce = 0f;
+        for(int i = 0; i < gruzSpawnCount; i++)
+        {
+            Vector2 vc = new Vector2(transform.position.x, transform.position.y + yForce);
+            GameObject obj = Instantiate(gruzPrefab, vc, Quaternion.identity);
+            gruzCheck.Add(obj);
+            if(i % 2 == 0)
+            {
+                yForce += 1f;
+            }
+        }
+    }
+
+    public bool GruzCheck()
+    {
+        gruzCheck.RemoveAll(minion => minion == null);
+        if (gruzCheck.Count == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

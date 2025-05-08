@@ -30,15 +30,13 @@ public class BossGruzMotherIdle : BossGruzMotherState
 
         if ((boss.IsGroundDetected() || boss.IsCeilDetected()) && upDownChangDelay <= 0)
         {
-            Debug.Log("asdasd1");
             upDownChangDelay = boss.detectDelay;
             boss.isUp = !boss.isUp;
             boss.BossFloatPowerChange();
         }
 
-        if (boss.IsWallDetected())
+        if (boss.IsWallDetected() && upDownChangDelay <= 0)
         {
-            Debug.Log("asdasd2");
             boss.ForcedFlip();
             boss.BossFloatPowerChange();
         }

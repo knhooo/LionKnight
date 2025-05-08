@@ -11,6 +11,7 @@ public class BossGruzMotherAttackCharge : BossGruzMotherState
         base.Enter();
 
         boss.BossFlip(true);
+        boss.SelectGruzAttack();
     }
 
     public override void Update()
@@ -22,7 +23,14 @@ public class BossGruzMotherAttackCharge : BossGruzMotherState
 
         if (triggerCalled)
         {
-            boss.stateMachine.ChangeState(boss.dashAttack);
+            if(boss.nextAttackType == 1)
+            {
+                boss.stateMachine.ChangeState(boss.dashAttack);
+            }
+            else if(boss.nextAttackType == 2)
+            {
+                boss.stateMachine.ChangeState(boss.slamAttack);
+            }
         }
     }
 

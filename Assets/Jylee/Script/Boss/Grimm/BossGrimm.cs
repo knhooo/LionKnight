@@ -741,7 +741,7 @@ public class BossGrimm : BossBase
         float distance = isRight ? 10f : -10f;
 
         //Vector2 startPos = bulletHellPos.position;
-        Vector2 startPos = new Vector2(bulletHellPos.position.x, bulletHellPos.position.y); ;
+        Vector2 startPos = new Vector2(teleportEffTransform.position.x, teleportEffTransform.position.y); ;
 
         Vector2 targetPos = new Vector2(startPos.x + distance, targetY); // 오른쪽 방향 + y 목표
 
