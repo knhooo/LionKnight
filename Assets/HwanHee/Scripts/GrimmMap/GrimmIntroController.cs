@@ -7,7 +7,7 @@ using UnityEngine;
 
 public enum CinematicStep
 {
-    None, Intro1, Intro2, Intro3, FinalIntro_UI, HalfHP, Outro1, Outro2, Outro3, Outro4, FinalOutro
+    None, Intro1, Intro2, Intro3, FinalIntro_UI, HalfHP, Outro1, Outro2, Outro3, Outro4, FinalOutro, LoadDevRoom
 }
 
 public class GrimmIntroController : MonoBehaviour
@@ -143,6 +143,11 @@ public class GrimmIntroController : MonoBehaviour
     [SerializeField] public float burstAudioLoopFadeOutDuration = 0.5f;
     [SerializeField] public float outroSilhouetteFadeOutDuration = 0.5f;
 
+    [Space]
+    [Header("개발자의방으로")]
+    [SerializeField] public float devRoomLoadDelay = 2f;
+    [SerializeField] public AudioClip[] devRoomBGM;
+
 
     [HideInInspector] public Player player;
     [HideInInspector] public Vector3 destination;
@@ -161,6 +166,7 @@ public class GrimmIntroController : MonoBehaviour
     private GrimmOutroStep3 grimmOutroStep3;
     private GrimmOutroStep4 grimmOutroStep4;
     private FinalGrimmOutroStep finalGrimmOutro;
+    private LoadDeveloperRoom loadDevRoom;
 
     private float bossGroundY;
 
@@ -181,6 +187,7 @@ public class GrimmIntroController : MonoBehaviour
         grimmOutroStep3 = new GrimmOutroStep3(this);
         grimmOutroStep4 = new GrimmOutroStep4(this);
         finalGrimmOutro = new FinalGrimmOutroStep(this);
+        loadDevRoom = new LoadDeveloperRoom(this);
 
         currentIntroStep = grimmIntroStep1;
     }
@@ -352,6 +359,9 @@ public class GrimmIntroController : MonoBehaviour
                 break;
             case CinematicStep.FinalOutro:
                 currentIntroStep = finalGrimmOutro;
+                break;
+            case CinematicStep.LoadDevRoom:
+                currentIntroStep = loadDevRoom;
                 break;
         }
         StartCoroutine(StartNextStep(delayTime));
