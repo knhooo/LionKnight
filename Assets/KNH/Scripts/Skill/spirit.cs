@@ -21,6 +21,10 @@ public class spirit : MonoBehaviour
             Vector2 knockbackDir = (collision.transform.position - transform.position).normalized;
             collision.GetComponent<HuskBullyController>().TakeDamage(PlayerManager.instance.player.attackPower, knockbackDir * 3);
         }
+        if (collision.GetComponent<EnemyGruz>() != null)
+        {
+            collision.GetComponent<EnemyGruz>().EnemyTakeDamage(PlayerManager.instance.player.attackPower);
+        }
     }
     private void OnBecameInvisible()
     {

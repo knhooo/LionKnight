@@ -100,6 +100,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform GrimmToStagStation;
     [SerializeField] private Transform GruzMotherToForgottenCrossroads;
     [SerializeField] public Transform benchPos;
+    [SerializeField] public Transform benchPos2;
 
     [Header("물 튀기기")]
     [SerializeField] public GameObject WaterSplash;
@@ -109,6 +110,7 @@ public class Player : MonoBehaviour
     public bool isOnBench = false;
     public bool isRidingLift = false;
     public bool isInIntro = false;
+    public bool isDialog = false;
 
     private Coroutine flashRoutine;
     public PlayerSoundClip soundClip => GetComponentInParent<PlayerSoundClip>();
@@ -235,6 +237,11 @@ public class Player : MonoBehaviour
         {
             stateMachine.Initialize(awakeState);
             transform.position = new Vector3(0, 0.29f, 0);
+        }
+        else if(SceneManager.GetActiveScene().name == "DeveloperRoom")
+        {
+            stateMachine.Initialize(awakeState);
+            transform.position = new Vector3(-0.04f, 0, 0);
         }
         else stateMachine.Initialize(idleState);
     }

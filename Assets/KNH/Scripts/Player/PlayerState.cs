@@ -35,10 +35,13 @@ public class PlayerState
 
         player.anim.SetFloat("HP", player.playerData.hp);
 
-        xInput = Input.GetAxisRaw("Horizontal");
-        yInput = Input.GetAxisRaw("Vertical");
-        player.anim.SetFloat("yInput", yInput);
-        player.anim.SetFloat("yVelocity", rb.linearVelocityY);
+        if (!player.isDialog)
+        {
+            xInput = Input.GetAxisRaw("Horizontal");
+            yInput = Input.GetAxisRaw("Vertical");
+            player.anim.SetFloat("yInput", yInput);
+            player.anim.SetFloat("yVelocity", rb.linearVelocityY);
+        }
     }
 
     public virtual void Exit()

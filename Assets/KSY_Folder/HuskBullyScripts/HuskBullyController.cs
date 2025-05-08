@@ -289,5 +289,6 @@ public class HuskBullyController : MonoBehaviour
         for (int i = 0; i < geoCount; i++)
         {
             Geo geo = PoolManager.instance.Spawn(PoolType.Geo, transform.position, Quaternion.identity).GetComponent<Geo>();
+        }
     }
 }
