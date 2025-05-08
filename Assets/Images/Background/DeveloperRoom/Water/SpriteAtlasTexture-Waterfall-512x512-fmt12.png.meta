@@ -146,6 +146,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -360,7 +386,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SpriteAtlasTexture-Waterfall-512x512-fmt12_0: -758691642862691706
+      SpriteAtlasTexture-Waterfall-512x512-fmt12_1: 8148653177860208462
+      SpriteAtlasTexture-Waterfall-512x512-fmt12_2: 2061548136840795489
+      SpriteAtlasTexture-Waterfall-512x512-fmt12_3: -1601608243742901703
+      SpriteAtlasTexture-Waterfall-512x512-fmt12_4: -1291221192189992686
+      SpriteAtlasTexture-Waterfall-512x512-fmt12_5: -2126544332069916589
+      SpriteAtlasTexture-Waterfall-512x512-fmt12_6: 8700122512339854923
+      SpriteAtlasTexture-Waterfall-512x512-fmt12_7: 8995608992477465768
+      SpriteAtlasTexture-Waterfall-512x512-fmt12_8: -8942259532408936845
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -109,6 +109,7 @@ public class Player : MonoBehaviour
     public bool isOnBench = false;
     public bool isRidingLift = false;
     public bool isInIntro = false;
+    public bool isDialog = false;
 
     private Coroutine flashRoutine;
     public PlayerSoundClip soundClip => GetComponentInParent<PlayerSoundClip>();

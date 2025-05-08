@@ -25,78 +25,80 @@ public class PlayerGroundState : PlayerState
         if (!player.IsGroundDetected())
             stateMachine.ChangeState(player.airState);
 
-        //Bench
-        if (player.IsNearBench() && Input.GetKey(KeyCode.UpArrow))
+        if (!player.isDialog)
         {
-            if (PlayerManager.instance.isAwake)
+            //Bench
+            if (player.IsNearBench() && Input.GetKey(KeyCode.UpArrow))
             {
-                stateMachine.ChangeState(player.awakeState);//처음 시작할 때
+                if (PlayerManager.instance.isAwake)
+                {
+                    stateMachine.ChangeState(player.awakeState);//처음 시작할 때
+                }
+                else
+                {
+                    player.soundClip.PlayerSoundOneShot(0);
+                    stateMachine.ChangeState(player.saveState);//중간 저장할 때
+                }
             }
-            else
+
+            //Jump
+            if (Input.GetKeyDown(KeyCode.Z) && player.IsGroundDetected())
+                stateMachine.ChangeState(player.jumpState);
+
+            if (Input.GetKeyDown(KeyCode.UpArrow) && player.IsNearBench() == null)
             {
-                player.soundClip.PlayerSoundOneShot(0);
-                stateMachine.ChangeState(player.saveState);//중간 저장할 때
+                if (Input.GetKey(KeyCode.A))
+                    stateMachine.ChangeState(player.howlingState);
+                stateMachine.ChangeState(player.lookUpState);
             }
-        }
 
-        //Jump
-        if (Input.GetKeyDown(KeyCode.Z) && player.IsGroundDetected())
-            stateMachine.ChangeState(player.jumpState);
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                stateMachine.ChangeState(player.lookDownState);
+            }
+            //Attack
+            if (Input.GetKeyDown(KeyCode.X))
+                stateMachine.ChangeState(player.primaryAttack);
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && player.IsNearBench() == null)
-        {
-            if (Input.GetKey(KeyCode.A))
-                stateMachine.ChangeState(player.howlingState);
-            stateMachine.ChangeState(player.lookUpState);
-        }
+            //UpAttack
+            if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow))
+                stateMachine.ChangeState(player.upAttack);
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            stateMachine.ChangeState(player.lookDownState);
-        }
-        //Attack
-        if (Input.GetKeyDown(KeyCode.X))
-            stateMachine.ChangeState(player.primaryAttack);
+            //주문
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                aKeyHoldTime = 0f;
+                isAHolding = true;
+            }
 
-        //UpAttack
-        if (Input.GetKeyDown(KeyCode.X) && Input.GetKey(KeyCode.UpArrow))
-            stateMachine.ChangeState(player.upAttack);
+            // A 키를 누르고 있는 중
+            if (isAHolding && Input.GetKey(KeyCode.A))
+            {
+                aKeyHoldTime += Time.deltaTime;
 
-        //주문
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            aKeyHoldTime = 0f;
-            isAHolding = true;
-        }
+                if (aKeyHoldTime >= 0.2f && player.playerData.mp >= 33)
+                {
+                    isAHolding = false;
+                    stateMachine.ChangeState(player.focusState);
+                }
+            }
 
-        // A 키를 누르고 있는 중
-        if (isAHolding && Input.GetKey(KeyCode.A))
-        {
-            aKeyHoldTime += Time.deltaTime;
+            if (isAHolding && Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if (player.playerData.mp >= 33)
+                    stateMachine.ChangeState(player.howlingState);
+            }
 
-            if (aKeyHoldTime >= 0.2f && player.playerData.mp >= 33)
+            // A 키를 뗐을 때
+            if (isAHolding && Input.GetKeyUp(KeyCode.A))
             {
                 isAHolding = false;
-                stateMachine.ChangeState(player.focusState);
+
+                if (player.playerData.mp >= 33)
+                {
+                    stateMachine.ChangeState(player.spiritState);
+                }
             }
         }
-
-        if (isAHolding && Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (player.playerData.mp >= 33)
-                stateMachine.ChangeState(player.howlingState);
-        }
-
-        // A 키를 뗐을 때
-        if (isAHolding && Input.GetKeyUp(KeyCode.A))
-        {
-            isAHolding = false;
-
-            if (player.playerData.mp >= 33)
-            {
-                stateMachine.ChangeState(player.spiritState);
-            }
-        }
-
     }
 }

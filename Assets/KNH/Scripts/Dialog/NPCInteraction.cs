@@ -1,13 +1,23 @@
 using UnityEngine;
 
-public class InteractionController : MonoBehaviour
+public class NPCInteraction : MonoBehaviour
 {
     [SerializeField] private GameObject triggerUI;
+    [SerializeField] private Player player;
 
+    private void Update()
+    {
+        if (player)
+        {
+            if (player.isDialog)
+                triggerUI.SetActive(false);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Player>() != null)
         {
+            player = collision.GetComponent<Player>();
             triggerUI.SetActive(true);
         }
     }
