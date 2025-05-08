@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Diagnostics;
 using Unity.Cinemachine;
-using UnityEditor.EditorTools;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public enum CinematicStep
