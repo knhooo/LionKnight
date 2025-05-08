@@ -33,6 +33,7 @@ public class EnemyGruz : MonoBehaviour
     private bool hasBounced;
     private float dyingDuration;
     private int stateType;
+    private float deadAbsolute;
 
     public EnemyFx fx { get; private set; }
 
@@ -47,7 +48,8 @@ public class EnemyGruz : MonoBehaviour
         hasBounced = false;
         currentHp = maxHp;
         stateType = 1;
-        if(Random.Range(1, 3) == 1)
+        deadAbsolute = 10f;
+        if (Random.Range(1, 3) == 1)
         {
             ForcedFlip();
         }
@@ -77,7 +79,7 @@ public class EnemyGruz : MonoBehaviour
         else if(stateType == 2)
         {
             dyingDuration -= Time.deltaTime;
-
+            deadAbsolute -= Time.deltaTime;
             if (IsGroundDetected() && dyingDuration <= 0)
             {
                 if (!hasBounced)
@@ -93,6 +95,14 @@ public class EnemyGruz : MonoBehaviour
                     anim.SetTrigger("IsDead");
                     stateType = 3;
                 }
+            }
+
+            if (deadAbsolute <= 0)
+            {
+                rb.linearVelocity = Vector2.zero;
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                anim.SetTrigger("IsDead");
+                stateType = 3;
             }
         }
 

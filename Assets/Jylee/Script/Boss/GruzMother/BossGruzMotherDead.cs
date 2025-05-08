@@ -35,6 +35,7 @@ public class BossGruzMotherDead : BossGruzMotherState
                 stateType = 2;
                 boss.anim.SetTrigger("IsGurgle");
                 gurgleCount += 1;
+                boss.BossGurgleSound();
             }
         }
         else if (stateType == 2)
@@ -47,11 +48,14 @@ public class BossGruzMotherDead : BossGruzMotherState
                 {
                     boss.anim.SetTrigger("IsBurstImm");
                     stateType = 3;
+                    boss.BossGurgleSound();
+                    boss.Invoke("BossBurstSound", 1.2f);
                 }
                 else
                 {
                     boss.anim.SetTrigger("IsGurgle");
                     gurgleCount += 1;
+                    boss.BossGurgleSound();
                 }
             }
         }

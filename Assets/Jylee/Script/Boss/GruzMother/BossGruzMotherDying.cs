@@ -15,10 +15,12 @@ public class BossGruzMotherDying : BossGruzMotherState
 
         dyingDuration = boss.dyingTime;
         stateType = 1;
-        boss.attackColl.GetComponent<Collider2D>().enabled = false;
-        boss.SetZeroVelocity();
-        boss.isInvincible = true;
         hasBounced = false;
+        boss.BossGushingSound();
+        if (boss.doorObj != null)
+        {
+            BGMManager.instance.StopBGMFadeOut();
+        }
     }
 
     public override void Update()
@@ -28,7 +30,6 @@ public class BossGruzMotherDying : BossGruzMotherState
         dyingDuration -= Time.deltaTime;
         if(dyingDuration <= 0 && stateType == 1)
         {
-            Debug.Log("AAAAA");
             stateType = 2;
             boss.anim.SetBool("IsFail", true);
             boss.rb.bodyType = RigidbodyType2D.Dynamic;
