@@ -1,0 +1,480 @@
+fileFormatVersion: 2
+guid: 8b439a79bdb3d9d45ad2c65ff282b2d6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2447994297660547512
+    second: 132736_0
+  - first:
+      213: -771183171693567540
+    second: 132736_1
+  - first:
+      213: -7945197695553100511
+    second: 132736_2
+  - first:
+      213: -3971006723409926398
+    second: 132736_3
+  - first:
+      213: 5005778460970957038
+    second: 132736_4
+  - first:
+      213: 840472803461165339
+    second: 132736_5
+  - first:
+      213: -8161293778807386817
+    second: 132736_6
+  - first:
+      213: -401371170381087473
+    second: 132736_7
+  - first:
+      213: -5984490162122133126
+    second: 132736_8
+  - first:
+      213: -8927514133118914671
+    second: 132736_9
+  - first:
+      213: -6504131071522333389
+    second: 132736_10
+  - first:
+      213: 5626214691384013004
+    second: 132736_11
+  - first:
+      213: -113983290898085475
+    second: 132736_12
+  - first:
+      213: -5987232232216301300
+    second: 132736_13
+  - first:
+      213: -5370925242766367371
+    second: 132736_14
+  - first:
+      213: 3762632553893609549
+    second: 132736_15
+  - first:
+      213: 8581852170926181445
+    second: 132736_16
+  - first:
+      213: 584706049209473948
+    second: 132736_17
+  - first:
+      213: 1680159318402153346
+    second: 132736_18
+  - first:
+      213: 175188571946768901
+    second: 132736_19
+  - first:
+      213: -7768052858777546302
+    second: 132736_20
+  - first:
+      213: 4914000547661664036
+    second: 132736_21
+  - first:
+      213: -340149403034051932
+    second: 132736_22
+  - first:
+      213: -8383558505835529355
+    second: 132736_23
+  - first:
+      213: -2848419855981301244
+    second: 132736_24
+  - first:
+      213: 7279255045486275525
+    second: 132736_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Gruz_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 244
+        width: 84
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1252e469accfcb190800000000000000
+      internalID: -7945197695553100511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gruz_1
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 249
+        width: 80
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 207a672ac6624e8c0800000000000000
+      internalID: -3971006723409926398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gruz_2
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 239
+        width: 84
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee8b97e0df8187540800000000000000
+      internalID: 5005778460970957038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gruz_3
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 236
+        width: 82
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b11fdadcf85f9ab00800000000000000
+      internalID: 840472803461165339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gruz_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 125
+        width: 71
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc0370ee374541e40800000000000000
+      internalID: 5626214691384013004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gruz_5
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 126
+        width: 84
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9980b30dcc0b6ef0800000000000000
+      internalID: -113983290898085475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gruz_6
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 18
+        width: 104
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d40462b5f5e873430800000000000000
+      internalID: 3762632553893609549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gruz_7
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 12
+        width: 113
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ebd0cbe744f3854e8a2ee7a5360f8d3
+      internalID: -2447994297660547512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gruz_8
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 4
+        width: 113
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6efd29da68f7c3b43beb6a8afe3066b1
+      internalID: -771183171693567540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gruz_9
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 3
+        width: 100
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c24a744752db98f40aff2702782e3817
+      internalID: -8161293778807386817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a140f56b7bd50394a820034fad15ad6f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      132736_10: -6504131071522333389
+      132736_13: -5987232232216301300
+      132736_14: -5370925242766367371
+      132736_16: 8581852170926181445
+      132736_17: 584706049209473948
+      132736_18: 1680159318402153346
+      132736_19: 175188571946768901
+      132736_20: -7768052858777546302
+      132736_21: 4914000547661664036
+      132736_22: -340149403034051932
+      132736_23: -8383558505835529355
+      132736_24: -2848419855981301244
+      132736_25: 7279255045486275525
+      132736_7: -401371170381087473
+      132736_8: -5984490162122133126
+      132736_9: -8927514133118914671
+      Gruz_0: -7945197695553100511
+      Gruz_1: -3971006723409926398
+      Gruz_2: 5005778460970957038
+      Gruz_3: 840472803461165339
+      Gruz_4: 5626214691384013004
+      Gruz_5: -113983290898085475
+      Gruz_6: 3762632553893609549
+      Gruz_7: -2447994297660547512
+      Gruz_8: -771183171693567540
+      Gruz_9: -8161293778807386817
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

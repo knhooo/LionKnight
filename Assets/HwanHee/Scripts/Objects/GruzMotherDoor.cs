@@ -18,25 +18,6 @@ public class GruzMotherDoor : MonoBehaviour
         originBGM[0] = BGMManager.instance.audioSources[0].clip;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (Vector2.Distance(transform.position, doorClosePoint.position) < 0.1f)
-            {
-                StartOpenDoor();
-            }
-            else
-            {
-                StartCloseDoor();
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            BGMManager.instance.StopBGMFadeOut();
-        }
-    }
-
     public void StartCloseDoor()
     {
         BGMManager.instance.SetBGM(gruzMotherBGM, 0f, 1f);

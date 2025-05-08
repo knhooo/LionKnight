@@ -43,7 +43,6 @@ public class HuskBullyController : MonoBehaviour
     private bool hasTurnedRecently = false;
     private int currentHealth;
     private HuskBullyHitbox hitbox;
-    [SerializeField] private GameObject geoPrefab;
     [SerializeField] private int geoCount = 5;
 
     private void Start()
@@ -289,10 +288,6 @@ public class HuskBullyController : MonoBehaviour
     {
         for (int i = 0; i < geoCount; i++)
         {
-            Geo geo = PoolManager.instance.Spawn(PoolType.Geo, geoPrefab, transform.position, Quaternion.identity).GetComponent<Geo>();
-        }
-
+            Geo geo = PoolManager.instance.Spawn(PoolType.Geo, transform.position, Quaternion.identity).GetComponent<Geo>();
     }
-
-       
 }

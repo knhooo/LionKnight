@@ -247,7 +247,7 @@ Transform:
   m_GameObject: {fileID: 241720812}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.22, y: -0.0123, z: 0}
+  m_LocalPosition: {x: 8.1, y: -0.0123, z: 0}
   m_LocalScale: {x: 1, y: 7.6052275, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -387,16 +387,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &382316353 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3038000124348448086, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-  m_PrefabInstance: {fileID: 1365146266}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &456092827 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7547665290745031387, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-  m_PrefabInstance: {fileID: 1365146266}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &779408431
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +637,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 998213557644714003, guid: 2ad06dbe1867776478022691900a913c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.24
+      value: 3.46
       objectReference: {fileID: 0}
     - target: {fileID: 998213557644714003, guid: 2ad06dbe1867776478022691900a913c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -689,69 +679,57 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss_GruzMother
       objectReference: {fileID: 0}
-    - target: {fileID: 4178323983342303569, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.266
-      objectReference: {fileID: 0}
-    - target: {fileID: 7673292743469929148, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: m_Size.x
-      value: 2.1000414
-      objectReference: {fileID: 0}
-    - target: {fileID: 7673292743469929148, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.057733476
-      objectReference: {fileID: 0}
-    - target: {fileID: 7673292743469929148, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.35151553
-      objectReference: {fileID: 0}
-    - target: {fileID: 7845193250948769182, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: bossSpeed
+      propertyPath: dieForceX
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: ceilCheck
-      value: 
-      objectReference: {fileID: 456092827}
-    - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: dashSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: wallCheck
-      value: 
-      objectReference: {fileID: 382316353}
-    - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: runUpSpeed
+      propertyPath: dieForceY
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: detectDelay
+      propertyPath: dyingTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
+      propertyPath: slamDelay
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: dashDuration
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: dashReboundSpeed
+      propertyPath: burstDelay
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: ceilCheckDistance
-      value: 0.3
+      propertyPath: gruzPrefab
+      value: 
+      objectReference: {fileID: 8618888271263854399, guid: db17e72ad09100f44af522b2e3d0db7e, type: 3}
+    - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
+      propertyPath: slamXSpeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: wallCheckDistance
-      value: 0.3
+      propertyPath: slamYSpeed
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
-      propertyPath: groundCheckDistance
-      value: 0.3
+      propertyPath: gurgleCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
+      propertyPath: gurgleDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
+      propertyPath: slamDuration
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
+      propertyPath: dieBoundForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
+      propertyPath: deadFirstDelay
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1261,6 +1239,7 @@ MonoBehaviour:
   cooldown: 0
   spiritPrefab: {fileID: 4157484365331445197, guid: 9e8f354b51763364eaffed2b8a44b4c1, type: 3}
   spiritSpeed: 20
+  spirit_effect: {fileID: 0}
 --- !u!114 &2103078601
 MonoBehaviour:
   m_ObjectHideFlags: 0
