@@ -31,7 +31,10 @@ public class PoolManager : Singleton<PoolManager>
 
         poolDict = new Dictionary<PoolType, Queue<GameObject>>();
         poolPrefab = new Dictionary<PoolType, GameObject>();
+    }
 
+    private void Start()
+    {
         Create();
     }
 
@@ -39,7 +42,7 @@ public class PoolManager : Singleton<PoolManager>
     {
         foreach (Pool pool in pools)
         {
-            if (pool.type == PoolType.GeoEffect)
+            if (pool.type == PoolType.BrokenParticle)
             {
                 int a = 0;
             }
@@ -73,7 +76,10 @@ public class PoolManager : Singleton<PoolManager>
         }
         else
         {
-            obj = Instantiate(poolPrefab[type], transform);
+            Queue<GameObject> queue = new Queue<GameObject>();
+            obj = Instantiate(poolPrefab[type], position, Quaternion.identity);
+            poolDict[type].Enqueue(obj);
+            poolDict[type].Dequeue();
         }
 
         obj.transform.SetPositionAndRotation(position, rotation);
