@@ -23312,6 +23312,7 @@ MonoBehaviour:
   cooldown: 0
   spiritPrefab: {fileID: 4157484365331445197, guid: 9e8f354b51763364eaffed2b8a44b4c1, type: 3}
   spiritSpeed: 20
+  spirit_effect: {fileID: 0}
 --- !u!114 &1948109735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24038,7 +24039,10 @@ MonoBehaviour:
   finalOutroStartDelay: 1
   burstAudioLoopFadeOutDuration: 0.5
   outroSilhouetteFadeOutDuration: 0.5
-  grimmParticle: {fileID: 291386456326822676, guid: 652654e0ac2578143a212b603e32f1dc, type: 3}
+  devRoomLoadDelay: 5
+  devRoomBGM:
+  - {fileID: 8300000, guid: 189dc6c2fbe472f46b48301e79dee092, type: 3}
+  - {fileID: 8300000, guid: 809aa1bc8bf569b4ab3e2bee508a13bd, type: 3}
   player: {fileID: 0}
   destination: {x: 0, y: 0, z: 0}
   isBossStart: 0
