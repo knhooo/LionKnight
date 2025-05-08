@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GruzMotherDoor : MonoBehaviour
 {
+    [SerializeField] AudioClip[] gruzMotherBGM;
     [SerializeField] AudioClip doorAudio;
     [SerializeField] Transform doorClosePoint;
     [SerializeField] Transform doorOpenPoint;
@@ -10,6 +11,12 @@ public class GruzMotherDoor : MonoBehaviour
     [SerializeField] GameObject[] doorOpenEffect;
 
     [SerializeField] float doorSpeed = 5f;
+    private AudioClip[] originBGM = new AudioClip[1];
+
+    private void Start()
+    {
+        originBGM[0] = BGMManager.instance.audioSources[0].clip;
+    }
 
     private void Update()
     {
@@ -24,22 +31,18 @@ public class GruzMotherDoor : MonoBehaviour
                 StartCloseDoor();
             }
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            BGMManager.instance.StopBGMFadeOut();
+        }
     }
 
     public void StartCloseDoor()
     {
+        BGMManager.instance.SetBGM(gruzMotherBGM, 0f, 1f);
+        BGMManager.instance.ChangeBGM(0, false);
+
         StartCoroutine(CloseDoor());
-    }
-
-    public void StartOpenDoor()
-    {
-        SoundManager.Instance.audioSource.PlayOneShot(doorAudio);
-        for (int i = 0; i < 2; i++)
-        {
-            doorOpenEffect[i].SetActive(true);
-        }
-
-        StartCoroutine(OpenDoor());
     }
 
     private IEnumerator CloseDoor()
@@ -51,6 +54,21 @@ public class GruzMotherDoor : MonoBehaviour
         }
         SoundManager.Instance.audioSource.PlayOneShot(doorAudio);
         doorCloseEffect.gameObject.SetActive(true);
+    }
+
+    public void StartOpenDoor()
+    {
+        BGMManager.instance.SetBGM(originBGM, 0f, 1f);
+        BGMManager.instance.ChangeBGM(0, true);
+
+        SoundManager.Instance.audioSource.PlayOneShot(doorAudio);
+
+        for (int i = 0; i < 2; i++)
+        {
+            doorOpenEffect[i].SetActive(true);
+        }
+
+        StartCoroutine(OpenDoor());
     }
 
     private IEnumerator OpenDoor()
