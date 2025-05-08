@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -17,6 +18,7 @@ public class BossGruzMother : BossBase
     public bool isUp;
     public float detectDelay;
     public Vector2 cdSize;
+    public bool isDead;
 
     [Header("도움 닫기")]
     public float runUpSpeed;
@@ -55,6 +57,8 @@ public class BossGruzMother : BossBase
     public Collider2D attackColl;
     public GameObject doorObj;
 
+    private BossGruzMotherSoundClip soundClip;
+
 
     // 적의 상태를 관리하는 상태 머신
     public BossGruzMotherStateMachine stateMachine { get; private set; }
@@ -88,12 +92,13 @@ public class BossGruzMother : BossBase
         base.Start();
 
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-
+        soundClip = GetComponent<BossGruzMotherSoundClip>();
 
         // 초기 상태를 대기 상태(sleepState)로 설정
         stateMachine.Initalize(sleepState);
 
         isSleep = true;
+        isDead = false;
     }
 
     protected override void Update()
@@ -104,7 +109,7 @@ public class BossGruzMother : BossBase
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            stateMachine.ChangeState(dyingState);
+            BossTakeDamage(100);
         }
     }
 
@@ -118,10 +123,8 @@ public class BossGruzMother : BossBase
 
     public void BossDyingEvent()
     {
-        if (doorObj != null)
-        {
-            BGMManager.instance.StopBGMFadeOut();
-        }
+        BossExplodeSound();
+        BossDefeatSound();
     }
 
     public void BossEndEvent()
@@ -143,8 +146,20 @@ public class BossGruzMother : BossBase
         }
         else if(currentHealthPoint <= 0)
         {
-            stateMachine.ChangeState(dyingState);
+            BossFinalHitSound();
+            stateMachine.ChangeState(idleState);
+            attackColl.GetComponent<Collider2D>().enabled = false;
+            SetZeroVelocity();
+            isInvincible = true;
+            isDead = true;
+            StartCoroutine("BossDefeatEvent");
         }
+    }
+
+    IEnumerator BossDefeatEvent()
+    {
+        yield return new WaitForSeconds(0.5f);
+        stateMachine.ChangeState(dyingState);
     }
 
     public void ForcedFlip()
@@ -246,5 +261,40 @@ public class BossGruzMother : BossBase
         {
             return false;
         }
+    }
+
+    public void BossWallCrashSound()
+    {
+        soundClip.GruzMotherWallCrash();
+    }
+
+    public void BossGurgleSound()
+    {
+        soundClip.GruzMotherGrugle();
+    }
+
+    public void BossBurstSound()
+    {
+        soundClip.GruzMotherBurst();
+    }
+
+    public void BossDefeatSound()
+    {
+        soundClip.BossDefeat();
+    }
+
+    public void BossGushingSound()
+    {
+        soundClip.BossGushing();
+    }
+
+    public void BossExplodeSound()
+    {
+        soundClip.BossExplode();
+    }
+
+    public void BossFinalHitSound()
+    {
+        soundClip.BossFinalHit();
     }
 }
