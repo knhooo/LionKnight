@@ -12,6 +12,10 @@ public class EnemyFx : MonoBehaviour
     void Start()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
+        if(sr == null)
+        {
+            sr = GetComponent<SpriteRenderer>();
+        }
         originMat = sr.material;
     }
 

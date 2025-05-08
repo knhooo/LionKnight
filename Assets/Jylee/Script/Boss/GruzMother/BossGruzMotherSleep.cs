@@ -19,5 +19,9 @@ public class BossGruzMotherSleep : BossGruzMotherState
     public override void Exit()
     {
         base.Exit();
+        boss.cd.offset = Vector2.zero;
+        boss.GetComponent<BoxCollider2D>().size = boss.cdSize;
+        boss.attackColl.enabled = true;
+        boss.BossStartEvent();
     }
 }

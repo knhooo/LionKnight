@@ -37,16 +37,19 @@ public class BossGruzMotherAttackDash : BossGruzMotherState
             {
                 rb.linearVelocity = new Vector2(-rb.linearVelocity.x, rb.linearVelocity.y).normalized * boss.dashReboundSpeed;
                 stateType = 2;
+                boss.LandEffGenerate(2);
             }
             if (boss.IsGroundDetected() && reboundInvulTime <= 0)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Abs(rb.linearVelocity.y)).normalized * boss.dashReboundSpeed;
                 stateType = 2;
+                boss.LandEffGenerate(3);
             }
             if (boss.IsCeilDetected() && reboundInvulTime <= 0)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, -Mathf.Abs(rb.linearVelocity.y)).normalized * boss.dashReboundSpeed;
                 stateType = 2;
+                boss.LandEffGenerate(1);
             }
 
             if(stateType == 2)
