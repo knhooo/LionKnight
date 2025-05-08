@@ -6,8 +6,15 @@ public class InGameOpt : MonoBehaviour
 {
 
     public GameObject opt;
+    public GameObject savecheck;
+    public GameObject setOpt;
 
     private void Update()
+    {
+        Resume();
+    }
+
+    public void Resume()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -23,8 +30,24 @@ public class InGameOpt : MonoBehaviour
             }
         }
     }
+
+    public void Optionbtt()
+    {
+        opt.gameObject.SetActive(false);
+        setOpt.gameObject.SetActive(true);
+    }
     public void BacktoTitle()
     {
         SceneManager.LoadScene("mainTitle");
+    }
+
+    public void SaveCheck()
+    {
+        if (savecheck != null)
+        {
+            opt.gameObject.SetActive(false);
+            savecheck.gameObject.SetActive(true);
+        }
+
     }
 }

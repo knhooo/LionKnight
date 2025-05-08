@@ -10,7 +10,8 @@ public class optionManage : MonoBehaviour
     public GameObject load;
     public GameObject complete;
     public GameObject setting;
-    
+    public string sceneName;
+
     [Header("Credit")]
     public VideoPlayer credit;
     public GameObject creditUI;
@@ -26,23 +27,7 @@ public class optionManage : MonoBehaviour
     {
         credit.loopPointReached += OnCreditVideoEnd;
         credit.isLooping = false;
-
-        //foreach (Button button in buttons)
-        //{
-        //    button.onClick.AddListener(() => SpawnPrefab(button));
-        //}
     }
-    //public void SpawnPrefab(Button clickedButton)
-    //{
-    //    if (curButton != null)
-    //    {
-    //        Destroy(curButton);
-    //    }
-    //    if (prefab != null && select != null)
-    //    {
-    //        curButton = Instantiate(prefab, select.position, select.rotation);
-    //    }
-    //}
 
     public void StartGame()
     {
@@ -50,18 +35,18 @@ public class optionManage : MonoBehaviour
         load.gameObject.SetActive(true);
     }
 
-    public void LoadGame()
+    public void NewGame()
     {
         load.gameObject.SetActive(false);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("InGame");
+        SceneManager.LoadScene(sceneName);
     }
 
-    public void SetingON()
+    public void SettingON()
     {
         main.gameObject.SetActive(false);
         setting.gameObject.SetActive(true);
     }
-    public void SetingOFF()
+    public void SettingOFF()
     {
         main.gameObject.SetActive(true);
         setting.gameObject.SetActive(false);
