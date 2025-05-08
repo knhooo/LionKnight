@@ -9,6 +9,7 @@ public class DataManager : Singleton<DataManager>
 
     private Player player;
     private Lift lift;
+    public string saveFiles = "test";
 
     public void RegisterPlayer(Player _player) => player = _player;
     public void RegisterLift(Lift _lift) => lift = _lift;
@@ -21,7 +22,7 @@ public class DataManager : Singleton<DataManager>
 
     private void PrepareSaveDirectory()
     {
-        path = Application.dataPath + "/../Saves/";
+        path = Path.Combine(Application.dataPath, "..", "Saves", saveFiles);
 
         if (!Directory.Exists(path))
         {
