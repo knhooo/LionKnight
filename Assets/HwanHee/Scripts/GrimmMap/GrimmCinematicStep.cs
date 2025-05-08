@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GrimmCinematicStep
 {
@@ -303,5 +304,27 @@ public class FinalGrimmOutroStep : GrimmCinematicStep
         {
             grimmPulsate.StopPulsate();
         }
+        NextStep();
+    }
+
+    public override void NextStep()
+    {
+        base.NextStep();
+        controller.ChangeStep(cinematicStep, controller.devRoomLoadDelay);
+    }
+}
+
+public class LoadDeveloperRoom : GrimmCinematicStep
+{
+    public LoadDeveloperRoom(GrimmIntroController _controller) : base(_controller, CinematicStep.LoadDevRoom)
+    {
+    }
+
+    public override void Enter()
+    {
+        BGMManager.instance.SetBGM(controller.devRoomBGM, 0f, 1f);
+        BGMManager.instance.ChangeBGM(0f, true);
+
+        SceneManager.LoadScene("DeveloperRoom");
     }
 }
