@@ -9,7 +9,6 @@ public class PlayerAwakeState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        player.transform.position = player.benchPos.position;
         player.rb.bodyType = RigidbodyType2D.Static;
         player.isOnBench = true;
     }

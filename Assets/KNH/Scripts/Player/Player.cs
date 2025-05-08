@@ -100,6 +100,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform GrimmToStagStation;
     [SerializeField] private Transform GruzMotherToForgottenCrossroads;
     [SerializeField] public Transform benchPos;
+    [SerializeField] public Transform benchPos2;
 
     [Header("물 튀기기")]
     [SerializeField] public GameObject WaterSplash;
@@ -234,8 +235,15 @@ public class Player : MonoBehaviour
     {
         if (PlayerManager.instance.isAwake && SceneManager.GetActiveScene().name == "Dirtmouth")
         {
+            transform.position = benchPos.position;
             stateMachine.Initialize(awakeState);
             transform.position = new Vector3(0, 0.29f, 0);
+        }
+        if(SceneManager.GetActiveScene().name == "DeveloperRoom")
+        {
+            transform.position = benchPos2.position;
+            stateMachine.Initialize(awakeState);
+            transform.position = new Vector3(-0.04f, 0, 0);
         }
         else stateMachine.Initialize(idleState);
     }

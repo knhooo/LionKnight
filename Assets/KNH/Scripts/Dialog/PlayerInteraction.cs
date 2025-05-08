@@ -46,7 +46,7 @@ public class PlayerInteraction : MonoBehaviour
     private void Update()
     {
 
-        if (!dialogUI.activeSelf && Input.GetKeyDown(KeyCode.UpArrow))
+        if (!player.IsNearBench() && !dialogUI.activeSelf && Input.GetKeyDown(KeyCode.UpArrow))
         {
             // 대화 시작
             player.isDialog = true;
