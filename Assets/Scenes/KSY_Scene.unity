@@ -334,7 +334,7 @@ Transform:
   m_GameObject: {fileID: 214354202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.47, y: -1.44, z: 0}
+  m_LocalPosition: {x: -13.64, y: -1.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -360,7 +360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &494360969
 Animator:
   serializedVersion: 7
@@ -598,6 +598,7 @@ MonoBehaviour:
   player: {fileID: 214354204}
   projectilePrefab: {fileID: 81746648713340433, guid: fd2f61e76d923e244942c07bdd3466b0, type: 3}
   projectileSpeed: 5
+  projectileLifetime: 1.5
 --- !u!1001 &1017495700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -666,6 +667,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Husk Bully
       objectReference: {fileID: 0}
+    - target: {fileID: 6816780109304276453, guid: 203242b9b08de2541b0c872625a78bed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -727,7 +732,7 @@ Transform:
   m_GameObject: {fileID: 1573868781}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.93, y: 0, z: 0}
+  m_LocalPosition: {x: -3.46, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -998,7 +1003,7 @@ Transform:
   m_GameObject: {fileID: 2047215594}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: -0.3834963, z: 0}
+  m_LocalPosition: {x: 5.69, y: -0.3834963, z: 0}
   m_LocalScale: {x: 1, y: 3.54, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
