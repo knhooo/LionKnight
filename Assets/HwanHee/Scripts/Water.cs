@@ -21,6 +21,7 @@ public class Water : MonoBehaviour
 
     private Player player;
     private Coroutine particleCoroutine;
+    private bool isQuitting = false;
 
     private void Start()
     {
@@ -51,12 +52,27 @@ public class Water : MonoBehaviour
         }
     }
 
+    private void OnApplicationQuit()
+    {
+        isQuitting = true;
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (isQuitting)
+            return;
+
         if (collision.CompareTag("Player"))
         {
-            SoundManager.Instance.audioSource.PlayOneShot(waterLandAudio);
-            StopCoroutine(particleCoroutine);
+            if (SoundManager.Instance != null && SoundManager.Instance.audioSource != null)
+                SoundManager.Instance.audioSource.PlayOneShot(waterLandAudio);
+
+            if (particleCoroutine != null)
+            {
+                StopCoroutine(particleCoroutine);
+                particleCoroutine = null;
+            }
+
             StartWaterSplashUpAnim();
         }
     }
