@@ -31,7 +31,10 @@ public class PoolManager : Singleton<PoolManager>
 
         poolDict = new Dictionary<PoolType, Queue<GameObject>>();
         poolPrefab = new Dictionary<PoolType, GameObject>();
+    }
 
+    private void Start()
+    {
         Create();
     }
 
@@ -39,10 +42,6 @@ public class PoolManager : Singleton<PoolManager>
     {
         foreach (Pool pool in pools)
         {
-            if (pool.type == PoolType.GeoEffect)
-            {
-                int a = 0;
-            }
             Queue<GameObject> queue = new Queue<GameObject>();
 
             for (int i = 0; i < pool.size; i++)
@@ -61,7 +60,7 @@ public class PoolManager : Singleton<PoolManager>
     {
         if (!poolDict.ContainsKey(type))
         {
-            Debug.LogError("풀매니저에 " + tag + "옵젝 없음");
+            Debug.LogError("풀매니저에 옵젝 없음");
         }
 
         Queue<GameObject> pool = poolDict[type];
@@ -73,7 +72,10 @@ public class PoolManager : Singleton<PoolManager>
         }
         else
         {
-            obj = Instantiate(poolPrefab[type], transform);
+            obj = Instantiate(poolPrefab[type], position, Quaternion.identity);
+            obj.SetActive(false);
+            pool.Enqueue(obj); 
+            obj = pool.Dequeue();
         }
 
         obj.transform.SetPositionAndRotation(position, rotation);
