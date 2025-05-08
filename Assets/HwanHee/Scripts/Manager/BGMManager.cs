@@ -5,7 +5,7 @@ public class BGMManager : Singleton<BGMManager>
 {
     private float fadeDuration = 0.5f;
 
-    private AudioSource[] audioSources;
+    public AudioSource[] audioSources;
     private AudioClip[] newAudioClips;
     [HideInInspector] public float currentBGMTargetVolume;
     [HideInInspector] public float newBGMTargetVolume;
@@ -147,5 +147,10 @@ public class BGMManager : Singleton<BGMManager>
                 audioSource.Stop();
             }
         }
+    }
+
+    public void StopBGMFadeOut()
+    {
+        StartCoroutine(VolumeFadeInOut(audioSources[0].volume, 0f));
     }
 }

@@ -101,6 +101,9 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform GruzMotherToForgottenCrossroads;
     [SerializeField] public Transform benchPos;
 
+    [Header("물 튀기기")]
+    [SerializeField] public GameObject WaterSplash;
+
     public int facingDir { get; private set; } = 1;
     protected bool facingRight = true;
     public bool isOnBench = false;

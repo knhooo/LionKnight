@@ -142,7 +142,6 @@ public class GrimmIntroController : MonoBehaviour
     [SerializeField] public float finalOutroStartDelay = 1f;
     [SerializeField] public float burstAudioLoopFadeOutDuration = 0.5f;
     [SerializeField] public float outroSilhouetteFadeOutDuration = 0.5f;
-    [SerializeField] public GameObject grimmParticle;
 
 
     [HideInInspector] public Player player;
@@ -399,8 +398,8 @@ public class GrimmIntroController : MonoBehaviour
     {
         for (int i = 0; i < 50; i++)
         {
-            GrimmSilhouetteParticle particle = PoolManager.instance.Spawn(PoolType.GrimmParticle, grimmParticle, grimmSilhouette.transform.position, Quaternion.identity).GetComponent<GrimmSilhouetteParticle>();
-            particle.StartSpriteFade(outroSilhouetteFadeOutDuration, 0f, 1f);
+            GrimmSilhouetteParticle grimmParticle = PoolManager.instance.Spawn(PoolType.GrimmParticle, grimmSilhouette.transform.position, Quaternion.identity).GetComponent<GrimmSilhouetteParticle>();
+            grimmParticle.StartSpriteFade(outroSilhouetteFadeOutDuration, 0f, 1f);
         }
     }
 

@@ -4,7 +4,6 @@ public class Geo : MonoBehaviour
 {
     [SerializeField] private AudioClip[] geoGrounds;
     [SerializeField] private AudioClip[] geoCollects;
-    [SerializeField] private GameObject geoEffectPrefab;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,7 +12,8 @@ public class Geo : MonoBehaviour
             GeoEffect();
 
             PlayerManager.instance.player.playerData.money++;
-            transform.parent.gameObject.SetActive(false);
+            PoolManager.instance.ReturnToPool(PoolType.Geo, gameObject);
+
             Debug.Log("Money : " + PlayerManager.instance.player.playerData.money);
 
             int index = Random.Range(0, geoCollects.Length);
@@ -33,7 +33,7 @@ public class Geo : MonoBehaviour
         Vector3 playerPos = PlayerManager.instance.player.transform.position;
         for (int i = 0; i < 2; i++)
         {
-            GameObject geoEffect = PoolManager.instance.Spawn(PoolType.GeoEffect, geoEffectPrefab, new Vector3(playerPos.x, playerPos.y + 0.4f), Quaternion.identity);
+            GameObject geoEffect = PoolManager.instance.Spawn(PoolType.GeoEffect, new Vector3(playerPos.x, playerPos.y + 0.4f), Quaternion.identity);
 
             if (i == 0)
                 dir = geoEffect.GetComponent<GeoEffect>().SetDir();

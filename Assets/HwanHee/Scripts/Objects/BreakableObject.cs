@@ -5,7 +5,6 @@ public class BreakableObject : MonoBehaviour
 {
     private SpriteRenderer sp;
 
-    [SerializeField] private GameObject brokenParticle;
     [SerializeField] private GameObject brokenTop;
     [SerializeField] private Sprite sprite;
     [SerializeField] private AudioClip breakSound;
@@ -38,14 +37,9 @@ public class BreakableObject : MonoBehaviour
         brokenTop.GetComponent<SpriteRenderer>().sortingLayerID = sp.sortingLayerID;
         brokenTop.GetComponent<SpriteRenderer>().sortingOrder = sp.sortingOrder;
 
-        if (brokenParticle == null)
-        {
-            return;
-        }
-
         for (int i = 0; i < 10; i++)
         {
-            GameObject particle = PoolManager.instance.Spawn(PoolType.BrokenParticle, brokenParticle, transform.position, Quaternion.identity);
+            GameObject particle = PoolManager.instance.Spawn(PoolType.BrokenParticle, transform.position, Quaternion.identity);
             particle.GetComponent<BrokenParticle>().SetSortingInfo(sp.sortingLayerID, sp.sortingOrder);
         }
     }

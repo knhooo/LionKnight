@@ -1,0 +1,819 @@
+fileFormatVersion: 2
+guid: 591c8e502e9a2d14791eafb8d542401c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2505152218197883064
+    second: water_cut_010005_0
+  - first:
+      213: -2615532893769665453
+    second: water_cut_010005_1
+  - first:
+      213: -5735166940935233944
+    second: water_cut_010005_2
+  - first:
+      213: -8433023878423553246
+    second: water_cut_010005_3
+  - first:
+      213: 3591830537196461406
+    second: water_cut_010005_4
+  - first:
+      213: 7004833682062109340
+    second: water_cut_010005_5
+  - first:
+      213: -930322193792492775
+    second: water_cut_010005_6
+  - first:
+      213: 1954865861298174672
+    second: water_cut_010005_7
+  - first:
+      213: -9066790134772029628
+    second: water_cut_010005_8
+  - first:
+      213: 618157099728624622
+    second: water_cut_010005_9
+  - first:
+      213: -6717670778759737166
+    second: water_cut_010005_10
+  - first:
+      213: -2986466580548664367
+    second: water_cut_010005_11
+  - first:
+      213: 9106036907813051335
+    second: water_cut_010005_12
+  - first:
+      213: 5533683949863768158
+    second: water_cut_010005_13
+  - first:
+      213: 941615182449170705
+    second: water_cut_010005_14
+  - first:
+      213: 8739468495928984171
+    second: water_cut_010005_15
+  - first:
+      213: 1105046104586368255
+    second: water_cut_010005_16
+  - first:
+      213: -956426681278738928
+    second: water_cut_010005_17
+  - first:
+      213: 5904594679749773915
+    second: water_cut_010005_18
+  - first:
+      213: -610103985930671326
+    second: water_cut_010005_19
+  - first:
+      213: 2753208380356644065
+    second: water_cut_010005_20
+  - first:
+      213: 8551222132527854873
+    second: water_cut_010005_21
+  - first:
+      213: -2860191331514622308
+    second: water_cut_010005_22
+  - first:
+      213: 5899943781311013416
+    second: water_cut_010005_23
+  - first:
+      213: 4475478028714708964
+    second: water_cut_010005_24
+  - first:
+      213: 6194603572184934510
+    second: water_cut_010005_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: water_cut_010005_0
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 157
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b877f96ba614c220800000000000000
+      internalID: 2505152218197883064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_1
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 145
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3547288d0b2c3bbd0800000000000000
+      internalID: -2615532893769665453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 137
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86eddfdad089860b0800000000000000
+      internalID: -5735166940935233944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_3
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 144
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22b5d207671e7fa80800000000000000
+      internalID: -8433023878423553246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_4
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 128
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5ddefed7deb8d130800000000000000
+      internalID: 3591830537196461406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_5
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 132
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9ae002ee1b263160800000000000000
+      internalID: 7004833682062109340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_6
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 129
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91b1650d4e4d613f0800000000000000
+      internalID: -930322193792492775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_7
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 128
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0da373eb424112b10800000000000000
+      internalID: 1954865861298174672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_8
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 112
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 447a5eb096a4c2280800000000000000
+      internalID: -9066790134772029628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_9
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 117
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eebd5b86b92249800800000000000000
+      internalID: 618157099728624622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 87
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b0110ab40a06c2a0800000000000000
+      internalID: -6717670778759737166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_11
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 97
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d342dcc770fd86d0800000000000000
+      internalID: -2986466580548664367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 68
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cb1bc162542f5e70800000000000000
+      internalID: 9106036907813051335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_13
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 81
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5019e2db389bcc40800000000000000
+      internalID: 5533683949863768158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_14
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 76
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1195ff0050a411d00800000000000000
+      internalID: 941615182449170705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_15
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 69
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6280991b44d84970800000000000000
+      internalID: 8739468495928984171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_16
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 66
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff4bc4cc399e55f00800000000000000
+      internalID: 1105046104586368255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_17
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 53
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01ecca030071ab2f0800000000000000
+      internalID: -956426681278738928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_18
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 55
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5a852dc39551f150800000000000000
+      internalID: 5904594679749773915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 25
+        width: 33
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22b6d8248a97887f0800000000000000
+      internalID: -610103985930671326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_20
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 25
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ec49cf4f6c553620800000000000000
+      internalID: 2753208380356644065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_21
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 39
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 915f7c4293b0ca670800000000000000
+      internalID: 8551222132527854873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_22
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 28
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9e5b6f432f8e48d0800000000000000
+      internalID: -2860191331514622308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82261df1c9fc0e150800000000000000
+      internalID: 5899943781311013416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_24
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 17
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ef0b951e871c1e30800000000000000
+      internalID: 4475478028714708964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water_cut_010005_25
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e68e274e027a7f550800000000000000
+      internalID: 6194603572184934510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      water_cut_010005_0: 2505152218197883064
+      water_cut_010005_1: -2615532893769665453
+      water_cut_010005_10: -6717670778759737166
+      water_cut_010005_11: -2986466580548664367
+      water_cut_010005_12: 9106036907813051335
+      water_cut_010005_13: 5533683949863768158
+      water_cut_010005_14: 941615182449170705
+      water_cut_010005_15: 8739468495928984171
+      water_cut_010005_16: 1105046104586368255
+      water_cut_010005_17: -956426681278738928
+      water_cut_010005_18: 5904594679749773915
+      water_cut_010005_19: -610103985930671326
+      water_cut_010005_2: -5735166940935233944
+      water_cut_010005_20: 2753208380356644065
+      water_cut_010005_21: 8551222132527854873
+      water_cut_010005_22: -2860191331514622308
+      water_cut_010005_23: 5899943781311013416
+      water_cut_010005_24: 4475478028714708964
+      water_cut_010005_25: 6194603572184934510
+      water_cut_010005_3: -8433023878423553246
+      water_cut_010005_4: 3591830537196461406
+      water_cut_010005_5: 7004833682062109340
+      water_cut_010005_6: -930322193792492775
+      water_cut_010005_7: 1954865861298174672
+      water_cut_010005_8: -9066790134772029628
+      water_cut_010005_9: 618157099728624622
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

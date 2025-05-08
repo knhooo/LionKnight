@@ -1,10 +1,7 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class GeoEffect : MonoBehaviour
 {
-    private Animator anim;
-
     [SerializeField] private float speed = 3f;
 
     private float dir;
@@ -20,11 +17,6 @@ public class GeoEffect : MonoBehaviour
         return dir;
     }
 
-    private void Awake()
-    {
-        anim = GetComponent<Animator>();
-    }
-
     private void Update()
     {
         transform.Translate(Vector3.right * speed * Time.deltaTime);
@@ -32,6 +24,6 @@ public class GeoEffect : MonoBehaviour
 
     private void AnimationTrigger()
     {
-        gameObject.SetActive(false);
+        PoolManager.instance.ReturnToPool(PoolType.GeoEffect, gameObject);
     }
 }
