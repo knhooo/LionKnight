@@ -1,0 +1,858 @@
+fileFormatVersion: 2
+guid: 6ad97fe6c850df54d8621b34036d52e8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5392267815589138021
+    second: Abyss_03_Cornifer #1668_0
+  - first:
+      213: -3642434923280795528
+    second: Abyss_03_Cornifer #1668_1
+  - first:
+      213: 3492962868950786089
+    second: Abyss_03_Cornifer #1668_2
+  - first:
+      213: 5273225857201090939
+    second: Abyss_03_Cornifer #1668_3
+  - first:
+      213: -5534487664357384257
+    second: Abyss_03_Cornifer #1668_4
+  - first:
+      213: 5827252469341356363
+    second: Abyss_03_Cornifer #1668_5
+  - first:
+      213: 5039536695617568226
+    second: Abyss_03_Cornifer #1668_6
+  - first:
+      213: -6025707673312585978
+    second: Abyss_03_Cornifer #1668_7
+  - first:
+      213: 4474529173897821045
+    second: Abyss_03_Cornifer #1668_8
+  - first:
+      213: -1322554928963359972
+    second: Abyss_03_Cornifer #1668_9
+  - first:
+      213: -5334146073289506768
+    second: Abyss_03_Cornifer #1668_10
+  - first:
+      213: -3171505570552710969
+    second: Abyss_03_Cornifer #1668_11
+  - first:
+      213: -3111798885020292045
+    second: Abyss_03_Cornifer #1668_12
+  - first:
+      213: -541062919648752641
+    second: Abyss_03_Cornifer #1668_13
+  - first:
+      213: -3091638055212871591
+    second: Abyss_03_Cornifer #1668_14
+  - first:
+      213: -4369800609795293147
+    second: Abyss_03_Cornifer #1668_15
+  - first:
+      213: 5474666681675947922
+    second: Abyss_03_Cornifer #1668_16
+  - first:
+      213: 2735845484096039827
+    second: Abyss_03_Cornifer #1668_17
+  - first:
+      213: 5105075756513897393
+    second: Abyss_03_Cornifer #1668_18
+  - first:
+      213: -2647729920497887756
+    second: Abyss_03_Cornifer #1668_19
+  - first:
+      213: -6699811985456900548
+    second: Abyss_03_Cornifer #1668_20
+  - first:
+      213: -5120292963825888010
+    second: Abyss_03_Cornifer #1668_21
+  - first:
+      213: 4584092052587334859
+    second: Abyss_03_Cornifer #1668_22
+  - first:
+      213: -6305936913770056979
+    second: Abyss_03_Cornifer #1668_23
+  - first:
+      213: 5579868077673880974
+    second: Abyss_03_Cornifer #1668_24
+  - first:
+      213: 4295698072774554235
+    second: Abyss_03_Cornifer #1668_25
+  - first:
+      213: -9149246306600516318
+    second: Abyss_03_Cornifer #1668_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 39
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b91b90ebdf0da25b0800000000000000
+      internalID: -5392267815589138021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_1
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 39
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 878fe585cb8737dc0800000000000000
+      internalID: -3642434923280795528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_2
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 39
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 920e079093f797030800000000000000
+      internalID: 3492962868950786089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_3
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 0
+        width: 98
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7130e67af24e2940800000000000000
+      internalID: 5273225857201090939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 18
+        width: 133
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbf5230dacc8133b0800000000000000
+      internalID: -5534487664357384257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_5
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 39
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b410c9b2f3f8ed050800000000000000
+      internalID: 5827252469341356363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_6
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 39
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2edb4de8ce700f540800000000000000
+      internalID: 5039536695617568226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_7
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 39
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6079bd3fbc2606ca0800000000000000
+      internalID: -6025707673312585978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_8
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 39
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57b3d4b9398b81e30800000000000000
+      internalID: 4474529173897821045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_9
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 39
+        width: 23
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1b623f9c4755ade0800000000000000
+      internalID: -1322554928963359972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_10
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 39
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 030c889686e49f5b0800000000000000
+      internalID: -5334146073289506768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_11
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 39
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c87808ac7c8cf3d0800000000000000
+      internalID: -3171505570552710969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_12
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 39
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33ca8eda66ba0d4d0800000000000000
+      internalID: -3111798885020292045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_13
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 39
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffb43392422cd78f0800000000000000
+      internalID: -541062919648752641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_14
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 39
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95015f8a19b4815d0800000000000000
+      internalID: -3091638055212871591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_15
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 40
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 520cdd16f795b53c0800000000000000
+      internalID: -4369800609795293147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29f16f8475ce9fb40800000000000000
+      internalID: 5474666681675947922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_17
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 0
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39ba6eff8fca7f520800000000000000
+      internalID: 2735845484096039827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_18
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bb287a4a5fd8d640800000000000000
+      internalID: 5105075756513897393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_19
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 214
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f5dc836aaf514bd0800000000000000
+      internalID: -2647729920497887756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_20
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 0
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c36dfe01f7c7503a0800000000000000
+      internalID: -6699811985456900548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_21
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 0
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f4d9398da011f8b0800000000000000
+      internalID: -5120292963825888010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_22
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 0
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bccc82c2f67fd9f30800000000000000
+      internalID: 4584092052587334859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_23
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 0
+        width: 35
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de276b689cfcc78a0800000000000000
+      internalID: -6305936913770056979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_24
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8d1b47047caf6d40800000000000000
+      internalID: 5579868077673880974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_25
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 0
+        width: 21
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b72be0a33a26d9b30800000000000000
+      internalID: 4295698072774554235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyss_03_Cornifer #1668_26
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 0
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 225858c75f8570180800000000000000
+      internalID: -9149246306600516318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Abyss_03_Cornifer #1668_0: -5392267815589138021
+      Abyss_03_Cornifer #1668_1: -3642434923280795528
+      Abyss_03_Cornifer #1668_10: -5334146073289506768
+      Abyss_03_Cornifer #1668_11: -3171505570552710969
+      Abyss_03_Cornifer #1668_12: -3111798885020292045
+      Abyss_03_Cornifer #1668_13: -541062919648752641
+      Abyss_03_Cornifer #1668_14: -3091638055212871591
+      Abyss_03_Cornifer #1668_15: -4369800609795293147
+      Abyss_03_Cornifer #1668_16: 5474666681675947922
+      Abyss_03_Cornifer #1668_17: 2735845484096039827
+      Abyss_03_Cornifer #1668_18: 5105075756513897393
+      Abyss_03_Cornifer #1668_19: -2647729920497887756
+      Abyss_03_Cornifer #1668_2: 3492962868950786089
+      Abyss_03_Cornifer #1668_20: -6699811985456900548
+      Abyss_03_Cornifer #1668_21: -5120292963825888010
+      Abyss_03_Cornifer #1668_22: 4584092052587334859
+      Abyss_03_Cornifer #1668_23: -6305936913770056979
+      Abyss_03_Cornifer #1668_24: 5579868077673880974
+      Abyss_03_Cornifer #1668_25: 4295698072774554235
+      Abyss_03_Cornifer #1668_26: -9149246306600516318
+      Abyss_03_Cornifer #1668_3: 5273225857201090939
+      Abyss_03_Cornifer #1668_4: -5534487664357384257
+      Abyss_03_Cornifer #1668_5: 5827252469341356363
+      Abyss_03_Cornifer #1668_6: 5039536695617568226
+      Abyss_03_Cornifer #1668_7: -6025707673312585978
+      Abyss_03_Cornifer #1668_8: 4474529173897821045
+      Abyss_03_Cornifer #1668_9: -1322554928963359972
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
