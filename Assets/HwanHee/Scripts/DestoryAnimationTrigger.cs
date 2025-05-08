@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WaterAnimationTrigger : MonoBehaviour
+public class DestoryAnimationTrigger : MonoBehaviour
 {
     private void AnimationTrigger()
     {

@@ -29253,6 +29253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass1
       objectReference: {fileID: 0}
+    - target: {fileID: 4740526476007705442, guid: c8b420d493f2ea441930abcdbff9d58d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7427598203351186349, guid: c8b420d493f2ea441930abcdbff9d58d, type: 3}
       propertyPath: m_SortingLayer
       value: 1

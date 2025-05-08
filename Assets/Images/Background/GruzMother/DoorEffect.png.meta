@@ -76,7 +76,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -159,10 +159,10 @@ TextureImporter:
       name: DoorEffect_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 128
-        width: 36
-        height: 92
+        x: 0
+        y: 127
+        width: 110
+        height: 127
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: DoorEffect_1
       rect:
         serializedVersion: 2
-        x: 62
-        y: 138
-        width: 22
-        height: 103
+        x: 0
+        y: 0
+        width: 110
+        height: 127
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,204 +195,6 @@ TextureImporter:
       bones: []
       spriteID: 95b1890bea00fadd0800000000000000
       internalID: -2472756920116044967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DoorEffect_2
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 131
-        width: 40
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b08b9473e194e34f0800000000000000
-      internalID: -847159285773649909
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DoorEffect_3
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 35
-        width: 20
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eb087984a147516a0800000000000000
-      internalID: -6479144832666730306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DoorEffect_4
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 37
-        width: 29
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fe62334f3482177a0800000000000000
-      internalID: -6381274924682369297
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DoorEffect_5
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 40
-        width: 15
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0607679c3e4184ca0800000000000000
-      internalID: -6032548732292665248
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DoorEffect_6
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 65
-        width: 8
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f9cc003fa81f66c00800000000000000
-      internalID: 893667155164318879
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DoorEffect_7
-      rect:
-        serializedVersion: 2
-        x: 74
-        y: 14
-        width: 36
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 35dc09eb940cbd8c0800000000000000
-      internalID: -3973370823262024365
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DoorEffect_8
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 49
-        width: 14
-        height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4f49d622eb08b91e0800000000000000
-      internalID: -2190015239675865868
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DoorEffect_9
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 24
-        width: 25
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 669ec00945f3e2040800000000000000
-      internalID: 4624703499782646118
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DoorEffect_10
-      rect:
-        serializedVersion: 2
-        x: 25
-        y: 22
-        width: 13
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3e3223dfab19808c0800000000000000
-      internalID: -4032813234012412957
       vertices: []
       indices: 
       edges: []
@@ -413,15 +215,6 @@ TextureImporter:
     nameFileIdTable:
       DoorEffect_0: 6575925962175892638
       DoorEffect_1: -2472756920116044967
-      DoorEffect_10: -4032813234012412957
-      DoorEffect_2: -847159285773649909
-      DoorEffect_3: -6479144832666730306
-      DoorEffect_4: -6381274924682369297
-      DoorEffect_5: -6032548732292665248
-      DoorEffect_6: 893667155164318879
-      DoorEffect_7: -3973370823262024365
-      DoorEffect_8: -2190015239675865868
-      DoorEffect_9: 4624703499782646118
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
