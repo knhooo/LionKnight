@@ -1,10 +1,7 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class GeoEffect : MonoBehaviour
 {
-    private Animator anim;
-
     [SerializeField] private float speed = 3f;
 
     private float dir;
@@ -18,11 +15,6 @@ public class GeoEffect : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0f, 0f, dir);
         return dir;
-    }
-
-    private void Awake()
-    {
-        anim = GetComponent<Animator>();
     }
 
     private void Update()
