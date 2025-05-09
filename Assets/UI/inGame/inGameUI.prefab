@@ -5436,8 +5436,8 @@ MonoBehaviour:
   soul: 10
   maxSoul: 10
   soulSlider: {fileID: 3459309081325399453}
-  Hp: 3
-  maxHp: 5
+  Hp: 10
+  maxHp: 10
   HpPrefab: {fileID: 291218321719847991, guid: 5b27951b317e669439b18eb3a6768288, type: 3}
   HpContainer: {fileID: 7935130080997709151}
   geo: 10
