@@ -5,22 +5,25 @@ public class SceneSaveLoadManager : Singleton<SceneSaveLoadManager>
 {
     public bool canDataSave = true;
 
-    [SerializeField] private SceneFader sceneFader;
+    [SerializeField] private SceneFaderCanvas sceneFaderCanvas;
     private string sceneName;
 
     protected override void Awake()
     {
         base.Awake();
 
-        sceneFader = Instantiate(sceneFader).GetComponent<SceneFader>();
-        sceneFader.transform.SetParent(transform);
+        sceneFaderCanvas.transform.SetParent(transform);
     }
 
-    public void StartLoadScene(string _sceneName)
+    public void StartLoadScene(string _sceneName, bool isGameStart = false)
     {
         sceneName = _sceneName;
-        DataManager.instance.SaveData();
-        sceneFader.FadeToScene();
+
+        if (!isGameStart)
+            DataManager.instance.SaveData();
+        else
+            DataManager.instance.PrepareSaveDirectory();
+        sceneFaderCanvas.FadeToScene();
 
         BGMManager.instance.BGMFadeOut();
     }
@@ -33,9 +36,8 @@ public class SceneSaveLoadManager : Singleton<SceneSaveLoadManager>
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded; 
+        SceneManager.sceneLoaded -= OnSceneLoaded;
         DataManager.instance.LoadData();
-
         BGMManager.instance.ChangeBGM(0.5f);
     }
 }

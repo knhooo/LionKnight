@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/UI/Cinema/Cinema.unity
     guid: 492621aee8640ed45b7c5d0ada4cc946
+  - enabled: 1
+    path: Assets/Scenes/UI_mainTitle.unity
+    guid: faf0c8e76c59b9148ac64b5eb31b1890
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
