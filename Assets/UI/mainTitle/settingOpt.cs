@@ -6,12 +6,28 @@ using UnityEngine.Video;
 
 public class settingOpt : MonoBehaviour
 {
+    public static settingOpt Instance { get; private set; }
+
     public Toggle fullscreenToggle;
     public Toggle mute;
     public Slider volume;
     public Button saveButton;
 
     public VideoPlayer videoPlayer;
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void OnEnable()
     {
         mute.onValueChanged.AddListener(delegate { Mute(); });
