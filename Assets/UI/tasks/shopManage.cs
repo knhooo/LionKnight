@@ -1,25 +1,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UIname;
 
 public class ShopManage : MonoBehaviour
 {
     public GameObject itemTemplate;
     public Transform contentParent;
-    public Text coinText;
-    public int playerCoins = 100;
+    public Text geoText;
+    private int playerCoins;
+    private Transform previousItem;
 
     public List<ShopItem> itemsForSale = new List<ShopItem>();
+    public List<Achievement> achievements = new List<Achievement>();
 
-    private int currentIndex = 0;
+    private int curIndex = 0;
 
     private void Start()
     {
-        PopulateShop();
-        UpdateCoinUI();
+        ShopList();
+        UpdateGeoUI();
     }
 
     private void Update()
+    {
+        Listscroll();
+    }
+
+    private void Listscroll()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -29,8 +37,19 @@ public class ShopManage : MonoBehaviour
         {
             ScrollItem(1);
         }
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll > 0f)
+        {
+            ScrollItem(-1);
+        }
+        else if (scroll < 0f)
+        {
+            ScrollItem(1);
+        }
     }
-    private void PopulateShop()
+
+    private void ShopList()
     {
         foreach (var item in itemsForSale)
         {
@@ -52,18 +71,42 @@ public class ShopManage : MonoBehaviour
 
     public void BuyItem(ShopItem item)
     {
-        if (playerCoins >= item.itemPrice)
+        if (PlayerPrefs.HasKey("Money") && PlayerPrefs.GetInt("Money") >= item.itemPrice)
         {
-            playerCoins -= item.itemPrice;
-            UpdateCoinUI();
+            Buying(item.itemPrice);
+            UpdateGeoUI();
         }
     }
 
-    private void UpdateCoinUI()
+    public void BuyItemByIndex(int itemIndex)
     {
-        if (coinText != null)
+        if (itemIndex < 0 || itemIndex >= itemsForSale.Count) return;
+
+        ShopItem item = itemsForSale[itemIndex];
+        BuyItem(item);
+
+        CheckAchievement(itemIndex);
+    }
+
+    private void Buying (int amount)
+    {
+        int currentMoney = PlayerPrefs.GetInt("Money");
+        PlayerPrefs.SetInt("Money", currentMoney - amount);
+    }
+
+    private void UpdateGeoUI()
+    {
+        if (geoText != null)
         {
-            coinText.text = $"Coins: {playerCoins}";
+            geoText.text = $"{playerCoins}";
+        }
+    }
+
+    void CheckAchievement(int itemIndex)
+    {
+        if (itemIndex == 0 && !achievements[0].isCompleted)
+        {
+            achievements[0].isCompleted = true;
         }
     }
 
@@ -71,15 +114,15 @@ public class ShopManage : MonoBehaviour
     {
         if (itemsForSale.Count == 0) return;
 
-        currentIndex += direction;
+        curIndex += direction;
 
-        if (currentIndex < 0)
+        if (curIndex < 0)
         {
-            currentIndex = itemsForSale.Count - 1;
+            curIndex = itemsForSale.Count - 1;
         }
-        else if (currentIndex >= itemsForSale.Count)
+        else if (curIndex >= itemsForSale.Count)
         {
-            currentIndex = 0;
+            curIndex = 0;
         }
 
         HighlightCurrentItem();
@@ -87,22 +130,30 @@ public class ShopManage : MonoBehaviour
 
     private void HighlightCurrentItem()
     {
-        for (int i = 0; i < contentParent.childCount; i++)
+        ResetPreviousItemHighlight();
+        SetCurrentItemHighlight();
+    }
+
+    private void ResetPreviousItemHighlight()
+    {
+        if (previousItem == null) return;
+
+        Animator prevAnimator = previousItem.GetComponent<Animator>();
+        if (prevAnimator != null)
         {
-            Transform item = contentParent.GetChild(i);
-            Animator itemAnimator = item.GetComponent<Animator>();
-            if (itemAnimator != null)
-            {
-                itemAnimator.ResetTrigger("Highlight");
-                itemAnimator.SetTrigger("Normal");
-            }
+            prevAnimator.SetTrigger("Normal");
+        }
+    }
+
+    private void SetCurrentItemHighlight()
+    {
+        Transform curItem = contentParent.GetChild(curIndex);
+        Animator currAnimator = curItem.GetComponent<Animator>();
+        if (currAnimator != null)
+        {
+            currAnimator.SetTrigger("Highlight");
         }
 
-        Transform currentItem = contentParent.GetChild(currentIndex);
-        Animator currentItemAnimator = currentItem.GetComponent<Animator>();
-        if (currentItemAnimator != null)
-        {
-            currentItemAnimator.SetTrigger("Highlight");
-        }
+        previousItem = curItem;
     }
 }
