@@ -28,6 +28,7 @@ public class BossGrimmSoundClip : MonoBehaviour
     [SerializeField] private AudioClip grimmFinalHit;
     [SerializeField] private AudioClip grimmDefeatBgm;
     [SerializeField] private AudioClip grimmScream;
+    [SerializeField] private AudioClip grimmStun;
 
     public void GrimmGreeting() { SoundManager.Instance.audioSource.PlayOneShot(grimmGreeting); }
     public void GrimmAppear() { SoundManager.Instance.audioSource.PlayOneShot(grimmAppear); }
@@ -59,4 +60,5 @@ public class BossGrimmSoundClip : MonoBehaviour
 
     public float GrimmDefeatBgmLength() { return grimmDefeatBgm.length; }
     public void GrimmScream() { SoundManager.Instance.audioSource.PlayOneShot(grimmScream); }
+    public void GrimmStun() { SoundManager.Instance.audioSource.PlayOneShot(grimmStun); }
 }

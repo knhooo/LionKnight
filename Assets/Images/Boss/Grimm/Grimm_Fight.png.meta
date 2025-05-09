@@ -3218,6 +3218,94 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_140
+      rect:
+        serializedVersion: 2
+        x: 1782
+        y: 8639
+        width: 272
+        height: 353
+      alignment: 9
+      pivot: {x: 0.529848, y: 0.00033197593}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e0669b0d72746643b19df7b67f05a96
+      internalID: 1779524847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_141
+      rect:
+        serializedVersion: 2
+        x: 2063
+        y: 8671
+        width: 390
+        height: 322
+      alignment: 9
+      pivot: {x: 0.6054744, y: 0.0006217246}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 761a7c652f08be74d90a1b158300eb1b
+      internalID: 312413616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_142
+      rect:
+        serializedVersion: 2
+        x: 2459
+        y: 8669
+        width: 377
+        height: 324
+      alignment: 9
+      pivot: {x: 0.59398896, y: -0.00014166185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f35dfdff93f79b48a74ba8766d52e0b
+      internalID: -752899261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grimm_Fight_143
+      rect:
+        serializedVersion: 2
+        x: 2839
+        y: 8671
+        width: 392
+        height: 321
+      alignment: 9
+      pivot: {x: 0.5943996, y: 0.0029509834}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b32aa426ba8b8e14b8a79d6471897bae
+      internalID: 323285396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -3279,6 +3367,10 @@ TextureImporter:
       Grimm_Fight_138: 1089704950
       Grimm_Fight_139: 916373563
       Grimm_Fight_14: -1296153540
+      Grimm_Fight_140: 1779524847
+      Grimm_Fight_141: 312413616
+      Grimm_Fight_142: -752899261
+      Grimm_Fight_143: 323285396
       Grimm_Fight_15: 442139829
       Grimm_Fight_16: 1911633027
       Grimm_Fight_17: 1406375392
