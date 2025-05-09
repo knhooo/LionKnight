@@ -16,19 +16,17 @@ public class CameraBound : MonoBehaviour
 
     private void Start()
     {
-        PlayerData playerData = PlayerManager.instance.player.playerData;
-        if (playerData.fromSceneName == "GruzMother")
-            cinemachineCamera.GetComponent<CinemachineConfiner2D>().BoundingShape2D = GruzToForgottenCameraBound;
+        Invoke("SetCameraBound", 0.1f);
     }
 
-    private void Update()
+    private void SetCameraBound()
     {
-        if (isLoadCamera)
+        PlayerData playerData = PlayerManager.instance.player.playerData;
+        if (playerData.fromSceneName == "GruzMother")
         {
-            isLoadCamera = true;
-            PlayerData playerData = PlayerManager.instance.player.playerData;
-            if (playerData.fromSceneName == "GruzMother")
-                cinemachineCamera.GetComponent<CinemachineConfiner2D>().BoundingShape2D = GruzToForgottenCameraBound;
+            CinemachineConfiner2D confiner = cinemachineCamera.GetComponent<CinemachineConfiner2D>();
+            confiner.BoundingShape2D = GruzToForgottenCameraBound;
+            confiner.InvalidateBoundingShapeCache();
         }
     }
 }
