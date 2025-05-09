@@ -32,7 +32,6 @@ public class BossGruzMotherDying : BossGruzMotherState
         {
             stateType = 2;
             boss.anim.SetBool("IsFail", true);
-            boss.rb.bodyType = RigidbodyType2D.Dynamic;
             boss.rb.gravityScale = 1f;
             boss.rb.linearVelocity = new Vector2(boss.facingLeft ? boss.dieForceX : -boss.dieForceX, boss.dieForceY);
 

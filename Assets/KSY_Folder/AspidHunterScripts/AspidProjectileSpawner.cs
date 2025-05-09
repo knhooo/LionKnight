@@ -8,7 +8,6 @@ public class AspidProjectileSpawner : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float projectileSpeed = 5f;
-    [SerializeField] private float projectileLifetime = 1.5f;
 
     public void CacheDirection(Vector2 baseDirection)
     {
@@ -34,17 +33,7 @@ public class AspidProjectileSpawner : MonoBehaviour
                 rb.linearVelocity = dir.normalized * projectileSpeed;
             }
 
-            if (spit.TryGetComponent(out TrailRenderer trail))
-            {
-                trail.time = 0.3f;
-                trail.startWidth = 0.1f;
-                trail.endWidth = 0f;
-                trail.material = new Material(Shader.Find("Sprites/Default"));
-                trail.startColor = new Color(1f, 0.9f, 0.2f, 0.6f);
-                trail.endColor = new Color(1f, 0.9f, 0.2f, 0f);
-            }
 
-            Destroy(spit, projectileLifetime);
         }
     }
 }

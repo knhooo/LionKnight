@@ -184,7 +184,14 @@ public class BossGrimm : BossBase
         yPoints = new List<float>();
         batShadowList = new List<GameObject>();
 
-        bossDeadDelay = soundClip.GrimmLongDefeatLength();
+        if (isNightmare)
+        {
+            bossDeadDelay = 4.3f;
+        }
+        else
+        {
+            bossDeadDelay = soundClip.GrimmLongDefeatLength();
+        }
 
         if (playerTransform == null)
         {
@@ -226,7 +233,7 @@ public class BossGrimm : BossBase
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            stateMachine.ChangeState(deathState);
+            BossTakeDamage(1000);
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -241,6 +248,10 @@ public class BossGrimm : BossBase
         if (currentHealthPoint <= 0)
         {
             stateMachine.ChangeState(deathState);
+            BGMManager.instance.BGMFadeOut();
+            soundClip.GrimmFinalHit();
+            if(isNightmare)
+                soundClip.GrimmDefeatBgm();
         }
         else if (currentHealthPoint <= healthPoint / 2.5 && secondBulletHell)
         {
@@ -486,7 +497,6 @@ public class BossGrimm : BossBase
             xPosAdd = Random.Range(teleportPlayerMidDistanceMin, teleportPlayerMidDistanceMax);
             if (nextAttackType == 5)
             {
-                Debug.Log("aa");
                 yPosAdd = airDashYPos;
                 SetZeroVelocity();
                 rb.gravityScale = 0;
@@ -655,7 +665,19 @@ public class BossGrimm : BossBase
     public void BossGrimmDefeat()
     {
         deadEventObj = Instantiate(deadEventPrefab, teleportEffTransform.position, Quaternion.identity);
-        soundClip.GrimmLongDefeat();
+        if (isNightmare)
+        {
+            soundClip.GrimmScream();
+        }
+        else
+        {
+            soundClip.GrimmLongDefeat();
+        }
+    }
+
+    public void BossGrimmScream()
+    {
+        soundClip.GrimmScream();
     }
 
     private IEnumerator LoopBulletHellSoundRoutine()

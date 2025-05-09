@@ -98,7 +98,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -158,6 +158,7 @@ MonoBehaviour:
   isUp: 0
   detectDelay: 0.2
   cdSize: {x: 2.357, y: 2}
+  isDead: 0
   runUpSpeed: 5
   runUpDuration: 0
   dashSpeed: 10
@@ -175,7 +176,9 @@ MonoBehaviour:
   gurgleDelay: 3
   gurgleCount: 3
   burstDelay: 3
+  deadEventObj: {fileID: 5340978495271268169, guid: 3f71cbca68e2e5043a75c16c7ed57a12, type: 3}
   gruzPrefab: {fileID: 8618888271263854399, guid: db17e72ad09100f44af522b2e3d0db7e, type: 3}
+  burstParticle: {fileID: 8989432898732532730, guid: e618e6009c8c023488a959ef3f84aba5, type: 3}
   gruzSpawnCount: 7
   gruzCheck: []
   reboundEff: {fileID: 1976536269412959973, guid: 0a6528841a4d214469116c74b0c69af4, type: 3}
