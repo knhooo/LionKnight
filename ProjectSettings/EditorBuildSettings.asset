@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/UI_mainTitle.unity
+    guid: faf0c8e76c59b9148ac64b5eb31b1890
+  - enabled: 1
     path: Assets/Scenes/ForgottenCrossroads.unity
     guid: fbfa8280a221f704aafd676a6f54168f
   - enabled: 1
@@ -32,9 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI_Cinema.unity
     guid: f6a619afa1c072b43b83aa6529a7aa95
-  - enabled: 1
-    path: Assets/Scenes/UI_mainTitle.unity
-    guid: faf0c8e76c59b9148ac64b5eb31b1890
   - enabled: 1
     path: Assets/Scenes/UI_inGame.unity
     guid: 1e8dfceaa016f2f419aa0646f7637c81
