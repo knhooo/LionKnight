@@ -7,6 +7,8 @@ public class CameraBound : MonoBehaviour
 
     [SerializeField] private Collider2D GruzToForgottenCameraBound;
 
+    private bool isLoadCamera = false;
+
     private void Awake()
     {
         cinemachineCamera = GetComponent<CinemachineCamera>();
@@ -17,5 +19,16 @@ public class CameraBound : MonoBehaviour
         PlayerData playerData = PlayerManager.instance.player.playerData;
         if (playerData.fromSceneName == "GruzMother")
             cinemachineCamera.GetComponent<CinemachineConfiner2D>().BoundingShape2D = GruzToForgottenCameraBound;
+    }
+
+    private void Update()
+    {
+        if (isLoadCamera)
+        {
+            isLoadCamera = true;
+            PlayerData playerData = PlayerManager.instance.player.playerData;
+            if (playerData.fromSceneName == "GruzMother")
+                cinemachineCamera.GetComponent<CinemachineConfiner2D>().BoundingShape2D = GruzToForgottenCameraBound;
+        }
     }
 }

@@ -72,7 +72,7 @@ public class PoolManager : Singleton<PoolManager>
         }
         else
         {
-            obj = Instantiate(poolPrefab[type], position, Quaternion.identity);
+            obj = Instantiate(poolPrefab[type], position, Quaternion.identity, transform);
             obj.SetActive(false);
             pool.Enqueue(obj); 
             obj = pool.Dequeue();
