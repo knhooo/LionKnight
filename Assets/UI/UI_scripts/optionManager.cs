@@ -12,6 +12,9 @@ public class optionManage : MonoBehaviour
     public GameObject setting;
     public string sceneName;
 
+    public SaveSlotUI[] saveSlotUIs;
+    public CanvasGroup saveSelect;
+
     [Header("Credit")]
     public VideoPlayer credit;
     public GameObject creditUI;
@@ -42,12 +45,19 @@ public class optionManage : MonoBehaviour
     {
         main.gameObject.SetActive(false);
         load.gameObject.SetActive(true);
+
+        foreach(var saveSlotUI in saveSlotUIs)
+        {
+            saveSlotUI.SaveSlotInitialize();
+        }
+        saveSelect.GetComponent<FadeUI>().FadeInOut(0f, 1f, 0.5f);
     }
 
     public void StartGameOff()
     {
         main.gameObject.SetActive(true);
         load.gameObject.SetActive(false);
+        saveSelect.GetComponent<FadeUI>().FadeInOut(1f, 0f, 0.5f);
     }
 
 

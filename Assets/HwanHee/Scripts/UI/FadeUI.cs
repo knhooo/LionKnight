@@ -10,7 +10,6 @@ public class FadeUI : MonoBehaviour
     private void Awake()
     {
         canvasGroups = GetComponentsInChildren<CanvasGroup>(true);
-        FadeInOut(0f, 1f);
     }
 
     public void FadeInOut(float startAlpha, float endAlpha, float _duration = -99f)
