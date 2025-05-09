@@ -9,7 +9,8 @@ public class DataManager : Singleton<DataManager>
 
     private Player player;
     private Lift lift;
-    public string saveFiles = "test";
+    [HideInInspector] public string saveFiles = "test";
+    public string saveFileName;
 
     public void RegisterPlayer(Player _player) => player = _player;
     public void RegisterLift(Lift _lift) => lift = _lift;
@@ -17,10 +18,9 @@ public class DataManager : Singleton<DataManager>
     protected override void Awake()
     {
         base.Awake();
-        PrepareSaveDirectory();
     }
 
-    private void PrepareSaveDirectory()
+    public void PrepareSaveDirectory()
     {
         path = Path.Combine(Application.dataPath, "..", "Saves", saveFiles);
 
@@ -28,6 +28,7 @@ public class DataManager : Singleton<DataManager>
         {
             Directory.CreateDirectory(path);
         }
+
     }
 
     public void SaveData()
