@@ -51,6 +51,7 @@ public class HUD : MonoBehaviour
 
         UpdateSoulUI();
         UpdateHp();
+        UpdateGeo();
     }
 
     private void UpdatePlayerData()
@@ -131,14 +132,13 @@ public class HUD : MonoBehaviour
             HpObjects[i].SetActive(i < Hp/10);
         }
     }
-    public void UpdateGeo(int money)
+    public void UpdateGeo()
     {
-        geo += money;
         if (geo < 0) geo = 0;
 
         if (geoText != null)
         {
-            geoText.text = player.ToString();
+            geoText.text = geo.ToString();
         }
     }
 }
