@@ -869,6 +869,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoolManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2432193499155077713, guid: 5b8a71649e9fe6b4396c970fb5b853fe, type: 3}
+      propertyPath: pools.Array.data[3].size
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5523009490251496890, guid: 5b8a71649e9fe6b4396c970fb5b853fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.462514
