@@ -54,6 +54,14 @@ MonoBehaviour:
   burstSpeed: 40
   circleMaxScale: 0.2
   circleMinScale: 0.7
+  circleBurstRadius: 2
+  smokePrefab: {fileID: 1749544066253050057, guid: c04ae6573c4d4d2499b1c9967c166d12, type: 3}
+  smokeMaxScale: 1
+  smokeMinScale: 1
+  smokeSpeed: 8
+  burstRadius: 4
+  particleCount: 100
+  abTrigger: 1
 --- !u!1 &1581529256462278063
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,8 +135,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 909032279
-  m_SortingLayer: 7
+  m_SortingLayerID: 1701601401
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 0.23921567, b: 0.33454698, a: 1}
