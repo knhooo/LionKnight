@@ -41,7 +41,7 @@ namespace UIname
                 canvasGroup.alpha = t;
                 yield return null;
             }
-
+            canvasGroup.alpha = 1f;
             yield return new WaitForSeconds(waitTime);
 
             for (float t = 1f; t >= 0f; t -= Time.deltaTime / duration)
@@ -49,6 +49,7 @@ namespace UIname
                 canvasGroup.alpha = t;
                 yield return null;
             }
+            canvasGroup.alpha = 0f;
         }
     }
     #endregion
