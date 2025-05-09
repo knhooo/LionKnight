@@ -578,6 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveFileUI: {fileID: 2518055172820025144}
+  geoCountUI: {fileID: 0}
   emptyFileUI: {fileID: 7948081124827131183}
   saveFileName: SaveFile1
   dirtmouthAudioclips:

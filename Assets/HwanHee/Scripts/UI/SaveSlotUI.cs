@@ -1,10 +1,13 @@
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SaveSlotUI : MonoBehaviour
 {
     [SerializeField] private GameObject saveFileUI;
+    [SerializeField] private GameObject geoCountUI;
     [SerializeField] private GameObject emptyFileUI;
+
     [Space]
     [SerializeField] private string saveFileName = "SaveFile1";
     [Space]
@@ -21,6 +24,21 @@ public class SaveSlotUI : MonoBehaviour
 
         else
             SaveFileNoExist();
+    }
+
+    public void SaveSlotInitialize()
+    {
+        if (Directory.Exists(path))
+        {
+            string pullPath = Path.Combine(path, DataManager.instance.playerSaveFileName);
+            string data = File.ReadAllText(pullPath);
+            int money = JsonUtility.FromJson<PlayerData>(data).money;
+
+            if (money > 0)
+                geoCountUI.GetComponent<Text>().text = money.ToString();
+            else
+                geoCountUI.GetComponent<Text>().text = "0";
+        }
     }
 
     private void SaveFileExist()

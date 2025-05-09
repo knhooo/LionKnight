@@ -5,7 +5,7 @@ public class DataManager : Singleton<DataManager>
 {
     string path;
     string liftSaveFileName = "lift_save.json";
-    string playerSaveFileName = "player_save.json";
+    public string playerSaveFileName = "player_save.json";
 
     private Player player;
     private Lift lift;
@@ -61,12 +61,12 @@ public class DataManager : Singleton<DataManager>
         LoadLift();
     }
 
-    private void LoadPlayer()
+    public bool LoadPlayer()
     {
         if (player == null)
         {
             Debug.Log("플레이어 없음");
-            return;
+            return false;
         }
 
         string fullPath = Path.Combine(path, playerSaveFileName);
@@ -75,7 +75,9 @@ public class DataManager : Singleton<DataManager>
         {
             string data = File.ReadAllText(fullPath);
             player.LoadFromData(JsonUtility.FromJson<PlayerData>(data));
+            return false;
         }
+        return true;
     }
 
     private void LoadLift()
