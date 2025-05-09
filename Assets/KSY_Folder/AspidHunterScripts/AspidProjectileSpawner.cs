@@ -5,7 +5,6 @@ public class AspidProjectileSpawner : MonoBehaviour
     private Vector2 lastDirection = Vector2.right;
 
     [Header("Dependencies")]
-    [SerializeField] private Transform player;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float projectileSpeed = 5f;
 
