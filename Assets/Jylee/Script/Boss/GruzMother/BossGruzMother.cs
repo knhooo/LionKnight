@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using static UnityEditor.PlayerSettings;
 using static UnityEngine.ParticleSystem;
 using static UnityEngine.Rendering.DebugUI.Table;
 
