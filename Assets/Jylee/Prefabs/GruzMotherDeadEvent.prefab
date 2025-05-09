@@ -141,7 +141,11 @@ MonoBehaviour:
   burstSpeed: 40
   circleMaxScale: 0.2
   circleMinScale: 0.7
+  circleBurstRadius: 4
   smokePrefab: {fileID: 6701437805716133741, guid: bf1d9fe62f9580b4e8037b1383a7070b, type: 3}
   smokeMaxScale: 3
   smokeMinScale: 1
   smokeSpeed: 6
+  burstRadius: 4
+  particleCount: 100
+  abTrigger: 0
