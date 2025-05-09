@@ -27,6 +27,15 @@ public class optionManage : MonoBehaviour
     {
         credit.loopPointReached += OnCreditVideoEnd;
         credit.isLooping = false;
+        SetMainUI();
+    }
+
+    private void SetMainUI()
+    {
+        main.gameObject.SetActive(true);
+        load.gameObject.SetActive(false);
+        complete.gameObject.SetActive(false);
+        setting.gameObject.SetActive(false);
     }
 
     public void StartGame()
@@ -34,6 +43,13 @@ public class optionManage : MonoBehaviour
         main.gameObject.SetActive(false);
         load.gameObject.SetActive(true);
     }
+
+    public void StartGameOff()
+    {
+        main.gameObject.SetActive(true);
+        load.gameObject.SetActive(false);
+    }
+
 
     public void NewGame()
     {
