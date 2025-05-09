@@ -35,6 +35,9 @@ public class PlayerState
 
         player.anim.SetFloat("HP", player.playerData.hp);
 
+        if (!PlayerManager.instance.player.canMove)
+            return;
+
         if (!player.isDialog)
         {
             xInput = Input.GetAxisRaw("Horizontal");

@@ -18,6 +18,7 @@ public class PlayerInteraction : MonoBehaviour
     int contextCount = 0; //대사 카운트
     int npcID;
     private bool isTyping = false;
+    private bool canTalk = false;
 
     private Player player;
 
@@ -32,24 +33,27 @@ public class PlayerInteraction : MonoBehaviour
         if (collision.GetComponent<NPCInfo>() != null)
         {
             npcInfo = collision.GetComponent<NPCInfo>();
+            canTalk = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.GetComponent<NPCInfo>() != null)
         {
-            player.isDialog = false;
+            canTalk = false;
         }
     }
 
     private void Update()
     {
-
-        if (!player.IsNearBench() && !dialogUI.activeSelf && Input.GetKeyDown(KeyCode.UpArrow))
+        if (canTalk && !player.IsNearBench() && !dialogUI.activeSelf && Input.GetKeyDown(KeyCode.UpArrow))
         {
             // 대화 시작
             player.isDialog = true;
+            PlayerManager.instance.player.canMove = false;
             dialogUI.SetActive(true);
+
+            player.soundClip.PlayerSoundOneShot(npcInfo.npcID + 23);
             ShowDialogue(GetDialogue(npcInfo.npcID));
         }
         else if (dialogUI.activeSelf && Input.GetKeyDown(KeyCode.Z))
@@ -86,6 +90,7 @@ public class PlayerInteraction : MonoBehaviour
             lineCount = 0;
             contextCount = 0;
             player.isDialog = false;
+            PlayerManager.instance.player.canMove = true;
             return;
         }
 
