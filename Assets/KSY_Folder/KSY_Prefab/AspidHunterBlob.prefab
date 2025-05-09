@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4713281706223542578}
   - component: {fileID: 6624024106506506702}
   - component: {fileID: 3617316061338686812}
+  - component: {fileID: 5789493613622341659}
   m_Layer: 0
   m_Name: AspidHunterBlob
   m_TagString: Untagged
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 490947673
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: -6316785352848592178, guid: 9fad274536cfc1b45a577ffe6818c50b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -147,7 +148,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -175,3 +176,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5789493613622341659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81746648713340433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76f852257e7d0040a8dfd3b06ed8892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyOnLayers:
+    serializedVersion: 2
+    m_Bits: 192

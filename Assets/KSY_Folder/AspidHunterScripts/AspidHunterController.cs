@@ -21,20 +21,24 @@ public class AspidHunterController : MonoBehaviour
     [SerializeField] private float patrolSpeed = 1f;
     [SerializeField] private float patrolChangeDirectionTime = 3f;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private int maxHealth = 3;
 
     private State currentState = State.Idle;
     private float stateTimer = 0f;
     private float patrolTimer = 0f;
     private bool facingRight = false;
+    private int currentHealth;
 
     private void Start()
     {
         facingRight = false;
         patrolTimer = Random.Range(2f, patrolChangeDirectionTime);
+        currentHealth = maxHealth;
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.K)) Die();
         stateTimer -= Time.deltaTime;
         patrolTimer -= Time.deltaTime;
         HandleState();
@@ -110,6 +114,13 @@ public class AspidHunterController : MonoBehaviour
 
     private void HandleAttack()
     {
+        // 플레이어 방향으로 즉시 전환
+        Vector2 toPlayer = player.position - transform.position;
+        if ((toPlayer.x > 0 && !facingRight) || (toPlayer.x < 0 && facingRight))
+        {
+            Flip();
+        }
+
         animator.SetTrigger("isAttack");
         projectileSpawner.CacheDirection(facingRight ? Vector2.right : Vector2.left);
         TransitionTo(State.Cooldown, attackCooldownTime);
@@ -135,11 +146,17 @@ public class AspidHunterController : MonoBehaviour
         TransitionTo(State.Idle, 0.5f);
     }
 
+    private bool deathHandled = false;
+
     private void HandleDeath()
     {
+        if (deathHandled) return;
+
+        deathHandled = true;
         animator.SetTrigger("isDeath");
         rb.linearVelocity = Vector2.zero;
         enemyCollider.enabled = false;
+        Destroy(gameObject, 3f);
     }
 
     private void TransitionTo(State newState, float timer = 0f)
@@ -179,24 +196,55 @@ public class AspidHunterController : MonoBehaviour
         projectileSpawner.FireFromAnimation();
     }
 
-    public void Die()
+    public void TakeDamage(int damage, Vector2 knockbackDir)
     {
-        TransitionTo(State.Death);
-    }
+        Debug.Log($"[AspidHunter] TakeDamage called with damage: {damage}, knockback: {knockbackDir}");
+        if (currentState == State.Death) return;
 
-#if UNITY_EDITOR
-    private void OnDrawGizmos()
-    {
-        if (player == null) return;
+        currentHealth -= damage;
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(knockbackDir, ForceMode2D.Impulse);
 
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, player.position);
-
-        if (leftBound != null && rightBound != null)
+        if (currentHealth <= 0)
         {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(leftBound.position, rightBound.position);
+            Die();
+        }
+        else
+        {
+            animator.SetTrigger("isHit");
+            TransitionTo(State.Idle, 0.2f);
         }
     }
+
+
+
+public void Die()
+{
+    TransitionTo(State.Death);
+}
+
+private void OnTriggerEnter2D(Collider2D other)
+{
+    Debug.Log("[AspidHunter] OnTriggerEnter2D with: " + other.name);
+    if (other.CompareTag("Player") && other.TryGetComponent(out Player player))
+    {
+        player.TakeDamage();
+    }
+}
+
+#if UNITY_EDITOR
+private void OnDrawGizmos()
+{
+    if (player == null) return;
+
+    Gizmos.color = Color.red;
+    Gizmos.DrawLine(transform.position, player.position);
+
+    if (leftBound != null && rightBound != null)
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(leftBound.position, rightBound.position);
+    }
+}
 #endif
 }

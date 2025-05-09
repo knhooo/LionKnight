@@ -90,7 +90,6 @@ public class BossGruzMotherDead : BossGruzMotherState
             burstDelay -= Time.deltaTime;
             if (burstDelay <= 0)
             {
-                Debug.Log("AAAA");
                 stateType = 7;
                 boss.BossEndEvent();
             }

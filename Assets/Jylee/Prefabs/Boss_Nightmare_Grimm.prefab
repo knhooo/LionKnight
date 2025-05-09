@@ -880,7 +880,11 @@ MonoBehaviour:
   damagePoint: 1
   isInvincible: 0
   groundCheck: {fileID: 8585793226768490092}
+  wallCheck: {fileID: 0}
+  ceilCheck: {fileID: 0}
   groundCheckDistance: 0.05
+  wallCheckDistance: 0
+  ceilCheckDistance: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
@@ -1079,6 +1083,9 @@ MonoBehaviour:
   grimmBatsCircling: {fileID: 8300000, guid: 3056943228d14024dbea511cc7c94b20, type: 3}
   grimmBatsReform: {fileID: 8300000, guid: e9992416c96d65147a6578a3e2afc00e, type: 3}
   grimmLongDefeat: {fileID: 8300000, guid: e678faaf0c0f72940b96d1f05474d5f4, type: 3}
+  grimmFinalHit: {fileID: 8300000, guid: 046b29c6a8b71e64c82e0c9181c97e58, type: 3}
+  grimmDefeatBgm: {fileID: 8300000, guid: b1f285a452cfd5c4093a54dcf0677c7a, type: 3}
+  grimmScream: {fileID: 8300000, guid: c4269f5d49630a243aa372856c24a8cb, type: 3}
 --- !u!114 &3560216768277931131
 MonoBehaviour:
   m_ObjectHideFlags: 0
