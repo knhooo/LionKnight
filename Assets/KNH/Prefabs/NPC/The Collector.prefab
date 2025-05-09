@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 4630557047957736467}
   - component: {fileID: 7323247701781263337}
   - component: {fileID: 7810384267080059967}
+  - component: {fileID: 8389131226277418026}
   m_Layer: 0
   m_Name: The Collector
   m_TagString: Untagged
@@ -117,7 +118,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 522309389
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: -1
   m_Sprite: {fileID: -703817005512789736, guid: 9249dfd3f28ca9340b3e8fc38548b59c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -202,6 +203,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerUI: {fileID: 127413149881933477}
+  player: {fileID: 0}
+--- !u!114 &8389131226277418026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658673630736846495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66d3b8cdd4b1bd4790284a53c18e622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcID: 3
+  name: "\uAE40\uC2B9\uC5F0"
+  dialog: 
 --- !u!1 &2640348777180408503
 GameObject:
   m_ObjectHideFlags: 0

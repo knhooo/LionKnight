@@ -19060,7 +19060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3410024384315297608, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3410024384315297608, guid: 5dac2b5ba6e101640868ac5d0a89e63b, type: 3}
       propertyPath: m_SortingLayerID
@@ -27527,7 +27527,7 @@ MonoBehaviour:
     name: 
     line: {x: 0, y: 0}
     dialogues: []
-  typingSpeed: 0.05
+  typingSpeed: 0.01
 --- !u!1 &1588152957
 GameObject:
   m_ObjectHideFlags: 0
