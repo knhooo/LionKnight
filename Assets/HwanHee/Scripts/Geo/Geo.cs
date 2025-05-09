@@ -12,7 +12,7 @@ public class Geo : MonoBehaviour
             GeoEffect();
 
             PlayerManager.instance.player.playerData.money++;
-            PoolManager.instance.ReturnToPool(PoolType.Geo, gameObject);
+            PoolManager.instance.ReturnToPool(PoolType.Geo, transform.parent.gameObject);
 
             Debug.Log("Money : " + PlayerManager.instance.player.playerData.money);
 

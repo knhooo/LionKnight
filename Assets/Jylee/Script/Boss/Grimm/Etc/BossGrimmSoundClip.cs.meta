@@ -1,2 +1,37 @@
 fileFormatVersion: 2
 guid: 2058ee2f0e57e2740b0e3c6976b2e329
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - grimmGreeting: {instanceID: 0}
+  - grimmAppear: {instanceID: 0}
+  - grimmCast1: {instanceID: 0}
+  - grimmCast2: {instanceID: 0}
+  - grimmEvade: {instanceID: 0}
+  - grimmTeleportIn: {instanceID: 0}
+  - grimmTeleportOut: {instanceID: 0}
+  - grimmAirDash: {instanceID: 0}
+  - grimmAirDashLand: {instanceID: 0}
+  - grimmGroundDashStart: {instanceID: 0}
+  - grimmGroundDashing: {instanceID: 0}
+  - grimmUppercut1: {instanceID: 0}
+  - grimmUppercut2: {instanceID: 0}
+  - grimmUppercutVoice: {instanceID: 0}
+  - grimmSpikesGrounded: {instanceID: 0}
+  - grimmSpikesShootUp: {instanceID: 0}
+  - grimmSpikesShrivelBack: {instanceID: 0}
+  - grimmBalloonDeflate: {instanceID: 0}
+  - grimmBalloonShootingFireLoop: {instanceID: 0}
+  - grimmExplodeIntoBats: {instanceID: 0}
+  - grimmBatsCircling: {instanceID: 0}
+  - grimmBatsReform: {instanceID: 0}
+  - grimmLongDefeat: {instanceID: 0}
+  - grimmFinalHit: {fileID: 8300000, guid: 046b29c6a8b71e64c82e0c9181c97e58, type: 3}
+  - grimmDefeatBgm: {fileID: 8300000, guid: b1f285a452cfd5c4093a54dcf0677c7a, type: 3}
+  - grimmScream: {fileID: 8300000, guid: c4269f5d49630a243aa372856c24a8cb, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

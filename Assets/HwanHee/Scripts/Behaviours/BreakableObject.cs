@@ -8,6 +8,8 @@ public class BreakableObject : MonoBehaviour
     [SerializeField] private Sprite sprite;
     [SerializeField] private AudioClip breakSound;
 
+    [SerializeField] private bool isCreateBokenParticles = true;
+
     private bool isBroken;
 
     private void Awake()
@@ -30,11 +32,14 @@ public class BreakableObject : MonoBehaviour
     {
         sp.sprite = sprite;
 
-        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 1f);
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 3f);
         brokenTop = Instantiate(brokenTop, pos, Quaternion.identity);
 
         brokenTop.GetComponent<SpriteRenderer>().sortingLayerID = sp.sortingLayerID;
         brokenTop.GetComponent<SpriteRenderer>().sortingOrder = sp.sortingOrder;
+
+        if (!isCreateBokenParticles)
+            return;
 
         for (int i = 0; i < 10; i++)
         {

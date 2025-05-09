@@ -11,7 +11,7 @@ public class LandingSpot : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerManager.instance.player.playerData.fromSceneName != "Dirtmouth")
+        if (PlayerManager.instance.player.playerData.fromSceneName == "GruzMother")
             Destroy(gameObject);
     }
 

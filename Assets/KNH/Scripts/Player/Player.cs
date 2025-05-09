@@ -229,6 +229,7 @@ public class Player : MonoBehaviour
         StateInit();
         CheckShadow();
         cineCam = FindFirstObjectByType<CinemachineCamera>();
+        fallStartY = transform.position.y;
     }
 
     private void StateInit()

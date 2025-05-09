@@ -13305,10 +13305,18 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7673292743469929148, guid: 2ad06dbe1867776478022691900a913c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
       propertyPath: doorObj
       value: 
       objectReference: {fileID: 1203897981}
+    - target: {fileID: 8761933551507183004, guid: 2ad06dbe1867776478022691900a913c, type: 3}
+      propertyPath: burstParticle
+      value: 
+      objectReference: {fileID: 8989432898732532730, guid: e618e6009c8c023488a959ef3f84aba5, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
