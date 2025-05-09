@@ -373,7 +373,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1408579649182437973}
         m_TargetAssemblyTypeName: optionManage, Assembly-CSharp
-        m_MethodName: SetingOFF
+        m_MethodName: StartGameOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -612,7 +612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &136208477
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5941,7 +5941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   main: {fileID: 2989109727063560211}
-  load: {fileID: 0}
+  load: {fileID: 136208476}
   complete: {fileID: 8084318233357226350}
   setting: {fileID: 8628049330527096461}
   sceneName: DirtMouth
@@ -6960,7 +6960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &3056661805948593332
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7519,7 +7519,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1408579649182437973}
         m_TargetAssemblyTypeName: optionManage, Assembly-CSharp
-        m_MethodName: LoadGame
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
