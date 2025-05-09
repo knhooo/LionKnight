@@ -10,17 +10,17 @@ public class HUD : MonoBehaviour
     private Player player;
 
     [Header("Soul Settings")]
-    [Range(0, 10)] public float soul;
-    [Range(0, 10)] public float maxSoul;
+    public float soul;
+    public float maxSoul;
     public Slider soulSlider;
 
     [Header("Hp and Geo Settings")]
-    [Range(0, 10)] public int Hp;
-    [Range(0, 10)] public int maxHp;
+    public float Hp;
+    public float maxHp;
 
     public GameObject HpPrefab;
     public Transform HpContainer;
-    private List<GameObject> HpObjects = new List<GameObject>();
+    public List<GameObject> HpObjects = new List<GameObject>();
 
     public int geo;
     public Text geoText;
@@ -41,25 +41,37 @@ public class HUD : MonoBehaviour
 
     private void Start()
     {
+        UpdatePlayerData();
         InitializeHpUI();
     }
 
     private void Update()
     {
+        UpdatePlayerData();
+
         UpdateSoulUI();
         UpdateHp();
+    }
 
+    private void UpdatePlayerData()
+    {
+        Hp = PlayerManager.instance.player.playerData.hp;
+        maxHp = PlayerManager.instance.player.playerData.maxHp;
+        soul = PlayerManager.instance.player.playerData.mp;
+        maxSoul = PlayerManager.instance.player.playerData.maxMp;
+        geo = PlayerManager.instance.player.playerData.money;
     }
 
     private void InitializeHpUI()
     {
+        Debug.Log(maxHp/10);
         foreach (GameObject hpObj in HpObjects)
         {
             Destroy(hpObj);
         }
         HpObjects.Clear();
 
-        for (int i = 0; i < maxHp; i++)
+        for (int i = 0; i < maxHp/10; i++)
         {
             AddHpObject();
         }
@@ -116,7 +128,7 @@ public class HUD : MonoBehaviour
 
         for (int i = 0; i < HpObjects.Count; i++)
         {
-            HpObjects[i].SetActive(i < Hp);
+            HpObjects[i].SetActive(i < Hp/10);
         }
     }
     public void UpdateGeo(int money)
