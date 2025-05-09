@@ -30723,6 +30723,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2168655940521808162, guid: edb530363366d4a4aa75cddc560c1ba7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168655940521808162, guid: edb530363366d4a4aa75cddc560c1ba7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2301934159559013093, guid: edb530363366d4a4aa75cddc560c1ba7, type: 3}
       propertyPath: m_Text
       value: rest in peace
