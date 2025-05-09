@@ -15,6 +15,7 @@ public class BossGrimm : BossBase
     public float teleportOutDelay;
     public float groundY;
     public float bossDeadDelay;
+    public float screamDuration;
     [SerializeField] private GameObject nGrimmIntro;
     [SerializeField] private int attackSelectMax;
     [SerializeField] private int attackSelectMin;
@@ -144,6 +145,7 @@ public class BossGrimm : BossBase
     public BossGrimmAttackBulletHell bulletHell { get; private set; }
     public BossGrimmChangeBat batState { get; private set; }
     public BossGrimmDeath deathState { get; private set; }
+    public BossGrimmScream screamState { get; private set; }
 
     private void Awake()
     {
@@ -163,6 +165,7 @@ public class BossGrimm : BossBase
         bulletHell = new BossGrimmAttackBulletHell(this, stateMachine, "attackBulletHell");
         batState = new BossGrimmChangeBat(this, stateMachine, "IsBat");
         deathState = new BossGrimmDeath(this, stateMachine, "IsDeath");
+        screamState = new BossGrimmScream(this, stateMachine, "IsScream");
 
     }
 
@@ -272,6 +275,11 @@ public class BossGrimm : BossBase
         {
             bulletHellTrigger = true;
             firstBulletHell = false;
+        }
+        else if (anim.GetBool("IsGreet"))
+        {
+            bulletHellTrigger = true;
+            stateMachine.ChangeState(screamState);
         }
     }
 
@@ -873,5 +881,10 @@ public class BossGrimm : BossBase
         Time.timeScale = slowTimeScale;
         yield return new WaitForSecondsRealtime(duration);
         Time.timeScale = 1f;
+    }
+
+    public void PlayerCanMove(bool value)
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().canMove = value;
     }
 }

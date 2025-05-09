@@ -365,6 +365,7 @@ MonoBehaviour:
   teleportOutDelay: 0
   groundY: 0
   bossDeadDelay: 0
+  screamDuration: 3
   nGrimmIntro: {fileID: 0}
   attackSelectMax: 5
   attackSelectMin: 1
