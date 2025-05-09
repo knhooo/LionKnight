@@ -3,41 +3,46 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SceneFader : MonoBehaviour
+public class SceneFaderCanvas : MonoBehaviour
 {
     [SerializeField] private float fadeDuration = 0.5f;
     private Canvas sceneFaderCanvas;
-    private Image fadeImage;
+    [SerializeField] private Image fadeImage;
 
     private bool isSceneChange = false;
 
     private void Awake()
     {
         sceneFaderCanvas = GetComponent<Canvas>();
-        fadeImage = sceneFaderCanvas.GetComponentInChildren<Image>();
+
         fadeImage.color = new Color(0, 0, 0, 0);
     }
 
     public void FadeToScene()
     {
+        if (sceneFaderCanvas == null)
+            sceneFaderCanvas = GetComponent<Canvas>();
+
         if (!isSceneChange)
         {
             isSceneChange = true;
             sceneFaderCanvas.GetComponent<Canvas>().gameObject.SetActive(true);
             sceneFaderCanvas.gameObject.SetActive(true);
-            StartCoroutine(FadeOutIn());
+            StartCoroutine(FadeOut());
         }
     }
 
-    IEnumerator FadeOutIn()
+    private IEnumerator FadeOut()
     {
         yield return StartCoroutine(Fade(0f, 1f));
+
         SceneSaveLoadManager.instance.LoadScene();
 
+        yield return new WaitForSeconds(0.5f);
         yield return StartCoroutine(Fade(1f, 0f));
     }
 
-    IEnumerator Fade(float startAlpha, float endAlpha)
+    private IEnumerator Fade(float startAlpha, float endAlpha)
     {
         float time = 0f;
         Color _color = fadeImage.color;
@@ -55,7 +60,7 @@ public class SceneFader : MonoBehaviour
 
         if (fadeImage.color.a == 0f)
         {
-            sceneFaderCanvas.GetComponent<Canvas>().gameObject.SetActive(false);
+            //sceneFaderCanvas.GetComponent<Canvas>().gameObject.SetActive(false);
             isSceneChange = false;
         }
     }

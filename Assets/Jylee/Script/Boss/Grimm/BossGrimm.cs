@@ -665,6 +665,11 @@ public class BossGrimm : BossBase
         soundClip.GrimmEvade();
     }
 
+    public void BossGrimmStunSound()
+    {
+        soundClip.GrimmStun();
+    }
+
     public void BossGrimmFirePillarVoice()
     {
         soundClip.GrimmCast2();
