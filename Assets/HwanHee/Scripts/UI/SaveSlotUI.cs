@@ -21,7 +21,6 @@ public class SaveSlotUI : MonoBehaviour
 
         if (Directory.Exists(path))
             SaveFileExist();
-
         else
             SaveFileNoExist();
     }
@@ -30,15 +29,27 @@ public class SaveSlotUI : MonoBehaviour
     {
         if (Directory.Exists(path))
         {
-            string pullPath = Path.Combine(path, DataManager.instance.playerSaveFileName);
-            string data = File.ReadAllText(pullPath);
-            int money = JsonUtility.FromJson<PlayerData>(data).money;
+            SaveFileExist();
 
-            if (money > 0)
-                geoCountUI.GetComponent<Text>().text = money.ToString();
+            string pullPath = Path.Combine(path, DataManager.instance.playerSaveFileName);
+            if (File.Exists(pullPath))
+            {
+                string data = File.ReadAllText(pullPath);
+
+                if (data == null)
+                {
+                    int money = JsonUtility.FromJson<PlayerData>(data).money;
+                    if (money > 0)
+                        geoCountUI.GetComponent<Text>().text = money.ToString();
+                    else if (money <= 0)
+                        geoCountUI.GetComponent<Text>().text = "0";
+                }
+            }
             else
                 geoCountUI.GetComponent<Text>().text = "0";
         }
+        else
+            SaveFileNoExist();
     }
 
     private void SaveFileExist()
