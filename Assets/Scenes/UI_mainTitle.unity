@@ -612,7 +612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &136208477
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7086,7 +7086,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &3056661805948593332
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9448,7 +9448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActivated: 0
   firstTime: 1
-  waitTime: 3
+  waitTime: 999
 --- !u!224 &8973317228924701682
 RectTransform:
   m_ObjectHideFlags: 0
