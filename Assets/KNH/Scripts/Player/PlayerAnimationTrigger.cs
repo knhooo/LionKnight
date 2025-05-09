@@ -63,6 +63,13 @@ public class PlayerAnimationTrigger : MonoBehaviour
                 hit.GetComponent<HuskBullyController>().TakeDamage(player.attackPower, knockbackDir * 3);
                 Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
             }
+            else if (hit.GetComponent<AspidHunterController>() != null)
+            {
+                Vector2 knockbackDir = (hit.transform.position - transform.position).normalized;
+                hit.GetComponent<AspidHunterController>().TakeDamage(player.attackPower, knockbackDir * 3);
+                Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
+            }
+
             if (hit.GetComponent<EnemyGruz>() != null)
             {
                 hit.GetComponent<EnemyGruz>().EnemyTakeDamage(player.attackPower);
