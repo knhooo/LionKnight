@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
 
     public bool isBusy { get; private set; }
     [Header("이동 정보")]
+    public bool canMove = true;
     public float moveSpeed = 12f;
     public float jumpForce = 12f;
     public float variableJumpTime = 0.3f; // 최대 점프 유지 시간
@@ -111,6 +112,7 @@ public class Player : MonoBehaviour
     public bool isRidingLift = false;
     public bool isInIntro = false;
     public bool isDialog = false;
+    public bool isMuteki = false;
 
     private Coroutine flashRoutine;
     public PlayerSoundClip soundClip => GetComponentInParent<PlayerSoundClip>();
@@ -291,14 +293,20 @@ public class Player : MonoBehaviour
             TakeDamage();
         }
         //회복
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             SetHPandMP(playerData.maxHp, playerData.maxMp);
         }
         //즉사
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             SetHPandMP(-100, 0);
+        }
+        //무적 모드
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (isMuteki) isMuteki = false;
+            else isMuteki = true;
         }
     }
 
@@ -311,7 +319,10 @@ public class Player : MonoBehaviour
     {
         if (!isKnocked)
         {
-            SetHPandMP(-10, 0);
+            if (!isMuteki)
+            {
+                SetHPandMP(-10, 0);
+            }
             stateMachine.ChangeState(hitState);
             if (flashRoutine != null)
                 StopCoroutine(flashRoutine);
