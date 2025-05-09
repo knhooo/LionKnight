@@ -21,7 +21,8 @@ public class AspidHunterController : MonoBehaviour
     [SerializeField] private float patrolSpeed = 1f;
     [SerializeField] private float patrolChangeDirectionTime = 3f;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private int maxHealth = 3;
+    [SerializeField] private int maxHealth = 20;
+    [SerializeField] private int geoCount = 5;
 
     private State currentState = State.Idle;
     private float stateTimer = 0f;
@@ -155,8 +156,10 @@ public class AspidHunterController : MonoBehaviour
         deathHandled = true;
         animator.SetTrigger("isDeath");
         rb.linearVelocity = Vector2.zero;
+        rb.simulated = false;
         enemyCollider.enabled = false;
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 1f);
+        CreateGeo();
     }
 
     private void TransitionTo(State newState, float timer = 0f)
@@ -216,35 +219,27 @@ public class AspidHunterController : MonoBehaviour
         }
     }
 
-
-
-public void Die()
-{
-    TransitionTo(State.Death);
-}
-
-private void OnTriggerEnter2D(Collider2D other)
-{
-    Debug.Log("[AspidHunter] OnTriggerEnter2D with: " + other.name);
-    if (other.CompareTag("Player") && other.TryGetComponent(out Player player))
+    public void Die()
     {
-        player.TakeDamage();
+        TransitionTo(State.Death);
     }
-}
 
-#if UNITY_EDITOR
-private void OnDrawGizmos()
-{
-    if (player == null) return;
-
-    Gizmos.color = Color.red;
-    Gizmos.DrawLine(transform.position, player.position);
-
-    if (leftBound != null && rightBound != null)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(leftBound.position, rightBound.position);
+        Debug.Log("[AspidHunter] OnTriggerEnter2D with: " + other.name);
+
+        if (other.CompareTag("Player") && other.TryGetComponent(out Player player))
+        {
+            Debug.Log("[AspidHunter] Player Hit");
+            player.TakeDamage();
+        }
     }
-}
-#endif
+
+    public void CreateGeo()
+    {
+        for (int i = 0; i < geoCount; i++)
+        {
+            Geo geo = PoolManager.instance.Spawn(PoolType.Geo, transform.position, Quaternion.identity).GetComponent<Geo>();
+        }
+    }
 }

@@ -273,6 +273,7 @@ public class HuskBullyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("[HuskBully] OnTriggerEnter2D with: " + other.name);
         if (other.CompareTag("Player"))
         {
             Player player = other.GetComponent<Player>();
