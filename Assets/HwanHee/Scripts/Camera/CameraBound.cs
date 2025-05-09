@@ -14,7 +14,8 @@ public class CameraBound : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerManager.instance.player.playerData.fromSceneName == "GruzMother")
+        PlayerData playerData = PlayerManager.instance.player.playerData;
+        if (playerData.fromSceneName == "GruzMother")
             cinemachineCamera.GetComponent<CinemachineConfiner2D>().BoundingShape2D = GruzToForgottenCameraBound;
     }
 }

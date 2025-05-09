@@ -24,16 +24,20 @@ public class DataManager : Singleton<DataManager>
     public void PrepareSaveDirectory()
     {
         path = Path.Combine(Application.dataPath, "..", "Saves", saveFiles);
+        CreateFile();
+    }
 
+    private void CreateFile()
+    {
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);
         }
-
     }
 
     public void SaveData()
     {
+        CreateFile();
         SavePlayer();
         SaveLift();
     }
