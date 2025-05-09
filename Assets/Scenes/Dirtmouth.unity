@@ -419,6 +419,14 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -3.2911692
       objectReference: {fileID: 0}
+    - target: {fileID: 3347705073785272978, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 16.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 3347705073785272978, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.44
+      objectReference: {fileID: 0}
     - target: {fileID: 7358647288107035718, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -457,6 +465,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7358647288107035718, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584153998693474117, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -17826,6 +17838,10 @@ PrefabInstance:
       propertyPath: 'newAudioSources.Array.data[0]'
       value: 
       objectReference: {fileID: 8300000, guid: e679f13cbbb36be45948a701d2bd2635, type: 3}
+    - target: {fileID: 2250237894123359499, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2253682059423401758, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_Name
       value: ForgottenCrossroadsSceneLoader
@@ -17845,6 +17861,18 @@ PrefabInstance:
     - target: {fileID: 2995256924026264278, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_Offset.y
       value: -13.805466
+      objectReference: {fileID: 0}
+    - target: {fileID: 3347705073785272978, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 38.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3347705073785272978, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4554150417415019429, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7358647288107035718, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17885,6 +17913,10 @@ PrefabInstance:
     - target: {fileID: 7358647288107035718, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023347668962670444, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19360,6 +19392,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1752181105}
     m_Modifications:
+    - target: {fileID: 258041261108294438, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: isAutoLoad
       value: 0
@@ -19446,6 +19482,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7358647288107035718, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584153998693474117, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -44701,6 +44741,7 @@ MonoBehaviour:
   maxHp: 0
   HpPrefab: {fileID: 0}
   HpContainer: {fileID: 0}
+  HpObjects: []
   geo: 0
   geoText: {fileID: 0}
 --- !u!224 &3957807118194392289
