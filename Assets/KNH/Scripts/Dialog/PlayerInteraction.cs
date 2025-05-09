@@ -50,12 +50,13 @@ public class PlayerInteraction : MonoBehaviour
         {
             // 대화 시작
             player.isDialog = true;
+            PlayerManager.instance.player.canMove = false;
             dialogUI.SetActive(true);
 
             player.soundClip.PlayerSoundOneShot(npcInfo.npcID + 23);
             ShowDialogue(GetDialogue(npcInfo.npcID));
         }
-        else if (dialogUI.activeSelf && Input.GetKeyDown(KeyCode.Space))
+        else if (dialogUI.activeSelf && Input.GetKeyDown(KeyCode.Z))
         {
             if (isTyping)
             {
@@ -89,6 +90,7 @@ public class PlayerInteraction : MonoBehaviour
             lineCount = 0;
             contextCount = 0;
             player.isDialog = false;
+            PlayerManager.instance.player.canMove = true;
             return;
         }
 
