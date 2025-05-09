@@ -18,11 +18,11 @@ public class SceneSaveLoadManager : Singleton<SceneSaveLoadManager>
     public void StartLoadScene(string _sceneName, bool isGameStart = false)
     {
         sceneName = _sceneName;
-
         if (!isGameStart)
             DataManager.instance.SaveData();
         else
             DataManager.instance.PrepareSaveDirectory();
+
         sceneFaderCanvas.FadeToScene();
 
         BGMManager.instance.BGMFadeOut();
@@ -38,6 +38,7 @@ public class SceneSaveLoadManager : Singleton<SceneSaveLoadManager>
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
         DataManager.instance.LoadData();
+
         BGMManager.instance.ChangeBGM(0.5f);
     }
 }

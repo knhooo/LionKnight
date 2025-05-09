@@ -20,11 +20,6 @@ public class DataManager : Singleton<DataManager>
         base.Awake();
     }
 
-    private void Start()
-    {
-        PrepareSaveDirectory();
-    }
-
     public void PrepareSaveDirectory()
     {
         path = Path.Combine(Application.dataPath, "..", "Saves", saveFiles);
@@ -33,6 +28,7 @@ public class DataManager : Singleton<DataManager>
         {
             Directory.CreateDirectory(path);
         }
+
     }
 
     public void SaveData()
