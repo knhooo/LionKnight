@@ -22,6 +22,9 @@ public class BossGruzMotherIdle : BossGruzMotherState
     {
         base.Update();
 
+        if (boss.isDead)
+            return;
+
         Vector2 movePos = new Vector2(boss.xPower, boss.yPower);
         boss.rb.linearVelocity = movePos;
 

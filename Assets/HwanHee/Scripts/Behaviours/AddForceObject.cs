@@ -1,33 +1,33 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class AddForceObject : MonoBehaviour
 {
-    protected Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     [Header("Force")]
-    [SerializeField] protected float SpeedX = 3f;
-    [SerializeField] protected float SpeedY = 8f;
-    [SerializeField] protected bool usePlayerDirection;
-    [SerializeField] protected float torque = 50f;
-    [SerializeField] protected float directionValue = 0.5f;
+    [SerializeField] private float SpeedX = 3f;
+    [SerializeField] private float SpeedY = 8f;
+    [SerializeField] private bool usePlayerDirection = true;
+    [SerializeField] private float torque = 50f;
+    [SerializeField] private float directionValue = 0.5f;
 
-    protected Vector2 velocity;
+    private Vector2 velocity = new Vector2();
 
-    protected virtual void Awake()
+    private void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
+
         SpeedX = Random.Range(SpeedX - 1, SpeedX + 1);
         SpeedY = Random.Range(SpeedY - 1, SpeedY + 1);
-        rb = GetComponent<Rigidbody2D>();
     }
 
-    protected virtual void OnEnable()
+    private void OnEnable()
     {
         rb.linearVelocity = Vector2.zero;
         AddForce();
     }
 
-    protected virtual void AddForce()
+    private void AddForce()
     {
         velocity.y = SpeedY;
 
