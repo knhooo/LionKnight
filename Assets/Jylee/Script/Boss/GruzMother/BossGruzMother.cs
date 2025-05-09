@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static UnityEditor.PlayerSettings;
 using static UnityEngine.ParticleSystem;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class BossGruzMother : BossBase
 {
@@ -44,9 +46,11 @@ public class BossGruzMother : BossBase
     public float gurgleDelay;
     public int gurgleCount;
     public float burstDelay;
+    public GameObject deadEventObj;
 
     [Header("자폭")]
     public GameObject gruzPrefab;
+    public GameObject burstParticle;
     public int gruzSpawnCount;
     public List<GameObject> gruzCheck;
 
@@ -147,6 +151,7 @@ public class BossGruzMother : BossBase
         else if(currentHealthPoint <= 0)
         {
             BossFinalHitSound();
+            Instantiate(deadEventObj, transform.position, Quaternion.identity);
             stateMachine.ChangeState(idleState);
             attackColl.GetComponent<Collider2D>().enabled = false;
             SetZeroVelocity();
@@ -237,6 +242,9 @@ public class BossGruzMother : BossBase
 
     public void GenerateGruzBaby()
     {
+
+        GameObject eff = Instantiate(burstParticle, transform.position, Quaternion.identity);
+        Destroy(eff, 1f);
         float yForce = 0f;
         for(int i = 0; i < gruzSpawnCount; i++)
         {

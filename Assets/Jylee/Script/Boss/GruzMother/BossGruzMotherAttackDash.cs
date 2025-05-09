@@ -56,6 +56,7 @@ public class BossGruzMotherAttackDash : BossGruzMotherState
             {
                 boss.anim.SetTrigger("IsDashEnd");
                 dashDuration = 0.3f;
+                boss.BossWallCrashSound();
             }
 
             if (dashDuration <= 0)
