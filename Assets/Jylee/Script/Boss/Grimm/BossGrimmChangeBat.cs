@@ -22,6 +22,7 @@ public class BossGrimmChangeBat : BossGrimmState
         boss.SetZeroVelocity();
         boss.BossCancelEverything();
         boss.BossRotationZero();
+        boss.BossGrimmStunSound();
     }
 
     public override void Update()
