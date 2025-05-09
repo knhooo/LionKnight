@@ -413,12 +413,12 @@ TextureImporter:
       name: sactx-0-1024x2048-DXT5-Pause_fleurs-5ca4bb17_1
       rect:
         serializedVersion: 2
-        x: 69
-        y: 1736
-        width: 78
-        height: 35
+        x: 50
+        y: 1717
+        width: 198
+        height: 68
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -435,12 +435,12 @@ TextureImporter:
       name: sactx-0-1024x2048-DXT5-Pause_fleurs-5ca4bb17_2
       rect:
         serializedVersion: 2
-        x: 133
-        y: 1721
-        width: 34
-        height: 29
+        x: 57
+        y: 1654
+        width: 187
+        height: 52
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -457,12 +457,12 @@ TextureImporter:
       name: sactx-0-1024x2048-DXT5-Pause_fleurs-5ca4bb17_3
       rect:
         serializedVersion: 2
-        x: 152
-        y: 1736
-        width: 78
-        height: 35
+        x: 524
+        y: 1086
+        width: 114
+        height: 59
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -471,116 +471,6 @@ TextureImporter:
       bones: []
       spriteID: ac1d718ca1f3c37f0800000000000000
       internalID: -631560463480008246
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-0-1024x2048-DXT5-Pause_fleurs-5ca4bb17_4
-      rect:
-        serializedVersion: 2
-        x: 116
-        y: 1679
-        width: 31
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2852c58745e9116d0800000000000000
-      internalID: -3021459789355145854
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-0-1024x2048-DXT5-Pause_fleurs-5ca4bb17_5
-      rect:
-        serializedVersion: 2
-        x: 152
-        y: 1679
-        width: 16
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dcd445b81cc18c300800000000000000
-      internalID: 272499395047738829
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-0-1024x2048-DXT5-Pause_fleurs-5ca4bb17_6
-      rect:
-        serializedVersion: 2
-        x: 167
-        y: 1685
-        width: 16
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d065ac68b639f98b0800000000000000
-      internalID: -5143230159401626099
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-0-1024x2048-DXT5-Pause_fleurs-5ca4bb17_7
-      rect:
-        serializedVersion: 2
-        x: 126
-        y: 1651
-        width: 25
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0ac4a5d3fdb7b1470800000000000000
-      internalID: 8366416931508079776
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-0-1024x2048-DXT5-Pause_fleurs-5ca4bb17_8
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 1666
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b39364ef993f3da40800000000000000
-      internalID: 5391921021614176571
       vertices: []
       indices: 
       edges: []
@@ -933,50 +823,6 @@ TextureImporter:
       bones: []
       spriteID: db9567421c7787280800000000000000
       internalID: -9045348180149511747
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-0-1024x2048-DXT5-Pause_fleurs-5ca4bb17_28
-      rect:
-        serializedVersion: 2
-        x: 541
-        y: 1086
-        width: 54
-        height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2659b5163482335a0800000000000000
-      internalID: -6542841563777886878
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-0-1024x2048-DXT5-Pause_fleurs-5ca4bb17_29
-      rect:
-        serializedVersion: 2
-        x: 582
-        y: 1109
-        width: 37
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9733ccbee80aaae00800000000000000
-      internalID: 1056833598273631097
       vertices: []
       indices: 
       edges: []
@@ -1505,72 +1351,6 @@ TextureImporter:
       bones: []
       spriteID: 441817c06ac0f1cd0800000000000000
       internalID: -2585333753774505660
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-0-1024x2048-DXT5-Pause_fleurs-5ca4bb17_54
-      rect:
-        serializedVersion: 2
-        x: 643
-        y: 700
-        width: 42
-        height: 91
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b965025908bf48e00800000000000000
-      internalID: 1046237543133107867
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-0-1024x2048-DXT5-Pause_fleurs-5ca4bb17_55
-      rect:
-        serializedVersion: 2
-        x: 710
-        y: 546
-        width: 80
-        height: 171
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3c0e1697eaa3bf600800000000000000
-      internalID: 503060304417120451
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-0-1024x2048-DXT5-Pause_fleurs-5ca4bb17_56
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 546
-        width: 80
-        height: 87
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 163cea361a40f06c0800000000000000
-      internalID: -4175113238340517023
       vertices: []
       indices: 
       edges: []

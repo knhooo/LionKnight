@@ -20,25 +20,18 @@ public class InGameOpt : MonoBehaviour
         {
             bool optAct = !opt.gameObject.activeSelf;
             opt.gameObject.SetActive(optAct);
-            if (optAct == true)
-            {
-                Time.timeScale = 0f;
-            }
-            else
-            {
-                Time.timeScale = 1f;
-            }
         }
     }
 
+    public void Contunue() => opt.gameObject.SetActive(false);
+
     public void Optionbtt()
     {
-        opt.gameObject.SetActive(false);
-        setOpt.gameObject.SetActive(true);
-    }
-    public void BacktoTitle()
-    {
-        SceneManager.LoadScene("mainTitle");
+        if (opt != null)
+        {
+            opt.gameObject.SetActive(false);
+            setOpt.gameObject.SetActive(true);
+        }
     }
 
     public void SaveCheck()
@@ -48,6 +41,26 @@ public class InGameOpt : MonoBehaviour
             opt.gameObject.SetActive(false);
             savecheck.gameObject.SetActive(true);
         }
-
+    }
+    public void SaveCheckYes()
+    {
+        SceneManager.LoadScene("UI_mainTitle");
+        //데이터세이브
+    }
+    public void SaveCheckNo()
+    {
+        if (savecheck != null)
+        {
+            opt.gameObject.SetActive(true);
+            savecheck.gameObject.SetActive(false);
+        }
+    }
+    public void Back()
+    {
+        if (setOpt != null)
+        {
+            opt.gameObject.SetActive(true);
+            setOpt.gameObject.SetActive(false);
+        }
     }
 }

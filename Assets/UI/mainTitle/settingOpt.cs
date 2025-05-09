@@ -49,10 +49,7 @@ public class settingOpt : MonoBehaviour
             videoPlayer.SetDirectAudioMute(0, isMuted);
         }
     }
-    public void Fullscreen()
-    {
-        Screen.fullScreen = fullscreenToggle.isOn;
-    }
+    public void Fullscreen() => Screen.fullScreen = fullscreenToggle.isOn;
 
     public void Volume()
     {
