@@ -245,7 +245,6 @@ public class HuskBullyController : MonoBehaviour
 
     public void TakeDamage(int damage, Vector2 knockbackDir)
     {
-        Debug.Log($"[HuskBully] Damage Received: {damage}, Current HP: {currentHealth - damage}");
 
         if (currentState == State.DeathAir || currentState == State.DeathLand) return;
 
