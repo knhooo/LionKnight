@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using UnityEngine.Splines.ExtrusionShapes;
 
 
 public class optionManage : MonoBehaviour
@@ -43,23 +44,36 @@ public class optionManage : MonoBehaviour
 
     public void StartGame()
     {
-        main.gameObject.SetActive(false);
-        load.gameObject.SetActive(true);
-
-        foreach(var saveSlotUI in saveSlotUIs)
+        foreach (var saveSlotUI in saveSlotUIs)
         {
             saveSlotUI.SaveSlotInitialize();
         }
+
         saveSelect.GetComponent<FadeUI>().FadeInOut(0f, 1f, 0.5f);
+        main.GetComponent<FadeUI>().FadeInOut(1f, 0f, 0.5f);
+
+        Invoke("LoadSetActive", 0.6f);
+    }
+
+    private void LoadSetActive()
+    {
+        main.gameObject.SetActive(false);
+        load.gameObject.SetActive(true);
     }
 
     public void StartGameOff()
     {
-        main.gameObject.SetActive(true);
-        load.gameObject.SetActive(false);
-        saveSelect.GetComponent<FadeUI>().FadeInOut(1f, 0f, 0.5f);
+        main.GetComponent<FadeUI>().FadeInOut(0f, 1f, 0.5f);
+        load.GetComponent<FadeUI>().FadeInOut(1f, 0f, 0.5f);
+
+        Invoke("MainSetActive", 0.6f);
     }
 
+    private void MainSetActive()
+    {
+        main.gameObject.SetActive(true);
+        load.gameObject.SetActive(false);
+    }
 
     public void NewGame()
     {

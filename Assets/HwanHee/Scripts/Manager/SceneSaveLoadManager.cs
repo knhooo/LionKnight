@@ -15,13 +15,13 @@ public class SceneSaveLoadManager : Singleton<SceneSaveLoadManager>
         sceneFaderCanvas.transform.SetParent(transform);
     }
 
-    public void StartLoadScene(string _sceneName, bool isGameStart = false)
+    public void StartLoadScene(string _sceneName, bool isNewGame = false)
     {
         sceneName = _sceneName;
-        if (!isGameStart)
-            DataManager.instance.SaveData();
-        else
-            DataManager.instance.PrepareSaveDirectory();
+
+        if (isNewGame)
+            DataManager.instance.CreateFile();
+        DataManager.instance.SaveData();
 
         sceneFaderCanvas.FadeToScene();
 

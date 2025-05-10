@@ -29,7 +29,10 @@ public class FadeUI : MonoBehaviour
             time += Time.deltaTime;
 
             foreach (var canvasGroup in canvasGroups)
-                canvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, time / _fadeDuration);
+            {
+                if (canvasGroup.gameObject.activeSelf)
+                    canvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, time / _fadeDuration);
+            }
 
             yield return null;
         }
