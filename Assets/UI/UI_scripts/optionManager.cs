@@ -44,14 +44,7 @@ public class optionManage : MonoBehaviour
 
     public void StartGame()
     {
-        foreach (var saveSlotUI in saveSlotUIs)
-        {
-            saveSlotUI.SaveSlotInitialize();
-        }
-
-        saveSelect.GetComponent<FadeUI>().FadeInOut(0f, 1f, 0.5f);
         main.GetComponent<FadeUI>().FadeInOut(1f, 0f, 0.5f);
-
         Invoke("LoadSetActive", 0.6f);
     }
 
@@ -59,13 +52,16 @@ public class optionManage : MonoBehaviour
     {
         main.gameObject.SetActive(false);
         load.gameObject.SetActive(true);
+
+        foreach (var saveSlotUI in saveSlotUIs)
+        {
+            saveSlotUI.SaveSlotInitialize();
+        }
     }
 
     public void StartGameOff()
     {
-        main.GetComponent<FadeUI>().FadeInOut(0f, 1f, 0.5f);
         load.GetComponent<FadeUI>().FadeInOut(1f, 0f, 0.5f);
-
         Invoke("MainSetActive", 0.6f);
     }
 
@@ -73,6 +69,8 @@ public class optionManage : MonoBehaviour
     {
         main.gameObject.SetActive(true);
         load.gameObject.SetActive(false);
+
+        main.GetComponent<FadeUI>().FadeInOut(0f, 1f, 0.5f);
     }
 
     public void NewGame()
