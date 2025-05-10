@@ -18924,6 +18924,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 189880682}
     m_Modifications:
     - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: isAutoLoad
       value: 1
       objectReference: {fileID: 0}
@@ -18967,6 +18971,10 @@ PrefabInstance:
       propertyPath: 'newAudioSources.Array.data[1]'
       value: 
       objectReference: {fileID: 8300000, guid: 9cf9937d5f45fac4aab3dcba95eefe32, type: 3}
+    - target: {fileID: 2250237894123359499, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2253682059423401758, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_Name
       value: GruzMotherSceneLoader
@@ -19029,6 +19037,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7358647288107035718, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584153998693474117, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
