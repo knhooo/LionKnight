@@ -225,8 +225,6 @@ public class Player : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
-        playerData.hp = playerData.maxHp;
-
         // 게임 시작 시 초기 상태를 대기 상태(idleState)로 설정
         StateInit();
         CheckShadow();
@@ -238,6 +236,7 @@ public class Player : MonoBehaviour
     {
         if (PlayerManager.instance.isAwake && SceneManager.GetActiveScene().name == "Dirtmouth")
         {
+            playerData.hp = playerData.maxHp;
             stateMachine.Initialize(awakeState);
             transform.position = new Vector3(0, 0.29f, 0);
         }
@@ -508,10 +507,11 @@ public class Player : MonoBehaviour
             //이펙트 생성
             Instantiate(die_effect, transform.position, Quaternion.identity);
             Instantiate(dieParticle, transform.position, Quaternion.identity);
-            Instantiate(dieParticle_L, headPos.position, dieParticle_L.transform.rotation);
-            Instantiate(dieParticle_R, headPos.position, dieParticle_R.transform.rotation);
-            dieParticle_L.transform.SetParent(transform);
-            dieParticle_R.transform.SetParent(transform);
+
+            GameObject particleL = Instantiate(dieParticle_L, headPos.position, dieParticle_L.transform.rotation);
+            GameObject particleR = Instantiate(dieParticle_R, headPos.position, dieParticle_R.transform.rotation);
+            particleL.transform.SetParent(transform);
+            particleR.transform.SetParent(transform);
             //그림자가 존재하는 상태에서 죽었을 경우
             if (playerData.isShadowAlive)
             {
@@ -522,6 +522,9 @@ public class Player : MonoBehaviour
                 //잃은 돈 저장
                 playerData.lostMoney = playerData.money;
             }
+            //돈 잃기
+            playerData.money = 0;
+
             //죽은 씬 저장
             playerData.lastDeathLocation = SceneManager.GetActiveScene().buildIndex;
             playerData.isShadowAlive = true;

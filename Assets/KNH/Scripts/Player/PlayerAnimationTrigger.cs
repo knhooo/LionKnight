@@ -28,18 +28,21 @@ public class PlayerAnimationTrigger : MonoBehaviour
             {
                 hit.GetComponent<Shadow>().TakeDamage();
                 Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
+                player.SetHPandMP(0, 10);
             }
             //그림 공격
             if (hit.GetComponent<BossBase>() != null)
             {
                 hit.GetComponent<BossBase>().BossTakeDamage(player.attackPower);
                 Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
+                player.SetHPandMP(0, 10);
             }
             //그림 박쥐 공격
             if (hit.GetComponent<BossGrimmBat>() != null)
             {
                 hit.GetComponent<BossGrimmBat>().BatGetHit(player.attackPower);
                 Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
+                player.SetHPandMP(0, 10);
             }
             //풀 자르기
             if (hit.GetComponent<Grass>() != null)
@@ -62,23 +65,25 @@ public class PlayerAnimationTrigger : MonoBehaviour
                 Vector2 knockbackDir = (hit.transform.position - transform.position).normalized;
                 hit.GetComponent<HuskBullyController>().TakeDamage(player.attackPower, knockbackDir * 3);
                 Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
+                player.SetHPandMP(0, 10);
             }
             else if (hit.GetComponent<AspidHunterController>() != null)
             {
                 Vector2 knockbackDir = (hit.transform.position - transform.position).normalized;
                 hit.GetComponent<AspidHunterController>().TakeDamage(player.attackPower, knockbackDir * 3);
                 Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
+                player.SetHPandMP(0, 10);
             }
 
             if (hit.GetComponent<EnemyGruz>() != null)
             {
                 hit.GetComponent<EnemyGruz>().EnemyTakeDamage(player.attackPower);
+                player.SetHPandMP(0, 10);
             }
             if (hit.GetComponent<Water>() != null)
             {
                 GameObject waterSplash = Instantiate(player.WaterSplash, player.attackCheck.position, Quaternion.identity);
             }
-            player.SetHPandMP(0, 10);
         }
     }
 

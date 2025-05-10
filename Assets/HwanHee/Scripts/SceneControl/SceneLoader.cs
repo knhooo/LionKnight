@@ -12,6 +12,9 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private AudioClip[] newAudioClips;
     [SerializeField] private AudioClip bell;
 
+    [SerializeField] private GameObject triggerUI;
+
+
     private bool playerInTrigger;
     private bool isLoadScene = false;
 
@@ -46,6 +49,15 @@ public class SceneLoader : MonoBehaviour
                 SceneSaveLoadManager.instance.StartLoadScene(sceneToLoad);
             }
         }
+
+        if (playerInTrigger)
+        {
+            triggerUI.SetActive(true);
+        }
+        else
+        {
+            triggerUI.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,6 +71,8 @@ public class SceneLoader : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.GetComponent<Player>())
+        {
             playerInTrigger = false;
+        }
     }
 }

@@ -6003,6 +6003,10 @@ PrefabInstance:
       propertyPath: 'newAudioSources.Array.data[1]'
       value: 
       objectReference: {fileID: 8300000, guid: 9cf9937d5f45fac4aab3dcba95eefe32, type: 3}
+    - target: {fileID: 2250237894123359499, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2253682059423401758, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_Name
       value: DirtmouthmouthSceneLoader
