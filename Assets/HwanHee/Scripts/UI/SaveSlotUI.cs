@@ -69,7 +69,7 @@ public class SaveSlotUI : MonoBehaviour
 
     public void LoadScene()
     {
-        DataManager.instance.saveFiles = saveFileName;
+        DataManager.instance.ChangeSaveFileName(saveFileName);
         SceneSaveLoadManager.instance.StartLoadScene("Dirtmouth", true);
         BGMManager.instance.SetBGM(dirtmouthAudioclips, 0f, 1f);
     }

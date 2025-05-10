@@ -10,10 +10,11 @@ public class DataManager : Singleton<DataManager>
     private Player player;
     private Lift lift;
     [HideInInspector] public string saveFiles = "test";
-    public string saveFileName;
 
     public void RegisterPlayer(Player _player) => player = _player;
     public void RegisterLift(Lift _lift) => lift = _lift;
+
+    public void ChangeSaveFileName(string _saveFileName) => path = Path.Combine(Application.dataPath, "..", "Saves", _saveFileName);
 
     protected override void Awake()
     {
@@ -21,13 +22,7 @@ public class DataManager : Singleton<DataManager>
         path = Path.Combine(Application.dataPath, "..", "Saves", saveFiles);
     }
 
-    public void PrepareSaveDirectory()
-    {
-        path = Path.Combine(Application.dataPath, "..", "Saves", saveFiles);
-        CreateFile();
-    }
-
-    private void CreateFile()
+    public void CreateFile()
     {
         if (!Directory.Exists(path))
         {
@@ -37,18 +32,25 @@ public class DataManager : Singleton<DataManager>
 
     public void SaveData()
     {
-        CreateFile();
         SavePlayer();
         SaveLift();
     }
 
     private void SavePlayer()
     {
+        string json = string.Empty;
+
         if (player != null)
         {
-            string json = JsonUtility.ToJson(player.GetSaveData());
-            File.WriteAllText(Path.Combine(path, playerSaveFileName), json);
+            json = JsonUtility.ToJson(player.GetSaveData());
         }
+        else
+        {
+            PlayerData playerData = new PlayerData();
+            json = JsonUtility.ToJson(playerData);
+        }
+
+        File.WriteAllText(Path.Combine(path, playerSaveFileName), json);
     }
 
     private void SaveLift()
@@ -66,7 +68,7 @@ public class DataManager : Singleton<DataManager>
         LoadLift();
     }
 
-    public bool LoadPlayer()
+    private bool LoadPlayer()
     {
         if (player == null)
         {
@@ -82,16 +84,14 @@ public class DataManager : Singleton<DataManager>
             player.LoadFromData(JsonUtility.FromJson<PlayerData>(data));
             return false;
         }
+
         return true;
     }
 
     private void LoadLift()
     {
         if (lift == null)
-        {
-            Debug.Log("리프트 없음");
             return;
-        }
 
         string fullPath = Path.Combine(path, liftSaveFileName);
 
