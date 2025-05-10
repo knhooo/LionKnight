@@ -36,17 +36,20 @@ public class SaveSlotUI : MonoBehaviour
             {
                 string data = File.ReadAllText(pullPath);
 
-                if (data == null)
+                if (string.IsNullOrWhiteSpace(data))
+                {
+                    geoCountUI.GetComponent<Text>().text = "0";
+                }
+                else
                 {
                     int money = JsonUtility.FromJson<PlayerData>(data).money;
-                    if (money > 0)
-                        geoCountUI.GetComponent<Text>().text = money.ToString();
-                    else if (money <= 0)
-                        geoCountUI.GetComponent<Text>().text = "0";
+                    geoCountUI.GetComponent<Text>().text = (money > 0) ? money.ToString() : "0";
                 }
             }
             else
+            {
                 geoCountUI.GetComponent<Text>().text = "0";
+            }
         }
         else
             SaveFileNoExist();

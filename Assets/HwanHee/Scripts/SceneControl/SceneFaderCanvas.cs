@@ -60,7 +60,6 @@ public class SceneFaderCanvas : MonoBehaviour
 
         if (fadeImage.color.a == 0f)
         {
-            //sceneFaderCanvas.GetComponent<Canvas>().gameObject.SetActive(false);
             isSceneChange = false;
         }
     }
