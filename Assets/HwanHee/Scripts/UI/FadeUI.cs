@@ -10,7 +10,6 @@ public class FadeUI : MonoBehaviour
     private void Awake()
     {
         canvasGroups = GetComponentsInChildren<CanvasGroup>(true);
-        FadeInOut(0f, 1f);
     }
 
     public void FadeInOut(float startAlpha, float endAlpha, float _duration = -99f)
@@ -30,7 +29,10 @@ public class FadeUI : MonoBehaviour
             time += Time.deltaTime;
 
             foreach (var canvasGroup in canvasGroups)
-                canvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, time / _fadeDuration);
+            {
+                if (canvasGroup.gameObject.activeSelf)
+                    canvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, time / _fadeDuration);
+            }
 
             yield return null;
         }

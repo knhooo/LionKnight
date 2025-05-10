@@ -40,6 +40,7 @@ public class Iselda : MonoBehaviour
         if (state != State.Talk && isPlayerCol && Input.GetKeyDown(KeyCode.UpArrow))
         {
             state = State.Talk;
+            SoundManager.Instance.audioSource.PlayOneShot(talkSound);
             anim.SetBool("isTalk", true);
         }
         else if (state == State.Talk && Input.GetKeyDown(KeyCode.Escape))

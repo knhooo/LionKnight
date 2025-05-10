@@ -9,6 +9,21 @@ public class InGameOpt : MonoBehaviour
     public GameObject savecheck;
     public GameObject setOpt;
 
+    public static InGameOpt instance;
+
+    public void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Update()
     {
         Resume();

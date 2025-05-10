@@ -5,30 +5,29 @@ public class DataManager : Singleton<DataManager>
 {
     string path;
     string liftSaveFileName = "lift_save.json";
-    string playerSaveFileName = "player_save.json";
+    public string playerSaveFileName = "player_save.json";
 
     private Player player;
     private Lift lift;
     [HideInInspector] public string saveFiles = "test";
-    public string saveFileName;
 
     public void RegisterPlayer(Player _player) => player = _player;
     public void RegisterLift(Lift _lift) => lift = _lift;
 
+    public void ChangeSaveFileName(string _saveFileName) => path = Path.Combine(Application.dataPath, "..", "Saves", _saveFileName);
+
     protected override void Awake()
     {
         base.Awake();
+        path = Path.Combine(Application.dataPath, "..", "Saves", saveFiles);
     }
 
-    public void PrepareSaveDirectory()
+    public void CreateFile()
     {
-        path = Path.Combine(Application.dataPath, "..", "Saves", saveFiles);
-
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);
         }
-
     }
 
     public void SaveData()
@@ -39,11 +38,19 @@ public class DataManager : Singleton<DataManager>
 
     private void SavePlayer()
     {
+        string json = string.Empty;
+
         if (player != null)
         {
-            string json = JsonUtility.ToJson(player.GetSaveData());
-            File.WriteAllText(Path.Combine(path, playerSaveFileName), json);
+            json = JsonUtility.ToJson(player.GetSaveData());
         }
+        else
+        {
+            PlayerData playerData = new PlayerData();
+            json = JsonUtility.ToJson(playerData);
+        }
+
+        File.WriteAllText(Path.Combine(path, playerSaveFileName), json);
     }
 
     private void SaveLift()
@@ -61,12 +68,12 @@ public class DataManager : Singleton<DataManager>
         LoadLift();
     }
 
-    private void LoadPlayer()
+    private bool LoadPlayer()
     {
         if (player == null)
         {
             Debug.Log("플레이어 없음");
-            return;
+            return false;
         }
 
         string fullPath = Path.Combine(path, playerSaveFileName);
@@ -75,16 +82,16 @@ public class DataManager : Singleton<DataManager>
         {
             string data = File.ReadAllText(fullPath);
             player.LoadFromData(JsonUtility.FromJson<PlayerData>(data));
+            return false;
         }
+
+        return true;
     }
 
     private void LoadLift()
     {
         if (lift == null)
-        {
-            Debug.Log("리프트 없음");
             return;
-        }
 
         string fullPath = Path.Combine(path, liftSaveFileName);
 
