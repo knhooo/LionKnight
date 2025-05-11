@@ -85,8 +85,6 @@ public class optionManage : MonoBehaviour
     {
         unactBG.SetActive(false);
         actBG.SetActive(true);
-
-        this.enabled = false;
     }
 
     private void OnButtonPressed(Animator animator)
