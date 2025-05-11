@@ -25,8 +25,6 @@ public class shopUI : MonoBehaviour
 
     private void OnEnable()
     {
-        playerData = PlayerManager.instance.player.playerData;
-
         LoadShopData();
         LoadShopItem();
 
@@ -101,6 +99,9 @@ public class shopUI : MonoBehaviour
     public void iBuying(int inum)
     {
         int price = iprice[inum];
+
+        if (playerData == null)
+            playerData = PlayerManager.instance.player.playerData;
 
         if (price > playerData.money)
         {
