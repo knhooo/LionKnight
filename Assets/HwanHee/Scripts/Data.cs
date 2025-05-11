@@ -5,6 +5,8 @@
 // - 사슴정거장 Lift
 
 
+using UnityEngine;
+
 public class PlayerData
 {
     public string fromSceneName;
@@ -22,4 +24,14 @@ public class PlayerData
 public class LiftData
 {
     public bool isLiftUp = true;
+}
+
+public class ShopData
+{
+    public bool[] isSolds = new bool[5];
+}
+
+public class BossDeadData
+{
+    public bool isDead = false;
 }

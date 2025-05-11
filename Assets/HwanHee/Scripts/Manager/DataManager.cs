@@ -3,9 +3,14 @@ using System.IO;
 
 public class DataManager : Singleton<DataManager>
 {
-    string path;
-    string liftSaveFileName = "lift_save.json";
+    public string path;
     public string playerSaveFileName = "player_save.json";
+    public string shopSaveFileName = "shop_save.json";
+    public string bossDeadSaveFileName = "bossDeath_save.json";
+    private string liftSaveFileName = "lift_save.json";
+
+    public ShopData shopData = new ShopData();
+    public BossDeadData bossDeadData = new BossDeadData();
 
     private Player player;
     private Lift lift;
@@ -55,6 +60,20 @@ public class DataManager : Singleton<DataManager>
         File.WriteAllText(Path.Combine(path, playerSaveFileName), json);
     }
 
+    public void SaveShop()
+    {
+        string json = string.Empty;
+        json = JsonUtility.ToJson(shopData);
+        File.WriteAllText(Path.Combine(path, shopSaveFileName), json);
+    }
+
+    public void SaveBossDeath()
+    {
+        string json = string.Empty;
+        json = JsonUtility.ToJson(bossDeadData);
+        File.WriteAllText(Path.Combine(path, bossDeadSaveFileName), json);
+    }
+
     private void SaveLift()
     {
         if (lift != null)
@@ -68,6 +87,7 @@ public class DataManager : Singleton<DataManager>
     {
         LoadPlayer();
         LoadLift();
+        LoadBossDead();
     }
 
     private bool LoadPlayer()
@@ -88,6 +108,17 @@ public class DataManager : Singleton<DataManager>
         }
 
         return true;
+    }
+
+    private void LoadBossDead()
+    {
+        string fullPath = Path.Combine(path, bossDeadSaveFileName);
+
+        if (File.Exists(fullPath))
+        {
+            string data = File.ReadAllText(fullPath);
+            bossDeadData = JsonUtility.FromJson<BossDeadData>(data);
+        }
     }
 
     private void LoadLift()

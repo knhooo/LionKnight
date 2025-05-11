@@ -27225,7 +27225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4964188796162568265, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.78
+      value: -13.74
       objectReference: {fileID: 0}
     - target: {fileID: 4964188796162568265, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27271,6 +27271,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 868786114}
+    - target: {fileID: 8386950600014309842, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: maxHealth
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386950600014309842, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: chaseRange
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

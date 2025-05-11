@@ -88,7 +88,7 @@ public class ShopManage : MonoBehaviour
         CheckAchievement(itemIndex);
     }
 
-    private void Buying (int amount)
+    private void Buying(int amount)
     {
         int currentMoney = PlayerPrefs.GetInt("Money");
         PlayerPrefs.SetInt("Money", currentMoney - amount);

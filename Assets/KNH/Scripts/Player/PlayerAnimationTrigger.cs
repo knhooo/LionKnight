@@ -74,6 +74,14 @@ public class PlayerAnimationTrigger : MonoBehaviour
                 Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
                 player.SetHPandMP(0, 10);
             }
+            else if (hit.GetComponent<TikTikController>() != null)
+            {
+                Vector2 knockbackDir = (hit.transform.position - transform.position).normalized;
+                hit.GetComponent<TikTikController>().TakeDamage(player.attackPower, knockbackDir * 3);
+
+                Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
+                player.SetHPandMP(0, 10);
+            }
 
             if (hit.GetComponent<EnemyGruz>() != null)
             {

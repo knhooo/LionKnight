@@ -22,7 +22,7 @@ public class AspidHunterController : MonoBehaviour
     [SerializeField] private float patrolChangeDirectionTime = 3f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private int maxHealth = 20;
-    [SerializeField] private int geoCount = 5;
+    [SerializeField] private int geoCount = 4;
 
     private State currentState = State.Idle;
     private float stateTimer = 0f;
