@@ -187,6 +187,7 @@ public class GrimmIntroController : MonoBehaviour
         loadDevRoom = new LoadDeveloperRoom(this);
 
         currentIntroStep = grimmIntroStep1;
+        grimmGate.SetActive(false);
     }
 
     public void Start()
@@ -204,18 +205,6 @@ public class GrimmIntroController : MonoBehaviour
         BGMManager.instance.StopBGM();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ChangeStep(CinematicStep.HalfHP);
-        }
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            StartOutro();
-        }
-    }
-
     public void TurnOffEffects()
     {
         foreach (var eye in eyes)
@@ -224,7 +213,6 @@ public class GrimmIntroController : MonoBehaviour
         }
 
         particleEffect.Clear();
-        grimmGate.SetActive(false);
         grimmSilhouette.gameObject.SetActive(false);
         grimmIntroLightSP2.gameObject.SetActive(false);
         grimmIntroLight2.gameObject.SetActive(false);

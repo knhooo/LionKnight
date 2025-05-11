@@ -209,6 +209,11 @@ public class Player : MonoBehaviour
         {
             transform.position = GruzMotherToForgottenCrossroads.position;
         }
+        else if (loadKeyName == "ForgottenCrossroadsToGruzMother")
+        {
+            Flip();
+            transform.position = new Vector2(0f, 0f);
+        }
         else
             transform.position = new Vector2(0f, 0f);
     }
@@ -254,7 +259,7 @@ public class Player : MonoBehaviour
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         if (playerData.isShadowAlive && sceneIndex != 0 && sceneIndex == playerData.lastDeathLocation)
         {
-            Instantiate(shadow, posArr[sceneIndex], Quaternion.identity);
+            Instantiate(shadow, posArr[sceneIndex - 1], Quaternion.identity);
         }
     }
 
@@ -292,7 +297,7 @@ public class Player : MonoBehaviour
             TakeDamage();
         }
         //회복
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             SetHPandMP(playerData.maxHp, playerData.maxMp);
         }
@@ -306,6 +311,11 @@ public class Player : MonoBehaviour
         {
             if (isMuteki) isMuteki = false;
             else isMuteki = true;
+        }
+        //지오 획득
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            playerData.money += 100;
         }
     }
 
@@ -524,6 +534,7 @@ public class Player : MonoBehaviour
             }
             //돈 잃기
             playerData.money = 0;
+            playerData.mp = 0;
 
             //죽은 씬 저장
             playerData.lastDeathLocation = SceneManager.GetActiveScene().buildIndex;

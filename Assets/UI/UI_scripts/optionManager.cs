@@ -154,6 +154,10 @@ public class optionManage : MonoBehaviour
         load.gameObject.SetActive(false);
 
         main.GetComponent<FadeUI>().FadeInOut(0f, 1f, 0.5f);
+        foreach (var saveSlotUI in saveSlotUIs)
+        {
+            saveSlotUI.soulCountUI.InitializeSoulCount();
+        }
     }
 
     public void NewGame()

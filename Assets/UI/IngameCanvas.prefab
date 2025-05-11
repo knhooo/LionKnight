@@ -1462,8 +1462,8 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 12, y: 0}
-  m_Pivot: {x: 1, y: 0.5}
+  m_SizeDelta: {x: 20, y: -17}
+  m_Pivot: {x: 1, y: 1}
 --- !u!222 &8887837314133368494
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1492,8 +1492,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1920609767698391662, guid: 0b23ab1dd5764684fb9600da0151654b, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6430,7 +6430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1041653398670558652
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6982,7 +6982,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -9, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &805701198678527131
 CanvasRenderer:
@@ -8909,6 +8909,8 @@ GameObject:
   - component: {fileID: 5228829861373755462}
   - component: {fileID: 6899443142498871709}
   - component: {fileID: 6524253619603741196}
+  - component: {fileID: 2396273498529748843}
+  - component: {fileID: 7554395301583209630}
   m_Layer: 0
   m_Name: shop
   m_TagString: Untagged
@@ -9025,7 +9027,7 @@ MonoBehaviour:
   idescription:
   - "\uB300\uBABB\uC73C\uB85C \uC801 \uACF5\uACA9\uC2DC \uC5BB\uB294 \uC601\uD63C
     \uC591 \uC0C1\uC2B9"
-  - "\uC8FC\uBB38 \uD53C\uD574\uB7C9\uC774 \uC99D\uAC00 "
+  - "\uC8FC\uBB38 \uD53C\uD574\uB7C9 \uC99D\uAC00 "
   - "\uC8FC\uBB38 \uC0AC\uC6A9\uC2DC \uC601\uD63C \uC18C\uBAA8\uB7C9 \uAC10\uC18C"
   - "\uB300\uC2DC \uCFE8\uD0C0\uC784 \uAC10\uC18C"
   - "\uB300\uBABB \uACF5\uACA9 \uB370\uBBF8\uC9C0 \uC99D\uAC00"
@@ -9035,6 +9037,31 @@ MonoBehaviour:
   - Purchase this item?
   - not enuogh geo...
   - Ho Ho, Thank you!
+--- !u!114 &2396273498529748843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957892826013333830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd28021994079449b5ce0915f250818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 0.5
+--- !u!225 &7554395301583209630
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957892826013333830}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7044544405829355258
 GameObject:
   m_ObjectHideFlags: 0
@@ -10828,15 +10855,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.08235294, g: 0.10196079, b: 0.227451, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1920609767698391662, guid: 0b23ab1dd5764684fb9600da0151654b, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

@@ -16,6 +16,6 @@ public class Howling_Skill : Skill
         Vector3 spawnPos = player.transform.position + new Vector3(0, 3f, 0);
         GameObject obj = Instantiate(howlingPrefab, spawnPos, Quaternion.identity);
 
-        player.SetHPandMP(0, -33);
+        player.SetHPandMP(0, -player.playerData.soul_cost);
     }
 }

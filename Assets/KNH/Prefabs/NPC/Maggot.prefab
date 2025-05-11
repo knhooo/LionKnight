@@ -458,6 +458,7 @@ GameObject:
   - component: {fileID: 5930670383986862852}
   - component: {fileID: 1942394089433974924}
   - component: {fileID: 447035843047240771}
+  - component: {fileID: 8863202380253506101}
   m_Layer: 0
   m_Name: Maggot
   m_TagString: Untagged
@@ -523,7 +524,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 522309389
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: -1
   m_Sprite: {fileID: -2569946139449091884, guid: db02d07b9b3c8604482b692cecd2111e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -608,3 +609,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerUI: {fileID: 5267705444387043391}
+  player: {fileID: 0}
+--- !u!114 &8863202380253506101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8498424647759074252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66d3b8cdd4b1bd4790284a53c18e622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcID: 4
+  name: "\uC774\uC9C4\uC6A9"
+  dialog: 

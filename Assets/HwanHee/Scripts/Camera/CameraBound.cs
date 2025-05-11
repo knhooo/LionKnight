@@ -7,8 +7,6 @@ public class CameraBound : MonoBehaviour
 
     [SerializeField] private Collider2D GruzToForgottenCameraBound;
 
-    private bool isLoadCamera = false;
-
     private void Awake()
     {
         cinemachineCamera = GetComponent<CinemachineCamera>();

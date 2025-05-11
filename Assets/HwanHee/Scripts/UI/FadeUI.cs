@@ -12,15 +12,15 @@ public class FadeUI : MonoBehaviour
         canvasGroups = GetComponentsInChildren<CanvasGroup>(true);
     }
 
-    public void FadeInOut(float startAlpha, float endAlpha, float _duration = -99f)
+    public void FadeInOut(float startAlpha, float endAlpha, float _duration = -99f, bool isInActivate = false)
     {
         if (_duration == -99f)
             _duration = fadeDuration;
 
-        StartCoroutine(Fade(startAlpha, endAlpha, _duration));
+        StartCoroutine(Fade(startAlpha, endAlpha, _duration, isInActivate));
     }
 
-    private IEnumerator Fade(float startAlpha, float endAlpha, float _fadeDuration)
+    private IEnumerator Fade(float startAlpha, float endAlpha, float _fadeDuration, bool isInActivate)
     {
         float time = 0f;
 
@@ -39,5 +39,8 @@ public class FadeUI : MonoBehaviour
 
         foreach (var canvasGroup in canvasGroups)
             canvasGroup.alpha = endAlpha;
+
+        if(isInActivate)
+            gameObject.SetActive(false);
     }
 }

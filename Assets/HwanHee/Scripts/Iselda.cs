@@ -48,7 +48,7 @@ public class Iselda : MonoBehaviour
         }
         else if (state == State.Talk && Input.GetKeyDown(KeyCode.Escape))
         {
-            shopUI.SetActive(false);
+            shopUI.GetComponent<FadeUI>().FadeInOut(1f, 0f, 0.5f, true);
 
             state = State.Idle;
             anim.SetBool("isTalk", false);

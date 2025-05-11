@@ -7,7 +7,7 @@ public class SaveSlotUI : MonoBehaviour
     [SerializeField] private GameObject saveFileUI;
     [SerializeField] private GameObject geoCountUI;
     [SerializeField] private GameObject emptyFileUI;
-    [SerializeField] private SetSoulCount soulCountUI;
+    [SerializeField] public SetSoulCount soulCountUI;
 
     [Space]
     [SerializeField] private string saveFileName = "SaveFile1";
@@ -100,7 +100,7 @@ public class SaveSlotUI : MonoBehaviour
 
     private void ChangeSaveSlotUI()
     {
-        saveFileUI.GetComponent<FadeUI>().FadeInOut(1f, 0f);
+        saveFileUI.GetComponent<FadeUI>().FadeInOut(1f, 0f, 0.5f, true);
         emptyFileUI.SetActive(true);
         emptyFileUI.GetComponent<FadeUI>().FadeInOut(0f, 1f, 0.7f);
     }

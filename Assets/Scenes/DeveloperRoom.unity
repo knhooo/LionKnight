@@ -26838,6 +26838,10 @@ PrefabInstance:
       propertyPath: 'newAudioClips.Array.data[0]'
       value: 
       objectReference: {fileID: 8300000, guid: a507f2016ec0f7b46b4a6f7720c5d5da, type: 3}
+    - target: {fileID: 2250237894123359499, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2253682059423401758, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_Name
       value: SceneLoader
