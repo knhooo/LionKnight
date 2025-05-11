@@ -16,6 +16,9 @@ public class TikTikController : MonoBehaviour
     public Transform groundCheck;
     public Transform wallCheck;
 
+    [Header("Audio")]
+    public AudioClip deathClip;
+
     private Rigidbody2D rb;
     private Animator animator;
     private Collider2D[] colliders;
@@ -27,7 +30,6 @@ public class TikTikController : MonoBehaviour
 
     private bool isDamaged = false;
     private bool colliderDisabled = false;
-
     [SerializeField] private int geoCount = 3;
     private void Awake()
     {
@@ -153,6 +155,11 @@ public class TikTikController : MonoBehaviour
         animator.Play("deathLand", 0, 0);
         animator.SetBool("isLand", true);
         CreateGeo();
+
+        if (SoundManager.Instance != null && deathClip != null)
+        {
+            SoundManager.Instance.audioSource.PlayOneShot(deathClip);
+        }
     }
 
     public void TakeDamage(int damage, Vector2 knockbackDir)
@@ -204,7 +211,6 @@ public class TikTikController : MonoBehaviour
             Gizmos.DrawLine(wallCheck.position, wallCheck.position + dir * 0.5f);
         }
     }
-
     public void CreateGeo()
     {
         for (int i = 0; i < geoCount; i++)
