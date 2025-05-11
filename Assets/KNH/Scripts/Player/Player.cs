@@ -259,7 +259,7 @@ public class Player : MonoBehaviour
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         if (playerData.isShadowAlive && sceneIndex != 0 && sceneIndex == playerData.lastDeathLocation)
         {
-            Instantiate(shadow, posArr[sceneIndex], Quaternion.identity);
+            Instantiate(shadow, posArr[sceneIndex - 1], Quaternion.identity);
         }
     }
 
