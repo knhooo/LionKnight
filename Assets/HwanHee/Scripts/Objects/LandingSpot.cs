@@ -11,6 +11,11 @@ public class LandingSpot : MonoBehaviour
 
     private void Start()
     {
+        Invoke("SetActive", 0.1f);
+    }
+
+    private void SetActive()
+    {
         if (PlayerManager.instance.player.playerData.fromSceneName == "GruzMother")
             Destroy(gameObject);
     }
