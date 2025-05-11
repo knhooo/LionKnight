@@ -244,11 +244,6 @@ public class BossGrimm : BossBase
         }
     }
 
-    public bool IsBossDead()
-    {
-        return stateMachine.currentState == deathState;
-    }
-
     protected override void BossCheckHealthPoint()
     {
         base.BossCheckHealthPoint();
@@ -256,6 +251,9 @@ public class BossGrimm : BossBase
         if (currentHealthPoint <= 0)
         {
             stateMachine.ChangeState(deathState);
+
+            PlayerPrefs.SetInt("BossGrimmDead", 1);
+            PlayerPrefs.Save();
 
             BGMManager.instance.BGMFadeOut();
             soundClip.GrimmFinalHit();

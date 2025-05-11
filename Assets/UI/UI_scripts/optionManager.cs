@@ -28,7 +28,10 @@ public class optionManage : MonoBehaviour
     public VideoPlayer credit;
     public GameObject creditUI;
     public GameObject title;
-
+    
+    [Header("배경화면")]
+    public GameObject unactBG;
+    public GameObject actBG;
     //[Header("Prefab Settings")]
     //public GameObject prefab;
     //public Transform select;
@@ -37,7 +40,17 @@ public class optionManage : MonoBehaviour
 
     void Awake()
     {
-        
+        BossDeadCheck();
+        BttAnimator();
+
+        credit.loopPointReached += OnCreditVideoEnd;
+        credit.isLooping = false;
+
+        SetMainUI();
+    }
+
+    private void BttAnimator()
+    {
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
@@ -54,12 +67,24 @@ public class optionManage : MonoBehaviour
                 button.onClick.AddListener(() => OnButtonPressed(animator));
             }
         }
+    }
 
+    private void BossDeadCheck()
+    {
+        int isBossDead = PlayerPrefs.GetInt("BossGrimmDead", 0);
 
-        credit.loopPointReached += OnCreditVideoEnd;
-        credit.isLooping = false;
-        
-        SetMainUI();
+        if (isBossDead == 1)
+        {
+            ActivateObjects();
+        }
+    }
+
+    private void ActivateObjects()
+    {
+        unactBG.SetActive(false);
+        actBG.SetActive(true);
+
+        this.enabled = false;
     }
 
     private void OnButtonPressed(Animator animator)
