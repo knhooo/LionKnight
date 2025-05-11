@@ -11,6 +11,8 @@ public class InGameOpt : MonoBehaviour
 
     public static InGameOpt instance;
 
+    private bool isPaused = false;
+
     public void Awake()
     {
         if (instance == null)
@@ -33,8 +35,18 @@ public class InGameOpt : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            bool optAct = !opt.gameObject.activeSelf;
-            opt.gameObject.SetActive(optAct);
+            isPaused = !isPaused;
+            Time.timeScale = isPaused ? 0f : 1f;
+
+            if (setOpt.gameObject.activeSelf)
+            {
+                setOpt.gameObject.SetActive(false);
+            }
+            else
+            {
+                bool optAct = !opt.gameObject.activeSelf;
+                opt.gameObject.SetActive(optAct);
+            }
         }
     }
 

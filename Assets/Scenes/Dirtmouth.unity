@@ -28559,6 +28559,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2431758814313760351, guid: 2778b878055b7054b874da5342902458, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431758814313760351, guid: 2778b878055b7054b874da5342902458, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431758814313760351, guid: 2778b878055b7054b874da5342902458, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3639618145401065953, guid: 2778b878055b7054b874da5342902458, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4470175445915651581, guid: 2778b878055b7054b874da5342902458, type: 3}
       propertyPath: m_Text
       value: DirtMouth
@@ -28566,6 +28582,22 @@ PrefabInstance:
     - target: {fileID: 4942702613671837094, guid: 2778b878055b7054b874da5342902458, type: 3}
       propertyPath: m_Name
       value: IngameCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950160113187807079, guid: 2778b878055b7054b874da5342902458, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196323957024153390, guid: 2778b878055b7054b874da5342902458, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196323957024153390, guid: 2778b878055b7054b874da5342902458, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8004778951914610912, guid: 2778b878055b7054b874da5342902458, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8135709853819468433, guid: 2778b878055b7054b874da5342902458, type: 3}
       propertyPath: m_Text
