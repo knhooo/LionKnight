@@ -3,9 +3,12 @@ using System.IO;
 
 public class DataManager : Singleton<DataManager>
 {
-    string path;
-    string liftSaveFileName = "lift_save.json";
+    public string path;
     public string playerSaveFileName = "player_save.json";
+    public string shopSaveFileName = "shop_save.json";
+    private string liftSaveFileName = "lift_save.json";
+
+    public ShopData shopData = new ShopData();
 
     private Player player;
     private Lift lift;
@@ -53,6 +56,15 @@ public class DataManager : Singleton<DataManager>
         }
 
         File.WriteAllText(Path.Combine(path, playerSaveFileName), json);
+    }
+
+    public void SaveShop()
+    {
+        string json = string.Empty;
+
+        json = JsonUtility.ToJson(shopData);
+
+        File.WriteAllText(Path.Combine(path, shopSaveFileName), json);
     }
 
     private void SaveLift()
