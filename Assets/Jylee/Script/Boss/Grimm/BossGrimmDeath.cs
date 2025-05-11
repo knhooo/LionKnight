@@ -10,6 +10,8 @@ public class BossGrimmDeath : BossGrimmState
 
     public override void Enter()
     {
+        DataManager.instance.SaveBossDeath();
+
         base.Enter();
         deathAnimDuration = boss.bossDeadDelay;
         boss.BossCancelEverything();
