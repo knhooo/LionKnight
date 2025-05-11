@@ -209,6 +209,11 @@ public class Player : MonoBehaviour
         {
             transform.position = GruzMotherToForgottenCrossroads.position;
         }
+        else if (loadKeyName == "ForgottenCrossroadsToGruzMother")
+        {
+            Flip();
+            transform.position = new Vector2(0f, 0f);
+        }
         else
             transform.position = new Vector2(0f, 0f);
     }
