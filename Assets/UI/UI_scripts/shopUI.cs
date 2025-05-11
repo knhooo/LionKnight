@@ -1,4 +1,5 @@
 using System.Collections;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,6 @@ public class shopUI : MonoBehaviour
 
     [Header("아이템 정보")]
     public GameObject[] items;
-    public string[] iname;
     public int[] iprice;
     public string[] idescription;
 
@@ -22,12 +22,34 @@ public class shopUI : MonoBehaviour
     private bool purchaseCheck = false;
     private int curIndex = 0;
 
+
     private void OnEnable()
     {
         playerData = PlayerManager.instance.player.playerData;
 
+        LoadShopData();
+        LoadShopItem();
+
         shopObj.SetActive(true);
         purchase.SetActive(false);
+    }
+
+    private static void LoadShopData()
+    {
+        string fullPath = Path.Combine(DataManager.instance.path, DataManager.instance.shopSaveFileName);
+        string data = File.ReadAllText(fullPath);
+        DataManager.instance.shopData = JsonUtility.FromJson<ShopData>(data);
+
+    }
+    private void LoadShopItem()
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (DataManager.instance.shopData.isSolds[i] == true)
+            {
+                items[i].SetActive(false);
+            }
+        }
     }
 
     private void Update()
@@ -60,15 +82,26 @@ public class shopUI : MonoBehaviour
             curIndex = 0;
         }
     }
-    public void BttSelect() => purchase.gameObject.SetActive(true);
-    public void BttYes() => iBuying(curIndex);
+    public void BttSelect(int inum)
+    {
+        curIndex = inum;
+
+        purchase.gameObject.SetActive(true);
+        itemstext.text = idescription[inum];
+    }
+
+    public void BttYes()
+    {
+        purchase.gameObject.SetActive(false);
+        iBuying(curIndex);
+    }
+
     public void BttNo() => purchase.gameObject.SetActive(false);
 
     public void iBuying(int inum)
     {
         int price = iprice[inum];
 
-        itemstext.text = idescription[inum];
         if (price > playerData.money)
         {
             StopCoroutine(ShopTextUI());
@@ -77,6 +110,31 @@ public class shopUI : MonoBehaviour
         }
         else
         {
+            DataManager.instance.shopData.isSolds[inum] = true;
+
+            items[inum].SetActive(false);
+            DataManager.instance.SaveShop();
+
+            // 플레이어 능력치 변경 여기서 하시면 됩니다!
+            switch (inum)
+            {
+                // 영혼 포획자
+                case 0:
+                    break;
+                // 주술사의 돌
+                case 1:
+                    break;
+                // 주문 회오리
+                case 2:
+                    break;
+                // 대시 마스터
+                case 3:
+                    break;
+                // 불멸의 힘
+                case 4:
+                    break;
+            }
+
             playerData.money -= price;
             purchaseCheck = true;
             //Instantiate(items[inum], inventory.position);
