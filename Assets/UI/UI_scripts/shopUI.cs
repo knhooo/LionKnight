@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class shopUI : MonoBehaviour
 {
-    private PlayerData player;
+    private PlayerData playerData;
     [SerializeField] private GameObject purchase;
     [SerializeField] private GameObject shopObj;
 
@@ -20,22 +20,21 @@ public class shopUI : MonoBehaviour
     public string[] icheck;
 
     private bool purchaseCheck = false;
-    private bool shopActive = false;
     private int curIndex = 0;
 
-    private void Start()
+    private void OnEnable()
     {
-        shopObj.SetActive(shopActive);
+        playerData = PlayerManager.instance.player.playerData;
+
+        shopObj.SetActive(true);
+        purchase.SetActive(false);
     }
+
     private void Update()
     {
         Listscroll();
-
-        if (Input.GetKeyDown(KeyCode.Escape) && shopActive == true)
-        {
-            shopObj.SetActive(false);
-        }
     }
+
     private void Listscroll()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -64,12 +63,13 @@ public class shopUI : MonoBehaviour
     public void BttSelect() => purchase.gameObject.SetActive(true);
     public void BttYes() => iBuying(curIndex);
     public void BttNo() => purchase.gameObject.SetActive(false);
+
     public void iBuying(int inum)
     {
         int price = iprice[inum];
 
         itemstext.text = idescription[inum];
-        if (price > player.money)
+        if (price > playerData.money)
         {
             StopCoroutine(ShopTextUI());
             StartCoroutine(ShopTextUI());
@@ -77,7 +77,7 @@ public class shopUI : MonoBehaviour
         }
         else
         {
-            player.money -= price;
+            playerData.money -= price;
             purchaseCheck = true;
             //Instantiate(items[inum], inventory.position);
         }
