@@ -10,7 +10,7 @@ public class PlayerWallJumpState : PlayerState
         base.Enter();
 
         stateTimer = 0.1f;
-        player.SetVelocity(5 * -player.facingDir, 2*player.jumpForce);
+        player.SetVelocity(5 * -player.facingDir, 1.2f * player.jumpForce);
         player.soundClip.PlayerSoundOneShot(16);
     }
 

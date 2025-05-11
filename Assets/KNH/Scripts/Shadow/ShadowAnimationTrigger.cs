@@ -7,7 +7,7 @@ public class ShadowAnimationTrigger : MonoBehaviour
     public void Destroy()
     {
         Player player = PlayerManager.instance.player;
-        player.playerData.money = player.playerData.lostMoney;
+        player.playerData.money += player.playerData.lostMoney;
         player.playerData.lostMoney = 0;
         player.playerData.lastDeathLocation = 0;
         player.playerData.isShadowAlive = false;
