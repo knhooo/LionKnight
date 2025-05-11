@@ -7,6 +7,7 @@ public class SaveSlotUI : MonoBehaviour
     [SerializeField] private GameObject saveFileUI;
     [SerializeField] private GameObject geoCountUI;
     [SerializeField] private GameObject emptyFileUI;
+    [SerializeField] private SetSoulCount soulCountUI;
 
     [Space]
     [SerializeField] private string saveFileName = "SaveFile1";
@@ -44,6 +45,11 @@ public class SaveSlotUI : MonoBehaviour
                 {
                     int money = JsonUtility.FromJson<PlayerData>(data).money;
                     geoCountUI.GetComponent<Text>().text = (money > 0) ? money.ToString() : "0";
+
+                    if (JsonUtility.FromJson<PlayerData>(data).hp == 0)
+                        soulCountUI.SetSoulCountUI(JsonUtility.FromJson<PlayerData>(data).maxHp / 10f);
+                    else
+                        soulCountUI.SetSoulCountUI(JsonUtility.FromJson<PlayerData>(data).hp / 10f);
                 }
             }
             else

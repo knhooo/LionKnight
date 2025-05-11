@@ -19,7 +19,9 @@ public class DataManager : Singleton<DataManager>
     protected override void Awake()
     {
         base.Awake();
+
         path = Path.Combine(Application.dataPath, "..", "Saves", saveFiles);
+        CreateFile();
     }
 
     public void CreateFile()
