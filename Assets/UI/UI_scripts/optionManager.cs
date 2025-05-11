@@ -99,6 +99,7 @@ public class optionManage : MonoBehaviour
     {
         main.GetComponent<FadeUI>().FadeInOut(1f, 0f, 0.5f);
         Invoke("LoadSetActive", 0.6f);
+
     }
 
     private void LoadSetActive()
