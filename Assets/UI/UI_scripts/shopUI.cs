@@ -115,23 +115,27 @@ public class shopUI : MonoBehaviour
             items[inum].SetActive(false);
             DataManager.instance.SaveShop();
 
-            // 플레이어 능력치 변경 여기서 하시면 됩니다!
             switch (inum)
             {
                 // 영혼 포획자
                 case 0:
+                    playerData.soul_amount += 5;
                     break;
                 // 주술사의 돌
                 case 1:
+                    playerData.spell_Damage += 10;
                     break;
                 // 주문 회오리
                 case 2:
+                    playerData.soul_cost = 24;
                     break;
                 // 대시 마스터
                 case 3:
+                    playerData.dash_coolTime = 0.3f;
                     break;
                 // 불멸의 힘
                 case 4:
+                    playerData.attack_Damage = 15;
                     break;
             }
 

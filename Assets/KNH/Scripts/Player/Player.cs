@@ -297,7 +297,7 @@ public class Player : MonoBehaviour
             TakeDamage();
         }
         //회복
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             SetHPandMP(playerData.maxHp, playerData.maxMp);
         }
@@ -311,6 +311,11 @@ public class Player : MonoBehaviour
         {
             if (isMuteki) isMuteki = false;
             else isMuteki = true;
+        }
+        //지오 획득
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            playerData.money += 100;
         }
     }
 
@@ -529,6 +534,7 @@ public class Player : MonoBehaviour
             }
             //돈 잃기
             playerData.money = 0;
+            playerData.mp = 0;
 
             //죽은 씬 저장
             playerData.lastDeathLocation = SceneManager.GetActiveScene().buildIndex;
