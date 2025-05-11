@@ -35,9 +35,11 @@ public class shopUI : MonoBehaviour
     private static void LoadShopData()
     {
         string fullPath = Path.Combine(DataManager.instance.path, DataManager.instance.shopSaveFileName);
-        string data = File.ReadAllText(fullPath);
-        DataManager.instance.shopData = JsonUtility.FromJson<ShopData>(data);
-
+        if (File.Exists(fullPath))
+        {
+            string data = File.ReadAllText(fullPath);
+            DataManager.instance.shopData = JsonUtility.FromJson<ShopData>(data);
+        }
     }
     private void LoadShopItem()
     {
