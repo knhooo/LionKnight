@@ -468,7 +468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 16928139}
   - component: {fileID: 16928140}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5141,7 +5141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 264141199}
   - component: {fileID: 264141200}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11252,7 +11252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 315960290}
   - component: {fileID: 315960291}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13264,6 +13264,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 189880682}
     m_Modifications:
+    - target: {fileID: 258041261108294438, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -8.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 258041261108294438, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.79
+      objectReference: {fileID: 0}
     - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: isAutoLoad
       value: 0
@@ -13328,6 +13336,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3041932620263024967, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_Text
+      value: "\uC624\uB974\uAE30\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 7358647288107035718, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -13366,6 +13378,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7358647288107035718, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584153998693474117, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -13576,7 +13592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 424320476}
   - component: {fileID: 424320477}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18908,6 +18924,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 189880682}
     m_Modifications:
     - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785935049279686132, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: isAutoLoad
       value: 1
       objectReference: {fileID: 0}
@@ -18951,6 +18971,10 @@ PrefabInstance:
       propertyPath: 'newAudioSources.Array.data[1]'
       value: 
       objectReference: {fileID: 8300000, guid: 9cf9937d5f45fac4aab3dcba95eefe32, type: 3}
+    - target: {fileID: 2250237894123359499, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2253682059423401758, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_Name
       value: GruzMotherSceneLoader
@@ -19013,6 +19037,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7358647288107035718, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584153998693474117, guid: 560746d1c3513004fa3102106b1967cf, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -19384,7 +19412,7 @@ GameObject:
   m_Component:
   - component: {fileID: 767145663}
   - component: {fileID: 767145664}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27179,6 +27207,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1217908790
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2970856065176382310, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: m_Name
+      value: TikTik
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964188796162568265, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964188796162568265, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964188796162568265, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964188796162568265, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964188796162568265, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964188796162568265, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964188796162568265, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964188796162568265, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964188796162568265, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964188796162568265, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681021766865337613, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681021766865337613, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 522309389
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386950600014309842, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 868786114}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
 --- !u!1 &1223347623
 GameObject:
   m_ObjectHideFlags: 0
@@ -28408,7 +28505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1292253298}
   - component: {fileID: 1292253299}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29678,7 +29775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1342503136}
   - component: {fileID: 1342503137}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30824,7 +30921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1376216611}
   - component: {fileID: 1376216612}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31730,7 +31827,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1417583075}
   - component: {fileID: 1417583076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35425,7 +35522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1597818918}
   - component: {fileID: 1597818919}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37898,7 +37995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1707408101}
   - component: {fileID: 1707408102}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38467,7 +38564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1740620060}
   - component: {fileID: 1740620061}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41742,7 +41839,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1888870055}
   - component: {fileID: 1888870056}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41863,7 +41960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1893214844}
   - component: {fileID: 1893214845}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44084,7 +44181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1958915093}
   - component: {fileID: 1958915094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44553,7 +44650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1983352694}
   - component: {fileID: 1983352695}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46694,7 +46791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2083473947}
   - component: {fileID: 2083473948}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: floor13_0 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48163,3 +48260,4 @@ SceneRoots:
   - {fileID: 760089399}
   - {fileID: 1492974334}
   - {fileID: 1810189311}
+  - {fileID: 1217908790}

@@ -19700,7 +19700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cineCam: {fileID: 223373609}
-  waterCameraTarget: {fileID: 1003391996}
+  newCameraTarget: {fileID: 1003391996}
 --- !u!61 &934199229
 BoxCollider2D:
   m_ObjectHideFlags: 0
