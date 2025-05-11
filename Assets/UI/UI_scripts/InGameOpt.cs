@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class InGameOpt : MonoBehaviour
 {
@@ -10,6 +9,8 @@ public class InGameOpt : MonoBehaviour
     public GameObject setOpt;
 
     public static InGameOpt instance;
+
+    [SerializeField] private AudioClip[] titleUIBGM;
 
     private bool isPaused = false;
 
@@ -24,6 +25,15 @@ public class InGameOpt : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+
+        UIInitialize();
+    }
+
+    private void UIInitialize()
+    {
+        opt.gameObject.SetActive(false);
+        savecheck.gameObject.SetActive(false);
+        setOpt.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -35,12 +45,15 @@ public class InGameOpt : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isPaused = !isPaused;
-            Time.timeScale = isPaused ? 0f : 1f;
+            SetTimeScale();
 
             if (setOpt.gameObject.activeSelf)
             {
                 setOpt.gameObject.SetActive(false);
+            }
+            else if (savecheck.gameObject.activeSelf)
+            {
+                savecheck.gameObject.SetActive(false);
             }
             else
             {
@@ -50,7 +63,11 @@ public class InGameOpt : MonoBehaviour
         }
     }
 
-    public void Contunue() => opt.gameObject.SetActive(false);
+    public void Contunue()
+    {
+        SetTimeScale();
+        opt.gameObject.SetActive(false);
+    }
 
     public void Optionbtt()
     {
@@ -69,11 +86,20 @@ public class InGameOpt : MonoBehaviour
             savecheck.gameObject.SetActive(true);
         }
     }
+
     public void SaveCheckYes()
     {
-        SceneManager.LoadScene("UI_mainTitle");
-        //데이터세이브
+        BGMManager.instance.SetBGM(titleUIBGM, 0f, 1f);
+        SceneSaveLoadManager.instance.StartLoadScene("UI_mainTitle");
+        SetTimeScale();
     }
+
+    private void SetTimeScale()
+    {
+        isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0f : 1f;
+    }
+
     public void SaveCheckNo()
     {
         if (savecheck != null)

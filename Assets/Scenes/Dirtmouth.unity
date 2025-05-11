@@ -28559,6 +28559,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2407430788356618942, guid: 2778b878055b7054b874da5342902458, type: 3}
+      propertyPath: titleUIBGM.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407430788356618942, guid: 2778b878055b7054b874da5342902458, type: 3}
+      propertyPath: 'titleUIBGM.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 0bb644f9793bd0f41bc5a4318d8a1493, type: 3}
     - target: {fileID: 2431758814313760351, guid: 2778b878055b7054b874da5342902458, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -28574,6 +28582,10 @@ PrefabInstance:
     - target: {fileID: 3639618145401065953, guid: 2778b878055b7054b874da5342902458, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119123661030466833, guid: 2778b878055b7054b874da5342902458, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4470175445915651581, guid: 2778b878055b7054b874da5342902458, type: 3}
       propertyPath: m_Text
@@ -28602,6 +28614,10 @@ PrefabInstance:
     - target: {fileID: 8135709853819468433, guid: 2778b878055b7054b874da5342902458, type: 3}
       propertyPath: m_Text
       value: the fading town
+      objectReference: {fileID: 0}
+    - target: {fileID: 8715415607916661548, guid: 2778b878055b7054b874da5342902458, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -28,7 +28,7 @@ public class SceneSaveLoadManager : Singleton<SceneSaveLoadManager>
         BGMManager.instance.BGMFadeOut();
     }
 
-    public void LoadScene()
+    public void LoadSceneAfterFadeOut()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene(sceneName);
