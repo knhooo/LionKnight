@@ -10,6 +10,7 @@ public class InGameOpt : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip bttSound;
 
+    public GameObject shop;
     public GameObject opt;
     public GameObject savecheck;
     public GameObject setOpt;
@@ -70,6 +71,7 @@ public class InGameOpt : MonoBehaviour
         opt.gameObject.SetActive(false);
         savecheck.gameObject.SetActive(false);
         setOpt.gameObject.SetActive(false);
+        shop.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -81,6 +83,8 @@ public class InGameOpt : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (shop.gameObject.activeSelf)
+                return;
             SetTimeScale();
 
             if (setOpt.gameObject.activeSelf)

@@ -16,6 +16,7 @@ public class Iselda : MonoBehaviour
 
     [SerializeField] private Transform lookRightPos;
     [SerializeField] private AudioClip talkSound;
+    [SerializeField] private GameObject shopUI;
 
     private Animator anim;
     private Player player;
@@ -39,12 +40,16 @@ public class Iselda : MonoBehaviour
     {
         if (state != State.Talk && isPlayerCol && Input.GetKeyDown(KeyCode.UpArrow))
         {
+            shopUI.SetActive(true);
+
             state = State.Talk;
             SoundManager.Instance.audioSource.PlayOneShot(talkSound);
             anim.SetBool("isTalk", true);
         }
         else if (state == State.Talk && Input.GetKeyDown(KeyCode.Escape))
         {
+            shopUI.SetActive(false);
+
             state = State.Idle;
             anim.SetBool("isTalk", false);
         }
