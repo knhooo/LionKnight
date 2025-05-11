@@ -76,7 +76,7 @@ public class PlayerGroundState : PlayerState
             {
                 aKeyHoldTime += Time.deltaTime;
 
-                if (aKeyHoldTime >= 0.2f && player.playerData.mp >= 33)
+                if (aKeyHoldTime >= 0.2f && player.playerData.mp >= player.playerData.soul_cost)
                 {
                     isAHolding = false;
                     stateMachine.ChangeState(player.focusState);
@@ -85,7 +85,7 @@ public class PlayerGroundState : PlayerState
 
             if (isAHolding && Input.GetKeyDown(KeyCode.UpArrow))
             {
-                if (player.playerData.mp >= 33)
+                if (player.playerData.mp >= player.playerData.soul_cost)
                     stateMachine.ChangeState(player.howlingState);
             }
 
@@ -94,7 +94,7 @@ public class PlayerGroundState : PlayerState
             {
                 isAHolding = false;
 
-                if (player.playerData.mp >= 33)
+                if (player.playerData.mp >= player.playerData.soul_cost)
                 {
                     stateMachine.ChangeState(player.spiritState);
                 }
