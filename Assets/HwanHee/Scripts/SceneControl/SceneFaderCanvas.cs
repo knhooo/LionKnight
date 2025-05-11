@@ -36,7 +36,7 @@ public class SceneFaderCanvas : MonoBehaviour
     {
         yield return StartCoroutine(Fade(0f, 1f));
 
-        SceneSaveLoadManager.instance.LoadScene();
+        SceneSaveLoadManager.instance.LoadSceneAfterFadeOut();
 
         yield return new WaitForSeconds(0.5f);
         yield return StartCoroutine(Fade(1f, 0f));

@@ -5,9 +5,9 @@ using System.Timers;
 
 enum KeyDirection
 {
-    Up = -1,
+    Down = -1,
     None,
-    Down = 1
+    Up = 1
 }
 
 public class CameraMove : MonoBehaviour
@@ -60,7 +60,7 @@ public class CameraMove : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            keyDirection = KeyDirection.Up;
+            keyDirection = KeyDirection.Down;
             originOffset = positionComposer.TargetOffset.y;
         }
         if (Input.GetKeyUp(KeyCode.DownArrow))
@@ -68,12 +68,13 @@ public class CameraMove : MonoBehaviour
             keyDirection = KeyDirection.None;
             isCameraAnimationPlay = false;
 
+            holdKeyElpased = 0f;
             MoveCameraToOffset(originOffset);
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            keyDirection = KeyDirection.Down;
+            keyDirection = KeyDirection.Up;
             originOffset = positionComposer.TargetOffset.y;
         }
         if (Input.GetKeyUp(KeyCode.UpArrow))
@@ -81,6 +82,7 @@ public class CameraMove : MonoBehaviour
             keyDirection = KeyDirection.None;
             isCameraAnimationPlay = false;
 
+            holdKeyElpased = 0f;
             MoveCameraToOffset(originOffset);
         }
     }

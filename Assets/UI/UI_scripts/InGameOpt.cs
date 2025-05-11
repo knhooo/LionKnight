@@ -1,15 +1,24 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InGameOpt : MonoBehaviour
 {
+    [Header("버튼UI")]
+    public GameObject[] btts;
+    private AudioSource audioSource;
+    public AudioClip bttSound;
 
     public GameObject opt;
     public GameObject savecheck;
     public GameObject setOpt;
 
     public static InGameOpt instance;
+
+    [SerializeField] private AudioClip[] titleUIBGM;
+
+    private bool isPaused = false;
 
     public void Awake()
     {
@@ -22,6 +31,45 @@ public class InGameOpt : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.pitch = 2.0f;
+        }
+
+        foreach (var buttonObj in btts)
+        {
+            Button button = buttonObj.GetComponent<Button>();
+            Animator animator = buttonObj.GetComponent<Animator>();
+
+            if (button != null && animator != null)
+            {
+                button.onClick.AddListener(() => OnButtonPressed(animator));
+            }
+        }
+
+        UIInitialize();
+    }
+
+    private void OnButtonPressed(Animator animator)
+    {
+
+        if (bttSound != null)
+        {
+            audioSource.PlayOneShot(bttSound);
+        }
+
+        animator.Play("press", 0, 0f);
+
+    }
+
+
+    private void UIInitialize()
+    {
+        opt.gameObject.SetActive(false);
+        savecheck.gameObject.SetActive(false);
+        setOpt.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -33,12 +81,29 @@ public class InGameOpt : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            bool optAct = !opt.gameObject.activeSelf;
-            opt.gameObject.SetActive(optAct);
+            SetTimeScale();
+
+            if (setOpt.gameObject.activeSelf)
+            {
+                setOpt.gameObject.SetActive(false);
+            }
+            else if (savecheck.gameObject.activeSelf)
+            {
+                savecheck.gameObject.SetActive(false);
+            }
+            else
+            {
+                bool optAct = !opt.gameObject.activeSelf;
+                opt.gameObject.SetActive(optAct);
+            }
         }
     }
 
-    public void Contunue() => opt.gameObject.SetActive(false);
+    public void Contunue()
+    {
+        SetTimeScale();
+        opt.gameObject.SetActive(false);
+    }
 
     public void Optionbtt()
     {
@@ -57,11 +122,20 @@ public class InGameOpt : MonoBehaviour
             savecheck.gameObject.SetActive(true);
         }
     }
+
     public void SaveCheckYes()
     {
-        SceneManager.LoadScene("UI_mainTitle");
-        //데이터세이브
+        BGMManager.instance.SetBGM(titleUIBGM, 0f, 1f);
+        SceneSaveLoadManager.instance.StartLoadScene("UI_mainTitle");
+        SetTimeScale();
     }
+
+    private void SetTimeScale()
+    {
+        isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0f : 1f;
+    }
+
     public void SaveCheckNo()
     {
         if (savecheck != null)
