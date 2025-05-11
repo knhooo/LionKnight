@@ -1,8 +1,14 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InGameOpt : MonoBehaviour
 {
+    [Header("버튼UI")]
+    public GameObject[] btts;
+    private AudioSource audioSource;
+    public AudioClip bttSound;
 
     public GameObject opt;
     public GameObject savecheck;
@@ -26,8 +32,38 @@ public class InGameOpt : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.pitch = 2.0f;
+        }
+
+        foreach (var buttonObj in btts)
+        {
+            Button button = buttonObj.GetComponent<Button>();
+            Animator animator = buttonObj.GetComponent<Animator>();
+
+            if (button != null && animator != null)
+            {
+                button.onClick.AddListener(() => OnButtonPressed(animator));
+            }
+        }
+
         UIInitialize();
     }
+
+    private void OnButtonPressed(Animator animator)
+    {
+
+        if (bttSound != null)
+        {
+            audioSource.PlayOneShot(bttSound);
+        }
+
+        animator.Play("press", 0, 0f);
+
+    }
+
 
     private void UIInitialize()
     {
