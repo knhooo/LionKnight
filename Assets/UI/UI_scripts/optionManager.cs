@@ -38,15 +38,19 @@ public class optionManage : MonoBehaviour
     //public Button[] buttons;
     //private GameObject curButton;
 
-    void Awake()
+    private void Awake()
     {
-        BossDeadCheck();
         BttAnimator();
 
         credit.loopPointReached += OnCreditVideoEnd;
         credit.isLooping = false;
 
         SetMainUI();
+    }
+
+    private void Start()
+    {
+        BossDeadCheck();
     }
 
     private void BttAnimator()
@@ -71,7 +75,7 @@ public class optionManage : MonoBehaviour
 
     private void BossDeadCheck()
     {
-        if (DataManager.instance.bossDeadData.isDead)
+        if (DataManager.instance.bossDeadData.isDead == true)
         {
             ActivateObjects();
         }
@@ -81,8 +85,6 @@ public class optionManage : MonoBehaviour
     {
         unactBG.SetActive(false);
         actBG.SetActive(true);
-
-        this.enabled = false;
     }
 
     private void OnButtonPressed(Animator animator)

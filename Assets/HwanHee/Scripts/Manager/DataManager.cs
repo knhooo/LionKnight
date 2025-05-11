@@ -69,6 +69,8 @@ public class DataManager : Singleton<DataManager>
 
     public void SaveBossDeath()
     {
+        bossDeadData.isDead = true;
+
         string json = string.Empty;
         json = JsonUtility.ToJson(bossDeadData);
         File.WriteAllText(Path.Combine(path, bossDeadSaveFileName), json);
