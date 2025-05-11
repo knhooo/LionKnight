@@ -30,3 +30,8 @@ public class ShopData
 {
     public bool[] isSolds = new bool[5];
 }
+
+public class BossDeadData
+{
+    public bool isDead = false;
+}

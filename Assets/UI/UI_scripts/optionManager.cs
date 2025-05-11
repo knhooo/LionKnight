@@ -132,6 +132,8 @@ public class optionManage : MonoBehaviour
         main.gameObject.SetActive(false);
         load.gameObject.SetActive(true);
 
+        load.GetComponent<FadeUI>().FadeInOut(0f, 1f, 0.5f);
+
         foreach (var saveSlotUI in saveSlotUIs)
         {
             saveSlotUI.SaveSlotInitialize();
