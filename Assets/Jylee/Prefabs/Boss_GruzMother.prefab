@@ -172,9 +172,9 @@ MonoBehaviour:
   dieForceX: 5
   dieForceY: 5
   dieBoundForce: 5
-  deadFirstDelay: 5
-  gurgleDelay: 3
-  gurgleCount: 3
+  deadFirstDelay: 3
+  gurgleDelay: 1.5
+  gurgleCount: 2
   burstDelay: 3
   deadEventObj: {fileID: 5340978495271268169, guid: 3f71cbca68e2e5043a75c16c7ed57a12, type: 3}
   gruzPrefab: {fileID: 8618888271263854399, guid: db17e72ad09100f44af522b2e3d0db7e, type: 3}
