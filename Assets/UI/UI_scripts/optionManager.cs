@@ -28,7 +28,7 @@ public class optionManage : MonoBehaviour
     public VideoPlayer credit;
     public GameObject creditUI;
     public GameObject title;
-    
+
     [Header("배경화면")]
     public GameObject unactBG;
     public GameObject actBG;
@@ -71,9 +71,7 @@ public class optionManage : MonoBehaviour
 
     private void BossDeadCheck()
     {
-        int isBossDead = PlayerPrefs.GetInt("BossGrimmDead", 0);
-
-        if (isBossDead == 1)
+        if (DataManager.instance.bossDeadData.isDead)
         {
             ActivateObjects();
         }

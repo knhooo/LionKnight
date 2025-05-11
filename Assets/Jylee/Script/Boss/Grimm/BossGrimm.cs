@@ -251,10 +251,6 @@ public class BossGrimm : BossBase
         if (currentHealthPoint <= 0)
         {
             stateMachine.ChangeState(deathState);
-
-            PlayerPrefs.SetInt("BossGrimmDead", 1);
-            PlayerPrefs.Save();
-
             BGMManager.instance.BGMFadeOut();
             soundClip.GrimmFinalHit();
             if(isNightmare)
