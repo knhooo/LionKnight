@@ -37,6 +37,9 @@ public class HuskBullyController : MonoBehaviour
     [SerializeField] private float damageToPlayer = 10f;
     [SerializeField] private Vector2 knockbackFromPlayer = new Vector2(5f, 3f);
 
+    [Header("Audio")]
+    public AudioClip hitClip;
+
     private State currentState = State.Idle;
     private float stateTimer = 0f;
     private bool facingRight = false;
@@ -269,6 +272,11 @@ public class HuskBullyController : MonoBehaviour
         rb.AddForce(knockbackDir, ForceMode2D.Impulse);
         CreateGeo();
         TransitionTo(State.DeathAir);
+
+        if (SoundManager.Instance != null && hitClip != null)
+        {
+            SoundManager.Instance.audioSource.PlayOneShot(hitClip);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

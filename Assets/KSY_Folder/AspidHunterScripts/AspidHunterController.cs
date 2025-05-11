@@ -24,6 +24,11 @@ public class AspidHunterController : MonoBehaviour
     [SerializeField] private int maxHealth = 20;
     [SerializeField] private int geoCount = 4;
 
+    [Header("Audio")]
+    public AudioClip hitClip;
+    public AudioClip spitClip;
+
+
     private State currentState = State.Idle;
     private float stateTimer = 0f;
     private float patrolTimer = 0f;
@@ -197,6 +202,11 @@ public class AspidHunterController : MonoBehaviour
     public void FireProjectileFromAnimation()
     {
         projectileSpawner.FireFromAnimation();
+        if (SoundManager.Instance != null && spitClip != null)
+        {
+            SoundManager.Instance.audioSource.PlayOneShot(spitClip);
+        }
+
     }
 
     public void TakeDamage(int damage, Vector2 knockbackDir)
@@ -222,6 +232,11 @@ public class AspidHunterController : MonoBehaviour
     public void Die()
     {
         TransitionTo(State.Death);
+        if (SoundManager.Instance != null && hitClip != null)
+        {
+            SoundManager.Instance.audioSource.PlayOneShot(hitClip);
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
