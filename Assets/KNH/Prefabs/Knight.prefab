@@ -510,6 +510,7 @@ MonoBehaviour:
   hasAirAttacked: 0
   attackPower: 10
   spiritAttackPower: 20
+  canMove: 1
   moveSpeed: 5
   jumpForce: 8
   variableJumpTime: 0.3
@@ -546,7 +547,7 @@ MonoBehaviour:
   - {x: -19.98, y: 1.32, z: -0.055944238}
   - {x: 19.88, y: -7.79, z: -0.0435379}
   - {x: -3.75, y: 3.83, z: 0}
-  - {x: -7.137633, y: 5.176801, z: 0}
+  - {x: -3.85, y: 3.79, z: 0}
   shadow: {fileID: 6005396011981447267, guid: 5d7a77b49a1009149ab4416142d4173a, type: 3}
   groundCheck: {fileID: 4459084927540969436}
   groundCheckDistance: 0.2
@@ -571,6 +572,7 @@ MonoBehaviour:
   isRidingLift: 0
   isInIntro: 0
   isDialog: 0
+  isMuteki: 0
 --- !u!70 &3578863524682833997
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

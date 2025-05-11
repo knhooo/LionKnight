@@ -28,21 +28,21 @@ public class PlayerAnimationTrigger : MonoBehaviour
             {
                 hit.GetComponent<Shadow>().TakeDamage();
                 Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
-                player.SetHPandMP(0, 10);
+                GetSoul();
             }
             //그림 공격
             if (hit.GetComponent<BossBase>() != null)
             {
-                hit.GetComponent<BossBase>().BossTakeDamage(player.attackPower);
+                hit.GetComponent<BossBase>().BossTakeDamage(player.playerData.attack_Damage);
                 Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
-                player.SetHPandMP(0, 10);
+                GetSoul();
             }
             //그림 박쥐 공격
             if (hit.GetComponent<BossGrimmBat>() != null)
             {
-                hit.GetComponent<BossGrimmBat>().BatGetHit(player.attackPower);
+                hit.GetComponent<BossGrimmBat>().BatGetHit(player.playerData.attack_Damage);
                 Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
-                player.SetHPandMP(0, 10);
+                GetSoul();
             }
             //풀 자르기
             if (hit.GetComponent<Grass>() != null)
@@ -63,36 +63,41 @@ public class PlayerAnimationTrigger : MonoBehaviour
             if (hit.GetComponent<HuskBullyController>() != null)
             {
                 Vector2 knockbackDir = (hit.transform.position - transform.position).normalized;
-                hit.GetComponent<HuskBullyController>().TakeDamage(player.attackPower, knockbackDir * 3);
+                hit.GetComponent<HuskBullyController>().TakeDamage(player.playerData.attack_Damage, knockbackDir * 3);
                 Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
-                player.SetHPandMP(0, 10);
+                GetSoul();
             }
             else if (hit.GetComponent<AspidHunterController>() != null)
             {
                 Vector2 knockbackDir = (hit.transform.position - transform.position).normalized;
-                hit.GetComponent<AspidHunterController>().TakeDamage(player.attackPower, knockbackDir * 3);
+                hit.GetComponent<AspidHunterController>().TakeDamage(player.playerData.attack_Damage, knockbackDir * 3);
                 Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
-                player.SetHPandMP(0, 10);
+                GetSoul();
             }
             else if (hit.GetComponent<TikTikController>() != null)
             {
                 Vector2 knockbackDir = (hit.transform.position - transform.position).normalized;
-                hit.GetComponent<TikTikController>().TakeDamage(player.attackPower, knockbackDir * 3);
+                hit.GetComponent<TikTikController>().TakeDamage(player.playerData.attack_Damage, knockbackDir * 3);
 
                 Instantiate(hit_effect, player.attackCheck.position, Quaternion.identity);
-                player.SetHPandMP(0, 10);
+                GetSoul();
             }
 
             if (hit.GetComponent<EnemyGruz>() != null)
             {
-                hit.GetComponent<EnemyGruz>().EnemyTakeDamage(player.attackPower);
-                player.SetHPandMP(0, 10);
+                hit.GetComponent<EnemyGruz>().EnemyTakeDamage(player.playerData.attack_Damage);
+                GetSoul();
             }
             if (hit.GetComponent<Water>() != null)
             {
                 GameObject waterSplash = Instantiate(player.WaterSplash, player.attackCheck.position, Quaternion.identity);
             }
         }
+    }
+
+    private void GetSoul()
+    {
+        player.SetHPandMP(0, player.playerData.soul_amount);
     }
 
     private void FocusTrigger()
