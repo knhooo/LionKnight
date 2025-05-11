@@ -932,6 +932,7 @@ MonoBehaviour:
   opt: {fileID: 3825693244834391084}
   savecheck: {fileID: 2114543840032442740}
   setOpt: {fileID: 5743588703193351012}
+  titleUIBGM: []
 --- !u!1 &1401789186270814943
 GameObject:
   m_ObjectHideFlags: 0
@@ -5440,6 +5441,7 @@ MonoBehaviour:
   maxHp: 10
   HpPrefab: {fileID: 291218321719847991, guid: 5b27951b317e669439b18eb3a6768288, type: 3}
   HpContainer: {fileID: 7935130080997709151}
+  HpObjects: []
   geo: 10
   geoText: {fileID: 6206234069108592961}
 --- !u!1 &8306402800415572845
