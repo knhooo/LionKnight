@@ -2,21 +2,29 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 using UnityEngine.UI;
+
 using UnityEngine.Splines.ExtrusionShapes;
+using System.Collections;
 
 
 public class optionManage : MonoBehaviour
 {
+    [Header("버튼UI")]
+    public GameObject[] btts;
+    private AudioSource audioSource;
+    public AudioClip bttSound;
+
     public GameObject main;
     public GameObject load;
     public GameObject complete;
     public GameObject setting;
     public string sceneName;
-
+    
+    [Header("세이브/로드")]
     public SaveSlotUI[] saveSlotUIs;
     public CanvasGroup saveSelect;
 
-    [Header("Credit")]
+    [Header("크레딧")]
     public VideoPlayer credit;
     public GameObject creditUI;
     public GameObject title;
@@ -29,9 +37,54 @@ public class optionManage : MonoBehaviour
 
     void Awake()
     {
+        
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.pitch = 2.0f;
+        }
+
+        foreach (var buttonObj in btts)
+        {
+            Button button = buttonObj.GetComponent<Button>();
+            Animator animator = buttonObj.GetComponent<Animator>();
+
+            if (button != null && animator != null)
+            {
+                button.onClick.AddListener(() => OnButtonPressed(animator));
+            }
+        }
+
+
         credit.loopPointReached += OnCreditVideoEnd;
         credit.isLooping = false;
+        
         SetMainUI();
+    }
+
+    private void OnButtonPressed(Animator animator)
+    {
+
+        if (bttSound != null)
+        {
+            audioSource.PlayOneShot(bttSound);
+        }
+
+        animator.Play("press", 0, 0f);
+
+        StartCoroutine(ResetAnimator(animator));
+    }
+
+    private IEnumerator ResetAnimator(Animator animator)
+    {
+        yield return null;
+
+        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+        {
+            yield return null;
+        }
+        animator.Play("Idle", 0, 0f);
+        animator.Update(0);
     }
 
     private void SetMainUI()
