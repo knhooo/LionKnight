@@ -8909,6 +8909,8 @@ GameObject:
   - component: {fileID: 5228829861373755462}
   - component: {fileID: 6899443142498871709}
   - component: {fileID: 6524253619603741196}
+  - component: {fileID: 2396273498529748843}
+  - component: {fileID: 7554395301583209630}
   m_Layer: 0
   m_Name: shop
   m_TagString: Untagged
@@ -9035,6 +9037,31 @@ MonoBehaviour:
   - Purchase this item?
   - not enuogh geo...
   - Ho Ho, Thank you!
+--- !u!114 &2396273498529748843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957892826013333830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd28021994079449b5ce0915f250818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 0.5
+--- !u!225 &7554395301583209630
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957892826013333830}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7044544405829355258
 GameObject:
   m_ObjectHideFlags: 0

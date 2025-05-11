@@ -85,6 +85,7 @@ public class InGameOpt : MonoBehaviour
         {
             if (shop.gameObject.activeSelf)
                 return;
+
             SetTimeScale();
 
             if (setOpt.gameObject.activeSelf)
