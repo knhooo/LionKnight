@@ -2,14 +2,10 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class WaterCameraTarget : MonoBehaviour
+public class ChangeCameraTarget : MonoBehaviour
 {
     [SerializeField] private CinemachineCamera cineCam;
-    [SerializeField] private Transform waterCameraTarget;
-
-    private void Start()
-    {
-    }
+    [SerializeField] private Transform newCameraTarget;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,8 +16,8 @@ public class WaterCameraTarget : MonoBehaviour
                 Debug.Log("CinemachineCamera 없음");
                 return;
             }
-            cineCam.Follow = waterCameraTarget.transform;
-            cineCam.LookAt = waterCameraTarget.transform;
+            cineCam.Follow = newCameraTarget.transform;
+            cineCam.LookAt = newCameraTarget.transform;
         }
     }
 
