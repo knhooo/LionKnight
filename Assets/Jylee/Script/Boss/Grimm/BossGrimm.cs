@@ -120,6 +120,7 @@ public class BossGrimm : BossBase
     private bool useLandEff;
     private Coroutine loopRoutine;
     private Coroutine dashTrailCoroutine;
+    private bool nextAttackFireBat;
 
     public float bossGravity;
 
@@ -178,6 +179,7 @@ public class BossGrimm : BossBase
 
         // 초기 값
         bulletHellTrigger = false;
+        nextAttackFireBat = false;
         firstBulletHell = true;
         secondBulletHell = true;
         firstBatChange = true;
@@ -241,6 +243,10 @@ public class BossGrimm : BossBase
         if (Input.GetKeyDown(KeyCode.R))
         {
             BossTakeDamage(10);
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            nextAttackFireBat = true;
         }
     }
 
@@ -353,6 +359,11 @@ public class BossGrimm : BossBase
             // 탄막 지옥
             bulletHellTrigger = false;
             nextAttackType = 0;
+        }
+        else if (nextAttackFireBat)
+        {
+            nextAttackFireBat = false;
+            nextAttackType = 2;
         }
         else
         {
