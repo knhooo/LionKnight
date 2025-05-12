@@ -16,6 +16,7 @@ public class shopUI : MonoBehaviour
 
     [Header("구매 확인")]
     public Text shoptext;
+    public Text iseldaBuyText;
     public Text itemstext;
     public string[] icheck;
 
@@ -87,6 +88,8 @@ public class shopUI : MonoBehaviour
     }
     public void BttSelect(int inum)
     {
+        iseldaBuyText.gameObject.SetActive(false);
+
         curIndex = inum;
 
         purchase.gameObject.SetActive(true);
@@ -108,13 +111,7 @@ public class shopUI : MonoBehaviour
         if (playerData == null)
             playerData = PlayerManager.instance.player.playerData;
 
-        if (price > playerData.money)
-        {
-            StopCoroutine(ShopTextUI());
-            StartCoroutine(ShopTextUI());
-            return;
-        }
-        else
+        if (price <= playerData.money)
         {
             DataManager.instance.shopData.isSolds[inum] = true;
 
@@ -149,22 +146,20 @@ public class shopUI : MonoBehaviour
             purchaseCheck = true;
             //Instantiate(items[inum], inventory.position);
         }
+
+        SetBuyText();
     }
 
-    IEnumerator ShopTextUI()
+    private void SetBuyText()
     {
+        iseldaBuyText.gameObject.SetActive(true);
         if (purchaseCheck == false)
         {
-            shoptext.text = icheck[1];
-            yield return new WaitForSeconds(1f);
-            shoptext.text = icheck[0];
+            iseldaBuyText.text = icheck[0];
         }
         if (purchaseCheck == true)
         {
-            shoptext.text = icheck[2];
-            yield return new WaitForSeconds(1f);
-            shoptext.text = icheck[0];
-            purchaseCheck = false;
+            iseldaBuyText.text = icheck[1];
         }
     }
 }

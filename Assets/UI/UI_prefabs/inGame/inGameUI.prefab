@@ -929,6 +929,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3381a21f11ef9f844b4ec7cd8193aab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btts: []
+  bttSound: {fileID: 0}
+  shop: {fileID: 0}
   opt: {fileID: 3825693244834391084}
   savecheck: {fileID: 2114543840032442740}
   setOpt: {fileID: 5743588703193351012}
@@ -5538,7 +5541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1246397387294418845
 RectTransform:
   m_ObjectHideFlags: 0
