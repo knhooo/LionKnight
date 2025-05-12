@@ -41,6 +41,8 @@ public class BossGruzMotherAttackSlam : BossGruzMotherState
             Vector2 horizontalDrift = (boss.facingLeft ? Vector2.left : Vector2.right) * boss.slamXSpeed;
             rb.linearVelocity = dashDir * boss.slamYSpeed + horizontalDrift;
 
+            // 천장, 바닥, 벽 감지
+            // 천장과 바닥은 다시 위 아래로 전환 벽은 좌우 전환
             if (isUp && boss.IsCeilDetected())
             {
                 isUp = false;

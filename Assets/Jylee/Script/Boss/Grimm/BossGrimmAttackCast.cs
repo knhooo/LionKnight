@@ -43,12 +43,14 @@ public class BossGrimmAttackCast : BossGrimmState
     {
         base.Update();
 
+        // 첫 시작용 트리거
         if (!isFirstCancel && triggerCalled)
         {
             triggerCalled = false;
             isFirstCancel = true;
         }
 
+        // 
         if(isFirstCancel && triggerCalled && isEmeTeleport && !isFiring && !isDone)
         {
             triggerCalled = false;
@@ -68,6 +70,7 @@ public class BossGrimmAttackCast : BossGrimmState
             }
         }
 
+        // 공격 시작 전에 플레이어와 가까워지면 하는 회피
         if (!isFiring && !isEvade && !isFirstCancel)
         {
             bool doEvade = false;
@@ -105,7 +108,8 @@ public class BossGrimmAttackCast : BossGrimmState
 
         if (isFiring)
         {
-            if(shotCount > 1 && shotCount < 3 && !isEmeTeleport)
+            // 발사 중 플레이어가 보스와의 거리가 가까워지거나 넘어서면 긴급 텔레포트
+            if (shotCount > 1 && shotCount < 3 && !isEmeTeleport)
             {
                 // 긴급 텔레포트!
                 bool doEmeTeleport = false;
@@ -131,6 +135,7 @@ public class BossGrimmAttackCast : BossGrimmState
                 }
             }
 
+            // 샷 카운트에 따른 발사
             switch (shotCount)
             {
                 case 0:
@@ -145,6 +150,7 @@ public class BossGrimmAttackCast : BossGrimmState
                     secondShotTime -= Time.deltaTime;
                     if (secondShotTime <= 0)
                     {
+                        // 악몽의 왕은 위쪽 발사
                         if (boss.isNightmare)
                         {
                             boss.BossFireBatFireUp();
@@ -165,6 +171,7 @@ public class BossGrimmAttackCast : BossGrimmState
                     }
                     break;
                 case 3:
+                    // 악몽의 왕이면 4발 발사
                     if (boss.isNightmare)
                     {
                         fourthShotTime -= Time.deltaTime;

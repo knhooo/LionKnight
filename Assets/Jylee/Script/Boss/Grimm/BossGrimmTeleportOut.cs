@@ -12,8 +12,7 @@ public class BossGrimmTeleportOut : BossGrimmState
     {
         base.Enter();
 
-        // 보스 공격타입에 따른 위치이동
-
+        // 악몽의 왕은 망토 공격시 모습을 보이지 않음
         if (boss.nextAttackType == 4 && boss.isNightmare)
         {
             triggerCalled = true;
@@ -29,6 +28,7 @@ public class BossGrimmTeleportOut : BossGrimmState
     {
         base.Update();
 
+        // 정해진 공격에 따른 상태 이동
         if (triggerCalled)
         {
             switch (boss.nextAttackType)

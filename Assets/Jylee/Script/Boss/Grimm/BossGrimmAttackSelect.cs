@@ -11,7 +11,9 @@ public class BossGrimmAttackSelect : BossGrimmState
     public override void Enter()
     {
         base.Enter();
+        // 공격 선택
         boss.SelectGrimmAttack();
+        // 공격 위치 조정
         boss.BossRandomTeleportSelect();
 
         tpOutDelay = boss.teleportOutDelay;

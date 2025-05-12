@@ -24,6 +24,8 @@ public class BossGrimmAttackFirePillar : BossGrimmState
     {
         base.Update();
 
+
+        // 딜레이와 카운트에 따른 불기둥 생성
         if(generateCount > 0)
         {
             generateDelay -= Time.deltaTime;
