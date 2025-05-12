@@ -41,6 +41,7 @@ public class Iselda : MonoBehaviour
         if (state != State.Talk && isPlayerCol && Input.GetKeyDown(KeyCode.UpArrow))
         {
             shopUI.SetActive(true);
+            shopUI.GetComponent<FadeUI>().FadeInOut(0f, 1f, 0.5f);
 
             state = State.Talk;
             SoundManager.Instance.audioSource.PlayOneShot(talkSound);
