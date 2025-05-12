@@ -46,6 +46,7 @@ public class BossGrimmAttackCapeSpike : BossGrimmState
             }
         }
 
+        // 가시 공격 시작
         if (stateType == 2)
         {
             upDelay -= Time.deltaTime;
@@ -56,6 +57,7 @@ public class BossGrimmAttackCapeSpike : BossGrimmState
             }
         }
 
+        // 사운드
         if (stateType == 3)
         {
             soundTiming -= Time.deltaTime;
@@ -67,6 +69,7 @@ public class BossGrimmAttackCapeSpike : BossGrimmState
             }
         }
 
+        // 가시 공격 끝
         if(stateType == 4)
         {
             upDuration -= Time.deltaTime;
@@ -77,6 +80,7 @@ public class BossGrimmAttackCapeSpike : BossGrimmState
             }
         }
 
+        // 사운드
         if (stateType == 5)
         {
             soundTiming -= Time.deltaTime;
@@ -87,6 +91,7 @@ public class BossGrimmAttackCapeSpike : BossGrimmState
             }
         }
 
+        // 일반 -> 텔레포트, 악몽의 왕 -> 공격 선택
         if (stateType == 6)
         {
             actionDuration -= Time.deltaTime;

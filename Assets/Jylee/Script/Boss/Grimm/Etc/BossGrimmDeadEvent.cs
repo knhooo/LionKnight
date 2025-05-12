@@ -92,7 +92,6 @@ public class BossGrimmDeadEvent : MonoBehaviour
             SpawnBurst();
             yield return new WaitForSeconds(spawnInterval);
             elapsed += spawnInterval;
-            Debug.Log(elapsed);
         }
 
         burstCoroutine = null;

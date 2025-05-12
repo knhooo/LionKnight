@@ -19,6 +19,8 @@ public class BossGrimmScream : BossGrimmState
     public override void Update()
     {
         base.Update();
+
+        // 플레이어 못움직이게 하기
         if(stateType == 1)
         {
             stateType = 2;
@@ -43,6 +45,7 @@ public class BossGrimmScream : BossGrimmState
 
     public override void Exit()
     {
+        // 기본값 설정후 플레이어 움직임 활성화
         base.Exit();
         boss.isInvincible = false;
         boss.SetTeleportDelay(boss.attackEndTeleportDelay);

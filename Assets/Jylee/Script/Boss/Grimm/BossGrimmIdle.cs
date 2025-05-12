@@ -17,7 +17,7 @@ public class BossGrimmIdle : BossGrimmState
 
         boss.BossFlip(false);
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             if (boss.isNightmare)
             {
