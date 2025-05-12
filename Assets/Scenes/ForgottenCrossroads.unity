@@ -19188,6 +19188,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 868786114}
     - target: {fileID: 5858564518002981918, guid: 243f660ad560f5d41a0ab51676e50521, type: 3}
+      propertyPath: hitClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c05b752a57c52f438f68c7d8f893696, type: 3}
+    - target: {fileID: 5858564518002981918, guid: 243f660ad560f5d41a0ab51676e50521, type: 3}
+      propertyPath: spitClip
+      value: 
+      objectReference: {fileID: 8300000, guid: abd8db6577a4dd443ad1a7b52b92e437, type: 3}
+    - target: {fileID: 5858564518002981918, guid: 243f660ad560f5d41a0ab51676e50521, type: 3}
       propertyPath: leftBound
       value: 
       objectReference: {fileID: 1492974334}
@@ -25179,6 +25187,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 868786114}
     - target: {fileID: 1324382247453622360, guid: 203242b9b08de2541b0c872625a78bed, type: 3}
+      propertyPath: hitClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a7bfef386fb3d94bae1b9fe0d57d054, type: 3}
+    - target: {fileID: 1324382247453622360, guid: 203242b9b08de2541b0c872625a78bed, type: 3}
       propertyPath: leftLimit
       value: 
       objectReference: {fileID: 2084827265}
@@ -27271,6 +27283,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 868786114}
+    - target: {fileID: 8386950600014309842, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
+      propertyPath: deathClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f4ba715ec76dbd74d84d754e9314c3e4, type: 3}
     - target: {fileID: 8386950600014309842, guid: 124d5cc9899e1964cbbddd6c57f9fc96, type: 3}
       propertyPath: maxHealth
       value: 30
@@ -38926,7 +38942,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GruzToForgottenCameraBound: {fileID: 1618026534}
-  cameraShaker: {fileID: 1165907928}
 --- !u!1 &1744114475
 GameObject:
   m_ObjectHideFlags: 0
