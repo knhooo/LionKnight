@@ -214,6 +214,10 @@ public class Player : MonoBehaviour
             Flip();
             transform.position = new Vector2(0f, 0f);
         }
+        else if (loadKeyName == "DeveloperRoomToDirtmouth")
+        {
+            PlayerManager.instance.isAwake = true;
+        }
         else
             transform.position = new Vector2(0f, 0f);
     }
