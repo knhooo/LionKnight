@@ -244,6 +244,7 @@ public class BossGrimm : BossBase
         }
     }
 
+    // 피격시 체력에 따른 패턴 변화
     protected override void BossCheckHealthPoint()
     {
         base.BossCheckHealthPoint();
@@ -340,11 +341,10 @@ public class BossGrimm : BossBase
         // 2 : 박쥐 날리기
         // 3 : 공중 대쉬 -> 착지 대쉬
         // 4 : 망토 가시 공격
+        // 5 : 불 기둥 공격
 
-        // 탄막 지옥 패턴
+        // 0 : 탄막 지옥 패턴
         // 해당 패턴은 일정 비율의 체력이 빠지면 나옴
-        // 지금 구상으로는 해당 함수에 진입시 체력 검사 했는데 50% 이하이고
-        // bool값 firstBulletHell이 true 인 경우 false로 전환하고 탄막 지옥 패턴 실행
 
         useLandEff = false;
 
@@ -356,9 +356,8 @@ public class BossGrimm : BossBase
         }
         else
         {
-            // 일반패턴 1~4
+            // 일반패턴 1~5
             nextAttackType = Random.Range(attackSelectMin, attackSelectMax);
-            // nextAttackType = 4;
         }
     }
 
@@ -368,6 +367,7 @@ public class BossGrimm : BossBase
         teleportOutDelay = delay;
     }
 
+    // 죽었을때
     public void BossDeathTrigger()
     {
         deadEventObj.GetComponent<BossGrimmDeadEvent>().CancelCenterCircleGenerate();
@@ -447,6 +447,7 @@ public class BossGrimm : BossBase
         }
     }
 
+    // 방향 뒤집기
     public void BossFlip(bool reverse)
     {
         float gazePos = transform.position.x > playerTransform.position.x ? -1 : 1;
@@ -478,6 +479,7 @@ public class BossGrimm : BossBase
         }
     }
 
+    // 텔레포트 위치 조정
     public void BossRandomTeleportSelect()
     {
         int leftRightSelect = Random.Range(1, 3);
@@ -523,6 +525,7 @@ public class BossGrimm : BossBase
         transform.position = new Vector3(playerTransform.position.x + xPosAdd, groundY + yPosAdd, 0);
     }
 
+    // 플레이어 시선 고정 (공중 대쉬 공격할때)
     public float BossPlayerGaze()
     {
         BossFlip(false);
@@ -533,11 +536,13 @@ public class BossGrimm : BossBase
         return angle;
     }
 
+    // 각도 초기화
     public void BossRotationZero()
     {
         anim.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
+    // 모든 동작 캔슬
     public void BossCancelEverything()
     {
         anim.SetBool("attackDashUppercut", false);
@@ -569,6 +574,7 @@ public class BossGrimm : BossBase
         BossRotationZero();
     }
 
+    // 박쥐 생성 발사
     public void BossFireBatFire()
     {
         GameObject fireBat = Instantiate(fireBatPrefab, batFirePoint.position, Quaternion.identity);
@@ -580,6 +586,7 @@ public class BossGrimm : BossBase
         CastParticleGenerate();
     }
 
+    // 악몽의 왕 박쥐 위쪽 소환
     public void BossFireBatFireUp()
     {
         GameObject fireBat = Instantiate(fireBatPrefab, batFirePoint.position, Quaternion.identity);
@@ -593,6 +600,7 @@ public class BossGrimm : BossBase
         CastParticleGenerate();
     }
 
+    // 망토 가시 공격 활성화
     public void BossCapeSpikeEnable()
     {
         foreach(GameObject i in spikeList)
@@ -608,16 +616,7 @@ public class BossGrimm : BossBase
         soundClip.GrimmSpikesGrounded();
     }
 
-    public void BossCapeUpSound()
-    {
-        soundClip.GrimmSpikesShootUp();
-    }
-
-    public void BossCapeDownSound()
-    {
-        soundClip.GrimmSpikesShrivelBack();
-    }
-
+    // 망토 가시 공격 시작
     public void BossCapeSpikeUp()
     {
         foreach (GameObject i in spikeList)
@@ -626,12 +625,24 @@ public class BossGrimm : BossBase
         }
     }
 
+    // 망토 가시 공격 끝
     public void BossCapeSpikeDown()
     {
         foreach (GameObject i in spikeList)
         {
             i.GetComponentInChildren<Animator>().SetTrigger("IsDown");
         }
+    }
+
+    // 사운드
+    public void BossCapeUpSound()
+    {
+        soundClip.GrimmSpikesShootUp();
+    }
+
+    public void BossCapeDownSound()
+    {
+        soundClip.GrimmSpikesShrivelBack();
     }
 
     public void BossBulletHellSoundStartLoop()
@@ -702,6 +713,7 @@ public class BossGrimm : BossBase
         }
     }    
 
+    // 이펙트 생성
     public void TeleportEffGenerate()
     {
         Instantiate(teleportEff, teleportEffTransform.position, Quaternion.identity);
@@ -812,6 +824,7 @@ public class BossGrimm : BossBase
         bullet3.GetComponent<Rigidbody2D>().linearVelocity = moveDir * randomSpeed;
     }
 
+    // 박쥐 분열
     public void BossGrimmSplitBat()
     {
         soundClip.GrimmExplodeIntoBats();
@@ -826,6 +839,7 @@ public class BossGrimm : BossBase
         }
     }
 
+    // 박쥐 합체
     public void BossGrimmCombineBat()
     {
         soundClip.GrimmBatsReform();
@@ -838,6 +852,7 @@ public class BossGrimm : BossBase
         batShadowList.Clear();
     }
 
+    // 악몽의 왕 대쉬 트레일
     public void BossGrimmDashTrailCoroutineStart()
     {
         if (dashTrailCoroutine == null)
@@ -864,11 +879,13 @@ public class BossGrimm : BossBase
         }
     }
 
+    // 불기둥
     public void BossGrimmFirePillarGenerate()
     {
         GameObject fireCircle = Instantiate(firePillarCirclePrefab, new Vector3(playerTransform.position.x, groundY + 0.2f), Quaternion.identity);
     }
 
+    // 그로기
     public void BossGroggy()
     {
         //이펙트

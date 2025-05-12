@@ -21,6 +21,7 @@ public class BossGrimmGreet : BossGrimmState
     {
         base.Update();
 
+        // 지속 시간만큼 인사
         if (stateTimer <= 0 && !triggerOn)
         {
             triggerOn = true;

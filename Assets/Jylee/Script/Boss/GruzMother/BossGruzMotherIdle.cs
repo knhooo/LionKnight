@@ -14,7 +14,7 @@ public class BossGruzMotherIdle : BossGruzMotherState
 
         attackWait = boss.bossAttackDelay;
         upDownChangDelay = boss.detectDelay;
-
+        // 이동 방향 선택
         boss.BossFloatPowerChange();
     }
 
@@ -25,12 +25,14 @@ public class BossGruzMotherIdle : BossGruzMotherState
         if (boss.isDead)
             return;
 
+        // 이동
         Vector2 movePos = new Vector2(boss.xPower, boss.yPower);
         boss.rb.linearVelocity = movePos;
 
         attackWait -= Time.deltaTime;
         upDownChangDelay -= Time.deltaTime;
 
+        // 천장 바닥 감지
         if ((boss.IsGroundDetected() || boss.IsCeilDetected()) && upDownChangDelay <= 0)
         {
             upDownChangDelay = boss.detectDelay;
@@ -38,12 +40,14 @@ public class BossGruzMotherIdle : BossGruzMotherState
             boss.BossFloatPowerChange();
         }
 
+        // 벽 감지
         if (boss.IsWallDetected() && upDownChangDelay <= 0)
         {
             boss.ForcedFlip();
             boss.BossFloatPowerChange();
         }
 
+        // 지속시간 끝나면 공격 선택
         if (attackWait <= 0)
         {
             boss.stateMachine.ChangeState(boss.attackCharge);

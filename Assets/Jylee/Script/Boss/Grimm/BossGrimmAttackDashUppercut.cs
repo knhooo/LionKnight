@@ -27,6 +27,7 @@ public class BossGrimmAttackDashUppercut : BossGrimmState
     {
         base.Update();
 
+        // 전방 공격
         if(triggerCalled && stateType == 1)
         {
             stateType = 2;
@@ -43,6 +44,7 @@ public class BossGrimmAttackDashUppercut : BossGrimmState
             boss.StartCoroutine(Decelerate(boss.rb.linearVelocity, 0.2f));
         }
 
+        // 전방 공격 끝
         if (triggerCalled && stateType == 2)
         {
             stateType = 3;
@@ -53,6 +55,7 @@ public class BossGrimmAttackDashUppercut : BossGrimmState
             boss.SetZeroVelocity();
         }
 
+        // 어퍼컷 공격
         if (triggerCalled && stateType == 3)
         {
             float xVel = boss.facingLeft ? boss.duUppercutDistance : -boss.duUppercutDistance;
@@ -60,14 +63,11 @@ public class BossGrimmAttackDashUppercut : BossGrimmState
 
             rb.linearVelocity = new Vector2(xVel, yVel);
 
-            // rb.AddForce(new Vector2(xVel, yVel), ForceMode2D.Impulse);
-
-
-
             stateType = 4;
             triggerCalled = false;
         }
 
+        // 어퍼컷 공격 끝
         if (triggerCalled && stateType == 4)
         {
             // 이동 종료 및 위치 고정

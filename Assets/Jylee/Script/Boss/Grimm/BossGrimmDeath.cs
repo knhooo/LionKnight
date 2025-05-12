@@ -24,6 +24,8 @@ public class BossGrimmDeath : BossGrimmState
     public override void Update()
     {
         base.Update();
+
+        // 지속시간만큼 죽음 모션 유지
         deathAnimDuration -= Time.deltaTime;
 
         if(deathAnimDuration <= 0 && !isDone)
