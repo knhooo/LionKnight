@@ -30,6 +30,7 @@ public class BossGruzMotherDying : BossGruzMotherState
         dyingDuration -= Time.deltaTime;
         if(dyingDuration <= 0 && stateType == 1)
         {
+            // 사망 시 뒤로 날라감
             stateType = 2;
             boss.anim.SetBool("IsFail", true);
             boss.rb.gravityScale = 1f;
@@ -42,6 +43,7 @@ public class BossGruzMotherDying : BossGruzMotherState
 
         if(stateType == 2 && boss.IsGroundDetected() && dyingDuration <= 0)
         {
+            // 땅에 닿으면 한번은 바운드 그 후 또 닿으면 고정
             if (!hasBounced)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x * 0.5f, boss.dieBoundForce);
@@ -57,6 +59,7 @@ public class BossGruzMotherDying : BossGruzMotherState
             }
         }
 
+        // 죽음 상태로 이동
         if (stateType == 3 && triggerCalled)
         {
             boss.stateMachine.ChangeState(boss.deadState);

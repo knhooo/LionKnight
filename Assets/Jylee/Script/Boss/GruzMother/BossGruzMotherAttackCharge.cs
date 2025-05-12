@@ -18,6 +18,7 @@ public class BossGruzMotherAttackCharge : BossGruzMotherState
     {
         base.Update();
 
+        // 뒤로 살짝 반동 후 공격으로 상태이동
         Vector2 retreatDir = (boss.transform.position - boss.playerTransform.position).normalized;
         rb.linearVelocity = retreatDir * boss.runUpSpeed;
 

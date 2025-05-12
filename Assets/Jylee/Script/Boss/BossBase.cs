@@ -77,7 +77,7 @@ public class BossBase : MonoBehaviour
     {
 
     }
-
+    // 뒤집기
     public void Flip()
     {
         facingDir = facingDir * -1;
@@ -85,6 +85,7 @@ public class BossBase : MonoBehaviour
         sr.flipX = facingLeft;
     }
 
+    // 왼쪽 기준인 스프라이트용 뒤집기
     public void FlipReverse()
     {
         facingDir = facingDir * -1;
@@ -128,6 +129,7 @@ public class BossBase : MonoBehaviour
         rb.linearVelocity = new Vector2(0, 0);
     }
 
+    // 데미지 받는 함수
     public void BossTakeDamage(float damage)
     {
         if (isInvincible)

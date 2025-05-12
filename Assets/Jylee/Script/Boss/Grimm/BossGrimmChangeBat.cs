@@ -19,6 +19,7 @@ public class BossGrimmChangeBat : BossGrimmState
         batDuration = boss.grimmChangeBatDuration;
         combineDuration = boss.grimmCombineTime;
         stateType = 1;
+        // 모든 값 초기화
         boss.SetZeroVelocity();
         boss.BossCancelEverything();
         boss.BossRotationZero();
@@ -28,6 +29,8 @@ public class BossGrimmChangeBat : BossGrimmState
     public override void Update()
     {
         base.Update();
+
+        // 박쥐 변환
         if (triggerCalled && stateType == 1)
         {
             stateType = 2;
@@ -35,6 +38,7 @@ public class BossGrimmChangeBat : BossGrimmState
             boss.BossGrimmSplitBat();
         }
 
+        // 박쥐 합체
         if(stateType == 2)
         {
             batDuration -= Time.deltaTime;

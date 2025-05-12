@@ -27,6 +27,7 @@ public class BossGruzMotherDead : BossGruzMotherState
     {
         base.Update();
 
+        // 특정 시간마다 꿀렁임
         if(stateType == 1)
         {
             firstDelay -= Time.deltaTime;
@@ -43,6 +44,7 @@ public class BossGruzMotherDead : BossGruzMotherState
             gurgleDelay -= Time.deltaTime;
             if(gurgleDelay <= 0)
             {
+                // 횟수만큼 꿀렁이는데 횟수 도달시 폭발 임박
                 gurgleDelay = boss.gurgleDelay;
                 if (gurgleCount >= boss.gurgleCount)
                 {
@@ -61,6 +63,7 @@ public class BossGruzMotherDead : BossGruzMotherState
         }
         else if(stateType == 3)
         {
+            // 시간이 끝나면 폭발
             burstDelay -= Time.deltaTime;
             if(burstDelay <= 0)
             {
@@ -70,6 +73,7 @@ public class BossGruzMotherDead : BossGruzMotherState
         }
         else if(stateType == 4)
         {
+            // 쫄 생성
             if (triggerCalled)
             {
                 triggerCalled = false;
@@ -79,6 +83,7 @@ public class BossGruzMotherDead : BossGruzMotherState
         }
         else if(stateType == 5)
         {
+            // 쫄 수 확인
             if (boss.GruzCheck())
             {
                 stateType = 6;
@@ -87,6 +92,7 @@ public class BossGruzMotherDead : BossGruzMotherState
         }
         else if(stateType == 6)
         {
+            // 문 열림
             burstDelay -= Time.deltaTime;
             if (burstDelay <= 0)
             {

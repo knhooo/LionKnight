@@ -138,6 +138,7 @@ public class BossGruzMother : BossBase
         }
     }
 
+    // 체력 체크
     protected override void BossCheckHealthPoint()
     {
         base.BossCheckHealthPoint();
@@ -196,6 +197,7 @@ public class BossGruzMother : BossBase
         stateMachine.currentState.AnimationFinishTrigger();
     }
 
+    // 랜덤 이동 방향
     public void BossFloatPowerChange()
     {
         float temp = Random.Range(1f, bossSpeed);
@@ -233,12 +235,14 @@ public class BossGruzMother : BossBase
         scale.x *= -1;
         mirroEff.transform.localScale = scale;
     }
-
+    
+    // 공격 선택
     public void SelectGruzAttack()
     {
         nextAttackType = Random.Range(1, 3);
     }
 
+    // 쫄몹 생성
     public void GenerateGruzBaby()
     {
 
@@ -257,6 +261,7 @@ public class BossGruzMother : BossBase
         }
     }
 
+    // 클리어 확인 함수
     public bool GruzCheck()
     {
         gruzCheck.RemoveAll(minion => minion == null);
@@ -270,6 +275,7 @@ public class BossGruzMother : BossBase
         }
     }
 
+    // 사운드
     public void BossWallCrashSound()
     {
         soundClip.GruzMotherWallCrash();

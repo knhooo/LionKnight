@@ -15,6 +15,7 @@ public class BossGruzMotherAwake : BossGruzMotherState
     {
         base.Update();
 
+        // 애니메이션 끝나면 바로 전환
         if (triggerCalled)
         {
             boss.stateMachine.ChangeState(boss.idleState);
