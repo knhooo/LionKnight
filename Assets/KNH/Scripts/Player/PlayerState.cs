@@ -36,7 +36,11 @@ public class PlayerState
         player.anim.SetFloat("HP", player.playerData.hp);
 
         if (!PlayerManager.instance.player.canMove)
+        {
+            xInput = 0;
+            yInput = 0;
             return;
+        }
 
         if (!player.isDialog)
         {
