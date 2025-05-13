@@ -1,0 +1,975 @@
+fileFormatVersion: 2
+guid: a5369a7921b8b7f4b85b05b9aec5aae8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6673314866723171649
+    second: splat_explode_effect0004 #3432_0
+  - first:
+      213: 5985260360910910152
+    second: splat_explode_effect0004 #3432_1
+  - first:
+      213: 8069485542929047963
+    second: splat_explode_effect0004 #3432_2
+  - first:
+      213: 6857117626450316978
+    second: splat_explode_effect0004 #3432_3
+  - first:
+      213: -1577438249819130882
+    second: splat_explode_effect0004 #3432_4
+  - first:
+      213: -110898356185070743
+    second: splat_explode_effect0004 #3432_5
+  - first:
+      213: 3782144185142491958
+    second: splat_explode_effect0004 #3432_6
+  - first:
+      213: 464202850145084301
+    second: splat_explode_effect0004 #3432_7
+  - first:
+      213: 4000110620718275353
+    second: splat_explode_effect0004 #3432_8
+  - first:
+      213: -7434188601147564846
+    second: splat_explode_effect0004 #3432_9
+  - first:
+      213: 1420703590331979948
+    second: splat_explode_effect0004 #3432_10
+  - first:
+      213: -3167838292576630773
+    second: splat_explode_effect0004 #3432_11
+  - first:
+      213: -1859477978662362439
+    second: splat_explode_effect0004 #3432_12
+  - first:
+      213: -6939638443526104302
+    second: splat_explode_effect0004 #3432_13
+  - first:
+      213: 8616569397889331396
+    second: splat_explode_effect0004 #3432_14
+  - first:
+      213: -2572971155719743192
+    second: splat_explode_effect0004 #3432_15
+  - first:
+      213: -8841508085140891651
+    second: splat_explode_effect0004 #3432_16
+  - first:
+      213: 5635224006437276537
+    second: splat_explode_effect0004 #3432_17
+  - first:
+      213: -5280836525301749224
+    second: splat_explode_effect0004 #3432_18
+  - first:
+      213: 9174816295519009713
+    second: splat_explode_effect0004 #3432_19
+  - first:
+      213: -5138270202041296220
+    second: splat_explode_effect0004 #3432_20
+  - first:
+      213: -3463296819737197414
+    second: splat_explode_effect0004 #3432_21
+  - first:
+      213: 1551299139366629624
+    second: splat_explode_effect0004 #3432_22
+  - first:
+      213: 8381355402183340296
+    second: splat_explode_effect0004 #3432_23
+  - first:
+      213: -9061623563366410472
+    second: splat_explode_effect0004 #3432_24
+  - first:
+      213: -9040152287465381000
+    second: splat_explode_effect0004 #3432_25
+  - first:
+      213: 3442192272540729644
+    second: splat_explode_effect0004 #3432_26
+  - first:
+      213: -7745240260656307316
+    second: splat_explode_effect0004 #3432_27
+  - first:
+      213: 4318716526339999152
+    second: splat_explode_effect0004 #3432_28
+  - first:
+      213: 2861392061992416218
+    second: splat_explode_effect0004 #3432_29
+  - first:
+      213: 7244516006074563082
+    second: splat_explode_effect0004 #3432_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_0
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 286
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb2d1a64c7f9363a0800000000000000
+      internalID: -6673314866723171649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_1
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 279
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c23254469aef0350800000000000000
+      internalID: 5985260360910910152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 257
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b91af6ae8529cff60800000000000000
+      internalID: 8069485542929047963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_3
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 260
+        width: 66
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2be04a39620692f50800000000000000
+      internalID: 6857117626450316978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_4
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 262
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef3ba68f440db1ae0800000000000000
+      internalID: -1577438249819130882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_5
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 263
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9630a695882067ef0800000000000000
+      internalID: -110898356185070743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_6
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 233
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63b3ab40910ec7430800000000000000
+      internalID: 3782144185142491958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_7
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 218
+        width: 46
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d832f92680e217600800000000000000
+      internalID: 464202850145084301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_8
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 212
+        width: 64
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91b1e228a6f338730800000000000000
+      internalID: 4000110620718275353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_9
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 187
+        width: 57
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dc5753fad474d890800000000000000
+      internalID: -7434188601147564846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_10
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 206
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca81cd0636a57b310800000000000000
+      internalID: 1420703590331979948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_11
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 180
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0807195bd39904d0800000000000000
+      internalID: -3167838292576630773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_12
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 185
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b22b2e51aec136e0800000000000000
+      internalID: -1859477978662362439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_13
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 169
+        width: 40
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b5bf77a9371bf90800000000000000
+      internalID: -6939638443526104302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_14
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 165
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c0f1bff634349770800000000000000
+      internalID: 8616569397889331396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_15
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 173
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8299ff5bd58fa4cd0800000000000000
+      internalID: -2572971155719743192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_16
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 138
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df7de6aad37ac4580800000000000000
+      internalID: -8841508085140891651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_17
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 140
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97b827d8066543e40800000000000000
+      internalID: 5635224006437276537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_18
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 126
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81a2b78c823b6b6b0800000000000000
+      internalID: -5280836525301749224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_19
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 119
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bb30ed7fce735f70800000000000000
+      internalID: 9174816295519009713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_20
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 94
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa9a57997231b8b0800000000000000
+      internalID: -5138270202041296220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_21
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 55
+        width: 27
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9403db44e5efefc0800000000000000
+      internalID: -3463296819737197414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_22
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 93
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f0315e1952578510800000000000000
+      internalID: 1551299139366629624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_23
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 79
+        width: 20
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 801707bf45e805470800000000000000
+      internalID: 8381355402183340296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_24
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 53
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8175c313165ae3280800000000000000
+      internalID: -9061623563366410472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_25
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 79
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 873e03e246dea8280800000000000000
+      internalID: -9040152287465381000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_26
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 50
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c21826562af15cf20800000000000000
+      internalID: 3442192272540729644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_27
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 14
+        width: 17
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c83e68bd401638490800000000000000
+      internalID: -7745240260656307316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_28
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 46
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b5ca169cc92feb30800000000000000
+      internalID: 4318716526339999152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_29
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 18
+        width: 12
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad33e2a8be4b5b720800000000000000
+      internalID: 2861392061992416218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splat_explode_effect0004 #3432_30
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 2
+        width: 21
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0ab4b7ace0b98460800000000000000
+      internalID: 7244516006074563082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      splat_explode_effect0004 #3432_0: -6673314866723171649
+      splat_explode_effect0004 #3432_1: 5985260360910910152
+      splat_explode_effect0004 #3432_10: 1420703590331979948
+      splat_explode_effect0004 #3432_11: -3167838292576630773
+      splat_explode_effect0004 #3432_12: -1859477978662362439
+      splat_explode_effect0004 #3432_13: -6939638443526104302
+      splat_explode_effect0004 #3432_14: 8616569397889331396
+      splat_explode_effect0004 #3432_15: -2572971155719743192
+      splat_explode_effect0004 #3432_16: -8841508085140891651
+      splat_explode_effect0004 #3432_17: 5635224006437276537
+      splat_explode_effect0004 #3432_18: -5280836525301749224
+      splat_explode_effect0004 #3432_19: 9174816295519009713
+      splat_explode_effect0004 #3432_2: 8069485542929047963
+      splat_explode_effect0004 #3432_20: -5138270202041296220
+      splat_explode_effect0004 #3432_21: -3463296819737197414
+      splat_explode_effect0004 #3432_22: 1551299139366629624
+      splat_explode_effect0004 #3432_23: 8381355402183340296
+      splat_explode_effect0004 #3432_24: -9061623563366410472
+      splat_explode_effect0004 #3432_25: -9040152287465381000
+      splat_explode_effect0004 #3432_26: 3442192272540729644
+      splat_explode_effect0004 #3432_27: -7745240260656307316
+      splat_explode_effect0004 #3432_28: 4318716526339999152
+      splat_explode_effect0004 #3432_29: 2861392061992416218
+      splat_explode_effect0004 #3432_3: 6857117626450316978
+      splat_explode_effect0004 #3432_30: 7244516006074563082
+      splat_explode_effect0004 #3432_4: -1577438249819130882
+      splat_explode_effect0004 #3432_5: -110898356185070743
+      splat_explode_effect0004 #3432_6: 3782144185142491958
+      splat_explode_effect0004 #3432_7: 464202850145084301
+      splat_explode_effect0004 #3432_8: 4000110620718275353
+      splat_explode_effect0004 #3432_9: -7434188601147564846
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
