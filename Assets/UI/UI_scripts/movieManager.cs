@@ -48,7 +48,7 @@ public class movieManager : MonoBehaviour
     private void OnSecondVideoEnd(VideoPlayer vp)
     {
         second.gameObject.SetActive(false);
-        SceneManager.LoadScene("mainTitle");
+        SceneManager.LoadScene("UI_mainTitle");
     }
 
     IEnumerator Intro2()
